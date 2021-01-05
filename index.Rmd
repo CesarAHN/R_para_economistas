@@ -1,0 +1,9 @@
+--- 
+title: "Programación y Manejo de base de dayos en R - Para Economistas"
+author: "César Anderson Huamaní Ninahuanca"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+---
+
+# Down the rabbit-hole
+
