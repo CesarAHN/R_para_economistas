@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 1 R como Calculadora. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</title>
+  <meta name="description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 1 R como Calculadora. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  <meta name="github-repo" content="CesarAHN/bookdown_intro" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 1 R como Calculadora. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
+  
+  <meta name="twitter:description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  
+
+<meta name="author" content="César Anderson Huamaní Ninahuanca" />
+
+
+<meta name="date" content="2021-01-06" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="the-pool-of-tears.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - PARA ECONOMISTAS</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prólogo</a></li>
+<li class="chapter" data-level="1" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html"><i class="fa fa-check"></i><b>1</b> R como Calculadora.</a><ul>
+<li class="chapter" data-level="1.1" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#principales-operaciones-matemáticas."><i class="fa fa-check"></i><b>1.1</b> PRINCIPALES OPERACIONES MATEMÁTICAS.</a></li>
+<li class="chapter" data-level="1.2" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#decimales-exactos-y-redondeo-de-cifras."><i class="fa fa-check"></i><b>1.2</b> DECIMALES EXACTOS Y REDONDEO DE CIFRAS.</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#número-de-cifras."><i class="fa fa-check"></i><b>1.2.1</b> NÚMERO DE CIFRAS.</a></li>
+<li class="chapter" data-level="1.2.2" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#redondeo."><i class="fa fa-check"></i><b>1.2.2</b> REDONDEO.</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#definición-de-variables."><i class="fa fa-check"></i><b>1.3</b> DEFINICIÓN DE VARIABLES.</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#funciones."><i class="fa fa-check"></i><b>1.3.1</b> Funciones.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="the-pool-of-tears.html"><a href="the-pool-of-tears.html"><i class="fa fa-check"></i><b>2</b> The pool of tears</a></li>
+<li class="chapter" data-level="3" data-path="a-caucus-race-and-a-long-tale.html"><a href="a-caucus-race-and-a-long-tale.html"><i class="fa fa-check"></i><b>3</b> A caucus-race and a long tale</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="r-como-calculadora." class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> R como Calculadora.</h1>
+<p>Uno de los primeros pasos para poder dominar <strong>R</strong> es comprender su uso como si fuera una calculadora. <strong>R</strong> realiza una variedad de operaciones matemáticas y lógicas de una manera muy sencilla. En las siguientes líneas se podrá observar algunas operaciones matemáticas<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> básicas.</p>
+<div id="principales-operaciones-matemáticas." class="section level2">
+<h2><span class="header-section-number">1.1</span> PRINCIPALES OPERACIONES MATEMÁTICAS.</h2>
+<p>Desarrollar calculos matemáticos en <strong>R</strong> es muy similar que usar una calculadora, a continuación mostramos los principales operadores aritméticos y su sintaxis en el entorno <strong>R</strong>.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">OPERACIÓN</th>
+<th align="center">SINTAXIS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Adición</td>
+<td align="center"><strong>+</strong></td>
+</tr>
+<tr class="even">
+<td align="center">Sustracción</td>
+<td align="center"><strong>-</strong></td>
+</tr>
+<tr class="odd">
+<td align="center">Producto</td>
+<td align="center"><strong>*</strong></td>
+</tr>
+<tr class="even">
+<td align="center">División</td>
+<td align="center"><strong>/</strong></td>
+</tr>
+<tr class="odd">
+<td align="center">División: Para Calcular el cociente</td>
+<td align="center"><strong>%/%</strong></td>
+</tr>
+<tr class="even">
+<td align="center">División: Para Calcular el residuo</td>
+<td align="center"><strong>%%</strong></td>
+</tr>
+<tr class="odd">
+<td align="center">Potencia</td>
+<td align="center"><strong>^</strong> <strong>**</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Veamos unos ejemplos de como usarlo.</p>
+<p>Si deseamos sumar 4 más 3 en R. Tenemos que digitar en la consola <code>4+3</code>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="r-como-calculadora-.html#cb1-1"></a><span class="dv">4</span><span class="op">+</span><span class="dv">3</span>    <span class="co"># Adición.</span></span></code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<p>Como se puede dar cuenta el resultado es 7.
+Si deseamos realizar la sustracción de 5 en 7. Tenemos que digitar en la consola la operación <code>5-7</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="r-como-calculadora-.html#cb3-1"></a><span class="dv">5-7</span>    <span class="co"># Sustracción.</span></span></code></pre></div>
+<pre><code>## [1] -2</code></pre>
+<p>Para el caso de la multiplicación se usa el operador <code>*</code>, es así que si deseamos multiplicar 3 por 4, entonces, tendremos que digitar en la consola <code>3*4</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="r-como-calculadora-.html#cb5-1"></a><span class="dv">3</span><span class="op">*</span><span class="dv">4</span>    <span class="co"># Producto.</span></span></code></pre></div>
+<pre><code>## [1] 12</code></pre>
+<p>Si se desea calcular la división usamos el operador <code>/</code>.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="r-como-calculadora-.html#cb7-1"></a><span class="dv">6</span><span class="op">/</span><span class="dv">2</span>    <span class="co"># División.</span></span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>En efecto, al dividir 6 entre 2 nos resulta 3. Pero si se desea calcular sólo el cociente de una división inexacta usaremos el operador <code>%/%</code>.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="r-como-calculadora-.html#cb9-1"></a><span class="dv">10</span><span class="op">%/%</span><span class="dv">3</span>   <span class="co"># División para encontrar el cociente.</span></span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>El cociente resultante es 3. Asimismo, si sólo desea obtener el residuo de una división inexacta tendrá que usar el operador <code>%%</code>.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="r-como-calculadora-.html#cb11-1"></a><span class="dv">10</span><span class="op">%%</span><span class="dv">3</span>    <span class="co"># División para encontrar el residuo.</span></span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>En efecto, el residuo de dividir 10 entre 3 es 1.</p>
+<p>Otra operación fundamental es elevar un número a la potencia n. Veamos un ejemplo en elevar 4 al cubo.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="r-como-calculadora-.html#cb13-1"></a><span class="dv">4</span><span class="op">^</span><span class="dv">3</span>    <span class="co"># Potencia.</span></span></code></pre></div>
+<pre><code>## [1] 64</code></pre>
+<p>Usted se puede dar cuenta que hemos usado el operador <code>^</code>, pero este no es el único operador que calcula la potencia de un número, también se puede calcular si se usa el operador <code>**</code>.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="r-como-calculadora-.html#cb15-1"></a><span class="dv">4</span><span class="op">**</span><span class="dv">3</span>   <span class="co"># Potencia.</span></span></code></pre></div>
+<pre><code>## [1] 64</code></pre>
+<p>Entonces, puede usar <code>^</code> o <code>**</code> si desea calcular la potencia de un número.</p>
+<p>Ahora veremos algunas operaciones matemáticas un poco más avanzadas, que nos servirán en un futuro para poder hacer cálculo estadístico, matemático y poder transformar variables cuando especifiquemos modelos econométricos.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">OPERACIÓN</th>
+<th align="center">SINTAXIS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Factorial</td>
+<td align="center"><strong>factorial()</strong></td>
+</tr>
+<tr class="even">
+<td align="center">Combinatorio</td>
+<td align="center"><strong>choose()</strong></td>
+</tr>
+<tr class="odd">
+<td align="center">Raíz Cuadrada</td>
+<td align="center"><strong>sqrt()</strong></td>
+</tr>
+<tr class="even">
+<td align="center">Número de Euler-Exponente</td>
+<td align="center"><strong>exp()</strong></td>
+</tr>
+<tr class="odd">
+<td align="center">Logaritmo Natural</td>
+<td align="center"><strong>log()</strong></td>
+</tr>
+<tr class="even">
+<td align="center">Valor Absoluto</td>
+<td align="center"><strong>abs()</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Si deseamos calcular el factorial de un número usaremos la función <code>factorial()</code>. Veamos un ejemplo del factorial de 5.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="r-como-calculadora-.html#cb17-1"></a><span class="kw">factorial</span>(<span class="dv">5</span>)     <span class="co"># Factorial.</span></span></code></pre></div>
+<pre><code>## [1] 120</code></pre>
+<p>Nos resulta 120, recordar que el factorial de un número es la multplicación de <span class="math inline">\(n(n-1)(n-2)...1\)</span>. En el caso del factorial del 5, se multiplicó <span class="math inline">\(5*4*3*2*1\)</span>.</p>
+<p>Asimismo, si deseamos calcular las combinaciones posibles de un número agrupado por otro, usaremos el combinatorio. En R se usa la función <code>choose()</code>.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="r-como-calculadora-.html#cb19-1"></a><span class="kw">choose</span>(<span class="dv">5</span>,<span class="dv">3</span>)    <span class="co"># Combinatorio.</span></span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<p>R nos arroja el valor de 10, recordar que el cálculo que se usó fue el siguiente: <span class="math inline">\(\frac{5!}{2!*3!}\)</span>.</p>
+<p>Si tenemos la varianza de una variable, podremos calcular su desviación si le sacamos la raíz cuadrada. Entonces, si deseamos calcular la raíz cuadrada usaremos la función <code>sqrt()</code>.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="r-como-calculadora-.html#cb21-1"></a><span class="kw">sqrt</span>(<span class="dv">12</span>)     <span class="co"># Raíz cuadrada.</span></span></code></pre></div>
+<pre><code>## [1] 3.464102</code></pre>
+<p>Nos resulta 3.464102, es un número con 6 decimales y es posible que usted lo desee con más o menos decimales. En la siguiente sección veremos como mostrar los decimales que deseados.</p>
+<p>Otra posible situación a la que se podrá enfrentar en un futuro es si desea calcular los Odds ratios de los modelos logit, recordemos que estos se calculan si se les saca el exponencial. Entonces si usted desea calcular el exponencial de un número tendrá que usar la función <code>exp()</code>.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="r-como-calculadora-.html#cb23-1"></a><span class="kw">exp</span>(<span class="dv">1</span>)      <span class="co"># Si se considera 1, dará el número de euler.</span></span></code></pre></div>
+<pre><code>## [1] 2.718282</code></pre>
+<p>En este ejemplo se ha calculado el exponencial de 1, lo que nos da el número de Euler que es 2.7182818.
+Asimismo, si deseamos especificar nuestro modelo econométrico en logaritmos naturales y así poder hacer una interpretación a nivel de elasticidades tendremos que transformar las variables aplicándoles el logaritmo natural, para lo cual tendremos que usar la función <code>log()</code>.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="r-como-calculadora-.html#cb25-1"></a><span class="kw">log</span>(<span class="dv">3</span>)      <span class="co"># Logaritmo Natural.</span></span></code></pre></div>
+<pre><code>## [1] 1.098612</code></pre>
+<p>Por otro lado, si deseamos calcular el valor absoluto de un número usaremos la función <code>abs()</code>.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="r-como-calculadora-.html#cb27-1"></a><span class="kw">abs</span>(<span class="op">-</span><span class="dv">2</span>)    <span class="co"># Valor Absoluto.</span></span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>Ahora veremos como calcular las razones trigonométricas, para lo cual en la tabla siguiente se muestra la sintaxis de las razones trigonométricas.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">RAZÓN TRIGONOMÉTRICA</th>
+<th align="center">SINTAXIS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">seno</td>
+<td align="center"><strong>sin()</strong></td>
+</tr>
+<tr class="even">
+<td align="center">coseno</td>
+<td align="center"><strong>cos()</strong></td>
+</tr>
+<tr class="odd">
+<td align="center">tangente</td>
+<td align="center"><strong>tan()</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Para poder calcular las razones trigonométricas se tiene que considerar al <strong>ángulo en pi radianes</strong>. En <strong>R</strong> el valor de pi se puede obtener si digitamos en la consola <code>pi</code>, R comprende que al escribir <code>pi</code> se está llamando al número irracional <code>pi</code>.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="r-como-calculadora-.html#cb29-1"></a>pi</span></code></pre></div>
+<pre><code>## [1] 3.141593</code></pre>
+<p>En efecto, nos resulta 3.1416.</p>
+<p>Asimismo, como se puede dar cuenta para la cosecante, secante y cotangente no se tiene un función específica, ya que estan son las inversas del seno, coseno y tangente, respectivamente.</p>
+<p>Si deseamos calcular el seno de 30. Entonces tenemos que usar la función <code>sin()</code> y especificar el ángulo en <strong>pi radianes</strong>.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="r-como-calculadora-.html#cb31-1"></a><span class="kw">sin</span>(pi<span class="op">/</span><span class="dv">6</span>)   <span class="co"># Seno de 30 grados sexagesimales.</span></span></code></pre></div>
+<pre><code>## [1] 0.5</code></pre>
+<p>A continuación veamos unos ejemplos para el coseno y la tangente.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="r-como-calculadora-.html#cb33-1"></a><span class="kw">cos</span>(pi<span class="op">/</span><span class="dv">4</span>)   <span class="co"># Coseno de 45 grados sexagesimales.</span></span></code></pre></div>
+<pre><code>## [1] 0.7071068</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="r-como-calculadora-.html#cb35-1"></a><span class="kw">tan</span>(pi<span class="op">/</span><span class="dv">4</span>)   <span class="co"># Tangente de 45 grados sexagesimales.</span></span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>Ahora si se desea trabajar omitiendo los pi radianes, se tendrá que usar las funciones <strong>sinpi()</strong>, <strong>cospi()</strong>, <strong>tanpi()</strong>.</p>
+<p>A continuación se muestran algunos ejemplos:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="r-como-calculadora-.html#cb37-1"></a><span class="kw">sinpi</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>)   <span class="co"># Seno de 30 grados sexagesimales.</span></span></code></pre></div>
+<pre><code>## [1] 0.5</code></pre>
+<p>En efecto, es el mismo resultado que se obtuvo con la función <code>sin()</code>, solo que aquí se está omitiendo los pi radianes.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="r-como-calculadora-.html#cb39-1"></a><span class="kw">cospi</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">4</span>)   <span class="co"># Coseno de 45 grados sexagesimales.</span></span></code></pre></div>
+<pre><code>## [1] 0.7071068</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="r-como-calculadora-.html#cb41-1"></a><span class="kw">tanpi</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">4</span>)   <span class="co"># Tangente de 45 grados sexagesimales.</span></span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+</div>
+<div id="decimales-exactos-y-redondeo-de-cifras." class="section level2">
+<h2><span class="header-section-number">1.2</span> DECIMALES EXACTOS Y REDONDEO DE CIFRAS.</h2>
+<div id="número-de-cifras." class="section level3">
+<h3><span class="header-section-number">1.2.1</span> NÚMERO DE CIFRAS.</h3>
+<p>Si al realizar los cálculos usted desea obtener los resultados con un número determinado de cifras se tendrá que usar la función <code>print()</code><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> en donde se tendrá que especificar el número de dígitos que se desea.</p>
+<p>Por ejemplo deseamos obtener la raíz cuadrada de 12 pero queremos que el resultado se muestre 10 cifras. Entonces, usaríamos la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="r-como-calculadora-.html#cb43-1"></a><span class="co"># La raíz cuadrada de 12, pero que nos muestre 10 cifras, </span></span>
+<span id="cb43-2"><a href="r-como-calculadora-.html#cb43-2"></a><span class="kw">print</span>(<span class="kw">sqrt</span>(<span class="dv">12</span>), <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## [1] 3.464101615</code></pre>
+<p>En efecto, nos muestra 10 cifras. A continuación se muestra un ejemplo adicional en donde le indicamos a <strong>R</strong> que nos muestre el mismo resultado pero ahora sólo con 3 cifras.</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="r-como-calculadora-.html#cb45-1"></a><span class="co"># La raíz cuadrada de 12, pero que nos muestre 3 cifras, </span></span>
+<span id="cb45-2"><a href="r-como-calculadora-.html#cb45-2"></a><span class="kw">print</span>(<span class="kw">sqrt</span>(<span class="dv">12</span>), <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## [1] 3.464101615</code></pre>
+<p>En efecto, tenemos la raíz cuadrada de 12 en 3 cifras.</p>
+<p>Es importante saber que el número máximo de cifras que reporta <strong>R</strong> usando la función <code>print()</code> es de 17. Veamos un ejemplo, sabemos que pi es un número irracional por lo que tiene infinitos decimales. Entonces, si queremos mostrar 16 decimales, usaríamos la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="r-como-calculadora-.html#cb47-1"></a><span class="kw">print</span>(pi, <span class="dv">17</span>)</span></code></pre></div>
+<pre><code>## [1] 3.1415926535897931</code></pre>
+<p>En efecto, nos arroja 16 decimales. ¿Por qué usamos 17 y no 16 en la función? ya que <code>pi</code> tiene un entero y queremos 16 decimales, se tiene que especificar 17. Pero si por ahí se le ocurriera mostrar <code>pi</code> con 20 decimales, usted usaría la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="r-como-calculadora-.html#cb49-1"></a><span class="kw">print</span>(pi, <span class="dv">21</span>)</span></code></pre></div>
+<pre><code>## [1] 3.1415926535897931</code></pre>
+<p>Pero lamentablemente, sólo obtiene el mismo número de decimales que si hubiera usado <code>print(pi, 17)</code>. Con lo cual queda demostrado que la función <code>print()</code> sólo puede mostrar hasta 17 cifras.</p>
+<p>Pero no se frustre, en R hay otras funciones que permiten obtener los resultados con más decimales. Una de estas funciones es <code>sprintf()</code>, el cual puede mostrar más funciones pero los decimales después del 15 no serán tan exactos<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>.</p>
+<p>Veamos un ejemplo, en donde deseamos que se muestren 50 decimales</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="r-como-calculadora-.html#cb51-1"></a><span class="kw">sprintf</span>(<span class="st">&quot;%.50f&quot;</span>,pi)</span></code></pre></div>
+<pre><code>## [1] &quot;3.14159265358979311599796346854418516159057617187500&quot;</code></pre>
+<p>Por otra parte, si quieres trabajar con muchos decimales puede resultar tedioso usar en cada cálculo la función <code>print()</code> o <code>sprintf()</code>. Para solucionar esto se usa la función <code>options()</code>, por ejemplo si deseas que los calculos que vas a desarrollar se trabajen con 10 decimales tienes que correr en la consola la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="r-como-calculadora-.html#cb53-1"></a><span class="kw">options</span>(<span class="dt">digits=</span><span class="dv">10</span>)</span></code></pre></div>
+<p>Y con eso todos los resultados que se calculen se mostraran con 10 cifras. Asimismo, es preciso aclarar que esta función puede arrojar como máximo de 22 dígitos.</p>
+</div>
+<div id="redondeo." class="section level3">
+<h3><span class="header-section-number">1.2.2</span> REDONDEO.</h3>
+<p>Si se desea redondear una operación se tendrá que usar la función <code>round()</code>, que al igual que el anterior se tendrá que especificar el número de dígitos, que en este caso será el número de decimales a los que se desea redondear.</p>
+<p>A continuación se muestra un ejemplo:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="r-como-calculadora-.html#cb54-1"></a><span class="co"># La raíz cuadrada de 3 redondeada a cinco decimales.</span></span>
+<span id="cb54-2"><a href="r-como-calculadora-.html#cb54-2"></a><span class="kw">round</span>(<span class="kw">sqrt</span>(<span class="dv">3</span>), <span class="dv">5</span>)  </span></code></pre></div>
+<pre><code>## [1] 1.73205</code></pre>
+<p>Sí sólo se considera la función <code>round()</code> redondeará a la cifra entera:</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="r-como-calculadora-.html#cb56-1"></a><span class="co"># La raíz cuadrada de 3 redondeada a la cifra entera.</span></span>
+<span id="cb56-2"><a href="r-como-calculadora-.html#cb56-2"></a><span class="kw">round</span>(<span class="kw">sqrt</span>(<span class="dv">3</span>))</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+</div>
+</div>
+<div id="definición-de-variables." class="section level2">
+<h2><span class="header-section-number">1.3</span> DEFINICIÓN DE VARIABLES.</h2>
+<p>Se pueden definir variables en <strong>R</strong> usando 1 de estos 3 operadores: <code>&lt;-</code>, <code>=</code>, <code>-&gt;</code>.</p>
+<p>A continuación se muestra algunos ejemplos:</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="r-como-calculadora-.html#cb58-1"></a><span class="co"># Para definir que la variable &quot;y&quot; toma el valor de 4.</span></span>
+<span id="cb58-2"><a href="r-como-calculadora-.html#cb58-2"></a>y&lt;-<span class="st"> </span><span class="dv">4</span></span>
+<span id="cb58-3"><a href="r-como-calculadora-.html#cb58-3"></a>y=<span class="dv">4</span></span>
+<span id="cb58-4"><a href="r-como-calculadora-.html#cb58-4"></a><span class="dv">4</span>-&gt;y</span></code></pre></div>
+<p>Con cualquiera de las tres formas se puede definir que la variable “y” toma el valor de 4.</p>
+<p><strong>Importante</strong>: Una variable puede tener cualquier nombre, pero no puede comenzar con un número.</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="r-como-calculadora-.html#cb59-1"></a>1y&lt;-<span class="dv">4</span></span></code></pre></div>
+<pre><code>## Error: &lt;text&gt;:1:2: unexpected symbol
+## 1: 1y
+##      ^</code></pre>
+<div id="funciones." class="section level3">
+<h3><span class="header-section-number">1.3.1</span> Funciones.</h3>
+<p>Para poder definir una función se tendrá que hacer uso del comando <code>function()</code> en donde se tendrá que especificar la variable y la función que afecta a esta variable.</p>
+<p>A continuación se muestra un ejemplo:</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="r-como-calculadora-.html#cb61-1"></a><span class="co"># Se define la función &quot;f&quot; de la variable x que tiene una forma cuadrática: x^2 +2</span></span>
+<span id="cb61-2"><a href="r-como-calculadora-.html#cb61-2"></a></span>
+<span id="cb61-3"><a href="r-como-calculadora-.html#cb61-3"></a>f&lt;-<span class="cf">function</span>(x){</span>
+<span id="cb61-4"><a href="r-como-calculadora-.html#cb61-4"></a>  x<span class="op">^</span><span class="dv">2</span><span class="op">+</span><span class="dv">2</span></span>
+<span id="cb61-5"><a href="r-como-calculadora-.html#cb61-5"></a>}</span>
+<span id="cb61-6"><a href="r-como-calculadora-.html#cb61-6"></a></span>
+<span id="cb61-7"><a href="r-como-calculadora-.html#cb61-7"></a><span class="co"># Para poder evaluarlo en un determinado valor (En este caso cuando la función &quot;f&quot; tomo el valor de cero).</span></span>
+<span id="cb61-8"><a href="r-como-calculadora-.html#cb61-8"></a></span>
+<span id="cb61-9"><a href="r-como-calculadora-.html#cb61-9"></a><span class="kw">f</span>(<span class="dv">0</span>)</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>Como se puede observar si la función se evalua en cero, es decir, si “x” es igual a cero; la función tomará el valor de 2.</p>
+<p>Si se tiene en consideración una función en R<sup>3</sup>. Se tendá que tomar en cuenta a dos variables dentro del comando <code>function()</code>. como se muestra a continuación:</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="r-como-calculadora-.html#cb63-1"></a><span class="co"># Se define la función Z que depende de la variable x e y.</span></span>
+<span id="cb63-2"><a href="r-como-calculadora-.html#cb63-2"></a></span>
+<span id="cb63-3"><a href="r-como-calculadora-.html#cb63-3"></a>Z&lt;-<span class="cf">function</span>(x,y){</span>
+<span id="cb63-4"><a href="r-como-calculadora-.html#cb63-4"></a>  x<span class="op">+</span><span class="dv">4</span><span class="op">+</span><span class="dv">4</span><span class="op">*</span>y</span>
+<span id="cb63-5"><a href="r-como-calculadora-.html#cb63-5"></a>}</span>
+<span id="cb63-6"><a href="r-como-calculadora-.html#cb63-6"></a></span>
+<span id="cb63-7"><a href="r-como-calculadora-.html#cb63-7"></a><span class="co"># Se evalua cuando x e y toman el valor de cero y dos, respectivamente.</span></span>
+<span id="cb63-8"><a href="r-como-calculadora-.html#cb63-8"></a></span>
+<span id="cb63-9"><a href="r-como-calculadora-.html#cb63-9"></a><span class="kw">Z</span>(<span class="dv">0</span>,<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 12</code></pre>
+<p>Para que quede claro, a continuación se muestra un ejemplo pero considerando la densidad de la función de distribución normal.</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="r-como-calculadora-.html#cb65-1"></a><span class="co"># Se define la función &quot;N&quot; que es la densidad de la función de distribución normal con media igual a 0.5 y desviación estándar de 0.1.</span></span>
+<span id="cb65-2"><a href="r-como-calculadora-.html#cb65-2"></a></span>
+<span id="cb65-3"><a href="r-como-calculadora-.html#cb65-3"></a>N&lt;-<span class="st"> </span><span class="cf">function</span>(x){</span>
+<span id="cb65-4"><a href="r-como-calculadora-.html#cb65-4"></a>  <span class="kw">dnorm</span>(x, <span class="dt">mean =</span><span class="fl">0.5</span>, <span class="dt">sd=</span><span class="fl">0.1</span>)</span>
+<span id="cb65-5"><a href="r-como-calculadora-.html#cb65-5"></a>}</span>
+<span id="cb65-6"><a href="r-como-calculadora-.html#cb65-6"></a></span>
+<span id="cb65-7"><a href="r-como-calculadora-.html#cb65-7"></a><span class="co"># Se evaluará cuando la variable aleatoria toma el valor de 0.2.</span></span>
+<span id="cb65-8"><a href="r-como-calculadora-.html#cb65-8"></a></span>
+<span id="cb65-9"><a href="r-como-calculadora-.html#cb65-9"></a><span class="kw">N</span>(<span class="fl">0.2</span>)</span></code></pre></div>
+<pre><code>## [1] 0.04431848</code></pre>
+<p>Es preciso aclarar que para poder obtener la densidad de la distribución normal se uso el comando <code>dnorm()</code>, para mejor detalle podría revisar la documentación entrando a <code>?dnorm</code>.</p>
+<p>Como motivación a continuación se muestra el gráfico de la función de densidad de la función de distribución normal estimada.</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="r-como-calculadora-.html#cb67-1"></a><span class="co"># La gráfica de la densidad de la FDN.</span></span>
+<span id="cb67-2"><a href="r-como-calculadora-.html#cb67-2"></a><span class="kw">plot</span>(N)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/graf-1.png" width="672" /></p>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Las operaciones que se realizarán están pensadas para un usuario que recién comienza en <strong>R</strong>.<a href="r-como-calculadora-.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>La función <code>print()</code> no sólo sirve para obtener los cálculos con un número determinado de cifras, sino que imprime caracteres y objetos, esto lo veremos más adelante, por el momento es suficiente conocer que nos sirve para mostrar las cifras que deseamos, de un cálculo.<a href="r-como-calculadora-.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Para más detalles puede revisar la siguiente documentación: <a href="https://cutt.ly/hjfCXw5" class="uri">https://cutt.ly/hjfCXw5</a><a href="r-como-calculadora-.html#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="the-pool-of-tears.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/CesarAHN/R_para_economistas/edit/master/01-R_como_calculadora.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/CesarAHN/R_para_economistas/blob/master/01-R_como_calculadora.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

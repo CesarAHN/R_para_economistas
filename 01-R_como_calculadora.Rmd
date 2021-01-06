@@ -1,0 +1,297 @@
+# R como Calculadora.
+
+Uno de los primeros pasos para poder dominar **R** es comprender su uso como si fuera una calculadora. **R** realiza una variedad de operaciones matemáticas y lógicas de una manera muy sencilla. En las siguientes líneas se podrá observar algunas operaciones matemáticas[^1] básicas.
+
+[^1]: Las operaciones que se realizarán están pensadas para un usuario que recién comienza en **R**.
+
+## PRINCIPALES OPERACIONES MATEMÁTICAS.
+Desarrollar calculos matemáticos en **R** es muy similar que usar una calculadora, a continuación mostramos los principales operadores aritméticos y su sintaxis en el entorno **R**.
+
+|OPERACIÓN| SINTAXIS|
+|:-----:|:-----:|
+|Adición|**+**|
+|Sustracción|**-**|
+|Producto|__\*__|
+|División|**/**|
+|División: Para Calcular el cociente|__\%/\%__|
+|División: Para Calcular el residuo|__\%\%__|
+|Potencia| __\^__  __\*\*__|
+
+Veamos unos ejemplos de como usarlo. 
+
+Si deseamos sumar 4 más 3 en R. Tenemos que digitar en la consola `4+3`.
+```{r}
+4+3    # Adición.
+```
+Como se puede dar cuenta el resultado es 7. 
+Si deseamos realizar la sustracción de 5 en 7. Tenemos que digitar en la consola la operación `5-7`.
+```{r}
+5-7    # Sustracción.
+```
+
+Para el caso de la multiplicación se usa el operador `*`, es así que si deseamos multiplicar 3 por 4, entonces, tendremos que digitar en la consola `3*4`.
+```{r}
+3*4    # Producto.
+```
+
+Si se desea calcular la división usamos el operador `/`.
+```{r}
+6/2    # División.
+```
+En efecto, al dividir 6 entre 2 nos resulta 3. Pero si se desea calcular sólo el cociente de una división inexacta usaremos el operador `%/%`. 
+```{r}
+10%/%3   # División para encontrar el cociente.
+```
+El cociente resultante es 3. Asimismo, si sólo desea obtener el residuo de una división inexacta tendrá que usar el operador `%%`.
+```{r}
+10%%3    # División para encontrar el residuo.
+```
+En efecto, el residuo de dividir 10 entre 3 es 1. 
+
+Otra operación fundamental es elevar un número a la potencia n. Veamos un ejemplo en elevar 4 al cubo. 
+```{r}
+4^3    # Potencia.
+```
+
+Usted se puede dar cuenta que hemos usado el operador `^`, pero este no es el único operador que calcula la potencia de un número, también se puede calcular si se usa el operador `**`.
+```{r}
+4**3   # Potencia.
+```
+Entonces, puede usar `^` o `**` si desea calcular la potencia de un número.
+
+Ahora veremos algunas operaciones matemáticas un poco más avanzadas, que nos servirán en un futuro para poder hacer cálculo estadístico, matemático y poder transformar variables cuando especifiquemos modelos econométricos. 
+
+|OPERACIÓN|SINTAXIS|
+|:-----:|:-----:|
+|Factorial|**factorial()**|
+|Combinatorio|**choose()**|
+|Raíz Cuadrada|**sqrt()**|
+|Número de Euler-Exponente|**exp()**|
+|Logaritmo Natural|**log()**|
+|Valor Absoluto|**abs()**|
+
+Si deseamos calcular el factorial de un número usaremos la función `factorial()`. Veamos un ejemplo del factorial de 5.
+```{r}
+factorial(5)     # Factorial.
+```
+Nos resulta 120, recordar que el factorial de un número es la multplicación de $n(n-1)(n-2)...1$. En el caso del factorial del 5, se multiplicó $5*4*3*2*1$.
+
+Asimismo, si deseamos calcular las combinaciones posibles de un número agrupado por otro, usaremos el combinatorio. En R se usa la función `choose()`.
+```{r}
+choose(5,3)    # Combinatorio.
+```
+R nos arroja el valor de 10, recordar que el cálculo que se usó fue el siguiente: $\frac{5!}{2!*3!}$. 
+
+Si tenemos la varianza de una variable, podremos calcular su desviación si le sacamos la raíz cuadrada. Entonces, si deseamos calcular la raíz cuadrada usaremos la función `sqrt()`.
+```{r}
+sqrt(12)     # Raíz cuadrada.
+```
+Nos resulta 3.464102, es un número con 6 decimales y es posible que usted lo desee con más o menos decimales. En la siguiente sección veremos como mostrar los decimales que deseados.
+
+Otra posible situación a la que se podrá enfrentar en un futuro es si desea calcular los Odds ratios de los modelos logit, recordemos que estos se calculan si se les saca el exponencial. Entonces si usted desea calcular el exponencial de un número tendrá que usar la función `exp()`.
+```{r}
+exp(1)      # Si se considera 1, dará el número de euler.
+```
+En este ejemplo se ha calculado el exponencial de 1, lo que nos da el número de Euler que es `r exp(1)`.
+Asimismo, si deseamos especificar nuestro modelo econométrico en logaritmos naturales y así poder hacer una interpretación a nivel de elasticidades tendremos que transformar las variables aplicándoles el logaritmo natural, para lo cual tendremos que usar la función `log()`.
+```{r}
+log(3)      # Logaritmo Natural.
+```
+Por otro lado, si deseamos calcular el valor absoluto de un número usaremos la función `abs()`.
+```{r}
+abs(-2)    # Valor Absoluto.
+```
+
+Ahora veremos como calcular las razones trigonométricas, para lo cual en la tabla siguiente se muestra la sintaxis de las razones trigonométricas.
+
+|RAZÓN TRIGONOMÉTRICA|SINTAXIS|
+|:------------------:|:------:|
+|seno|**sin()**|
+|coseno|**cos()**|
+|tangente|**tan()**|
+
+Para poder calcular las razones trigonométricas se tiene que considerar al **ángulo en pi radianes**. En **R** el valor de pi se puede obtener si digitamos en la consola `pi`, R comprende que al escribir `pi` se está llamando al número irracional `pi`. 
+
+```{r}
+pi
+```
+En efecto, nos resulta 3.1416. 
+
+Asimismo, como se puede dar cuenta para la cosecante, secante y cotangente no se tiene un función específica, ya que estan son las inversas del seno, coseno y tangente, respectivamente.
+
+Si deseamos calcular el seno de 30. Entonces tenemos que usar la función `sin()` y especificar el ángulo en **pi radianes**.  
+```{r}
+sin(pi/6)   # Seno de 30 grados sexagesimales.
+```
+A continuación veamos unos ejemplos para el coseno y la tangente. 
+```{r}
+cos(pi/4)   # Coseno de 45 grados sexagesimales.
+```
+
+```{r}
+tan(pi/4)   # Tangente de 45 grados sexagesimales.
+```
+
+Ahora si se desea trabajar omitiendo los pi radianes, se tendrá que usar las funciones **sinpi()**, **cospi()**, **tanpi()**.
+
+A continuación se muestran algunos ejemplos:
+
+```{r Sen1}
+sinpi(1/6)   # Seno de 30 grados sexagesimales.
+```
+En efecto, es el mismo resultado que se obtuvo con la función `sin()`, solo que aquí se está omitiendo los pi radianes.
+```{r Cos1}
+cospi(1/4)   # Coseno de 45 grados sexagesimales.
+```
+```{r Tan1}
+tanpi(1/4)   # Tangente de 45 grados sexagesimales.
+```
+
+## DECIMALES EXACTOS Y REDONDEO DE CIFRAS.
+
+### NÚMERO DE CIFRAS.
+
+Si al realizar los cálculos usted desea obtener los resultados con un número determinado de cifras se tendrá que usar la función `print()`[^2] en donde se tendrá que especificar el número de dígitos que se desea. 
+
+[^2]: La función `print()` no sólo sirve para obtener los cálculos con un número determinado de cifras, sino que imprime caracteres y objetos, esto lo veremos más adelante, por el momento es suficiente conocer que nos sirve para mostrar las cifras que deseamos, de un cálculo.
+
+
+Por ejemplo deseamos obtener la raíz cuadrada de 12 pero queremos que el resultado se muestre 10 cifras. Entonces, usaríamos la siguiente sintaxis. 
+```{r}
+# La raíz cuadrada de 12, pero que nos muestre 10 cifras, 
+print(sqrt(12), 10)
+```
+En efecto, nos muestra 10 cifras. A continuación se muestra un ejemplo adicional en donde le indicamos a **R** que nos muestre el mismo resultado pero ahora sólo con 3 cifras. 
+
+```{r}
+# La raíz cuadrada de 12, pero que nos muestre 3 cifras, 
+print(sqrt(12), 10)
+```
+En efecto, tenemos la raíz cuadrada de 12 en 3 cifras. 
+
+Es importante saber que el número máximo de cifras que reporta **R** usando la función `print()` es de 17. Veamos un ejemplo, sabemos que pi es un número irracional por lo que tiene infinitos decimales. Entonces, si queremos mostrar 16 decimales, usaríamos la siguiente sintaxis. 
+
+```{r}
+print(pi, 17)
+```
+En efecto, nos arroja 16 decimales. ¿Por qué usamos 17 y no 16 en la función? ya que `pi` tiene un entero y queremos 16 decimales, se tiene que especificar 17. Pero si por ahí se le ocurriera mostrar `pi` con 20 decimales, usted usaría la siguiente sintaxis. 
+
+```{r}
+print(pi, 21)
+```
+Pero lamentablemente, sólo obtiene el mismo número de decimales que si hubiera usado `print(pi, 17)`. Con lo cual queda demostrado que la función `print()` sólo puede mostrar hasta 17 cifras. 
+
+Pero no se frustre, en R hay otras funciones que permiten obtener los resultados con más decimales. Una de estas funciones es `sprintf()`, el cual puede mostrar más funciones pero los decimales después del 15 no serán tan exactos[^3].
+
+[^3]: Para más detalles puede revisar la siguiente documentación: https://cutt.ly/hjfCXw5
+
+Veamos un ejemplo, en donde deseamos que se muestren 50 decimales
+```{r}
+sprintf("%.50f",pi)
+```
+
+Por otra parte, si quieres trabajar con muchos decimales puede resultar tedioso usar en cada cálculo la función `print()` o `sprintf()`. Para solucionar esto se usa la función `options()`, por ejemplo si deseas que los calculos que vas a desarrollar se trabajen con 10 decimales tienes que correr en la consola la siguiente sintaxis.
+
+```{r, eval=FALSE}
+options(digits=10)
+```
+
+Y con eso todos los resultados que se calculen se mostraran con 10 cifras. Asimismo, es preciso aclarar que esta función puede arrojar como máximo de 22 dígitos. 
+
+### REDONDEO.
+
+Si se desea redondear una operación se tendrá que usar la función `round()`, que al igual que el anterior se tendrá que especificar el número de dígitos, que en este caso será el número de decimales a los que se desea redondear.
+
+A continuación se muestra un ejemplo:
+
+```{r}
+# La raíz cuadrada de 3 redondeada a cinco decimales.
+round(sqrt(3), 5)  
+```
+
+Sí sólo se considera la función `round()` redondeará a la cifra entera:
+
+```{r}
+# La raíz cuadrada de 3 redondeada a la cifra entera.
+round(sqrt(3))
+```
+
+## DEFINICIÓN DE VARIABLES.
+
+Se pueden definir variables en **R** usando 1 de estos 3 operadores: `<-`, `=`, `->`.
+
+A continuación se muestra algunos ejemplos:
+
+```{r vari}
+# Para definir que la variable "y" toma el valor de 4.
+y<- 4
+y=4
+4->y
+```
+
+Con cualquiera de las tres formas se puede definir que la variable "y" toma el valor de 4.
+
+**Importante**: Una variable puede tener cualquier nombre, pero no puede comenzar con un número.
+
+```{r error=TRUE}
+1y<-4
+```
+
+### Funciones.
+
+Para poder definir una función se tendrá que hacer uso del comando `function()` en donde se tendrá que especificar la variable y la función que afecta a esta variable.
+
+A continuación se muestra un ejemplo:
+
+```{r funci}
+# Se define la función "f" de la variable x que tiene una forma cuadrática: x^2 +2
+
+f<-function(x){
+  x^2+2
+}
+
+# Para poder evaluarlo en un determinado valor (En este caso cuando la función "f" tomo el valor de cero).
+
+f(0)
+```
+
+Como se puede observar si la función se evalua en cero, es decir, si "x" es igual a cero; la función tomará el valor de 2.
+
+Si se tiene en consideración una función en R^3^. Se tendá que tomar en cuenta a dos variables dentro del comando `function()`. como se muestra a continuación:
+
+```{r cubos}
+# Se define la función Z que depende de la variable x e y.
+
+Z<-function(x,y){
+  x+4+4*y
+}
+
+# Se evalua cuando x e y toman el valor de cero y dos, respectivamente.
+
+Z(0,2)
+```
+
+Para que quede claro, a continuación se muestra un ejemplo pero considerando la densidad de la función de distribución normal.
+
+```{r normal}
+# Se define la función "N" que es la densidad de la función de distribución normal con media igual a 0.5 y desviación estándar de 0.1.
+
+N<- function(x){
+  dnorm(x, mean =0.5, sd=0.1)
+}
+
+# Se evaluará cuando la variable aleatoria toma el valor de 0.2.
+
+N(0.2)
+```
+
+Es preciso aclarar que para poder obtener la densidad de la distribución normal se uso el comando `dnorm()`, para mejor detalle podría revisar la documentación entrando a `?dnorm`.
+
+Como motivación a continuación se muestra el gráfico de la función de densidad de la función de distribución normal estimada.
+
+```{r graf}
+# La gráfica de la densidad de la FDN.
+plot(N)
+```
+
+
