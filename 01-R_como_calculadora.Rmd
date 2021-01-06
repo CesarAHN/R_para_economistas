@@ -288,7 +288,7 @@ N(0.2)
 Es preciso aclarar que para poder obtener la densidad de la distribución normal se uso el comando `dnorm()`, para mejor detalle podría revisar la documentación entrando a `?dnorm`.
 
 Como motivación a continuación se muestra el gráfico de la función de densidad de la función de distribución normal estimada.
-
+ 
 ```{r graf}
 # La gráfica de la densidad de la FDN.
 plot(N)
