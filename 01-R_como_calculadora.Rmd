@@ -1,4 +1,4 @@
-# R como Calculadora.
+# R COMO CALCULADORA.
 
 Uno de los primeros pasos para poder dominar **R** es comprender su uso como si fuera una calculadora. **R** realiza una variedad de operaciones matemáticas y lógicas de una manera muy sencilla. En las siguientes líneas se podrá observar algunas operaciones matemáticas[^1] básicas.
 
