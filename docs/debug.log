@@ -1,3 +1,6 @@
 [0106/022953.123:ERROR:crash_report_database_win.cc(606)] CreateDirectory C:\Users\Public\Documents\Google\Chrome: El sistema no puede encontrar la ruta especificada. (0x3)
 [0106/022953.143:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: Ha terminado la canalización. (0x6D)
 [0106/022953.145:ERROR:crash_report_database_win.cc(606)] CreateDirectory C:\Users\Public\Documents\Google\Chrome: El sistema no puede encontrar la ruta especificada. (0x3)
+[0107/010931.821:ERROR:crash_report_database_win.cc(606)] CreateDirectory C:\Users\Public\Documents\Google\Chrome: El sistema no puede encontrar la ruta especificada. (0x3)
+[0107/010931.839:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: Ha terminado la canalización. (0x6D)
+[0107/010931.841:ERROR:crash_report_database_win.cc(606)] CreateDirectory C:\Users\Public\Documents\Google\Chrome: El sistema no puede encontrar la ruta especificada. (0x3)
