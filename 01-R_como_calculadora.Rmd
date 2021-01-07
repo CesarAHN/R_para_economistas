@@ -216,65 +216,133 @@ Sí sólo se considera la función `round()` redondeará a la cifra entera:
 round(sqrt(3))
 ```
 
-## DEFINICIÓN DE VARIABLES.
+## GUARDAR O DEFINIR OBJETOS.
 
-Se pueden definir variables en **R** usando 1 de estos 3 operadores: `<-`, `=`, `->`.
+Hasta ahora sólo hemos hecho calculos y sólo los hemos mostrado en la consola. Pero puede surgir la necesidad de guardar estos cálculos para que en un futuro podamos generar cálculos más complejos o llamar a estos resultados. Entonces, surge la necesidad de guardar nuestros resultados. 
 
-A continuación se muestra algunos ejemplos:
+En **R** todo es un objeto, desde un número, un vector, una variable, una matriz, un data frame, una lista, un factor, un gráfico, etc. Así que lo primordial será guardar estos objetos. Para lo cual tendremos la opción de usar uno de estos tres operadores si deseamos guardar estos objetos en la memoría del software.
 
-```{r vari}
-# Para definir que la variable "y" toma el valor de 4.
-y<- 4
-y=4
-4->y
+Estos operadores son: `<-`, `=`, `->`.
+
+Por ejemplo si deseamos guardar un objeto que se llame `a` y que tome el valor de `8`. Entonces, nosotros definiremos al objeto `a` de la siguiente manera.
+
+```{r}
+a<-8
 ```
 
-Con cualquiera de las tres formas se puede definir que la variable "y" toma el valor de 4.
+Hemos usado uno de los operadores (`<-`) para definir objetos[^4]. Ahora si deseamos llamar a este objeto, nosotros sólo digitamos el objeto en la consola y damos enter.
 
-**Importante**: Una variable puede tener cualquier nombre, pero no puede comenzar con un número.
+[^4]: El operador más usado y adecuado para definir objetos es `<-`, pero el uso de los otros operadores es más usado en casos especiales, estos casos lo veremos más adelante.
+
+```{r}
+a
+```
+En efecto, podemos ver que el objeto `a` toma el valor de 8. Podemos usar los otros operadores indiferentemente para poder definir objetos. Veamos un pequeño ejemplo. 
+
+```{r}
+b<-6
+d=6
+6->f
+```
+
+En este caso hemos definido a los objetos `b`, `d` y `f` con el valor de 6 a cada uno. 
+
+Veamos si los valores son los correctos. 
+
+```{r}
+b
+d
+f
+```
+
+En efecto, cada objeto toma el valor de 6.
+
+Como se ha podido dar cuenta se abre una amplia gama de nombres con los que usted podría guardar objetos. Por ejemplo, podemos usar la palabra `objeto` para guardar la suma de `5+12`.
+
+```{r}
+objeto<-5+12
+```
+
+Llamando a nuestro objeto `objeto`.
+
+```{r}
+objeto
+```
+
+Como podemos ver, ahora `objeto` toma el valor de 17. 
+
+Pero como en todo software, los objetos no pueden tomar cualquier nombre. Es así que hay una regla única, que se debe tener en cuenta a la hora de guardar objetos, estos **"NO pueden empezar con números"**. 
+
+Veamos un ejemplo en donde intentamos definir un objeto en donde el nombre de este empiece con un número. 
 
 ```{r error=TRUE}
 1y<-4
 ```
+Vemos que nos sale un mensaje de error, que nos dice que hay un símbolo inesperado en `1y` el cual es el `1`. Entonces, para definir objetos, estos nunca tienen que empezar con un número. 
 
-### Funciones.
+## FUNCIONES.
+Entonces, una vez que ya sabemos definir objetos, veremos otro de los objetos fundamentales en R, estos son las funciones[^5]. Una función realiza un proceso o algoritmo que ha sido programado con anterioriedad. 
 
-Para poder definir una función se tendrá que hacer uso del comando `function()` en donde se tendrá que especificar la variable y la función que afecta a esta variable.
+[^5]: En esta parte del libro, veremos sólo una parte introductoria de funciones, en el capítulo 9 veremos a más detalle y profundidad este tema. 
 
-A continuación se muestra un ejemplo:
+Los creadores de R definieron funciones bases cuando crearon el software. Por ejemplo, una función base es `sqrt()`, el cual calcula la raíz cuadrada de un número. Nosotros también podemos definir nuestras propias funciones, al igual que lo han programado los creados de **R**. Esto es lo fundamental y maravilloso de los softwares de programación, ya que nos permite personalizar y adaptar a nuestras necesidades el software. 
 
-```{r funci}
-# Se define la función "f" de la variable x que tiene una forma cuadrática: x^2 +2
+Veamos a manera de introducción cómo definir una función en R. Para esto se tendrá que hacer uso de la función `function()` en donde se tendrá que especificar argumentos que definiran la función que desemos crear.
 
-f<-function(x){
+Vamos empezar definiendo funciones como si fueran expresiones matemáticas. Por ejemplo, deseamos definir el objeto `y` que es función del argumento o variable `x`, es decir, `x` será el dominio y `y` será el rango. 
+```{r}
+# Se define la función "y" que tiene como argumento a  "x"
+# que tiene una forma cuadrática: x^2 +2
+
+y<-function(x){
   x^2+2
 }
-
-# Para poder evaluarlo en un determinado valor (En este caso cuando la función "f" tomo el valor de cero).
-
-f(0)
 ```
 
-Como se puede observar si la función se evalua en cero, es decir, si "x" es igual a cero; la función tomará el valor de 2.
+Hemos creado el objeto `y` que es una función que tiene como argumento o variable a `x`. Es decir, cada vez que cambiemos el valor de `x` cambiará el valor de `y`, ya que `x` define a `y`.
 
-Si se tiene en consideración una función en R^3^. Se tendá que tomar en cuenta a dos variables dentro del comando `function()`. como se muestra a continuación:
+Veamos como podemos usar esta función. 
 
-```{r cubos}
+```{r}
+# Para poder evaluar la función "y" en un determinado valor de "x"
+# En este caso x=0, la sintaxis sería la siguiente:
+
+y(x=0)
+```
+Como se puede observar si la función se evalua en cero, es decir, si `x` es igual a 0; la función tomará el valor de 2 ($0^2+2=2$).
+
+Veamos otro ejemplo para que quede más claro. Ahora veremos que valor toma la función si `x` es igual a `8`.
+
+```{r}
+y(x=8)
+```
+Nos resulta el valor de 66 ($8^2+2=66$). 
+
+Si se tiene en consideración una función en $R^3$. Se tendá que tomar en cuenta dos argumentos o variables dentro de la función `function()`. como se muestra a continuación:
+
+```{r}
 # Se define la función Z que depende de la variable x e y.
-
-Z<-function(x,y){
+z<-function(x,y){
   x+4+4*y
 }
-
-# Se evalua cuando x e y toman el valor de cero y dos, respectivamente.
-
-Z(0,2)
 ```
+Se ha definido a la función `z` como una función de `x` y `y`. Usted puede estar pensando que el argumento `y` es la función que hemos definido anteriormente. Pero, déjeme decirle que no es así. Cuando se define funciones en R los argumentos de estás no toman las propiedades de los objetos guardados en la memoría del software. Es así que el nombre de los argumentos puede ser incluso el nombre de objetos que están guardados en la memoría, pero esto no implicará que el argumento juege el rol del objeto que está definido en la memoría del software. En palabras sencillas, el argumento `y` en la función `z` no tiene nada que ver con la función `y` que definimos anteriormente.
+
+Veamos que resulta en la función `z` si `x` toma el valor de 0 y `y` el valor de 2.
+
+```{r}
+# Se evalua la función "z" cuando "x" e "y" toman el valor
+# de 0 y 2, respectivamente.
+z(x=0,y=2)
+```
+Podemos ver que el resultado es 12 ($0+4+4*2=12$).
 
 Para que quede claro, a continuación se muestra un ejemplo pero considerando la densidad de la función de distribución normal.
 
 ```{r normal}
-# Se define la función "N" que es la densidad de la función de distribución normal con media igual a 0.5 y desviación estándar de 0.1.
+# Se define la función "N" que es la densidad de la función
+# de distribución normal con media igual a 0.5 y 
+# desviación estándar de 0.1.
 
 N<- function(x){
   dnorm(x, mean =0.5, sd=0.1)
@@ -285,13 +353,14 @@ N<- function(x){
 N(0.2)
 ```
 
-Es preciso aclarar que para poder obtener la densidad de la distribución normal se uso el comando `dnorm()`, para mejor detalle podría revisar la documentación entrando a `?dnorm`.
+Es preciso aclarar que para poder obtener la densidad de la distribución normal se uso la función `dnorm()`, para mejor detalle podría revisar la documentación si digita en la consola `?dnorm` y da enter a continuación.
 
-Como motivación a continuación se muestra el gráfico de la función de densidad de la función de distribución normal estimada.
- 
-```{r graf}
+Hemos visto una pequeña introducción sobre funciones, hasta el momento. En el capítulo 9, veremos a más detalle cómo programar funciones, pero para esto es necesario aprender más cosas que nos permitan programar cualquier tipo de funciones. Es así que en los capítulos posteriores aprenderemos más objetos como: vectores, matrices, listas, etc.
+
+Por el momento como motivación y ver lo que se viene en los siguientes capítulos. Haremos un gráfico de la función de densidad `N` que hemos definido anteriormente. Y podrá ver con que facilidad se logra este objetivo.
+
+```{r, fig.width=6,fig.height=4, fig.align="center"}
 # La gráfica de la densidad de la FDN.
 plot(N)
 ```
-
 
