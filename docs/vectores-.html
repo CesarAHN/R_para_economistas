@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 VECTORES. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</title>
+  <meta name="description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 VECTORES. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  <meta name="github-repo" content="CesarAHN/bookdown_intro" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 VECTORES. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
+  
+  <meta name="twitter:description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  
+
+<meta name="author" content="César Anderson Huamaní Ninahuanca" />
+
+
+<meta name="date" content="2021-01-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="r-como-calculadora-.html"/>
+<link rel="next" href="a-caucus-race-and-a-long-tale.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - PARA ECONOMISTAS</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prólogo</a></li>
+<li class="chapter" data-level="1" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html"><i class="fa fa-check"></i><b>1</b> R COMO CALCULADORA.</a><ul>
+<li class="chapter" data-level="1.1" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#principales-operaciones-matemáticas."><i class="fa fa-check"></i><b>1.1</b> PRINCIPALES OPERACIONES MATEMÁTICAS.</a></li>
+<li class="chapter" data-level="1.2" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#decimales-exactos-y-redondeo-de-cifras."><i class="fa fa-check"></i><b>1.2</b> DECIMALES EXACTOS Y REDONDEO DE CIFRAS.</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#número-de-cifras."><i class="fa fa-check"></i><b>1.2.1</b> NÚMERO DE CIFRAS.</a></li>
+<li class="chapter" data-level="1.2.2" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#redondeo."><i class="fa fa-check"></i><b>1.2.2</b> REDONDEO.</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#guardar-o-definir-objetos."><i class="fa fa-check"></i><b>1.3</b> GUARDAR O DEFINIR OBJETOS.</a></li>
+<li class="chapter" data-level="1.4" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#funciones."><i class="fa fa-check"></i><b>1.4</b> FUNCIONES.</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="vectores-.html"><a href="vectores-.html"><i class="fa fa-check"></i><b>2</b> VECTORES.</a><ul>
+<li class="chapter" data-level="2.1" data-path="vectores-.html"><a href="vectores-.html#definición-de-un-vector."><i class="fa fa-check"></i><b>2.1</b> DEFINICIÓN DE UN VECTOR.</a></li>
+<li class="chapter" data-level="2.2" data-path="vectores-.html"><a href="vectores-.html#clases-de-vectores."><i class="fa fa-check"></i><b>2.2</b> CLASES DE VECTORES.</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="vectores-.html"><a href="vectores-.html#cómo-saber-si-un-objeto-es-un-vector"><i class="fa fa-check"></i><b>2.2.1</b> ¿Cómo saber si un objeto es un vector?</a></li>
+<li class="chapter" data-level="2.2.2" data-path="vectores-.html"><a href="vectores-.html#cómo-saber-de-que-clase-es-un-vector"><i class="fa fa-check"></i><b>2.2.2</b> ¿Cómo saber de que clase es un vector?</a></li>
+<li class="chapter" data-level="2.2.3" data-path="vectores-.html"><a href="vectores-.html#qué-pasa-si-defino-un-vector-con-distintas-clases-de-elementos"><i class="fa fa-check"></i><b>2.2.3</b> ¿Qué pasa si defino un vector con distintas clases de elementos?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="vectores-.html"><a href="vectores-.html#comandos-para-construir-vectores-ms-eficientemente."><i class="fa fa-check"></i><b>2.3</b> COMANDOS PARA CONSTRUIR VECTORES M?S EFICIENTEMENTE.</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="vectores-.html"><a href="vectores-.html#vectores-de-elementos-consecutivos"><i class="fa fa-check"></i><b>2.3.1</b> Vectores de elementos consecutivos:</a></li>
+<li class="chapter" data-level="2.3.2" data-path="vectores-.html"><a href="vectores-.html#vectores-con-patrones"><i class="fa fa-check"></i><b>2.3.2</b> Vectores con patrones:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="vectores-.html"><a href="vectores-.html#concatenar-vectores-con-elementos."><i class="fa fa-check"></i><b>2.4</b> CONCATENAR VECTORES CON ELEMENTOS.</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="vectores-.html"><a href="vectores-.html#concatenacin-manual-edicin-del-vector"><i class="fa fa-check"></i><b>2.4.1</b> Concatenaci?n manual (Edici?n del Vector):</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="a-caucus-race-and-a-long-tale.html"><a href="a-caucus-race-and-a-long-tale.html"><i class="fa fa-check"></i><b>3</b> A caucus-race and a long tale</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="vectores." class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> VECTORES.</h1>
+<p>Uno de los objetos más importantes del entorno <strong>R</strong> son los vectores. Un vector en <strong>R</strong> es un objeto que agrupa a varios elementos, es algo muy similar a un conjunto. Gracias a ellos se pueden construir matrices, listas, data frame, etc. Lo que posibilita que se pueda hacer análisis de datos al más alto nivel. Por tanto, en las siguientes lineas se muestra como definir vectores, sus clases, y las funciones más importantes para poder obtener vectores y realizar operaciones matemáticas, lógicas y estadísticas.</p>
+<div id="definición-de-un-vector." class="section level2">
+<h2><span class="header-section-number">2.1</span> DEFINICIÓN DE UN VECTOR.</h2>
+<p>Para poder definir un vector se puede usar cualquiera de los tres operadores <code>&lt;-</code>, <code>=</code>, <code>-&gt;</code>. En este libro, de aquí para adelante, para definir vectores usaremos el símbolo <code>&lt;-</code>.</p>
+<p>Tambien es necesario la función <code>c</code> que sirve para concatenar elementos (más adelante se verá a más detalle esta función). Con estas dos herramientas es suficiente para poder definir vectores.</p>
+</div>
+<div id="clases-de-vectores." class="section level2">
+<h2><span class="header-section-number">2.2</span> CLASES DE VECTORES.</h2>
+<p>En R, al igual que en otros softwares los objetos son de distintas clases. Esto permite un orden a la hora de transformar o generar operaciones, ya que todo vector, no puede aceptar operaciones matemáticas, estadísticas o lógicas.</p>
+<p>En la siguiente tabla se muestran las clases de vectores que se pueden usar en <strong>R</strong>.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">CLASE DE VECTOR</th>
+<th align="center">QUE CONTIENE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>Integer</strong></td>
+<td align="center">Números enteros</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Numeric</strong></td>
+<td align="center">Números reales</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Logical</strong></td>
+<td align="center">Caracteres lógicos</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Character</strong></td>
+<td align="center">Caracteres o Palabras</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Complex</strong></td>
+<td align="center">Números complejos</td>
+</tr>
+</tbody>
+</table>
+<p>Como se mencionó anteriormente, para definir vectores usaremos el operador de definición <code>&lt;-</code> y la función <code>c()</code>. esta función permite juntar elementos en un determinado objeto.</p>
+<p>Para la clase de vectores <strong>Integer</strong> sólo permite elementos que sean números enteros. En el entorno <strong>R</strong> para definir un número entero es necesario agregar al número la letra <strong>L</strong>, como se muestra a continuación:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="vectores-.html#cb1-1"></a><span class="co">#Vector Integer - Números enteros.</span></span>
+<span id="cb1-2"><a href="vectores-.html#cb1-2"></a>x&lt;-<span class="kw">c</span>(1L,2L,3L,4L,5L,6L)</span>
+<span id="cb1-3"><a href="vectores-.html#cb1-3"></a>y&lt;-<span class="kw">c</span>(1L,3L,5L,7L,9L,11L,13L)</span></code></pre></div>
+<p>Se realizá la definición de los vectores <strong>x</strong> y <strong>y</strong>. En los cuales se hizo uso de <code>&lt;-</code> y <code>c()</code>. Los resultados se muestran a continuación:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="vectores-.html#cb2-1"></a>x</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4 5 6</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="vectores-.html#cb4-1"></a>y</span></code></pre></div>
+<pre><code>## [1]  1  3  5  7  9 11 13</code></pre>
+<p>En efecto, podemos ver que <code>x</code> vale 1, 2, 3, 4, 5, 6 y <code>y</code> vale 1, 3, 5, 7, 9, 11, 13.</p>
+<p>Con respecto a la clase de vectores <strong>Numeric</strong> estos adminten números reales. Es muy fácil definirlos, a continuación se muestra un ejemplo.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="vectores-.html#cb6-1"></a><span class="co">#Vector Numeric - Números reales.</span></span>
+<span id="cb6-2"><a href="vectores-.html#cb6-2"></a>z&lt;-<span class="kw">c</span>(<span class="fl">1.3</span>, pi, <span class="kw">exp</span>(<span class="dv">1</span>))</span>
+<span id="cb6-3"><a href="vectores-.html#cb6-3"></a>t&lt;-<span class="kw">c</span>(<span class="kw">sin</span>(pi<span class="op">/</span><span class="dv">4</span>), <span class="kw">log</span>(<span class="dv">45</span>), <span class="kw">tan</span>(pi<span class="op">/</span><span class="dv">3</span>))</span></code></pre></div>
+<p>Podemos ver que los vectores <strong>z</strong> y <strong>t</strong> contienen números reales, en el caso del vector <strong>z</strong> está compuesto por 1.3, pi y el número de euler. Los resultados son los siguientes:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="vectores-.html#cb7-1"></a>z</span></code></pre></div>
+<pre><code>## [1] 1.300000 3.141593 2.718282</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="vectores-.html#cb9-1"></a>t</span></code></pre></div>
+<pre><code>## [1] 0.7071068 3.8066625 1.7320508</code></pre>
+<p>Un caso especial y fundamental de los lenguajes de programación son los vectores lógicos, estos permiten que los procesos sean más rápidos y a la vez más intuitivos. Para el caso de estos vectores, sólo acepta como elementos a <code>TRUE</code> y <code>FALSE</code>. A continuación se muestra un ejemplo:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="vectores-.html#cb11-1"></a><span class="co"># Vector Logical - Caracteres lógicos.</span></span>
+<span id="cb11-2"><a href="vectores-.html#cb11-2"></a>m&lt;-<span class="kw">c</span>(<span class="ot">TRUE</span>,<span class="ot">FALSE</span>,<span class="ot">FALSE</span>,<span class="ot">TRUE</span>)</span>
+<span id="cb11-3"><a href="vectores-.html#cb11-3"></a>p&lt;-<span class="kw">c</span>(T,F,F,T,T,T,F)</span></code></pre></div>
+<p>Como se habrán podido dar cuenta no es necesario escribir las palabras completas (<code>TRUE</code> o <code>FALSE</code>) es suficiente con escribir sus iniciales. Para comprobarlo a continuación se muestran los resultados.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="vectores-.html#cb12-1"></a>m </span></code></pre></div>
+<pre><code>## [1]  TRUE FALSE FALSE  TRUE</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="vectores-.html#cb14-1"></a>p</span></code></pre></div>
+<pre><code>## [1]  TRUE FALSE FALSE  TRUE  TRUE  TRUE FALSE</code></pre>
+<p>Si se desea crear vectores <strong>Character</strong> se tendrá que usar como elementos sólo palabras o caracteres. Estos vendrán especificados por las comillas <code>""</code>, un ejemplo se muestra a continuación:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="vectores-.html#cb16-1"></a><span class="co"># Vector Character - Palabras.</span></span>
+<span id="cb16-2"><a href="vectores-.html#cb16-2"></a>p1&lt;-<span class="kw">c</span>(<span class="st">&quot;Luis&quot;</span>, <span class="st">&quot;María&quot;</span>, <span class="st">&quot;José&quot;</span>)</span>
+<span id="cb16-3"><a href="vectores-.html#cb16-3"></a>p2&lt;-<span class="kw">c</span>(<span class="st">&quot;12&quot;</span>, <span class="st">&quot;casa&quot;</span>, <span class="st">&quot;pi&quot;</span>)</span></code></pre></div>
+<p>El vector <code>p1</code> contiene nombres (palabras) y el vector <code>p2</code> contiene los números 12 y pi, pero como se usó las comillas, <strong>R</strong> los considera como caracteres, adicionalmente tiene a la palabra casa.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="vectores-.html#cb17-1"></a>p1</span></code></pre></div>
+<pre><code>## [1] &quot;Luis&quot;  &quot;María&quot; &quot;José&quot;</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="vectores-.html#cb19-1"></a>p2</span></code></pre></div>
+<pre><code>## [1] &quot;12&quot;   &quot;casa&quot; &quot;pi&quot;</code></pre>
+<p>Por último, los vectores <strong>complex</strong> sólo aceptan elementos que sean números complejos. Para definir un número complejo es necesario considerar el número imaginario <strong>i</strong>. A continuación se muestran uno ejemplo:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="vectores-.html#cb21-1"></a><span class="co"># Vector Complex - N?meros complejos.</span></span>
+<span id="cb21-2"><a href="vectores-.html#cb21-2"></a>c1&lt;-<span class="kw">c</span>(<span class="dv">1</span><span class="op">+</span>2i, 4i, <span class="dv">3</span><span class="op">+</span>6i)</span></code></pre></div>
+<p>El vector <code>c1</code> contiene tres elementos, los cuales son números complejos. Los resultados son los siguientes:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="vectores-.html#cb22-1"></a>c1</span></code></pre></div>
+<pre><code>## [1] 1+2i 0+4i 3+6i</code></pre>
+<div id="cómo-saber-si-un-objeto-es-un-vector" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> ¿Cómo saber si un objeto es un vector?</h3>
+<p>Para poder saber si un objeto es un vector, es necesario usar la función <code>is.vector()</code>. Este nos arrojará los valores <code>TRUE</code> (si es un vector) o <code>FALSE</code> (si no es un vector). A continuación se muestran los resultados para algunos de los vectores que hemos definido antes:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="vectores-.html#cb24-1"></a><span class="kw">is.vector</span>(x)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="vectores-.html#cb26-1"></a><span class="kw">is.vector</span>(z)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="vectores-.html#cb28-1"></a><span class="kw">is.vector</span>(m)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="vectores-.html#cb30-1"></a><span class="kw">is.vector</span>(p1)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="vectores-.html#cb32-1"></a><span class="kw">is.vector</span>(c1)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Como era de esperarse, todas las variables definidas, resultan ser vectores.</p>
+</div>
+<div id="cómo-saber-de-que-clase-es-un-vector" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> ¿Cómo saber de que clase es un vector?</h3>
+<p>Para conocer la clase, se tendrá que usar la función <code>is.integer()</code>, <code>is.numeric()</code>, <code>is.logical()</code>, <code>is.character()</code> y <code>is.complex()</code>. Al igual que antes este arrojará <code>TRUE</code> o <code>FALSE</code>. A continuación se muestran unos ejemplos.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="vectores-.html#cb34-1"></a><span class="kw">is.integer</span>(x)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="vectores-.html#cb36-1"></a><span class="kw">is.numeric</span>(x)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="vectores-.html#cb38-1"></a><span class="kw">is.logical</span>(m)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="vectores-.html#cb40-1"></a><span class="kw">is.character</span>(p1)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="vectores-.html#cb42-1"></a><span class="kw">is.complex</span>(p1)</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>Puede parecer algo confuso, pero usted se puede preguntar, por qué el vector <strong>x</strong> que fue definido como <strong>Integer</strong> también arroja como si fuera un vector <strong>Numeric</strong>. Esto es porque los números enteros están contenidos en los números reales, mejor dicho el conjunto de números enteros es un subconjuto del conjunto de los números reales.</p>
+</div>
+<div id="qué-pasa-si-defino-un-vector-con-distintas-clases-de-elementos" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> ¿Qué pasa si defino un vector con distintas clases de elementos?</h3>
+<p>¿Qué clase de vector será si defino el siguiente vector?</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="vectores-.html#cb44-1"></a>v&lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">12</span>, <span class="st">&quot;azul&quot;</span>, <span class="dv">2</span><span class="op">+</span>1i, pi)</span>
+<span id="cb44-2"><a href="vectores-.html#cb44-2"></a><span class="kw">is.integer</span>(v); <span class="kw">is.numeric</span>(v); <span class="kw">is.logical</span>(v); <span class="kw">is.character</span>(v); <span class="kw">is.complex</span>(v)</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<p>Como se puede observar el vector fue definido como <strong>Character</strong>, porque existe una jerarquía de elementos. Si el vector contiene un elemento caracter considerará a los otros elementos como caracteres. Como se muestra a continuación:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="vectores-.html#cb50-1"></a>v</span></code></pre></div>
+<pre><code>## [1] &quot;12&quot;               &quot;azul&quot;             &quot;2+1i&quot;             &quot;3.14159265358979&quot;</code></pre>
+<p>La jerarquía es la siguiente:</p>
+<p><strong>Character</strong>&gt;<strong>Complex</strong>&gt;<strong>Numeric</strong>&gt;<strong>Integer</strong>&gt;<strong>Logical</strong></p>
+</div>
+</div>
+<div id="comandos-para-construir-vectores-ms-eficientemente." class="section level2">
+<h2><span class="header-section-number">2.3</span> COMANDOS PARA CONSTRUIR VECTORES M?S EFICIENTEMENTE.</h2>
+<div id="vectores-de-elementos-consecutivos" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> Vectores de elementos consecutivos:</h3>
+<p>Para poder construir un vector de n?meros consecutivos se necesitar? el comando <code>:</code>. A continuaci?n se muestra un ejemplo:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="vectores-.html#cb52-1"></a>x0&lt;-<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>   <span class="co"># Vector que tiene como elementos desde el 1 al 5.</span></span>
+<span id="cb52-2"><a href="vectores-.html#cb52-2"></a>x0</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+</div>
+<div id="vectores-con-patrones" class="section level3">
+<h3><span class="header-section-number">2.3.2</span> Vectores con patrones:</h3>
+<p>Tambi?n existen vectores en los que sus elementos siguen cierto patr?n:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">COMANDO</th>
+<th align="center">GENERA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>rep()</strong></td>
+<td align="center">Repite elementos del vector</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>seq()</strong></td>
+<td align="center">Elementos ordenados en progresi?n aritm?tica</td>
+</tr>
+</tbody>
+</table>
+<div id="comando-rep" class="section level4">
+<h4><span class="header-section-number">2.3.2.1</span> Comando rep()</h4>
+<p>Este comando tiene la siguiente sintaxis:</p>
+<p><code># rep("elemento", " # de veces")</code></p>
+<p>A continuaci?n se muestra unos ejemplos:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="vectores-.html#cb54-1"></a>x1&lt;-<span class="kw">rep</span>(<span class="dv">2</span>,<span class="dv">5</span>)          <span class="co"># Para repetir 2 cinco veces.</span></span>
+<span id="cb54-2"><a href="vectores-.html#cb54-2"></a>x1</span></code></pre></div>
+<pre><code>## [1] 2 2 2 2 2</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="vectores-.html#cb56-1"></a>x2&lt;-<span class="kw">rep</span>(<span class="st">&quot;Luis&quot;</span>,<span class="dv">10</span>)    <span class="co"># Para repetir &quot;Luis&quot; diez veces.</span></span>
+<span id="cb56-2"><a href="vectores-.html#cb56-2"></a>x2</span></code></pre></div>
+<pre><code>##  [1] &quot;Luis&quot; &quot;Luis&quot; &quot;Luis&quot; &quot;Luis&quot; &quot;Luis&quot; &quot;Luis&quot; &quot;Luis&quot; &quot;Luis&quot; &quot;Luis&quot; &quot;Luis&quot;</code></pre>
+<p>Este comando tambi?n puede repetir vectores. Para lo cual usa la siguiente sintaxis:</p>
+<p><code>rep("vector", "time" or "each")</code></p>
+<p>La condici?n <code>time</code> se usa cuando se quiere repetir el vector un n?mero determinado de veces y <code>each</code> cuando se requiere repetir los elementos del vector. A continuaci?n se muestran unos ejemplos (recordar que el vector x0 =1,2,3,4,5):</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="vectores-.html#cb58-1"></a><span class="co"># Repetir? el vector x0 tres veces.</span></span>
+<span id="cb58-2"><a href="vectores-.html#cb58-2"></a>r1&lt;-<span class="kw">rep</span>(x0, <span class="dt">time=</span><span class="dv">3</span>)</span>
+<span id="cb58-3"><a href="vectores-.html#cb58-3"></a>r1</span></code></pre></div>
+<pre><code>##  [1] 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="vectores-.html#cb60-1"></a><span class="co"># Repetir? los elementos del vector x0 dos veces.</span></span>
+<span id="cb60-2"><a href="vectores-.html#cb60-2"></a>r2&lt;-<span class="kw">rep</span>(x0, <span class="dt">each=</span><span class="dv">2</span>)</span>
+<span id="cb60-3"><a href="vectores-.html#cb60-3"></a>r2</span></code></pre></div>
+<pre><code>##  [1] 1 1 2 2 3 3 4 4 5 5</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="vectores-.html#cb62-1"></a><span class="co"># Repetir? los elementos del vector x0 tres veces y luego este nuevo vector dos veces.</span></span>
+<span id="cb62-2"><a href="vectores-.html#cb62-2"></a>r3&lt;-<span class="kw">rep</span>(x0, <span class="dt">each=</span><span class="dv">3</span>, <span class="dt">time=</span><span class="dv">2</span>)</span>
+<span id="cb62-3"><a href="vectores-.html#cb62-3"></a>r3</span></code></pre></div>
+<pre><code>##  [1] 1 1 1 2 2 2 3 3 3 4 4 4 5 5 5 1 1 1 2 2 2 3 3 3 4 4 4 5 5 5</code></pre>
+<p>Para repetir Arbitrariamente los elementos del vectos se usa el comando concatenar <code>c</code> y se indica la veces que se desea repetir cada elemento del vector. A continuaci?n un ejemplo:</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="vectores-.html#cb64-1"></a><span class="co"># Repetici?n arbitratia de elementos del vector.</span></span>
+<span id="cb64-2"><a href="vectores-.html#cb64-2"></a>r7&lt;-<span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">4</span>,<span class="dv">2</span>))</span>
+<span id="cb64-3"><a href="vectores-.html#cb64-3"></a>r7</span></code></pre></div>
+<pre><code>##  [1] 1 1 1 3 5 5 5 5 6 6</code></pre>
+<p>Se repite el elemento 1 tres veces, el elemento 2 cero veces, el elemento 3 una vez, el elemento 4 cero veces, el elemento 5 cuatro veces y el elemento 6 dos veces.</p>
+<p>Tambi?n se puede usar para repetir el vector y especificar una determinada dimension. La sintaxis para estos casos es el siguiente:</p>
+<p><code>rep("vector", "time" or "each", "length")</code></p>
+<p>Donde <code>length</code> es la dimensi?n deseada del vector.</p>
+<p>El siguiente es un ejemplo de este caso:</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="vectores-.html#cb66-1"></a><span class="co"># Repetir? los elementos del vector x0 dos veces. Pero la dimensi?n s?lo ser? de 5.</span></span>
+<span id="cb66-2"><a href="vectores-.html#cb66-2"></a>r5&lt;-<span class="kw">rep</span>(x0, <span class="dt">each=</span><span class="dv">2</span>, <span class="dt">length=</span><span class="dv">5</span>)</span>
+<span id="cb66-3"><a href="vectores-.html#cb66-3"></a>r5</span></code></pre></div>
+<pre><code>## [1] 1 1 2 2 3</code></pre>
+<p>Si no se hubiese puesto la condici?n <code>length</code> el vector tendr?a una dimensi?n de 10, pero como s? especific? que s?lo tenga una dimensi?n de 5. S?lo considero los elementos hasta llegar a una dimensi?n de 5.</p>
+<p>A continuaci?n se muestra un ejemplo m?s, con el fin de aclarar dudas:</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="vectores-.html#cb68-1"></a>r6&lt;-<span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">each=</span><span class="dv">5</span>, <span class="dt">length=</span><span class="dv">3</span>)</span>
+<span id="cb68-2"><a href="vectores-.html#cb68-2"></a>r6</span></code></pre></div>
+<pre><code>## [1] 1 1 1</code></pre>
+<p>Si no se hubiera puesto la condici?n <code>length</code> el vector r6 tendr?a una dimensi?n de 50, pero gracias a la consici?n <code>length</code> este s?lo cuenta con una dimensi?n de 3.</p>
+</div>
+<div id="comando-seq" class="section level4">
+<h4><span class="header-section-number">2.3.2.2</span> Comando seq()</h4>
+<p>Este comando tiene como fin que los elementos del vector aumenten o decrezcan en proporci?n a una raz?n aritm?tica. La sintaxis es la siguiente:</p>
+<p><code>seq("inicio", "final", by="raz?n")</code></p>
+<p>Donde <strong>inicio</strong> corresponde al n?mero con el que empezar? la progresi?n, <strong>final</strong> indica el ?ltimo n?mero de la progresi?n y por ?ltimo <code>by=</code> es el comando en donde se tendr? que indicar la raz?n aritm?tica. A continuaci?n se muestra un ejemplo:</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="vectores-.html#cb70-1"></a><span class="co"># La progresi?n ser? creciente, ya que se tiene que considerar al elemento inicial 1 y al elemento final el 20 o alg?n n?mero cercano a este (por la especificaci?n de la raz?n aritm?tica).</span></span>
+<span id="cb70-2"><a href="vectores-.html#cb70-2"></a></span>
+<span id="cb70-3"><a href="vectores-.html#cb70-3"></a>v1&lt;-<span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">20</span>, <span class="dt">by=</span><span class="dv">2</span>)</span>
+<span id="cb70-4"><a href="vectores-.html#cb70-4"></a>v1</span></code></pre></div>
+<pre><code>##  [1]  1  3  5  7  9 11 13 15 17 19</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="vectores-.html#cb72-1"></a><span class="co"># La progresi?n ser? decreciente, puesto que el n?mero inicial es 40 y el final el n?mero 3 o un n?mero cercano.</span></span>
+<span id="cb72-2"><a href="vectores-.html#cb72-2"></a></span>
+<span id="cb72-3"><a href="vectores-.html#cb72-3"></a>v2&lt;-<span class="kw">seq</span>(<span class="dv">40</span>, <span class="dv">3</span>, <span class="dt">by=</span><span class="op">-</span><span class="dv">4</span>)</span>
+<span id="cb72-4"><a href="vectores-.html#cb72-4"></a>v2</span></code></pre></div>
+<pre><code>##  [1] 40 36 32 28 24 20 16 12  8  4</code></pre>
+<p>Como se puede dar cuenta si el n?mero inicial es mayor que el n?mero final la raz?n tiene que ser negativa.</p>
+<p>Por ?ltimo, si deseamos tener una determinada dimensi?n y omitir la raz?n se considera la siguiente sintaxis:</p>
+<p><code>seq("inicio", "final", length.out="n")</code></p>
+<p>Donde <code>length.out</code> indica la dimensi?n del vector.</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="vectores-.html#cb74-1"></a><span class="co"># El vector empezar? de 1 y terminar? en 50 y tendr? una dimensi?n de 10.</span></span>
+<span id="cb74-2"><a href="vectores-.html#cb74-2"></a></span>
+<span id="cb74-3"><a href="vectores-.html#cb74-3"></a>v3&lt;-<span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">50</span>, <span class="dt">length.out=</span><span class="dv">10</span>)</span>
+<span id="cb74-4"><a href="vectores-.html#cb74-4"></a>v3</span></code></pre></div>
+<pre><code>##  [1]  1.000000  6.444444 11.888889 17.333333 22.777778 28.222222 33.666667
+##  [8] 39.111111 44.555556 50.000000</code></pre>
+</div>
+</div>
+</div>
+<div id="concatenar-vectores-con-elementos." class="section level2">
+<h2><span class="header-section-number">2.4</span> CONCATENAR VECTORES CON ELEMENTOS.</h2>
+<p>Para concatenar elementos, como se explic? antes, se usa el comando <code>c</code>, para esta secci?n tambi?n se usar? pero con el fin de agregar elementos a un vector definido.</p>
+<p>En el siguiente ejemplo se puede observar este procedimiento:</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="vectores-.html#cb76-1"></a><span class="co"># Se define el vector t2.</span></span>
+<span id="cb76-2"><a href="vectores-.html#cb76-2"></a></span>
+<span id="cb76-3"><a href="vectores-.html#cb76-3"></a>t2&lt;-<span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">20</span>, <span class="dt">by=</span><span class="dv">3</span>)</span>
+<span id="cb76-4"><a href="vectores-.html#cb76-4"></a>t2</span></code></pre></div>
+<pre><code>## [1]  1  4  7 10 13 16 19</code></pre>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="vectores-.html#cb78-1"></a><span class="co"># Ahora si se desea agragar un cero al inicio del vector t2.</span></span>
+<span id="cb78-2"><a href="vectores-.html#cb78-2"></a></span>
+<span id="cb78-3"><a href="vectores-.html#cb78-3"></a>t2&lt;-<span class="kw">c</span>(<span class="dv">0</span>,t2)</span>
+<span id="cb78-4"><a href="vectores-.html#cb78-4"></a>t2</span></code></pre></div>
+<pre><code>## [1]  0  1  4  7 10 13 16 19</code></pre>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="vectores-.html#cb80-1"></a><span class="co"># Por ?ltimo si se desea agregar dos elementos al final del vector.</span></span>
+<span id="cb80-2"><a href="vectores-.html#cb80-2"></a>t2&lt;-<span class="kw">c</span>(t2, <span class="dv">20</span>, <span class="dv">21</span>)</span>
+<span id="cb80-3"><a href="vectores-.html#cb80-3"></a>t2</span></code></pre></div>
+<pre><code>##  [1]  0  1  4  7 10 13 16 19 20 21</code></pre>
+<p>Esta forma es muy ?til cuando se usa los comando <code>seq()</code> y <code>rep)</code>.</p>
+<div id="concatenacin-manual-edicin-del-vector" class="section level3">
+<h3><span class="header-section-number">2.4.1</span> Concatenaci?n manual (Edici?n del Vector):</h3>
+<p>Por ?ltimo si se desea agregar o quitar elementos manualmente se tiene que usar el comando <code>fix()</code>. La sintaxis es la siguiente:</p>
+<p><code>fix("Vector")</code></p>
+<p>A continuaci?n se muestra un ejemplo:</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="vectores-.html#cb82-1"></a><span class="kw">fix</span>(t2)</span></code></pre></div>
+<p>En donde aparecer? un archivo <code>.txt</code> en donde puede agregar o borrar elementos. A continuaci?n se muestra el resultado:</p>
+<div class="figure">
+<img src="fix.png" title="Archivo txt donde editar" alt="" />
+<p class="caption">Archivo txt</p>
+</div>
+<p>Una vez terminada la edici?n hace clic en “Archivo” y luego en “Guardar” y su vector habr? sido editado.</p>
+<p>Si le quitamos el ?ltimo elemento, el resultado que nos quedar?a ser?a el siguiente:</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="vectores-.html#cb83-1"></a>t2</span></code></pre></div>
+<pre><code>##  [1]  0  1  4  7 10 13 16 19 20 21</code></pre>
+<p>En efecto, el ?ltimo elemento ha sido removido.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="r-como-calculadora-.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="a-caucus-race-and-a-long-tale.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/CesarAHN/R_para_economistas/edit/master/02-Vectores_en_R.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/CesarAHN/R_para_economistas/blob/master/02-Vectores_en_R.Rmd",
+"text": null
+},
+"download": ["bookdownproj.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
