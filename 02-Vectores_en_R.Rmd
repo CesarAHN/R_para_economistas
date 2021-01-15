@@ -370,6 +370,7 @@ En efecto, tenemos un vector de 4 elementos que parte desde 1 y termina en 10.
 Por último, veremos el caso en donde sólo especificamos el `from` pero no el `to` y ningún otro argumento adicional.
 
 R nos dice en la documentación de la función `seq()` que si sólo usamos el argumento `from` entonces devolverá una secuencia de números consecutivos desde el 1 hasta el número especificado en el from, es decir, `1:from`. El software incluso recomienda usar la función `seq_len()`[^2] en detrimento de `seq()` si se desea obtener estos resultados. 
+
 [^2]: En capítulos posteriores veremos como usar la función `seq_len()`, pero podemos adelantar que esta función es muy similar al operador `:`.
 
 > The fifth form generates the sequence 1, 2, ..., length(from) (as if argument along.with had been specified), unless the argument is numeric of length 1 when it is interpreted as 1:from (even for seq(0) for compatibility with S). Using either seq_along or seq_len is much preferred (unless strict S compatibility is essential).

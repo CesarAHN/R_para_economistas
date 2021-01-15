@@ -480,8 +480,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## [1]  1  4  7 10</code></pre>
 <p>En efecto, tenemos un vector de 4 elementos que parte desde 1 y termina en 10.</p>
 <p>Por último, veremos el caso en donde sólo especificamos el <code>from</code> pero no el <code>to</code> y ningún otro argumento adicional.</p>
-<p>R nos dice en la documentación de la función <code>seq()</code> que si sólo usamos el argumento <code>from</code> entonces devolverá una secuencia de números consecutivos desde el 1 hasta el número especificado en el from, es decir, <code>1:from</code>. El software incluso recomienda usar la función <code>seq_len()</code>[^2] en detrimento de <code>seq()</code> si se desea obtener estos resultados.
-[^2]: En capítulos posteriores veremos como usar la función <code>seq_len()</code>, pero podemos adelantar que esta función es muy similar al operador <code>:</code>.</p>
+<p>R nos dice en la documentación de la función <code>seq()</code> que si sólo usamos el argumento <code>from</code> entonces devolverá una secuencia de números consecutivos desde el 1 hasta el número especificado en el from, es decir, <code>1:from</code>. El software incluso recomienda usar la función <code>seq_len()</code><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> en detrimento de <code>seq()</code> si se desea obtener estos resultados.</p>
 <blockquote>
 <p>The fifth form generates the sequence 1, 2, …, length(from) (as if argument along.with had been specified), unless the argument is numeric of length 1 when it is interpreted as 1:from (even for seq(0) for compatibility with S). Using either seq_along or seq_len is much preferred (unless strict S compatibility is essential).</p>
 </blockquote>
@@ -532,6 +531,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <ol start="1">
 <li id="fn1"><p>En <strong>R</strong> los <code>...</code> indican que la función tiene disponible otros argumentos. Para saber cuales son estos argumentos podemos entrar a la documentación de la función. Por ejemplo si queremos ver cuales son esos argumentos de la función <code>rep()</code> digitaríamos en la consola <code>?rep</code> y damos enter.<a href="vectores-.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>En capítulos posteriores veremos como usar la función <code>seq_len()</code>, pero podemos adelantar que esta función es muy similar al operador <code>:</code>.<a href="vectores-.html#fnref2" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
