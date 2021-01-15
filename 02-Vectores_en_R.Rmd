@@ -135,128 +135,246 @@ v
 
 La jerarquía es la siguiente:
 
-**Character**>**Complex**>**Numeric**>**Integer**>**Logical**
+`Character>Complex>Numeric>Integer>Logical`
 
-## COMANDOS PARA CONSTRUIR VECTORES M?S EFICIENTEMENTE.
+Entonces, si quitamos el elemento caracter el vector debe de convertirse en un vector complejo. Veamos:
+
+```{r}
+v<- c(12, 2+1i, pi)
+is.integer(v); is.numeric(v); is.logical(v); is.character(v); is.complex(v)
+```
+
+En efecto, el vector es un vector **complejo**.
+
+## NÚMERO DE ELEMENTOS DE UN VECTOR. 
+Si deseamos conocer el número de elementos o dimensión o tamaño que tiene un vector. Nosotros usaremos la función `length()`. La cual nos permitirá conocer el número de elementos por los que está compuesto el vector. Veamos el siguiente ejemplo.
+
+```{r}
+# Definimos el vector.
+wasu<-c(1,3,54,6,3,4,2,4,6,9,87,8,4,5,3,2,2,3,4,5,6,4,5,6,7,7,7)
+wasu
+```
+
+Y si deseamos saber cuántos elementos tiene el vector `wasu` entonces:
+
+```{r}
+length(wasu)
+```
+El vector `wasu` tiene `r length(wasu)` elementos. 
+
+Veamos un ejemplo adicional. 
+
+```{r}
+length(c("Marcos","Rocio",12,12,12,3434,5656,788,5,4, TRUE,F))
+```
+
+El vector que acabamos de crear tiene `r length(c("Marcos","Rocio",12,12,12,3434,5656,788,5,4, TRUE,F))` elementos.
+
+## FUNCIONES PARA CONSTRUIR VECTORES MÁS EFICIENTEMENTE.
 
 ### Vectores de elementos consecutivos:
 
-Para poder construir un vector de n?meros consecutivos se necesitar? el comando `:`. A continuaci?n se muestra un ejemplo:
+Para poder construir un vector de números consecutivos se necesitará el operador `:`. Por ejemplo, si deseamos contruir la serie de números desde el 1 al 10, entonces la sintaxis sería la siguiente. 
 
-```{r consecu}
-x0<-1:5   # Vector que tiene como elementos desde el 1 al 5.
+```{r}
+# Vector que tiene como elementos desde el 1 al 10.
+x0<-1:10   
 x0
 ```
 
+Otro ejemplo sencillo, podría ser si deseamos generar números consecutivos desde el 20 al 45.
+
+```{r}
+# Vector que tiene elementos desde el 20 al 45.
+x1<-20:45
+x1
+```
+
+En efecto, se ha generado la serie de números consecutivos desde el 20 al 45. 
+
 ### Vectores con patrones:
 
-Tambi?n existen vectores en los que sus elementos siguen cierto patr?n:
+También existen vectores en donde los elementos siguen cierto patrón, como una secuencia aritmética o patrónes recurrentes. Veremos 2 funciones importntísimas para crear vectores los cuales son `rep()` y `seq()`.
 
-|COMANDO| GENERA|
+|FUNCIÓN| GENERA|
 |:-----:|:-----:|
-|**rep()**|Repite elementos del vector|
-|**seq()**|Elementos ordenados en progresi?n aritm?tica|
+|**rep()**|Repite elementos o vectores|
+|**seq()**|Elementos ordenados en progresión aritmética|
 
-#### Comando rep()
+Veamos algunos ejemplos de uso. 
 
-Este comando tiene la siguiente sintaxis:
+#### Función rep().
 
-`# rep("elemento", " # de veces")`
+Est función tiene la siguiente sintaxis:
 
-A continuaci?n se muestra unos ejemplos:
+`# rep(x, ...)`
 
-```{r rep1}
-x1<-rep(2,5)          # Para repetir 2 cinco veces.
-x1
+Donde:
 
-x2<-rep("Luis",10)    # Para repetir "Luis" diez veces.
-x2
+`x`: Es el elemento o vector que se desea repetir.
+
+`...`[^1]: Son otros argumentos como: `times`, `each` y `length.out`.
+
+[^1]: En **R** los `...` indican que la función tiene disponible otros argumentos. Para saber cuales son estos argumentos podemos entrar a la documentación de la función. Por ejemplo si queremos ver cuales son esos argumentos de la función `rep()` digitaríamos en la consola `?rep` y damos enter.
+
+Entonces, si deseamos construir un vector en donde se repita el `2` diez veces, podemos usar la siguiente sintaxis.
+
+```{r}
+# Para repetir el 2 diez veces.
+rep(x=2,times=10)          
 ```
-Este comando tambi?n puede repetir vectores. Para lo cual usa la siguiente sintaxis:
 
-`rep("vector", "time" or "each")`
+Con la sintaxis anterior le indicamos a **R** que el elemento `x=2` se repita `times=10` veces.
 
-La condici?n `time` se usa cuando se quiere repetir el vector un n?mero determinado de veces y `each` cuando se requiere repetir los elementos del vector. A continuaci?n se muestran unos ejemplos (recordar que el vector x0 =1,2,3,4,5):
+Veamos otro ejemplo en donde el elemento `Luis` se repita `8` veces.
+
+```{r}
+# Para repetir "Luis" ocho veces.
+rep("Luis",8)    
+```
+
+Usted habrá notado que en esta ocación he omitido colocar el nombre de los argumentos `x` y `times` dentro de la función. Esto se hace siempre y cuando se sepa el orden de los argumentos. Es así que sí sé que el primer argumento de la función `rep()` es el elemento o vector que se desea repetir, entonces podría omitir de la sintaxis la `x`. Esto es así porque el orden de los argumentos de la función `rep()` es el siguiente:
+
+`rep(x, times = 1, length.out = NA, each = 1)`
+
+Como se ve, el primer argumento es `x`, el segundo es `times`, el tercero es `length.out` y el cuarto es `each`. 
+
+Veamos una situación en donde se coloca en orden inverso los argumentos. Por ejemplo queremos repetir el `8` cuatro veces. 
+
+```{r}
+# Estamos inviertiendo el orden intencionalmente.
+rep(4, 8)
+```
+Resultó que se repitió el elemento `4` ocho veces. Y no resulta lo que teníamos pensado el `8` cuatro veces. 
+
+Entonces, podemos usar el orden inverso siempre y cuando coloquemos los nombres de los argumentos. Por ejemplo:
+
+```{r}
+rep(times=4, x=8)
+```
+
+En efecto, ahora si conseguimos lo que hemos estado buscando, que el `8` se repita cuatro veces. 
+
+Entonces, como conclusión, si deseamos omitir el nombre de los argumentos debemos de asignar valores en el orden que fueron definidos.
+
+Asimismo, otro detalle importante de las funciones es que los argumentos toman valores por defecto, por ejemplo el argumento `times` toma el valor de `1` que se representa `times=1`. Esto implica que si usted omite usar el argumento `times` en su sintaxis, `times` tomará el valor de `1`. Es decir, el elemento se repetirá 1 vez. Veamos el ejemplo.
+
+```{r}
+# Omitimos especificar el argumento times.
+rep(8)  
+```
+
+En efecto, el elemento `8` se ha repetido una vez, es decir, se mantiene el 8. 
+
+Es así que es muy importante conocer los valores que toman por defecto los argumentos de las funciones. Con el uso y el mayor expertiz que vaya ganando en el uso del software R, usted podrá omitir nombres de argumentos ya que sabrá la posición de estos. 
+
+Ahora veamos como podríamos hacer repetir vectores. 
+
+El argumento `times` se usa cuando se quiere repetir todo el vector un número determinado de veces y `each` cuando se requiere repetir los elementos del vector. A continuación se muestran unos ejemplos.
 
 ```{r rep2}
-# Repetir? el vector x0 tres veces.
-r1<-rep(x0, time=3)
-r1
+# Repetirir el vector 1,2,3,4,5 tres veces.
+rep(1:5, times=3)
 
-# Repetir? los elementos del vector x0 dos veces.
-r2<-rep(x0, each=2)
-r2
+# Repetirir los elementos del vector 1,2,3,4,5 tres veces.
+rep(1:5, each=3)
 
-# Repetir? los elementos del vector x0 tres veces y luego este nuevo vector dos veces.
-r3<-rep(x0, each=3, time=2)
-r3
+# Repetir los elementos del vector 1,2,3,4,5 tres veces y luego este nuevo vector dos veces.
+rep(x0, each=3, times=2)
 ```
 
-Para repetir Arbitrariamente los elementos del vectos se usa el comando concatenar `c` y se indica la veces que se desea repetir cada elemento del vector. A continuaci?n un ejemplo:
+Para repetir Arbitrariamente los elementos del vector se usa la función concatenar `c` y se indica la veces que se desea repetir cada elemento del vector. A continuación un ejemplo:
 
 ```{r rep3}
-# Repetici?n arbitratia de elementos del vector.
-r7<-rep(1:6, c(3,0,1,0,4,2))
-r7
+# Repetición arbitraria de elementos del vector 1,2,3,4,5,6
+rep(1:6, times=c(3,0,1,0,4,2))
 ```
-Se repite el elemento 1 tres veces, el elemento 2 cero veces, el elemento 3 una vez, el elemento 4 cero veces, el elemento 5 cuatro veces y el elemento 6 dos veces.
+Se repite el elemento 1 tres veces, el elemento 2 cero veces, el elemento 3 una vez, el elemento 4 cero veces, el elemento 5 cuatro veces y el elemento 6 dos veces. 
 
-Tambi?n se puede usar para repetir el vector y especificar una determinada dimension. La sintaxis para estos casos es el siguiente:
-
-`rep("vector", "time" or "each", "length")`
-
-Donde `length` es la dimensi?n deseada del vector.
+La función `rep()` también se puede usar para repetir el vector y especificar una determinada dimension. Con el argumento `length.out` podemos indicar la dimensión o tamaño deseado del vector.
 
 El siguiente es un ejemplo de este caso:
 
-```{r rep4}
-# Repetir? los elementos del vector x0 dos veces. Pero la dimensi?n s?lo ser? de 5.
-r5<-rep(x0, each=2, length=5)
-r5
+```{r}
+# Repetir los elementos del vector 1,2,3 dos veces. 
+# Pero la dimensión del vector resultante que sea de 5.
+rep(1:3, each=2, length.out=5)
 ```
-Si no se hubiese puesto la condici?n `length` el vector tendr?a una dimensi?n de 10, pero como s? especific? que s?lo tenga una dimensi?n de 5. S?lo considero los elementos hasta llegar a una dimensi?n de 5.
 
-A continuaci?n se muestra un ejemplo m?s, con el fin de aclarar dudas:
+Si no se hubiese especificado el argumento `length.out` el vector tendría una dimensión de 6, pero como se especificó que sólo tenga una dimensión de 5. Sólo considero los elementos hasta llegar a una dimensión o tamaño de 5.
 
-```{r rep5}
-r6<-rep(1:10, each=5, length=3)
-r6
+A continuación se muestra un ejemplo más, con el fin de aclarar dudas.
+
+```{r}
+rep(1:10, each=5, length.out=3)
 ```
-Si no se hubiera puesto la condici?n `length` el vector r6 tendr?a una dimensi?n de 50, pero gracias a la consici?n `length` este s?lo cuenta con una dimensi?n de 3.
+Si no se hubiera especificado el argumento `length.out` el vector tendría un tamaño de 50, pero gracias a la especificación de `length.out` este sólo cuenta con un tamaño de 3.
 
-#### Comando seq()
+#### Función seq().
 
-Este comando tiene como fin que los elementos del vector aumenten o decrezcan en proporci?n a una raz?n aritm?tica. La sintaxis es la siguiente:
+Esta función tiene como fin que los elementos del vector aumenten o decrezcan en proporción a una razón aritmética. La sintaxis es la siguiente:
 
-`seq("inicio", "final", by="raz?n")`
+`seq(from = 1, to = 1, by = ((to - from)/(length.out - 1)), length.out = NULL, along.with = NULL, ...)`
 
-Donde **inicio** corresponde al n?mero con el que empezar? la progresi?n, **final** indica el ?ltimo n?mero de la progresi?n y por ?ltimo `by=` es el comando en donde se tendr? que indicar la raz?n aritm?tica. A continuaci?n se muestra un ejemplo:
+Donde:  
+`from`: Corresponde al número con el que empezará la progresión.  
+`to`: Indica el último número de la progresión.  
+`by`: Indica la razón aritmética.  
+`length.out`: La dimensión que se desea que tenga el vector resultante.  
+`along.with`: Con este argumento se le indica que tome la dimensión de otro objeto.  
 
-```{r seq1}
-# La progresi?n ser? creciente, ya que se tiene que considerar al elemento inicial 1 y al elemento final el 20 o alg?n n?mero cercano a este (por la especificaci?n de la raz?n aritm?tica).
+Un detalle importante de la función `seq()` es que no se puede usar mmutuamente el argumento `by` y el `length.out`, es decir, no se puede usar los dos argumentos a la vez. Veremos ejemplos de aquello líneas mas abajo.
 
-v1<-seq(1, 20, by=2)
-v1
+Veamos un ejemplo, en donde se desea tener un vector que parta del 1 y termine en 21 y que aumente de 2 en 2.
 
-# La progresi?n ser? decreciente, puesto que el n?mero inicial es 40 y el final el n?mero 3 o un n?mero cercano.
-
-v2<-seq(40, 3, by=-4)
-v2
+```{r}
+seq(1, 21, by=2)
 ```
-Como se puede dar cuenta si el n?mero inicial es mayor que el n?mero final la raz?n tiene que ser negativa.
+En efecto tenemos el vector de número impares desde el 1 al 21.
 
-Por ?ltimo, si deseamos tener una determinada dimensi?n y omitir la raz?n se considera la siguiente sintaxis:
+Ahora veamos un caso donde la progresión tenga una razón aritmética negativa. Para este caso el `from` tiene que ser más grande que el `to` ya que la progresión es decreciente.
 
-`seq("inicio", "final", length.out="n")`
-
-Donde `length.out` indica la dimensi?n del vector.
-
-```{r seq2}
-# El vector empezar? de 1 y terminar? en 50 y tendr? una dimensi?n de 10.
-
-v3<-seq(1,50, length.out=10)
-v3
+```{r}
+seq(40, 3, by=-4)
 ```
+
+En efecto, tenemos los números del 40 al 4 que decrecen de 4 en 4. El último elemento no es el 3, ya que el 3 queda fuera de la progresión aritmética, es decir, el valor de 4 es el mínimo elemento que se puede obtener en esta serie si la razón decrece de 4 en 4. 
+
+Si deseamos tener una determinada dimensión y omitir la razón se tendrá que especificar el argumento `length.out`. Ya que con esto le indicamos a R que calcule la razón aritmética, ya que nosotros deseamos que la secuencia tenga un determinado número de elementos.
+
+A continuación veamos un ejemplo.
+
+```{r}
+# El vector empezará de 1 y terminará en 50
+# y tendrá una dimensión de 10.
+
+seq(1,50, length.out=10)
+```
+
+En efecto, al no asignarle la razón aritmética (`by`). El software ha calculado un `by` ya que nosotros le indicamos un tamaño específico.
+
+También podemos usar el tamaño de otros objetos para poder indicar en la función `seq()` la dimensión deseada. Para esto tenemos que usar el argumento `along.with`. 
+
+Veamos un ejemplo a continuación.
+
+```{r}
+# Definimos el vector a:
+a<-c(1,4,67,8)    # El vector a tiene 4 elementos. 
+
+# Entonces si queremos tener un vector de 4 elementos.
+seq(1,10, along.with = a)
+```
+
+En efecto, tenemos un vector de 4 elementos que parte desde 1 y termina en 10.
+
+Por último, veremos el caso en donde sólo especificamos el `from` pero no el `to` y ningún otro argumento adicional.
+
+R nos dice en la documentación de la función `seq()` que si sólo usamos el argumento `from` entonces devolverá una secuencia de números consecutivos desde el 1 hasta el número especificado en el from, es decir, `1:from`. El software incluso recomienda usar la función `seq_len()`[^2] en detrimento de `seq()` si se desea obtener estos resultados. 
+[^2]: En capítulos posteriores veremos como usar la función `seq_len()`, pero podemos adelantar que esta función es muy similar al operador `:`.
+
+> The fifth form generates the sequence 1, 2, ..., length(from) (as if argument along.with had been specified), unless the argument is numeric of length 1 when it is interpreted as 1:from (even for seq(0) for compatibility with S). Using either seq_along or seq_len is much preferred (unless strict S compatibility is essential).
+
+Para más detalle puede revisar la documentación de la función `?seq`.
 
 ## CONCATENAR VECTORES CON ELEMENTOS.
 
