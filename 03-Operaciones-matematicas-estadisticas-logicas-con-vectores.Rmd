@@ -228,7 +228,7 @@ Si deseamos calcular la media del vector `z`.
 mean(z)
 ```
 
-En efecto, nos arrojó como resultado `NA`. Entonces cuando tengamos elementos faltantes en nuestro vector, tendremos que usar el argumento `na.rm`. Este argumento es parte de todas las funciones que hemos desarrollado en este capítulo.
+En efecto, nos arrojó como resultado `NA`. Entonces cuando se tenga elementos faltantes en nuestro vector, tendremos que usar el argumento `na.rm`. Este argumento es parte de todas las funciones que hemos desarrollado en este capítulo.
 
 A continuación un ejemplo.
 
