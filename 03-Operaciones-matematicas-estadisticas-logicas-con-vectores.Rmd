@@ -1,0 +1,20 @@
+# OPERACIONES MATEMÁTICAS, ESTADÍSTICAS Y LÓGICAS CON R.
+
+En este capítulo se desarrollará operaciones matemáticas, estadísticas y lógicas con vectores. Para este capítulo es fundamental recordar lo que se desarrolló en el capítulo 1 llamado "R como calculadora".
+
+## OPERACIONES MATEMÁTICAS.
+
+En el siguiente tabla se mostrarán algunas operaciones que se pueden hacer con vectores en R.
+
+|OPERACIONES|SINTAXIS|
+|:---------:|:------:|
+|Adición|**+**|
+|Sustracción|**-**|
+|Producto Escalar|__\%\*\%__|
+|Producto de Elementos|__\*__|
+|Suma de elementos|**sum()**|
+|Producto|**prod()**|
+|Suma Acumulada|**cumsum()**|
+|Producto Acumulado|**cumprod()**|
+|Diferencias|**diff()**|
+

@@ -377,54 +377,52 @@ R nos dice en la documentación de la función `seq()` que si sólo usamos el ar
 
 Para más detalle puede revisar la documentación de la función `?seq`.
 
-## CONCATENAR VECTORES CON ELEMENTOS.
+## CONCATENAR ELEMENTOS Y VECTORES.
 
-Para concatenar elementos, como se explic? antes, se usa el comando `c`, para esta secci?n tambi?n se usar? pero con el fin de agregar elementos a un vector definido.
+Para concatenar elementos, como se explicó antes, se usa la función `c()`, asimismo, si deseamos concatenar vectores con elementos tambipen se usará `c()`.
 
 En el siguiente ejemplo se puede observar este procedimiento:
 
-```{r concatenar}
+```{r}
 # Se define el vector t2.
 
 t2<-seq(1, 20, by=3)
 t2
 
-# Ahora si se desea agragar un cero al inicio del vector t2.
+```
+Primero definimos el vector `t2`. Ahora, si deseamos agregar el número `0` como primer elemento del vector `t2`, lo haríamos de la siguiente manera. 
+
+```{r}
+# Agregando el cero al inicio del vector t2.
 
 t2<-c(0,t2)
 t2
 
-# Por ?ltimo si se desea agregar dos elementos al final del vector.
+```
+En efecto, se ha podido agregar el `0` al inicio del vector `t2`. Ahora si deseamos agregar dos elementos y estos que están al final del vector `t2`. Haríamos como sigue. 
+
+```{r}
+# Por último si se desea agregar dos elementos al final del vector.
 t2<-c(t2, 20, 21)
 t2
 ```
 
-Esta forma es muy ?til cuando se usa los comando `seq()` y `rep)`.
+Se ha agregado el `20` y `21` al final del vector `t2`. Entonces, si deseamos agregar elementos a un vector entonces usando la función `c()` podremos conseguir este objetivo.
 
-### Concatenaci?n manual (Edici?n del Vector):
+Como último caso, mostramos como concatenar dos vectores. 
 
-Por ?ltimo si se desea agregar o quitar elementos manualmente se tiene que usar el comando `fix()`. La sintaxis es la siguiente:
-
-`fix("Vector")`
-
-A continuaci?n se muestra un ejemplo:
-
-```{r fix}
-fix(t2)
+```{r}
+# Definimos 2 vectores. El vector "x" y "z"
+x<-c(1,4,6)
+z<-c(3,10,12)
 ```
-En donde aparecer? un archivo `.txt` en donde puede agregar o borrar elementos. A continuaci?n se muestra el resultado:
 
-![Archivo txt](fix.png "Archivo txt donde editar")
+Si deseamos concatenarlos tendremos que usar la función `c()`. 
 
-
-Una vez terminada la edici?n hace clic en "Archivo" y luego en "Guardar" y su vector habr? sido editado.
-
-Si le quitamos el ?ltimo elemento, el resultado que nos quedar?a ser?a el siguiente:
-
-```{r cosncyd}
-t2
+```{r}
+t3<-c(x,z)
+t3
 ```
-En efecto, el ?ltimo elemento ha sido removido. 
 
-
+En efecto, se han unido los dos vectores y se ha generado el vector `t3` que contiene a `x` y `z`. 
 

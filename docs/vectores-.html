@@ -24,7 +24,7 @@
 <meta name="author" content="César Anderson Huamaní Ninahuanca" />
 
 
-<meta name="date" content="2021-01-15" />
+<meta name="date" content="2021-01-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="r-como-calculadora-.html"/>
-<link rel="next" href="a-caucus-race-and-a-long-tale.html"/>
+<link rel="next" href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -155,11 +155,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.4.1" data-path="vectores-.html"><a href="vectores-.html#vectores-de-elementos-consecutivos"><i class="fa fa-check"></i><b>2.4.1</b> Vectores de elementos consecutivos:</a></li>
 <li class="chapter" data-level="2.4.2" data-path="vectores-.html"><a href="vectores-.html#vectores-con-patrones"><i class="fa fa-check"></i><b>2.4.2</b> Vectores con patrones:</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="vectores-.html"><a href="vectores-.html#concatenar-vectores-con-elementos."><i class="fa fa-check"></i><b>2.5</b> CONCATENAR VECTORES CON ELEMENTOS.</a><ul>
-<li class="chapter" data-level="2.5.1" data-path="vectores-.html"><a href="vectores-.html#concatenacin-manual-edicin-del-vector"><i class="fa fa-check"></i><b>2.5.1</b> Concatenaci?n manual (Edici?n del Vector):</a></li>
+<li class="chapter" data-level="2.5" data-path="vectores-.html"><a href="vectores-.html#concatenar-elementos-y-vectores."><i class="fa fa-check"></i><b>2.5</b> CONCATENAR ELEMENTOS Y VECTORES.</a></li>
 </ul></li>
+<li class="chapter" data-level="3" data-path="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html"><i class="fa fa-check"></i><b>3</b> OPERACIONES MATEMÁTICAS, ESTADÍSTICAS Y LÓGICAS CON R.</a><ul>
+<li class="chapter" data-level="3.1" data-path="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#operaciones-matemáticas."><i class="fa fa-check"></i><b>3.1</b> OPERACIONES MATEMÁTICAS.</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="a-caucus-race-and-a-long-tale.html"><a href="a-caucus-race-and-a-long-tale.html"><i class="fa fa-check"></i><b>3</b> A caucus-race and a long tale</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -488,43 +488,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<div id="concatenar-vectores-con-elementos." class="section level2">
-<h2><span class="header-section-number">2.5</span> CONCATENAR VECTORES CON ELEMENTOS.</h2>
-<p>Para concatenar elementos, como se explic? antes, se usa el comando <code>c</code>, para esta secci?n tambi?n se usar? pero con el fin de agregar elementos a un vector definido.</p>
+<div id="concatenar-elementos-y-vectores." class="section level2">
+<h2><span class="header-section-number">2.5</span> CONCATENAR ELEMENTOS Y VECTORES.</h2>
+<p>Para concatenar elementos, como se explicó antes, se usa la función <code>c()</code>, asimismo, si deseamos concatenar vectores con elementos tambipen se usará <code>c()</code>.</p>
 <p>En el siguiente ejemplo se puede observar este procedimiento:</p>
 <div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="vectores-.html#cb98-1"></a><span class="co"># Se define el vector t2.</span></span>
 <span id="cb98-2"><a href="vectores-.html#cb98-2"></a></span>
 <span id="cb98-3"><a href="vectores-.html#cb98-3"></a>t2&lt;-<span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">20</span>, <span class="dt">by=</span><span class="dv">3</span>)</span>
 <span id="cb98-4"><a href="vectores-.html#cb98-4"></a>t2</span></code></pre></div>
 <pre><code>## [1]  1  4  7 10 13 16 19</code></pre>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="vectores-.html#cb100-1"></a><span class="co"># Ahora si se desea agragar un cero al inicio del vector t2.</span></span>
+<p>Primero definimos el vector <code>t2</code>. Ahora, si deseamos agregar el número <code>0</code> como primer elemento del vector <code>t2</code>, lo haríamos de la siguiente manera.</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="vectores-.html#cb100-1"></a><span class="co"># Agregando el cero al inicio del vector t2.</span></span>
 <span id="cb100-2"><a href="vectores-.html#cb100-2"></a></span>
 <span id="cb100-3"><a href="vectores-.html#cb100-3"></a>t2&lt;-<span class="kw">c</span>(<span class="dv">0</span>,t2)</span>
 <span id="cb100-4"><a href="vectores-.html#cb100-4"></a>t2</span></code></pre></div>
 <pre><code>## [1]  0  1  4  7 10 13 16 19</code></pre>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="vectores-.html#cb102-1"></a><span class="co"># Por ?ltimo si se desea agregar dos elementos al final del vector.</span></span>
+<p>En efecto, se ha podido agregar el <code>0</code> al inicio del vector <code>t2</code>. Ahora si deseamos agregar dos elementos y estos que están al final del vector <code>t2</code>. Haríamos como sigue.</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="vectores-.html#cb102-1"></a><span class="co"># Por último si se desea agregar dos elementos al final del vector.</span></span>
 <span id="cb102-2"><a href="vectores-.html#cb102-2"></a>t2&lt;-<span class="kw">c</span>(t2, <span class="dv">20</span>, <span class="dv">21</span>)</span>
 <span id="cb102-3"><a href="vectores-.html#cb102-3"></a>t2</span></code></pre></div>
 <pre><code>##  [1]  0  1  4  7 10 13 16 19 20 21</code></pre>
-<p>Esta forma es muy ?til cuando se usa los comando <code>seq()</code> y <code>rep)</code>.</p>
-<div id="concatenacin-manual-edicin-del-vector" class="section level3">
-<h3><span class="header-section-number">2.5.1</span> Concatenaci?n manual (Edici?n del Vector):</h3>
-<p>Por ?ltimo si se desea agregar o quitar elementos manualmente se tiene que usar el comando <code>fix()</code>. La sintaxis es la siguiente:</p>
-<p><code>fix("Vector")</code></p>
-<p>A continuaci?n se muestra un ejemplo:</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="vectores-.html#cb104-1"></a><span class="kw">fix</span>(t2)</span></code></pre></div>
-<p>En donde aparecer? un archivo <code>.txt</code> en donde puede agregar o borrar elementos. A continuaci?n se muestra el resultado:</p>
-<div class="figure">
-<img src="fix.png" title="Archivo txt donde editar" alt="" />
-<p class="caption">Archivo txt</p>
-</div>
-<p>Una vez terminada la edici?n hace clic en “Archivo” y luego en “Guardar” y su vector habr? sido editado.</p>
-<p>Si le quitamos el ?ltimo elemento, el resultado que nos quedar?a ser?a el siguiente:</p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="vectores-.html#cb105-1"></a>t2</span></code></pre></div>
-<pre><code>##  [1]  0  1  4  7 10 13 16 19 20 21</code></pre>
-<p>En efecto, el ?ltimo elemento ha sido removido.</p>
+<p>Se ha agregado el <code>20</code> y <code>21</code> al final del vector <code>t2</code>. Entonces, si deseamos agregar elementos a un vector entonces usando la función <code>c()</code> podremos conseguir este objetivo.</p>
+<p>Como último caso, mostramos como concatenar dos vectores.</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="vectores-.html#cb104-1"></a><span class="co"># Definimos 2 vectores. El vector &quot;x&quot; y &quot;z&quot;</span></span>
+<span id="cb104-2"><a href="vectores-.html#cb104-2"></a>x&lt;-<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">6</span>)</span>
+<span id="cb104-3"><a href="vectores-.html#cb104-3"></a>z&lt;-<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">10</span>,<span class="dv">12</span>)</span></code></pre></div>
+<p>Si deseamos concatenarlos tendremos que usar la función <code>c()</code>.</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="vectores-.html#cb105-1"></a>t3&lt;-<span class="kw">c</span>(x,z)</span>
+<span id="cb105-2"><a href="vectores-.html#cb105-2"></a>t3</span></code></pre></div>
+<pre><code>## [1]  1  4  6  3 10 12</code></pre>
+<p>En efecto, se han unido los dos vectores y se ha generado el vector <code>t3</code> que contiene a <code>x</code> y <code>z</code>.</p>
 
-</div>
 </div>
 </div>
 <div class="footnotes">
@@ -540,7 +534,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="r-como-calculadora-.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="a-caucus-race-and-a-long-tale.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

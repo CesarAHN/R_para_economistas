@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</title>
+  <title>Chapter 3 OPERACIONES MATEMÁTICAS, ESTADÍSTICAS Y LÓGICAS CON R. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</title>
   <meta name="description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
+  <meta property="og:title" content="Chapter 3 OPERACIONES MATEMÁTICAS, ESTADÍSTICAS Y LÓGICAS CON R. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="CesarAHN/bookdown_intro" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
+  <meta name="twitter:title" content="Chapter 3 OPERACIONES MATEMÁTICAS, ESTADÍSTICAS Y LÓGICAS CON R. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
   
   <meta name="twitter:description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="vectores-.html"/>
 
-<link rel="next" href="r-como-calculadora-.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -115,27 +115,68 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</h1>
-<p class="author"><em>César Anderson Huamaní Ninahuanca</em></p>
-<p class="date"><em>2021-01-17</em></p>
-</div>
-<div id="prólogo" class="section level1 unnumbered">
-<h1>Prólogo</h1>
-<p>Este libro es una guía para los estudiantes y egresados de economía, así también como para las personas que desean aprender a manejar el software R con aplicaciones a la economía.</p>
-<p>Si tienes como objetivo desarrollarte profesionalmente en el análisis de datos, aprender R es fundamental. En el mercado actual las empresas requieren personas con conocimiento en softwares de programación que permitan tratar grandes cantidades de datos de manera versátil y eficientemente, es decir, programar funciones y tareas que disminuyan el uso de tiempo y recursos en su tratamiento. Al ser R un lenguaje orientado en objetos, cualquier problema que imagines se podrá sistematizar a través de la creación de algoritmos o funciones.</p>
-<p>R tiene enormes ventajas en relación a otras softwares usados por estudiantes y egresados de economía como: STATA, EVIEWS, SPSS y otros. R es muy versátil que puede desarrollar todos los procedimientos de los otros softwares, incluso más. En R puedes crear dashboards, páginas web, informes automatizados, scrapear páginas web, entre otras muchas más tareas.</p>
-<p>Asimismo, el libro nace como respuesta a las asimetrías de información entre los estudiantes y egresados de la capital y de provincias, el objetivo principal del libro es cerrar brechas educativas entre estudiantes o egresados de provincias con personas del mismo perfil que residen en la capital u otras regiones con estudios en universidades en donde se imparte cursos de programación en R.</p>
-<p>El libro consta de 20 capítulos: El capítulo 1, <strong>“R como calculadora”</strong> en donde se muestran las principales operaciones matemáticas y estadísticas, así también como una introducción a la creación de funciones lo que permitirá ver el enorme potencial del software; en el capítulo 2, <strong>“Vectores”</strong> se da a conocer las clases de vectores que existen en R, así también como las operaciones, lógicas, matemáticas y estadísticas entre vectores, por último se muestra como seleccionar elementos y subvectores; en el capítulo 3, <strong>“Listas y Factores”</strong> se muestra como crear listas y factores y su uso en temas posteriores; en el capítulo 4 <strong>“Matrices”</strong> se desarrolla como crear matrices y sus operaciones lógicas, matemáticas y estadísticas, así también como la selección de elementos y operaciones de cálculo matricial.</p>
+<div id="operaciones-matemáticas-estadísticas-y-lógicas-con-r." class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> OPERACIONES MATEMÁTICAS, ESTADÍSTICAS Y LÓGICAS CON R.</h1>
+<p>En este capítulo se desarrollará operaciones matemáticas, estadísticas y lógicas con vectores. Para este capítulo es fundamental recordar lo que se desarrolló en el capítulo 1 llamado “R como calculadora”.</p>
+<div id="operaciones-matemáticas." class="section level2">
+<h2><span class="header-section-number">3.1</span> OPERACIONES MATEMÁTICAS.</h2>
+<p>En el siguiente tabla se mostrarán algunas operaciones que se pueden hacer con vectores en R.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">OPERACIONES</th>
+<th align="center">SINTAXIS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Adición</td>
+<td align="center"><strong>+</strong></td>
+</tr>
+<tr class="even">
+<td align="center">Sustracción</td>
+<td align="center"><strong>-</strong></td>
+</tr>
+<tr class="odd">
+<td align="center">Producto Escalar</td>
+<td align="center"><strong>%*%</strong></td>
+</tr>
+<tr class="even">
+<td align="center">Producto de Elementos</td>
+<td align="center"><strong>*</strong></td>
+</tr>
+<tr class="odd">
+<td align="center">Suma de elementos</td>
+<td align="center"><strong>sum()</strong></td>
+</tr>
+<tr class="even">
+<td align="center">Producto</td>
+<td align="center"><strong>prod()</strong></td>
+</tr>
+<tr class="odd">
+<td align="center">Suma Acumulada</td>
+<td align="center"><strong>cumsum()</strong></td>
+</tr>
+<tr class="even">
+<td align="center">Producto Acumulado</td>
+<td align="center"><strong>cumprod()</strong></td>
+</tr>
+<tr class="odd">
+<td align="center">Diferencias</td>
+<td align="center"><strong>diff()</strong></td>
+</tr>
+</tbody>
+</table>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
+<a href="vectores-.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="r-como-calculadora-.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -166,7 +207,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/CesarAHN/R_para_economistas/edit/master/index.Rmd",
+"link": "https://github.com/CesarAHN/R_para_economistas/edit/master/03-Operaciones-matematicas-estadisticas-logicas-con-vectores.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -174,7 +215,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/CesarAHN/R_para_economistas/blob/master/index.Rmd",
+"link": "https://github.com/CesarAHN/R_para_economistas/blob/master/03-Operaciones-matematicas-estadisticas-logicas-con-vectores.Rmd",
 "text": null
 },
 "download": ["bookdownproj.pdf"],
