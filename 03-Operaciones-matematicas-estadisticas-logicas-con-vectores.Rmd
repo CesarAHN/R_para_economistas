@@ -18,3 +18,226 @@ En el siguiente tabla se mostrarán algunas operaciones que se pueden hacer con 
 |Producto Acumulado|**cumprod()**|
 |Diferencias|**diff()**|
 
+Para mostrar las operaciones primero se definirán 2 vectores que nos permitirán hacer los cálculos.
+
+```{r vec1}
+# Creamos el vector x
+x<-1:8
+x
+# Y el vector y
+y<-seq(3,27, length.out = 8)
+y
+```
+
+Si se toma en cuenta la adición, esta se dará entre los elementos de posiciones iguales. Es decir, se sumará elemento de la primera posición del vector `x` y el elemento de primera posición del vector `y`, y así sucesivamente. 
+
+Veamos como sería la suma del vector `x` y `y`.
+
+```{r}
+# Adición de vectores.
+x+y         
+```
+
+Para el caso de la sustracción es similar. Como se muestra en el siguiente ejemplo:
+
+```{r}
+# Sustracción de vectores.
+x-y            
+```
+
+EL producto escalar, como se sabe es la suma agregada del producto de cada elemento de posiciones iguales. Para poder determinarlo se usará la función `%*%`. 
+
+```{r}
+# Producto escalar.
+x%*%y        
+```
+
+El producto de elementos se da cuando se multiplica elementos de la misma posición:
+
+```{r}
+# Producto de Elementos.
+x*y           
+```
+
+Si deseamos sumar todos los elementos de un vector se tendrá que usar la función `sum()`. Veamos un ejemplo.
+
+```{r}
+# Suma de elementos del vector.
+sum(x)    
+```
+
+Con lo visto, otra forma de calcular el producto escalar es usando el producto de elementos y la suma de elementos. Veamos el método alternativo.
+
+```{r}
+sum(x*y)
+```
+En efecto, nos resulta lo mismo que si lo hubieras hecho con la función `%*%`.
+
+Ahora que ya conocemos como calcular algunas oeraciones matemáticas, podremos calcular algunas operaciones un poco más complejas como el cálculo de la norma o longitud del vector. Recordar que la norma de vector es: $Norma=\sqrt{x_1^2+x_2^2+x_3^2+...x_n^2}$
+
+Entonces, este procedimiento podremos hacerlo en R con la siguiente sintaxis. 
+```{r}
+sqrt(sum(x^2))
+```
+
+En el caso que se desee calcular el producto de todos los elemenos de un vector, se usará la función `prod()`.
+
+```{r}
+# El producto de todos los elementos de x.
+prod(x)        
+```
+
+Lo que se ha calculado aquí es la multiplicación de todos los elementos del vector `x`, es decir, 1 por 2 por 3 por 4 por 5 por 6 por 7 y por 8.
+
+Otra operación es la suma acumulada de elementos, para ello se usa la función `cumsum()`, lo que hace es sumar los dos primeros elemento; este resultado lo suma al tercer elemento y así sucesivamente.
+
+```{r}
+# Suma acumulada de elementos de x.
+cumsum(x)      
+```
+
+Como se puede observar, el último elemento de la suma acumulada es igual a la suma de todos los elementos, el resultado que se obtuvo con la función `sum()`.
+
+Similarmente el producto acumulado, se calculará con la función `cumprod()`
+
+```{r}
+# El producto acumulado de elementos de x.
+cumprod(x)
+```
+
+Para diferenciar elemento a elemento se usa la función `diff()`, que realiza la diferencia entre dos elementos contiguos.
+
+```{r}
+# Diferencias sucesivas de elementos de x.
+diff(x)
+```
+
+Como el vector **x** es una secuencia que aumenta de 1 en 1. Al aplicar esta función el resultado nos muestra que cada elemento del vector se diferencia en una unidad.
+
+## OPERACIONES ESTADÍSTICAS.
+
+A continuación se presentarán las funciones para realizar operaciones estadísticas con vectores.
+
+|OPERACIÓN|SINTAXIS|
+|:-------:|:------:|
+|Media|**mean()**|
+|Mediana|**median()**|
+|Máximo|**max()**|
+|Mínimo|**min()**|
+|Cuantiles|**quantile()**|
+|Coeficiente de Correlación|**cor()**|
+
+Todas las operaciones se harán respecto al vector `x`.
+
+Si se desea calcular la media aritmética o promedio de los elementos del vector, se tendrá que usar la función `mean()`, como sigue:
+
+```{r est1}
+# Cálculo de la media del vector x.
+mean(x)        
+```
+
+Asimismo, si deseamos calcular la mediana de un vector tenemos que usar la función `median()`. A continuación un ejemplo. 
+
+```{r}
+# Cálculo de la mediana del vector x.
+median(x) 
+```
+
+Para hallar el elemento de máximo valor se usará la función `max()`.
+```{r}
+# El elemento de valor máximo del vector x.
+max(x)        
+```
+
+Asimismo, para calcular el elemento de mínimo valor se usará la función `min()`
+
+```{r}
+# El elemento de valor mínimo del vector x.
+min(x)
+```
+
+Ahora una de las operaciones más importantes es poder calcular los percentiles de un vector, para esto se usará la función `quantile()`. 
+
+```{r est4.4}
+quantile(x)
+```
+
+R por defecto, nos arroja los resultados para los cuartiles. Es así que podemos ver que se tiene información para el 25%, 50%, 75% y 100%.
+
+Pero si deseamos obtener los quintiles, entonces podemos hacer uso del argumento `probs` de la función `quantile()`. De la siguiente manera.
+
+```{r}
+quantile(x, probs = c(0,.2,.4,.6,.8,1))
+```
+
+En efecto, ahora tenemos información para los quintiles: 20%, 40%, 60%, 80% y 100%.
+
+Entonces, si usted desea calcular los deciles, colocaría en `probs=c(0, .1, .2, .3, .4, .5, .6, .7, .8, .9, 1)`, y si quiere calcular los ventiles la serie sería `0`, `.05`, `.1`, `.15` y así susecivamente hasta el `1`. Usted se habrá podido dar cuenta que esto es muy tedioso y que debe de haber una forma más rápida y sencilla. 
+
+En realidad, sí. Usted que ha leído el capítulo 2 sabrá con que función solucionar este pequeño problema. En efecto, es la función `seq()`.
+
+Entonces, si queremos calcular los quintiles usando la función `seq()`, será de la siguiente manera.
+
+```{r}
+quantile(x, probs = seq(0,1, by=0.2))
+```
+
+Y si desea calcular los deciles y los ventiles.
+
+```{r}
+# Para calcular los deciles.
+quantile(x, probs = seq(0,1, by=0.1))
+
+# Para calcular los ventile.
+quantile(x, probs = seq(0,1, by=0.05))
+```
+
+En efecto, hemos calculado los deciles y ventiles[^1] sin escribir tanto código.
+
+[^1]: Aquí vemos un claro ejemplo en donde usar lo aprendido en capítulos anteriores. A lo largo del libro usted se dará cuenta que todo lo aprendido será aplicado en capítulos más avanzados. 
+
+Por último, si deseamos calcular el coeficiente de corrrelación entre dos vectores, usaremos la función `cor()`.
+
+```{r}
+# El coeficiente de correlación entre "x" y "y".
+cor(x,y)
+```
+
+La función `cor()` calcula por defecto el coeficiente de correlación de pearson. Pero si usted desea calcularlo con otro método, tendrá que usar el argumento `method`. R nos da la posibilidad de poder calcular el coeficiente de correlación de Kendall y el de spearman, adicionalmente, al de Pearson que viene por defecto.
+
+Es así que si usted desea calcular el coeficiente de correlación de spearman. Tendría que usar la siguiente sintaxis. 
+
+```{r}
+cor(x,y, method = "spearman")
+```
+
+### ¿CÓMO TRABAJAR CON MISSING O ELEMENTOS FALTANTES (NA)?  
+Hasta ahora hemos visto que nuestros datos están completos, pero en el día a día la mayoría de veces no se cuenta con la totalidad de los datos y se tiene **missing values** o mejor conocidos como valores faltantes. En R, a estos valores faltantes se les conoce como `NA` (not available). 
+
+Si se tiene `NA` en un vector, entonces, las funciones que hemos utilizado para hacer cálculos matemáticos y estadísticos arrojarán como resultado `NA`. Veamos un ejemplo para que quede claro. 
+
+```{r}
+# Definimos el vector z.
+z<-c(1,4,NA,6,10)
+z
+```
+
+Si deseamos calcular la media del vector `z`.
+
+```{r}
+mean(z)
+```
+
+En efecto, nos arrojó como resultado `NA`. Entonces cuando tengamos elementos faltantes en nuestro vector, tendremos que usar el argumento `na.rm`. Este argumento es parte de todas las funciones que hemos desarrollado en este capítulo.
+
+A continuación un ejemplo.
+
+```{r}
+mean(x, na.rm = TRUE)
+```
+
+Hemos podido solucionar el problema de los elementos faltantes. Es así que si usted tiene valores faltantes y desea obtener el cálculo de los estadísticos sin tener en consideración a éstos, tiene que usar el argumento `na.rm=TRUE`. 
+
+
+
+

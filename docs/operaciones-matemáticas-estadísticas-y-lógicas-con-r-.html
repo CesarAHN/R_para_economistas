@@ -52,6 +52,70 @@
 
 
 
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -95,6 +159,9 @@
 </ul></li>
 <li class="chapter" data-level="3" data-path="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html"><i class="fa fa-check"></i><b>3</b> OPERACIONES MATEMÁTICAS, ESTADÍSTICAS Y LÓGICAS CON R.</a><ul>
 <li class="chapter" data-level="3.1" data-path="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#operaciones-matemáticas."><i class="fa fa-check"></i><b>3.1</b> OPERACIONES MATEMÁTICAS.</a></li>
+<li class="chapter" data-level="3.2" data-path="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#operaciones-estadísticas."><i class="fa fa-check"></i><b>3.2</b> OPERACIONES ESTADÍSTICAS.</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cómo-trabajar-con-missing-o-elementos-faltantes-na"><i class="fa fa-check"></i><b>3.2.1</b> ¿CÓMO TRABAJAR CON MISSING O ELEMENTOS FALTANTES (NA)?</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -167,8 +234,190 @@
 </tr>
 </tbody>
 </table>
+<p>Para mostrar las operaciones primero se definirán 2 vectores que nos permitirán hacer los cálculos.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb1-1"></a><span class="co"># Creamos el vector x</span></span>
+<span id="cb1-2"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb1-2"></a>x&lt;-<span class="dv">1</span><span class="op">:</span><span class="dv">8</span></span>
+<span id="cb1-3"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb1-3"></a>x</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4 5 6 7 8</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb3-1"></a><span class="co"># Y el vector y</span></span>
+<span id="cb3-2"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb3-2"></a>y&lt;-<span class="kw">seq</span>(<span class="dv">3</span>,<span class="dv">27</span>, <span class="dt">length.out =</span> <span class="dv">8</span>)</span>
+<span id="cb3-3"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb3-3"></a>y</span></code></pre></div>
+<pre><code>## [1]  3.000000  6.428571  9.857143 13.285714 16.714286 20.142857 23.571429
+## [8] 27.000000</code></pre>
+<p>Si se toma en cuenta la adición, esta se dará entre los elementos de posiciones iguales. Es decir, se sumará elemento de la primera posición del vector <code>x</code> y el elemento de primera posición del vector <code>y</code>, y así sucesivamente.</p>
+<p>Veamos como sería la suma del vector <code>x</code> y <code>y</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb5-1"></a><span class="co"># Adición de vectores.</span></span>
+<span id="cb5-2"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb5-2"></a>x<span class="op">+</span>y         </span></code></pre></div>
+<pre><code>## [1]  4.000000  8.428571 12.857143 17.285714 21.714286 26.142857 30.571429
+## [8] 35.000000</code></pre>
+<p>Para el caso de la sustracción es similar. Como se muestra en el siguiente ejemplo:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb7-1"></a><span class="co"># Sustracción de vectores.</span></span>
+<span id="cb7-2"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb7-2"></a>x<span class="op">-</span>y            </span></code></pre></div>
+<pre><code>## [1]  -2.000000  -4.428571  -6.857143  -9.285714 -11.714286 -14.142857 -16.571429
+## [8] -19.000000</code></pre>
+<p>EL producto escalar, como se sabe es la suma agregada del producto de cada elemento de posiciones iguales. Para poder determinarlo se usará la función <code>%*%</code>.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb9-1"></a><span class="co"># Producto escalar.</span></span>
+<span id="cb9-2"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb9-2"></a>x<span class="op">%*%</span>y        </span></code></pre></div>
+<pre><code>##      [,1]
+## [1,]  684</code></pre>
+<p>El producto de elementos se da cuando se multiplica elementos de la misma posición:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb11-1"></a><span class="co"># Producto de Elementos.</span></span>
+<span id="cb11-2"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb11-2"></a>x<span class="op">*</span>y           </span></code></pre></div>
+<pre><code>## [1]   3.00000  12.85714  29.57143  53.14286  83.57143 120.85714 165.00000
+## [8] 216.00000</code></pre>
+<p>Si deseamos sumar todos los elementos de un vector se tendrá que usar la función <code>sum()</code>. Veamos un ejemplo.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb13-1"></a><span class="co"># Suma de elementos del vector.</span></span>
+<span id="cb13-2"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb13-2"></a><span class="kw">sum</span>(x)    </span></code></pre></div>
+<pre><code>## [1] 36</code></pre>
+<p>Con lo visto, otra forma de calcular el producto escalar es usando el producto de elementos y la suma de elementos. Veamos el método alternativo.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb15-1"></a><span class="kw">sum</span>(x<span class="op">*</span>y)</span></code></pre></div>
+<pre><code>## [1] 684</code></pre>
+<p>En efecto, nos resulta lo mismo que si lo hubieras hecho con la función <code>%*%</code>.</p>
+<p>Ahora que ya conocemos como calcular algunas oeraciones matemáticas, podremos calcular algunas operaciones un poco más complejas como el cálculo de la norma o longitud del vector. Recordar que la norma de vector es: <span class="math inline">\(Norma=\sqrt{x_1^2+x_2^2+x_3^2+...x_n^2}\)</span></p>
+<p>Entonces, este procedimiento podremos hacerlo en R con la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb17-1"></a><span class="kw">sqrt</span>(<span class="kw">sum</span>(x<span class="op">^</span><span class="dv">2</span>))</span></code></pre></div>
+<pre><code>## [1] 14.28286</code></pre>
+<p>En el caso que se desee calcular el producto de todos los elemenos de un vector, se usará la función <code>prod()</code>.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb19-1"></a><span class="co"># El producto de todos los elementos de x.</span></span>
+<span id="cb19-2"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb19-2"></a><span class="kw">prod</span>(x)        </span></code></pre></div>
+<pre><code>## [1] 40320</code></pre>
+<p>Lo que se ha calculado aquí es la multiplicación de todos los elementos del vector <code>x</code>, es decir, 1 por 2 por 3 por 4 por 5 por 6 por 7 y por 8.</p>
+<p>Otra operación es la suma acumulada de elementos, para ello se usa la función <code>cumsum()</code>, lo que hace es sumar los dos primeros elemento; este resultado lo suma al tercer elemento y así sucesivamente.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb21-1"></a><span class="co"># Suma acumulada de elementos de x.</span></span>
+<span id="cb21-2"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb21-2"></a><span class="kw">cumsum</span>(x)      </span></code></pre></div>
+<pre><code>## [1]  1  3  6 10 15 21 28 36</code></pre>
+<p>Como se puede observar, el último elemento de la suma acumulada es igual a la suma de todos los elementos, el resultado que se obtuvo con la función <code>sum()</code>.</p>
+<p>Similarmente el producto acumulado, se calculará con la función <code>cumprod()</code></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb23-1"></a><span class="co"># El producto acumulado de elementos de x.</span></span>
+<span id="cb23-2"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb23-2"></a><span class="kw">cumprod</span>(x)</span></code></pre></div>
+<pre><code>## [1]     1     2     6    24   120   720  5040 40320</code></pre>
+<p>Para diferenciar elemento a elemento se usa la función <code>diff()</code>, que realiza la diferencia entre dos elementos contiguos.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb25-1"></a><span class="co"># Diferencias sucesivas de elementos de x.</span></span>
+<span id="cb25-2"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb25-2"></a><span class="kw">diff</span>(x)</span></code></pre></div>
+<pre><code>## [1] 1 1 1 1 1 1 1</code></pre>
+<p>Como el vector <strong>x</strong> es una secuencia que aumenta de 1 en 1. Al aplicar esta función el resultado nos muestra que cada elemento del vector se diferencia en una unidad.</p>
+</div>
+<div id="operaciones-estadísticas." class="section level2">
+<h2><span class="header-section-number">3.2</span> OPERACIONES ESTADÍSTICAS.</h2>
+<p>A continuación se presentarán las funciones para realizar operaciones estadísticas con vectores.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">OPERACIÓN</th>
+<th align="center">SINTAXIS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Media</td>
+<td align="center"><strong>mean()</strong></td>
+</tr>
+<tr class="even">
+<td align="center">Mediana</td>
+<td align="center"><strong>median()</strong></td>
+</tr>
+<tr class="odd">
+<td align="center">Máximo</td>
+<td align="center"><strong>max()</strong></td>
+</tr>
+<tr class="even">
+<td align="center">Mínimo</td>
+<td align="center"><strong>min()</strong></td>
+</tr>
+<tr class="odd">
+<td align="center">Cuantiles</td>
+<td align="center"><strong>quantile()</strong></td>
+</tr>
+<tr class="even">
+<td align="center">Coeficiente de Correlación</td>
+<td align="center"><strong>cor()</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Todas las operaciones se harán respecto al vector <code>x</code>.</p>
+<p>Si se desea calcular la media aritmética o promedio de los elementos del vector, se tendrá que usar la función <code>mean()</code>, como sigue:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb27-1"></a><span class="co"># Cálculo de la media del vector x.</span></span>
+<span id="cb27-2"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb27-2"></a><span class="kw">mean</span>(x)        </span></code></pre></div>
+<pre><code>## [1] 4.5</code></pre>
+<p>Asimismo, si deseamos calcular la mediana de un vector tenemos que usar la función <code>median()</code>. A continuación un ejemplo.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb29-1"></a><span class="co"># Cálculo de la mediana del vector x.</span></span>
+<span id="cb29-2"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb29-2"></a><span class="kw">median</span>(x) </span></code></pre></div>
+<pre><code>## [1] 4.5</code></pre>
+<p>Para hallar el elemento de máximo valor se usará la función <code>max()</code>.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb31-1"></a><span class="co"># El elemento de valor máximo del vector x.</span></span>
+<span id="cb31-2"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb31-2"></a><span class="kw">max</span>(x)        </span></code></pre></div>
+<pre><code>## [1] 8</code></pre>
+<p>Asimismo, para calcular el elemento de mínimo valor se usará la función <code>min()</code></p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb33-1"></a><span class="co"># El elemento de valor mínimo del vector x.</span></span>
+<span id="cb33-2"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb33-2"></a><span class="kw">min</span>(x)</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>Ahora una de las operaciones más importantes es poder calcular los percentiles de un vector, para esto se usará la función <code>quantile()</code>.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb35-1"></a><span class="kw">quantile</span>(x)</span></code></pre></div>
+<pre><code>##   0%  25%  50%  75% 100% 
+## 1.00 2.75 4.50 6.25 8.00</code></pre>
+<p>R por defecto, nos arroja los resultados para los cuartiles. Es así que podemos ver que se tiene información para el 25%, 50%, 75% y 100%.</p>
+<p>Pero si deseamos obtener los quintiles, entonces podemos hacer uso del argumento <code>probs</code> de la función <code>quantile()</code>. De la siguiente manera.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb37-1"></a><span class="kw">quantile</span>(x, <span class="dt">probs =</span> <span class="kw">c</span>(<span class="dv">0</span>,.<span class="dv">2</span>,.<span class="dv">4</span>,.<span class="dv">6</span>,.<span class="dv">8</span>,<span class="dv">1</span>))</span></code></pre></div>
+<pre><code>##   0%  20%  40%  60%  80% 100% 
+##  1.0  2.4  3.8  5.2  6.6  8.0</code></pre>
+<p>En efecto, ahora tenemos información para los quintiles: 20%, 40%, 60%, 80% y 100%.</p>
+<p>Entonces, si usted desea calcular los deciles, colocaría en <code>probs=c(0, .1, .2, .3, .4, .5, .6, .7, .8, .9, 1)</code>, y si quiere calcular los ventiles la serie sería <code>0</code>, <code>.05</code>, <code>.1</code>, <code>.15</code> y así susecivamente hasta el <code>1</code>. Usted se habrá podido dar cuenta que esto es muy tedioso y que debe de haber una forma más rápida y sencilla.</p>
+<p>En realidad, sí. Usted que ha leído el capítulo 2 sabrá con que función solucionar este pequeño problema. En efecto, es la función <code>seq()</code>.</p>
+<p>Entonces, si queremos calcular los quintiles usando la función <code>seq()</code>, será de la siguiente manera.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb39-1"></a><span class="kw">quantile</span>(x, <span class="dt">probs =</span> <span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>, <span class="dt">by=</span><span class="fl">0.2</span>))</span></code></pre></div>
+<pre><code>##   0%  20%  40%  60%  80% 100% 
+##  1.0  2.4  3.8  5.2  6.6  8.0</code></pre>
+<p>Y si desea calcular los deciles y los ventiles.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb41-1"></a><span class="co"># Para calcular los deciles.</span></span>
+<span id="cb41-2"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb41-2"></a><span class="kw">quantile</span>(x, <span class="dt">probs =</span> <span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>, <span class="dt">by=</span><span class="fl">0.1</span>))</span></code></pre></div>
+<pre><code>##   0%  10%  20%  30%  40%  50%  60%  70%  80%  90% 100% 
+##  1.0  1.7  2.4  3.1  3.8  4.5  5.2  5.9  6.6  7.3  8.0</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb43-1"></a><span class="co"># Para calcular los ventile.</span></span>
+<span id="cb43-2"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb43-2"></a><span class="kw">quantile</span>(x, <span class="dt">probs =</span> <span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>, <span class="dt">by=</span><span class="fl">0.05</span>))</span></code></pre></div>
+<pre><code>##   0%   5%  10%  15%  20%  25%  30%  35%  40%  45%  50%  55%  60%  65%  70%  75% 
+## 1.00 1.35 1.70 2.05 2.40 2.75 3.10 3.45 3.80 4.15 4.50 4.85 5.20 5.55 5.90 6.25 
+##  80%  85%  90%  95% 100% 
+## 6.60 6.95 7.30 7.65 8.00</code></pre>
+<p>En efecto, hemos calculado los deciles y ventiles<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> sin escribir tanto código.</p>
+<p>Por último, si deseamos calcular el coeficiente de corrrelación entre dos vectores, usaremos la función <code>cor()</code>.</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb45-1"></a><span class="co"># El coeficiente de correlación entre &quot;x&quot; y &quot;y&quot;.</span></span>
+<span id="cb45-2"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb45-2"></a><span class="kw">cor</span>(x,y)</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>La función <code>cor()</code> calcula por defecto el coeficiente de correlación de pearson. Pero si usted desea calcularlo con otro método, tendrá que usar el argumento <code>method</code>. R nos da la posibilidad de poder calcular el coeficiente de correlación de Kendall y el de spearman, adicionalmente, al de Pearson que viene por defecto.</p>
+<p>Es así que si usted desea calcular el coeficiente de correlación de spearman. Tendría que usar la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb47-1"></a><span class="kw">cor</span>(x,y, <span class="dt">method =</span> <span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div id="cómo-trabajar-con-missing-o-elementos-faltantes-na" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> ¿CÓMO TRABAJAR CON MISSING O ELEMENTOS FALTANTES (NA)?</h3>
+<p>Hasta ahora hemos visto que nuestros datos están completos, pero en el día a día la mayoría de veces no se cuenta con la totalidad de los datos y se tiene <strong>missing values</strong> o mejor conocidos como valores faltantes. En R, a estos valores faltantes se les conoce como <code>NA</code> (not available).</p>
+<p>Si se tiene <code>NA</code> en un vector, entonces, las funciones que hemos utilizado para hacer cálculos matemáticos y estadísticos arrojarán como resultado <code>NA</code>. Veamos un ejemplo para que quede claro.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb49-1"></a><span class="co"># Definimos el vector z.</span></span>
+<span id="cb49-2"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb49-2"></a>z&lt;-<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="ot">NA</span>,<span class="dv">6</span>,<span class="dv">10</span>)</span>
+<span id="cb49-3"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb49-3"></a>z</span></code></pre></div>
+<pre><code>## [1]  1  4 NA  6 10</code></pre>
+<p>Si deseamos calcular la media del vector <code>z</code>.</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb51-1"></a><span class="kw">mean</span>(z)</span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<p>En efecto, nos arrojó como resultado <code>NA</code>. Entonces cuando tengamos elementos faltantes en nuestro vector, tendremos que usar el argumento <code>na.rm</code>. Este argumento es parte de todas las funciones que hemos desarrollado en este capítulo.</p>
+<p>A continuación un ejemplo.</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#cb53-1"></a><span class="kw">mean</span>(x, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 4.5</code></pre>
+<p>Hemos podido solucionar el problema de los elementos faltantes. Es así que si usted tiene valores faltantes y desea obtener el cálculo de los estadísticos sin tener en consideración a éstos, tiene que usar el argumento <code>na.rm=TRUE</code>.</p>
 
 </div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Aquí vemos un claro ejemplo en donde usar lo aprendido en capítulos anteriores. A lo largo del libro usted se dará cuenta que todo lo aprendido será aplicado en capítulos más avanzados.<a href="operaciones-matemáticas-estadísticas-y-lógicas-con-r-.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 
@@ -226,6 +475,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

@@ -402,7 +402,7 @@ t2
 En efecto, se ha podido agregar el `0` al inicio del vector `t2`. Ahora si deseamos agregar dos elementos y estos que están al final del vector `t2`. Haríamos como sigue. 
 
 ```{r}
-# Por último si se desea agregar dos elementos al final del vector.
+# Si se desea agregar dos elementos al final del vector.
 t2<-c(t2, 20, 21)
 t2
 ```
