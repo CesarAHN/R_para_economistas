@@ -1,6 +1,6 @@
-# OPERACIONES MATEMÁTICAS, ESTADÍSTICAS Y LÓGICAS CON R.
+# OPERACIONES MATEMÁTICAS Y  ESTADÍSTICAS CON VECTORES.
 
-En este capítulo se desarrollará operaciones matemáticas, estadísticas y lógicas con vectores. Para este capítulo es fundamental recordar lo que se desarrolló en el capítulo 1 llamado "R como calculadora".
+En este capítulo se desarrollará operaciones matemáticas y estadísticas con vectores. Para este capítulo es fundamental recordar lo que se desarrolló en el capítulo 1 llamado "R como calculadora".
 
 ## OPERACIONES MATEMÁTICAS.
 
@@ -236,7 +236,77 @@ A continuación un ejemplo.
 mean(x, na.rm = TRUE)
 ```
 
-Hemos podido solucionar el problema de los elementos faltantes. Es así que si usted tiene valores faltantes y desea obtener el cálculo de los estadísticos sin tener en consideración a éstos, tiene que usar el argumento `na.rm=TRUE`. 
+Hemos podido solucionar el problema de los elementos faltantes. 
+
+Es así que si usted tiene valores faltantes y desea obtener el cálculo de los estadísticos sin tener en consideración a éstos, tiene que usar el argumento `na.rm=TRUE`. 
+ 
+### ¿CÓMO ORDENAR ELEMENTOS DE LOS VECTORES?
+
+En este apartado se verá cómo ordenar los elementos de los vectores con las funciones `sort()` y `rev()`[^2]. La función `sort()` permite ordenar elementos de manera decreciente o creciente, mientras que la función `rev()` permite obtener el vector en orden inverso. 
+
+Veamos los argumentos de la función `sort()`:
+
+`sort(x, decreasing=FALSE, ...)`
+
+Donde:  
+`x`: Es un objeto vector de clase numérico, complejo, caracter o lógico.
+`decreasing`: Es un argumento lógico en donde si toma el valor de `TRUE` entonces los elementos del vector son ordenados de manera decreciente. Su valor por defecto es `FALSE`.
+`...`: Otros argumentos.
+
+[^2]: Existen otrs funciones para ordenar elementos como `order()` o `arrange()`, pero estos se usan en objetos data frame. Que se verá en los siguientes capítulos.
+
+Para más detalles veamos un ejemplo:
+
+```{r}
+# Creamos el vector x.
+x<-c(3,5,3,2,1,4,8,9,7,10,13,1,6)
+x
+```
+
+Podemos ver que el vector `x` que acabamos de crear tiene los elementos desordenados. Así que si queremos ordenarlos de forma creciente, usaremos la función sort. 
+
+```{r}
+# Ordenando de manera creciente.
+sort(x)
+```
+
+En efecto, se ha ordenado los elementos del vector `x` de forma creciente. Como puede ver, no hemos usado el argumento `decreasing`, ya que queremos ordenarlo de forma creciente. 
+
+Si queremos ordenarlo de forma decreciente, sí tendremos que usaar el argumento `decreasing`
+
+```{r}
+sort(x, decreasing = TRUE)
+```
+
+El vector `x` ha sido ordenado de forma creciente. 
+
+Ahora, si deseamos ordenar los elementos del vector en orden inverso, tendremos que usar la función `rev()`. Veamos su sintaxis. 
+
+`rev(x)`
+
+Donde:  
+`x`: Es un vector u otro objeto que pueda ser definido inversamente. 
+
+Por ejemplo, si nosotros queremos ordenar el vector x de forma decreciente, una vez que ya se ordenó de manera creciente.
+
+```{r}
+# Ordenando el vector x de manera creciente.
+x_cre<-sort(x)
+x_cre
+```
+
+Hemos definido al vector `x_cre` con el vector ordenado crecientemente del vector `x`. Ahora le aplicamos la función `rev()` para que se ordene de forma inversa (decrecientemente).
+
+```{r}
+# Ordenando inversamente el vector x_cre
+rev(x_cre)
+```
+
+En efecto, el vector `x_cre` ha sido ordenado de forma inversa. 
+
+
+
+
 
 
 
