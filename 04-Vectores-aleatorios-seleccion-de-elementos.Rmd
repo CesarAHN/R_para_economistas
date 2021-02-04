@@ -136,7 +136,9 @@ Si sacamos la esperanza matemática de este experimento. Nos resultaría 1/2.
 
 \[\text{Esperanza matemática} =\frac{1}{2}*1+\frac{1}{2}*0 =\frac{1}{2}\] 
 
-Entonces, si nosotros desarrollamos el experimento una sóla vez no nos saldrá necesariamente la mitad de veces cara y la otra mitad sello. Vamos hacer el experimento con 200 ensayos. 
+Lo que implica que el porcentaje de caras será el 50% y el porcentaje de sellos el otro 50%.
+
+Entonces, si nosotros desarrollamos el experimento un número pequeño de veces no nos saldrá necesariamente la mitad de veces cara y la otra mitad sello. Vamos hacer el experimento con 200 ensayos. 
 
 ```{r}
 set.seed(2020)

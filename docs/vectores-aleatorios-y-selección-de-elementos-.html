@@ -205,14 +205,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb1-1"></a><span class="co"># Escogiendo aleatoriamente 5 elementos. </span></span>
 <span id="cb1-2"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb1-2"></a></span>
 <span id="cb1-3"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb1-3"></a><span class="kw">sample</span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">size =</span> <span class="dv">5</span>)</span></code></pre></div>
-<pre><code>## [1]  2  9  7  4 10</code></pre>
+<pre><code>## [1] 10  9  5  1  4</code></pre>
 <p>El vector que contiene el universo de donde se escogeran los 5 números aleatoriamente es <code>1:10</code>. Asimismo, con el argumento <code>size=5</code> le estamos indicando que escoga 5 elementos. Está escogiendo 5 números distintos, ya que el argumento <code>replace</code> se está dejando con su valor por defecto que es <code>FALSE</code>, es decir, sin reemplazos.</p>
 <p>Es preciso aclarar que usted obtendrá resultados distintos cada vez que ejecute el ejemplo, ya que en cada ejecución el software utiliza un algoritmo distinto para seleccionar elementos. Es decir, está escogiendo aleatoriamente los elementos en cada ejecución.</p>
 <p>Veamos como con la misma sintaxis, el software, a escogido distintos elementos.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb3-1"></a><span class="co"># Escogiendo aleatoriamente 5 elementos. </span></span>
 <span id="cb3-2"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb3-2"></a></span>
 <span id="cb3-3"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb3-3"></a><span class="kw">sample</span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">size =</span> <span class="dv">5</span>)</span></code></pre></div>
-<pre><code>## [1]  5  7  8 10  6</code></pre>
+<pre><code>## [1] 2 1 8 7 3</code></pre>
 <p>Entonces si queremos corregir esto y queremos guardar los resultados y que al volver a correr toda la sintaxis arroje los mismos resultados, tendremos que usar una semilla. En R, colocar una semilla a un proceso aleatorio se realiza usando la función <code>set.seed()</code>, que toma como argumento cualquier número (semilla).</p>
 <p>Veamos un ejemplo. Vamos a ejecutar la misma sintaxis del ejemplo anterior pero usando una semilla.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb5-1"></a><span class="kw">set.seed</span>(<span class="dv">10</span>)</span>
@@ -299,7 +299,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[\text{Probabilidad de que salga cara} =1/2 \]</span>
 <span class="math display">\[\text{Probabilidad de que salga sello} =1/2 \]</span></p>
 <p><span class="math display">\[\text{Esperanza matemática} =\frac{1}{2}*1+\frac{1}{2}*0 =\frac{1}{2}\]</span></p>
-<p>Entonces, si nosotros desarrollamos el experimento una sóla vez no nos saldrá necesariamente la mitad de veces cara y la otra mitad sello. Vamos hacer el experimento con 200 ensayos.</p>
+<p>Lo que implica que el porcentaje de caras será el 50% y el porcentaje de sellos el otro 50%.</p>
+<p>Entonces, si nosotros desarrollamos el experimento un número pequeño de veces no nos saldrá necesariamente la mitad de veces cara y la otra mitad sello. Vamos hacer el experimento con 200 ensayos.</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb25-1"></a><span class="kw">set.seed</span>(<span class="dv">2020</span>)</span>
 <span id="cb25-2"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb25-2"></a>experimento&lt;-<span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;CARA&quot;</span>,<span class="st">&quot;SELLO&quot;</span>), <span class="dv">200</span>, T)</span>
 <span id="cb25-3"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb25-3"></a></span>
