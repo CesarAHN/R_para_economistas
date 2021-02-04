@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</title>
+  <title>Chapter 5 CREACIÓN DE VECTORES CON ELEMENTOS ALEATORIOS. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</title>
   <meta name="description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
+  <meta property="og:title" content="Chapter 5 CREACIÓN DE VECTORES CON ELEMENTOS ALEATORIOS. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="CesarAHN/bookdown_intro" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
+  <meta name="twitter:title" content="Chapter 5 CREACIÓN DE VECTORES CON ELEMENTOS ALEATORIOS. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
   
   <meta name="twitter:description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="vectores-aleatorios-y-selección-de-elementos-.html"/>
 
-<link rel="next" href="r-como-calculadora-.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -100,12 +100,8 @@
 <li class="chapter" data-level="3.2.2" data-path="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html#cómo-ordenar-elementos-de-los-vectores"><i class="fa fa-check"></i><b>3.2.2</b> ¿CÓMO ORDENAR ELEMENTOS DE LOS VECTORES?</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html"><i class="fa fa-check"></i><b>4</b> VECTORES ALEATORIOS y SELECCIÓN DE ELEMENTOS.</a><ul>
-<li class="chapter" data-level="4.1" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#creación-de-vectores-con-elementos-aleatorios."><i class="fa fa-check"></i><b>4.1</b> CREACIÓN DE VECTORES CON ELEMENTOS ALEATORIOS.</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#aplicación-ley-de-grandes-números."><i class="fa fa-check"></i><b>4.1.1</b> APLICACIÓN: LEY DE GRANDES NÚMEROS.</a></li>
-</ul></li>
-<li class="chapter" data-level="4.2" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#selección-de-elementos."><i class="fa fa-check"></i><b>4.2</b> SELECCIÓN DE ELEMENTOS.</a></li>
-</ul></li>
+<li class="chapter" data-level="4" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html"><i class="fa fa-check"></i><b>4</b> VECTORES ALEATORIOS y SELECCIÓN DE ELEMENTOS.</a></li>
+<li class="chapter" data-level="5" data-path="creación-de-vectores-con-elementos-aleatorios-.html"><a href="creación-de-vectores-con-elementos-aleatorios-.html"><i class="fa fa-check"></i><b>5</b> CREACIÓN DE VECTORES CON ELEMENTOS ALEATORIOS.</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -125,18 +121,15 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</h1>
-<p class="author"><em>César Anderson Huamaní Ninahuanca</em></p>
-<p class="date"><em>2021-02-04</em></p>
-</div>
-<div id="prólogo" class="section level1 unnumbered">
-<h1>Prólogo</h1>
-<p>Este libro es una guía para los estudiantes y egresados de economía, así también como para las personas que desean aprender a manejar el software R con aplicaciones a la economía.</p>
-<p>Si tienes como objetivo desarrollarte profesionalmente en el análisis de datos, aprender R es fundamental. En el mercado actual las empresas requieren personas con conocimiento en softwares de programación que permitan tratar grandes cantidades de datos de manera versátil y eficientemente, es decir, programar funciones y tareas que disminuyan el uso de tiempo y recursos en su tratamiento. Al ser R un lenguaje orientado en objetos, cualquier problema que imagines se podrá sistematizar a través de la creación de algoritmos o funciones.</p>
-<p>R tiene enormes ventajas en relación a otras softwares usados por estudiantes y egresados de economía como: STATA, EVIEWS, SPSS y otros. R es muy versátil que puede desarrollar todos los procedimientos de los otros softwares, incluso más. En R puedes crear dashboards, páginas web, informes automatizados, scrapear páginas web, entre otras muchas más tareas.</p>
-<p>Asimismo, el libro nace como respuesta a las asimetrías de información entre los estudiantes y egresados de la capital y de provincias, el objetivo principal del libro es cerrar brechas educativas entre estudiantes o egresados de provincias con personas del mismo perfil que residen en la capital u otras regiones con estudios en universidades en donde se imparte cursos de programación en R.</p>
-<p>El libro consta de 20 capítulos: El capítulo 1, <strong>“R como calculadora”</strong> en donde se muestran las principales operaciones matemáticas y estadísticas, así también como una introducción a la creación de funciones lo que permitirá ver el enorme potencial del software; en el capítulo 2, <strong>“Vectores”</strong> se da a conocer las clases de vectores que existen en R, así también como las operaciones, lógicas, matemáticas y estadísticas entre vectores, por último se muestra como seleccionar elementos y subvectores; en el capítulo 3, <strong>“Listas y Factores”</strong> se muestra como crear listas y factores y su uso en temas posteriores; en el capítulo 4 <strong>“Matrices”</strong> se desarrolla como crear matrices y sus operaciones lógicas, matemáticas y estadísticas, así también como la selección de elementos y operaciones de cálculo matricial.</p>
+<div id="creación-de-vectores-con-elementos-aleatorios." class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> CREACIÓN DE VECTORES CON ELEMENTOS ALEATORIOS.</h1>
+<p>Para poder crear vectores con elementos aleatorios tendremos que usar la función <code>sample()</code>. Veamos a continuación su sintaxis.</p>
+<p><code>sample(x, size, replace = FALSE, prob = NULL)</code></p>
+<p>Donde:<br />
+<code>x</code>: Elemento o vector que contiene el universo de elementos.<br />
+<code>size</code>: Es el tamaño del vector resultante. Es decir, el número de elementos de nuestro vector generado.<br />
+<code>replace</code>: Argumento lógico que indica si se escogeran los elementos con reemplazo o no. Su valor por defecto es <code>FALSE</code>, lo que implica que la elección de elementos sea sin reemplazos.<br />
+<code>prob</code>: Vector de probabilidades que indica la ocurrencia de los elementos del elemento o vector <code>x</code>.</p>
 
 </div>
             </section>
@@ -144,8 +137,8 @@
           </div>
         </div>
       </div>
+<a href="vectores-aleatorios-y-selección-de-elementos-.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="r-como-calculadora-.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -176,7 +169,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/CesarAHN/R_para_economistas/edit/master/index.Rmd",
+"link": "https://github.com/CesarAHN/R_para_economistas/edit/master/04-Vectores-aleatorios-seleccion-de-elementos.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -184,7 +177,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/CesarAHN/R_para_economistas/blob/master/index.Rmd",
+"link": "https://github.com/CesarAHN/R_para_economistas/blob/master/04-Vectores-aleatorios-seleccion-de-elementos.Rmd",
 "text": null
 },
 "download": ["bookdownproj.pdf"],

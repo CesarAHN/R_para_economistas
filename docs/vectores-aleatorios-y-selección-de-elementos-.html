@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 VECTORES ALEATORIOS y SELECCIÓN DE ELEMENTOS. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</title>
+  <meta name="description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 VECTORES ALEATORIOS y SELECCIÓN DE ELEMENTOS. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  <meta name="github-repo" content="CesarAHN/bookdown_intro" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 VECTORES ALEATORIOS y SELECCIÓN DE ELEMENTOS. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
+  
+  <meta name="twitter:description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  
+
+<meta name="author" content="César Anderson Huamaní Ninahuanca" />
+
+
+<meta name="date" content="2021-02-04" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="operaciones-matemáticas-y-estadísticas-con-vectores-.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - PARA ECONOMISTAS</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prólogo</a></li>
+<li class="chapter" data-level="1" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html"><i class="fa fa-check"></i><b>1</b> R COMO CALCULADORA.</a><ul>
+<li class="chapter" data-level="1.1" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#principales-operaciones-matemáticas."><i class="fa fa-check"></i><b>1.1</b> PRINCIPALES OPERACIONES MATEMÁTICAS.</a></li>
+<li class="chapter" data-level="1.2" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#decimales-exactos-y-redondeo-de-cifras."><i class="fa fa-check"></i><b>1.2</b> DECIMALES EXACTOS Y REDONDEO DE CIFRAS.</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#número-de-cifras."><i class="fa fa-check"></i><b>1.2.1</b> NÚMERO DE CIFRAS.</a></li>
+<li class="chapter" data-level="1.2.2" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#redondeo."><i class="fa fa-check"></i><b>1.2.2</b> REDONDEO.</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#guardar-o-definir-objetos."><i class="fa fa-check"></i><b>1.3</b> GUARDAR O DEFINIR OBJETOS.</a></li>
+<li class="chapter" data-level="1.4" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#funciones."><i class="fa fa-check"></i><b>1.4</b> FUNCIONES.</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="vectores-.html"><a href="vectores-.html"><i class="fa fa-check"></i><b>2</b> VECTORES.</a><ul>
+<li class="chapter" data-level="2.1" data-path="vectores-.html"><a href="vectores-.html#definición-de-un-vector."><i class="fa fa-check"></i><b>2.1</b> DEFINICIÓN DE UN VECTOR.</a></li>
+<li class="chapter" data-level="2.2" data-path="vectores-.html"><a href="vectores-.html#clases-de-vectores."><i class="fa fa-check"></i><b>2.2</b> CLASES DE VECTORES.</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="vectores-.html"><a href="vectores-.html#cómo-saber-si-un-objeto-es-un-vector"><i class="fa fa-check"></i><b>2.2.1</b> ¿Cómo saber si un objeto es un vector?</a></li>
+<li class="chapter" data-level="2.2.2" data-path="vectores-.html"><a href="vectores-.html#cómo-saber-de-que-clase-es-un-vector"><i class="fa fa-check"></i><b>2.2.2</b> ¿Cómo saber de que clase es un vector?</a></li>
+<li class="chapter" data-level="2.2.3" data-path="vectores-.html"><a href="vectores-.html#qué-pasa-si-defino-un-vector-con-distintas-clases-de-elementos"><i class="fa fa-check"></i><b>2.2.3</b> ¿Qué pasa si defino un vector con distintas clases de elementos?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="vectores-.html"><a href="vectores-.html#número-de-elementos-de-un-vector."><i class="fa fa-check"></i><b>2.3</b> NÚMERO DE ELEMENTOS DE UN VECTOR.</a></li>
+<li class="chapter" data-level="2.4" data-path="vectores-.html"><a href="vectores-.html#funciones-para-construir-vectores-más-eficientemente."><i class="fa fa-check"></i><b>2.4</b> FUNCIONES PARA CONSTRUIR VECTORES MÁS EFICIENTEMENTE.</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="vectores-.html"><a href="vectores-.html#vectores-de-elementos-consecutivos"><i class="fa fa-check"></i><b>2.4.1</b> Vectores de elementos consecutivos:</a></li>
+<li class="chapter" data-level="2.4.2" data-path="vectores-.html"><a href="vectores-.html#vectores-con-patrones"><i class="fa fa-check"></i><b>2.4.2</b> Vectores con patrones:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="vectores-.html"><a href="vectores-.html#concatenar-elementos-y-vectores."><i class="fa fa-check"></i><b>2.5</b> CONCATENAR ELEMENTOS Y VECTORES.</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><i class="fa fa-check"></i><b>3</b> OPERACIONES MATEMÁTICAS Y ESTADÍSTICAS CON VECTORES.</a><ul>
+<li class="chapter" data-level="3.1" data-path="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html#operaciones-matemáticas."><i class="fa fa-check"></i><b>3.1</b> OPERACIONES MATEMÁTICAS.</a></li>
+<li class="chapter" data-level="3.2" data-path="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html#operaciones-estadísticas."><i class="fa fa-check"></i><b>3.2</b> OPERACIONES ESTADÍSTICAS.</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html#cómo-trabajar-con-missing-o-elementos-faltantes-na"><i class="fa fa-check"></i><b>3.2.1</b> ¿CÓMO TRABAJAR CON MISSING O ELEMENTOS FALTANTES (NA)?</a></li>
+<li class="chapter" data-level="3.2.2" data-path="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html#cómo-ordenar-elementos-de-los-vectores"><i class="fa fa-check"></i><b>3.2.2</b> ¿CÓMO ORDENAR ELEMENTOS DE LOS VECTORES?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html"><i class="fa fa-check"></i><b>4</b> VECTORES ALEATORIOS y SELECCIÓN DE ELEMENTOS.</a><ul>
+<li class="chapter" data-level="4.1" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#creación-de-vectores-con-elementos-aleatorios."><i class="fa fa-check"></i><b>4.1</b> CREACIÓN DE VECTORES CON ELEMENTOS ALEATORIOS.</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#aplicación-ley-de-grandes-números."><i class="fa fa-check"></i><b>4.1.1</b> APLICACIÓN: LEY DE GRANDES NÚMEROS.</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#selección-de-elementos."><i class="fa fa-check"></i><b>4.2</b> SELECCIÓN DE ELEMENTOS.</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="vectores-aleatorios-y-selección-de-elementos." class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> VECTORES ALEATORIOS y SELECCIÓN DE ELEMENTOS.</h1>
+<p>En este capítulo usted aprenderá a crear vectores de elementos aleatorios, por último, se mostrará como seleccionar uno o varios elementos de un vector.</p>
+<div id="creación-de-vectores-con-elementos-aleatorios." class="section level2">
+<h2><span class="header-section-number">4.1</span> CREACIÓN DE VECTORES CON ELEMENTOS ALEATORIOS.</h2>
+<p>Para poder crear vectores con elementos aleatorios tendremos que usar la función <code>sample()</code>. Veamos a continuación su sintaxis.</p>
+<p><code>sample(x, size, replace = FALSE, prob = NULL)</code></p>
+<p>Donde:<br />
+<code>x</code>: Elemento o vector que contiene el universo de elementos.<br />
+<code>size</code>: Es el tamaño del vector resultante. Es decir, el número de elementos de nuestro vector generado.<br />
+<code>replace</code>: Argumento lógico que indica si se escogeran los elementos con reemplazo o no. Su valor por defecto es <code>FALSE</code>, lo que implica que la elección de elementos sea sin reemplazos.<br />
+<code>prob</code>: Vector de probabilidades que indica la ocurrencia de los elementos del elemento o vector <code>x</code>.</p>
+<p>Para comprender su funcionamiento, veamos un ejemplo. Si queremos escoger aleatorimente 5 elementos de un vector con elementos del 1 al 10.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb1-1"></a><span class="co"># Escogiendo aleatoriamente 5 elementos. </span></span>
+<span id="cb1-2"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb1-2"></a></span>
+<span id="cb1-3"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb1-3"></a><span class="kw">sample</span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">size =</span> <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1]  2  9  7  4 10</code></pre>
+<p>El vector que contiene el universo de donde se escogeran los 5 números aleatoriamente es <code>1:10</code>. Asimismo, con el argumento <code>size=5</code> le estamos indicando que escoga 5 elementos. Está escogiendo 5 números distintos, ya que el argumento <code>replace</code> se está dejando con su valor por defecto que es <code>FALSE</code>, es decir, sin reemplazos.</p>
+<p>Es preciso aclarar que usted obtendrá resultados distintos cada vez que ejecute el ejemplo, ya que en cada ejecución el software utiliza un algoritmo distinto para seleccionar elementos. Es decir, está escogiendo aleatoriamente los elementos en cada ejecución.</p>
+<p>Veamos como con la misma sintaxis, el software, a escogido distintos elementos.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb3-1"></a><span class="co"># Escogiendo aleatoriamente 5 elementos. </span></span>
+<span id="cb3-2"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb3-2"></a></span>
+<span id="cb3-3"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb3-3"></a><span class="kw">sample</span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">size =</span> <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1]  5  7  8 10  6</code></pre>
+<p>Entonces si queremos corregir esto y queremos guardar los resultados y que al volver a correr toda la sintaxis arroje los mismos resultados, tendremos que usar una semilla. En R, colocar una semilla a un proceso aleatorio se realiza usando la función <code>set.seed()</code>, que toma como argumento cualquier número (semilla).</p>
+<p>Veamos un ejemplo. Vamos a ejecutar la misma sintaxis del ejemplo anterior pero usando una semilla.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb5-1"></a><span class="kw">set.seed</span>(<span class="dv">10</span>)</span>
+<span id="cb5-2"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb5-2"></a><span class="kw">sample</span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">size =</span> <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] 9 7 8 6 3</code></pre>
+<p>Cuando usamos la semilla con valor de 10. Nos arroja como resultado los números: <code>9 8 7 6 y 3</code><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
+<p>Veamos como sale el mismo resultado cuando volvemos a ejecutar la misma sintaxis.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb7-1"></a><span class="kw">set.seed</span>(<span class="dv">10</span>)</span>
+<span id="cb7-2"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb7-2"></a><span class="kw">sample</span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">size =</span> <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] 9 7 8 6 3</code></pre>
+<p>En efecto, los resultados son los mismos. Con lo cual queda demostrado que si deseamos obtener los mismos resultados de un proceso aleatorio tendremos que usar una semilla.</p>
+<p>Ahora veamos un ejemplo un poco más atractivo.</p>
+<p>Vamos a seleccionar aleatoriamente 2 personas de un conjunto de 6 personas.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb9-1"></a><span class="kw">set.seed</span>(<span class="dv">12</span>)</span>
+<span id="cb9-2"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb9-2"></a><span class="kw">sample</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="st">&quot;LUIS&quot;</span>,<span class="st">&quot;MARÍA&quot;</span>,<span class="st">&quot;JUAN&quot;</span>,<span class="st">&quot;ROBERTH&quot;</span>,<span class="st">&quot;CARLOS&quot;</span>,<span class="st">&quot;FLOR&quot;</span>), <span class="dt">size =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;MARÍA&quot; &quot;FLOR&quot;</code></pre>
+<p>El software escogió a <code>MARÍA Y FLOR</code>. Este ejemplo se desarrollo con el fin de poder ver un ejemplo en donde el vector universal es un vector de elementos caracter. Ahora veamos un ejemplo usando el argumento <code>replace</code>.</p>
+<p>Vamos a generar un vector de 20 elementos en donde se escoga entre 1 y 0.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb11-1"></a><span class="kw">set.seed</span>(<span class="dv">20</span>)</span>
+<span id="cb11-2"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb11-2"></a><span class="kw">sample</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="dt">size =</span> <span class="dv">20</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<pre><code>##  [1] 1 0 0 1 1 0 1 0 1 1 0 0 0 0 0 0 0 0 1 1</code></pre>
+<p>Se ha escogido aleatoriamente 20 elementos que son <code>1 o 0</code>. Esto se pudo dar gracias al uso del argumento <code>replace=TRUE</code>. Ya que si no se hubiera especificado que haya reemplazos, nos arojaría error ya que no se puede toma una muestra más grande que el vector universal cuandi replace toma el valor de <code>FALSE</code>. Veamos este caso a continuación:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb13-1"></a><span class="kw">set.seed</span>(<span class="dv">20</span>)</span>
+<span id="cb13-2"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb13-2"></a><span class="kw">sample</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="dt">size =</span> <span class="dv">20</span>)</span></code></pre></div>
+<pre><code>## Error in sample.int(length(x), size, replace, prob): cannot take a sample larger than the population when &#39;replace = FALSE&#39;</code></pre>
+<p>En efecto nos arroja un error, al correr el código.</p>
+<p>Ahora veamos un ejemplo en donde se usa el argumento <code>prob</code>. Vamos a escoger un vector que tenga 100 elementos entre hombres y mujeres, pero queremos que la proporción de hombres sea del 30% y de mujeres del 70%, aproximadamente.</p>
+<p>Primero ejecutemos el problema sin especificar la proporción de hombres y mujeres.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb15-1"></a><span class="kw">set.seed</span>(<span class="dv">1805</span>)</span>
+<span id="cb15-2"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb15-2"></a>sexo&lt;-<span class="kw">sample</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="st">&quot;HOMBRE&quot;</span>, <span class="st">&quot;MUJER&quot;</span>), <span class="dt">size =</span> <span class="dv">100</span>, <span class="dt">replace =</span> T)</span>
+<span id="cb15-3"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb15-3"></a>sexo</span></code></pre></div>
+<pre><code>##   [1] &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;HOMBRE&quot;
+##   [9] &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;HOMBRE&quot;
+##  [17] &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot;
+##  [25] &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot;
+##  [33] &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot;
+##  [41] &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot; 
+##  [49] &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot; 
+##  [57] &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot; 
+##  [65] &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot; 
+##  [73] &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot; 
+##  [81] &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot; 
+##  [89] &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;MUJER&quot; 
+##  [97] &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;HOMBRE&quot;</code></pre>
+<p>Estamos guardando los resultados en el vector <code>sexo</code>. Si queremos saber cuántos son hombres y cuántos son mujeres usted podría contar uno por uno, pero esto resultaría muy tedioso, la forma más eficiente es ver los resultados en una tabla de valores absolutos. Para esto usamos la función <code>table()</code>. Veamos el resultado a continuación.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb17-1"></a><span class="kw">table</span>(sexo)</span></code></pre></div>
+<pre><code>## sexo
+## HOMBRE  MUJER 
+##     45     55</code></pre>
+<p>El software escogió aleatoriamente 45 hombres y 55 mujeres. Para poder obtener estos resultados en valores relativos usamos la función <code>prop.table()</code>.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb19-1"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(sexo))</span></code></pre></div>
+<pre><code>## sexo
+## HOMBRE  MUJER 
+##   0.45   0.55</code></pre>
+<p>El 45% son hombres y el 55% son mujeres.</p>
+<p>El problema en un inicio nos decia generar un vector de hombres y mujeres en donde el 30% sea hombres y el 70% mujeres. Entonces, para poder generar el vector deseado usaremos el argumento <code>prob</code>.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb21-1"></a><span class="kw">set.seed</span>(<span class="dv">1805</span>)</span>
+<span id="cb21-2"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb21-2"></a>sexo&lt;-<span class="kw">sample</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="st">&quot;HOMBRE&quot;</span>, <span class="st">&quot;MUJER&quot;</span>), <span class="dt">size =</span> <span class="dv">100</span>, <span class="dt">replace =</span> T, <span class="dt">prob =</span> <span class="kw">c</span>(<span class="fl">0.3</span>,<span class="fl">0.7</span>))</span>
+<span id="cb21-3"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb21-3"></a>sexo</span></code></pre></div>
+<pre><code>##   [1] &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;HOMBRE&quot;
+##   [9] &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;MUJER&quot; 
+##  [17] &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot; 
+##  [25] &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot; 
+##  [33] &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot; 
+##  [41] &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;HOMBRE&quot;
+##  [49] &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;HOMBRE&quot;
+##  [57] &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot;
+##  [65] &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot;
+##  [73] &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot; 
+##  [81] &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot;
+##  [89] &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;HOMBRE&quot;
+##  [97] &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;</code></pre>
+<p>Estamos usando la misma semilla, pero estamos especificando las probabilidades<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>, además, estamos guardando los resultados en el mismo vector <code>sexo</code> (el vector se está reescribiendo). Veamos defrente en valores relativos la proporción de hombres y mujeres.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb23-1"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(sexo))</span></code></pre></div>
+<pre><code>## sexo
+## HOMBRE  MUJER 
+##   0.29   0.71</code></pre>
+<p>El 29% son hombres y el 71% son mujeres. En efecto, gracias a especificar el vector de probabilidades de suceso de cada elemento del vector universal se ha podido obtener la proporción del 30% y 70% entre hombres y mujeres, aproximadamente.</p>
+<div id="aplicación-ley-de-grandes-números." class="section level3">
+<h3><span class="header-section-number">4.1.1</span> APLICACIÓN: LEY DE GRANDES NÚMEROS.</h3>
+<p>Una de las leyes más importantes en la teoría de la probabilidad es la “<strong>ley de grandes números</strong>”. La cual nos dice que al aumentar el número de ensayos de un experimento, este tiende a la esperanza matemática de la variable aleatoria que se ha generado en el experimento.</p>
+<p>Por ejemplo, vamos a definir a un experimento como el lanzamiento de una moneda. Asimismo, definiremos a la variable aleatoria como el número de caras que resulte del experimento. Es así que sí sale cara la variable aleatoria tomará el valor de 1 y si sale sello la variable aleatoria tomará el valor de 0.</p>
+<p>Si sacamos la esperanza matemática de este experimento. Nos resultaría 1/2.</p>
+<p><span class="math display">\[\text{Probabilidad de que salga cara} =1/2 \]</span>
+<span class="math display">\[\text{Probabilidad de que salga sello} =1/2 \]</span></p>
+<p><span class="math display">\[\text{Esperanza matemática} =\frac{1}{2}*1+\frac{1}{2}*0 =\frac{1}{2}\]</span></p>
+<p>Entonces, si nosotros desarrollamos el experimento una sóla vez no nos saldrá necesariamente la mitad de veces cara y la otra mitad sello. Vamos hacer el experimento con 200 ensayos.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb25-1"></a><span class="kw">set.seed</span>(<span class="dv">2020</span>)</span>
+<span id="cb25-2"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb25-2"></a>experimento&lt;-<span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;CARA&quot;</span>,<span class="st">&quot;SELLO&quot;</span>), <span class="dv">200</span>, T)</span>
+<span id="cb25-3"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb25-3"></a></span>
+<span id="cb25-4"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb25-4"></a><span class="kw">round</span>(<span class="kw">prop.table</span>(<span class="kw">table</span>(experimento))<span class="op">*</span><span class="dv">100</span>,<span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## experimento
+##  CARA SELLO 
+##  46.5  53.5</code></pre>
+<p>Vemos que el porcentaje de caras es del 46.5% y el de sellos es de 53.5%. Pero por la ley de grandes números nosotros sabemos que al aumentar el número de ensayos el experimento tenderá a la esperanza matemática, es decir, 50% de caras y 50% de sellos.</p>
+<p>Veamos el resultado cuando el número de ensayos es de 1000.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb27-1"></a><span class="kw">set.seed</span>(<span class="dv">2020</span>)</span>
+<span id="cb27-2"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb27-2"></a>experimento&lt;-<span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;CARA&quot;</span>,<span class="st">&quot;SELLO&quot;</span>), <span class="dv">1000</span>, T)</span>
+<span id="cb27-3"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb27-3"></a></span>
+<span id="cb27-4"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb27-4"></a><span class="kw">round</span>(<span class="kw">prop.table</span>(<span class="kw">table</span>(experimento))<span class="op">*</span><span class="dv">100</span>,<span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## experimento
+##  CARA SELLO 
+##  48.4  51.6</code></pre>
+<p>Con 1000 ensayos el porcentaje de caras es del 48.4% y el de sellos es de 51.6%. Se va acercando a la esperanza matemática. Veamos que resulta con 100000 de ensayos.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb29-1"></a><span class="kw">set.seed</span>(<span class="dv">2020</span>)</span>
+<span id="cb29-2"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb29-2"></a>experimento&lt;-<span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;CARA&quot;</span>,<span class="st">&quot;SELLO&quot;</span>), <span class="dv">100000</span>, T)</span>
+<span id="cb29-3"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb29-3"></a></span>
+<span id="cb29-4"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb29-4"></a><span class="kw">round</span>(<span class="kw">prop.table</span>(<span class="kw">table</span>(experimento))<span class="op">*</span><span class="dv">100</span>,<span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## experimento
+##   CARA  SELLO 
+## 50.136 49.864</code></pre>
+<p>Con 100000 ensayos el porcentaje de caras es del 50.14% y el de sellos es de 49.86%. Ya casi es igual al valor de la esperanza matemática.</p>
+<p>Por último, veamos que pasa si consideramos 1000000 ensayos.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb31-1"></a><span class="kw">set.seed</span>(<span class="dv">2020</span>)</span>
+<span id="cb31-2"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb31-2"></a>experimento&lt;-<span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;CARA&quot;</span>,<span class="st">&quot;SELLO&quot;</span>), <span class="dv">1000000</span>, T)</span>
+<span id="cb31-3"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb31-3"></a></span>
+<span id="cb31-4"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb31-4"></a><span class="kw">round</span>(<span class="kw">prop.table</span>(<span class="kw">table</span>(experimento))<span class="op">*</span><span class="dv">100</span>,<span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## experimento
+##    CARA   SELLO 
+## 50.0036 49.9964</code></pre>
+<p>Con 1000000 ensayos el porcentaje de caras es del 50% y el de sellos es de 50%. Es así como hemos podido demostrar la ley de grandes números.</p>
+</div>
+</div>
+<div id="selección-de-elementos." class="section level2">
+<h2><span class="header-section-number">4.2</span> SELECCIÓN DE ELEMENTOS.</h2>
+
+</div>
+</div>
+
+
+
+
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Es probable que a usted le salga distintos números ya que el algoritmo de selección depende de la versión del software. Este libro se desarrolló usando la versión <code>4.0.3</code> de R.<a href="vectores-aleatorios-y-selección-de-elementos-.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Esto no implica que nos salga los mismos resultados que anteriormente, por más que se ha colocado la misma semilla, los argumentos de la sintaxis anterior han variado. Lo cual implica un nuevo proceso aleatorio.<a href="vectores-aleatorios-y-selección-de-elementos-.html#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/CesarAHN/R_para_economistas/edit/master/04-Vectores-aleatorios-seleccion-de-elementos.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/CesarAHN/R_para_economistas/blob/master/04-Vectores-aleatorios-seleccion-de-elementos.Rmd",
+"text": null
+},
+"download": ["bookdownproj.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

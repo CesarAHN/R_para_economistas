@@ -1,0 +1,184 @@
+# VECTORES ALEATORIOS y SELECCIÓN DE ELEMENTOS.
+
+En este capítulo usted aprenderá a crear vectores de elementos aleatorios, por último, se mostrará como seleccionar uno o varios elementos de un vector. 
+
+## CREACIÓN DE VECTORES CON ELEMENTOS ALEATORIOS. 
+
+Para poder crear vectores con elementos aleatorios tendremos que usar la función `sample()`. Veamos a continuación su sintaxis. 
+
+`sample(x, size, replace = FALSE, prob = NULL)`
+
+Donde:  
+`x`: Elemento o vector que contiene el universo de elementos.  
+`size`: Es el tamaño del vector resultante. Es decir, el número de elementos de nuestro vector generado.  
+`replace`: Argumento lógico que indica si se escogeran los elementos con reemplazo o no. Su valor por defecto es `FALSE`, lo que implica que la elección de elementos sea sin reemplazos.  
+`prob`: Vector de probabilidades que indica la ocurrencia de los elementos del elemento o vector `x`.  
+
+Para comprender su funcionamiento, veamos un ejemplo. Si queremos escoger aleatorimente 5 elementos de un vector con elementos del 1 al 10. 
+
+```{r}
+# Escogiendo aleatoriamente 5 elementos. 
+
+sample(x=1:10, size = 5)
+```
+
+El vector que contiene el universo de donde se escogeran los 5 números aleatoriamente es `1:10`. Asimismo, con el argumento `size=5` le estamos indicando que escoga 5 elementos. Está escogiendo 5 números distintos, ya que el argumento `replace` se está dejando con su valor por defecto que es `FALSE`, es decir, sin reemplazos.
+
+Es preciso aclarar que usted obtendrá resultados distintos cada vez que ejecute el ejemplo, ya que en cada ejecución el software utiliza un algoritmo distinto para seleccionar elementos. Es decir, está escogiendo aleatoriamente los elementos en cada ejecución.
+
+Veamos como con la misma sintaxis, el software, a escogido distintos elementos. 
+
+```{r}
+# Escogiendo aleatoriamente 5 elementos. 
+
+sample(x=1:10, size = 5)
+```
+
+Entonces si queremos corregir esto y queremos guardar los resultados y que al volver a correr toda la sintaxis arroje los mismos resultados, tendremos que usar una semilla. En R, colocar una semilla a un proceso aleatorio se realiza usando la función `set.seed()`, que toma como argumento cualquier número (semilla). 
+
+Veamos un ejemplo. Vamos a ejecutar la misma sintaxis del ejemplo anterior pero usando una semilla. 
+
+```{r}
+set.seed(10)
+sample(x=1:10, size = 5)
+```
+
+Cuando usamos la semilla con valor de 10. Nos arroja como resultado los números: `9 8 7 6 y 3`[^1]. 
+
+[^1]: Es probable que a usted le salga distintos números ya que el algoritmo de selección depende de la versión del software. Este libro se desarrolló usando la versión `4.0.3` de R. 
+
+Veamos como sale el mismo resultado cuando volvemos a ejecutar la misma sintaxis. 
+
+```{r}
+set.seed(10)
+sample(x=1:10, size = 5)
+```
+
+En efecto, los resultados son los mismos. Con lo cual queda demostrado que si deseamos obtener los mismos resultados de un proceso aleatorio tendremos que usar una semilla. 
+
+Ahora veamos un ejemplo un poco más atractivo. 
+
+Vamos a seleccionar aleatoriamente 2 personas de un conjunto de 6 personas. 
+
+```{r}
+set.seed(12)
+sample(x=c("LUIS","MARÍA","JUAN","ROBERTH","CARLOS","FLOR"), size = 2)
+```
+
+El software escogió a `MARÍA Y FLOR`. Este ejemplo se desarrollo con el fin de poder ver un ejemplo en donde el vector universal es un vector de elementos caracter. Ahora veamos un ejemplo usando el argumento `replace`.
+
+Vamos a generar un vector de 20 elementos en donde se escoga entre 1 y 0. 
+
+```{r}
+set.seed(20)
+sample(x=c(0,1), size = 20, replace = TRUE)
+```
+
+Se ha escogido aleatoriamente 20 elementos que son `1 o 0`. Esto se pudo dar gracias al uso del argumento `replace=TRUE`. Ya que si no se hubiera especificado que haya reemplazos, nos arojaría error ya que no se puede toma una muestra más grande que el vector universal cuandi replace toma el valor de `FALSE`. Veamos este caso a continuación:
+
+```{r, error=TRUE}
+set.seed(20)
+sample(x=c(0,1), size = 20)
+```
+
+En efecto nos arroja un error, al correr el código.
+
+Ahora veamos un ejemplo en donde se usa el argumento `prob`. Vamos a escoger un vector que tenga 100 elementos entre hombres y mujeres, pero queremos que la proporción de hombres sea del 30% y de mujeres del 70%, aproximadamente.
+
+Primero ejecutemos el problema sin especificar la proporción de hombres y mujeres. 
+
+```{r}
+set.seed(1805)
+sexo<-sample(x=c("HOMBRE", "MUJER"), size = 100, replace = T)
+sexo
+```
+
+Estamos guardando los resultados en el vector `sexo`. Si queremos saber cuántos son hombres y cuántos son mujeres usted podría contar uno por uno, pero esto resultaría muy tedioso, la forma más eficiente es ver los resultados en una tabla de valores absolutos. Para esto usamos la función `table()`. Veamos el resultado a continuación. 
+
+```{r}
+table(sexo)
+```
+
+El software escogió aleatoriamente `r table(sexo)[1]` hombres y `r table(sexo)[2]` mujeres. Para poder obtener estos resultados en valores relativos usamos la función `prop.table()`.
+
+```{r}
+prop.table(table(sexo))
+```
+
+El `r paste0(round(prop.table(table(sexo))[1]*100,2),"%")` son hombres y el `r paste0(round(prop.table(table(sexo))[2]*100,2),"%")` son mujeres. 
+
+El problema en un inicio nos decia generar un vector de hombres y mujeres en donde el 30% sea hombres y el 70% mujeres. Entonces, para poder generar el vector deseado usaremos el argumento `prob`. 
+
+```{r}
+set.seed(1805)
+sexo<-sample(x=c("HOMBRE", "MUJER"), size = 100, replace = T, prob = c(0.3,0.7))
+sexo
+```
+
+Estamos usando la misma semilla, pero estamos especificando las probabilidades[^2], además, estamos guardando los resultados en el mismo vector `sexo` (el vector se está reescribiendo). Veamos defrente en valores relativos la proporción de hombres y mujeres. 
+
+```{r}
+prop.table(table(sexo))
+```
+
+El `r paste0(round(prop.table(table(sexo))[1]*100,2),"%")` son hombres y el `r paste0(round(prop.table(table(sexo))[2]*100,2),"%")` son mujeres. En efecto, gracias a especificar el vector de probabilidades de suceso de cada elemento del vector universal se ha podido obtener la proporción del 30% y 70% entre hombres y mujeres, aproximadamente.
+
+### APLICACIÓN: LEY DE GRANDES NÚMEROS. 
+
+Una de las leyes más importantes en la teoría de la probabilidad es la "**ley de grandes números**". La cual nos dice que al aumentar el número de ensayos de un experimento, este tiende a la esperanza matemática de la variable aleatoria que se ha generado en el experimento. 
+
+Por ejemplo, vamos a definir a un experimento como el lanzamiento de una moneda. Asimismo, definiremos a la variable aleatoria como el número de caras que resulte del experimento. Es así que sí sale cara la variable aleatoria tomará el valor de 1 y si sale sello la variable aleatoria tomará el valor de 0. 
+
+Si sacamos la esperanza matemática de este experimento. Nos resultaría 1/2. 
+
+\[\text{Probabilidad de que salga cara} =1/2 \] 
+\[\text{Probabilidad de que salga sello} =1/2 \] 
+
+\[\text{Esperanza matemática} =\frac{1}{2}*1+\frac{1}{2}*0 =\frac{1}{2}\] 
+
+Entonces, si nosotros desarrollamos el experimento una sóla vez no nos saldrá necesariamente la mitad de veces cara y la otra mitad sello. Vamos hacer el experimento con 200 ensayos. 
+
+```{r}
+set.seed(2020)
+experimento<-sample(c("CARA","SELLO"), 200, T)
+
+round(prop.table(table(experimento))*100,4)
+```
+
+Vemos que el porcentaje de caras es del `r paste0(round(prop.table(table(experimento))[1]*100,2),"%")` y el de sellos es de `r paste0(round(prop.table(table(experimento))[2]*100,2),"%")`. Pero por la ley de grandes números nosotros sabemos que al aumentar el número de ensayos el experimento tenderá a la esperanza matemática, es decir, 50% de caras y 50% de sellos. 
+
+Veamos el resultado cuando el número de ensayos es de 1000.
+
+```{r}
+set.seed(2020)
+experimento<-sample(c("CARA","SELLO"), 1000, T)
+
+round(prop.table(table(experimento))*100,4)
+```
+
+Con 1000 ensayos el porcentaje de caras es del `r paste0(round(prop.table(table(experimento))[1]*100,2),"%")` y el de sellos es de `r paste0(round(prop.table(table(experimento))[2]*100,2),"%")`. Se va acercando a la esperanza matemática. Veamos que resulta con 100000 de ensayos.
+
+```{r}
+set.seed(2020)
+experimento<-sample(c("CARA","SELLO"), 100000, T)
+
+round(prop.table(table(experimento))*100,4)
+```
+
+Con 100000 ensayos el porcentaje de caras es del `r paste0(round(prop.table(table(experimento))[1]*100,2),"%")` y el de sellos es de `r paste0(round(prop.table(table(experimento))[2]*100,2),"%")`. Ya casi es igual al valor de la esperanza matemática. 
+
+Por último, veamos que pasa si consideramos 1000000 ensayos. 
+
+```{r}
+set.seed(2020)
+experimento<-sample(c("CARA","SELLO"), 1000000, T)
+
+round(prop.table(table(experimento))*100,4)
+```
+
+Con 1000000 ensayos el porcentaje de caras es del `r paste0(round(prop.table(table(experimento))[1]*100,2),"%")` y el de sellos es de `r paste0(round(prop.table(table(experimento))[2]*100,2),"%")`. Es así como hemos podido demostrar la ley de grandes números. 
+
+## SELECCIÓN DE ELEMENTOS.
+
+
+[^2]: Esto no implica que nos salga los mismos resultados que anteriormente, por más que se ha colocado la misma semilla, los argumentos de la sintaxis anterior han variado. Lo cual implica un nuevo proceso aleatorio.
