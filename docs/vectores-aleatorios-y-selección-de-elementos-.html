@@ -24,7 +24,7 @@
 <meta name="author" content="César Anderson Huamaní Ninahuanca" />
 
 
-<meta name="date" content="2021-02-04" />
+<meta name="date" content="2021-02-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -168,7 +168,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#creación-de-vectores-con-elementos-aleatorios."><i class="fa fa-check"></i><b>4.1</b> CREACIÓN DE VECTORES CON ELEMENTOS ALEATORIOS.</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#aplicación-ley-de-grandes-números."><i class="fa fa-check"></i><b>4.1.1</b> APLICACIÓN: LEY DE GRANDES NÚMEROS.</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#selección-de-elementos."><i class="fa fa-check"></i><b>4.2</b> SELECCIÓN DE ELEMENTOS.</a></li>
+<li class="chapter" data-level="4.2" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#vectores-vacíos-y-selección-de-elementos."><i class="fa fa-check"></i><b>4.2</b> VECTORES VACÍOS Y SELECCIÓN DE ELEMENTOS.</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#vectores-vacíos."><i class="fa fa-check"></i><b>4.2.1</b> Vectores vacíos.</a></li>
+<li class="chapter" data-level="4.2.2" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#seleción-de-elementos-usando-."><i class="fa fa-check"></i><b>4.2.2</b> Seleción de elementos usando [].</a></li>
+<li class="chapter" data-level="4.2.3" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cómo-saber-cuántos-elementos-tiene-un-vector"><i class="fa fa-check"></i><b>4.2.3</b> ¿Cómo saber cuántos elementos tiene un vector?</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -191,7 +195,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="vectores-aleatorios-y-selección-de-elementos." class="section level1">
 <h1><span class="header-section-number">Chapter 4</span> VECTORES ALEATORIOS y SELECCIÓN DE ELEMENTOS.</h1>
-<p>En este capítulo usted aprenderá a crear vectores de elementos aleatorios, por último, se mostrará como seleccionar uno o varios elementos de un vector.</p>
+<p>En este capítulo usted aprenderá a crear vectores de elementos aleatorios, así también, cómo seleccionar uno o varios elementos de un vector, a crear vectores vacíos y conocer el tamaño de los vectores.</p>
+<p>Quizá le parezca muy abstracto lo que se desarrollará en este capítulo, quizá usted se pregunte, ¿en el dia a día cómo voy a trabajar con vectores? o ¿para qué me servirá seleccionar elementos?. Déjeme decirle que en capítulos posteriores, los vectores se convertirán en columnas y las columnas en variables y las variables juntas generarán un dataframe o base de datos. Así que comprender cómo seleccionar elementos o saber el tamaño de vectores le permitirán filtrar observaciones en un futuro.</p>
+<p>En este y en el siguiente capítulo está lo más fundamental, si uno desea conocer el funcionamiento y en un futuro empezar a programar en el software R. Es asi que se recomienda leer, estos dos capítulos, las veces que sea posible hasta que quede asimilado por completo.</p>
 <div id="creación-de-vectores-con-elementos-aleatorios." class="section level2">
 <h2><span class="header-section-number">4.1</span> CREACIÓN DE VECTORES CON ELEMENTOS ALEATORIOS.</h2>
 <p>Para poder crear vectores con elementos aleatorios tendremos que usar la función <code>sample()</code>. Veamos a continuación su sintaxis.</p>
@@ -205,14 +211,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb1-1"></a><span class="co"># Escogiendo aleatoriamente 5 elementos. </span></span>
 <span id="cb1-2"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb1-2"></a></span>
 <span id="cb1-3"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb1-3"></a><span class="kw">sample</span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">size =</span> <span class="dv">5</span>)</span></code></pre></div>
-<pre><code>## [1] 10  9  5  1  4</code></pre>
+<pre><code>## [1]  5  1 10  4  3</code></pre>
 <p>El vector que contiene el universo de donde se escogeran los 5 números aleatoriamente es <code>1:10</code>. Asimismo, con el argumento <code>size=5</code> le estamos indicando que escoga 5 elementos. Está escogiendo 5 números distintos, ya que el argumento <code>replace</code> se está dejando con su valor por defecto que es <code>FALSE</code>, es decir, sin reemplazos.</p>
 <p>Es preciso aclarar que usted obtendrá resultados distintos cada vez que ejecute el ejemplo, ya que en cada ejecución el software utiliza un algoritmo distinto para seleccionar elementos. Es decir, está escogiendo aleatoriamente los elementos en cada ejecución.</p>
 <p>Veamos como con la misma sintaxis, el software, a escogido distintos elementos.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb3-1"></a><span class="co"># Escogiendo aleatoriamente 5 elementos. </span></span>
 <span id="cb3-2"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb3-2"></a></span>
 <span id="cb3-3"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb3-3"></a><span class="kw">sample</span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">size =</span> <span class="dv">5</span>)</span></code></pre></div>
-<pre><code>## [1] 2 1 8 7 3</code></pre>
+<pre><code>## [1] 8 6 7 5 9</code></pre>
 <p>Entonces si queremos corregir esto y queremos guardar los resultados y que al volver a correr toda la sintaxis arroje los mismos resultados, tendremos que usar una semilla. En R, colocar una semilla a un proceso aleatorio se realiza usando la función <code>set.seed()</code>, que toma como argumento cualquier número (semilla).</p>
 <p>Veamos un ejemplo. Vamos a ejecutar la misma sintaxis del ejemplo anterior pero usando una semilla.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb5-1"></a><span class="kw">set.seed</span>(<span class="dv">10</span>)</span>
@@ -337,9 +343,77 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Con 1000000 ensayos el porcentaje de caras es del 50% y el de sellos es de 50%. Es así como hemos podido demostrar la ley de grandes números.</p>
 </div>
 </div>
-<div id="selección-de-elementos." class="section level2">
-<h2><span class="header-section-number">4.2</span> SELECCIÓN DE ELEMENTOS.</h2>
+<div id="vectores-vacíos-y-selección-de-elementos." class="section level2">
+<h2><span class="header-section-number">4.2</span> VECTORES VACÍOS Y SELECCIÓN DE ELEMENTOS.</h2>
+<div id="vectores-vacíos." class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Vectores vacíos.</h3>
+<p>Hasta el momento hemos visto que un vector puede tener uno o más elementos. Pero también están los vectores que no tienen elementos y que son vacíos. A continuación veamos un ejemplo de un vector vacío.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb33-1"></a><span class="co"># Vector vacio.</span></span>
+<span id="cb33-2"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb33-2"></a>v1&lt;-<span class="kw">c</span>()</span></code></pre></div>
+Hemos creado el vector vacío, en el environment podemos ver que el vector <code>v1</code> está vacío, pero que existe en memoría.
+<center>
+<img src="vacio_vector.JPG" title="fig:" alt="vector vacio en el enviorenment" />
+</center>
+<p>Estos vectores nos serán útiles cuando veamos el tema de ciclos y el tema de funciones. Por el momento es suficiente con saber de su existencia.</p>
+</div>
+<div id="seleción-de-elementos-usando-." class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Seleción de elementos usando [].</h3>
+<p>Si nosotros necesitamos selecionar un elemento o un conjunto de elementos de un vector, tendremos que usar el operador <code>[]</code>. Veamos unos ejemplos.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb34-1"></a><span class="co"># Creando un vector. </span></span>
+<span id="cb34-2"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb34-2"></a>x&lt;-<span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">3</span>,<span class="dv">65</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">9</span>,<span class="dv">99</span>,<span class="dv">100</span>,<span class="dv">102</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">87</span>,<span class="dv">12</span>,<span class="dv">12</span>,<span class="dv">13</span>)</span>
+<span id="cb34-3"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb34-3"></a>x</span></code></pre></div>
+<pre><code>##  [1]  10   3  65   3   2   5   7   6   5   9  99 100 102   1   2   2   3   6  87
+## [20]  12  12  13</code></pre>
+<p>Hemos creado el vector <code>x</code>. Si usted quiere seleccionar el elemento de posición 8, usted debería de hacer lo siguiente.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb36-1"></a><span class="co"># Seleccionado el elemento de posición 8.</span></span>
+<span id="cb36-2"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb36-2"></a>x[<span class="dv">8</span>]</span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<p>En efecto, nos ha selecionado el elemento 6 que corresponde al elemento de posición 8 contando de izquierda a derecha. Entonces, si queremos seleccionar o extraer elementos de un vector, primero se tiene que indicar el vector del cual se desea extraer el elemento o elementos luego abrir corchetes y colocar la posición del elementos y cerrar los corchetes.</p>
+<p>Veamos otro ejemplo en donde se selecciona el elemento de posición 5.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb38-1"></a><span class="co"># Seleccionado el elemento de posición 5.</span></span>
+<span id="cb38-2"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb38-2"></a>x[<span class="dv">5</span>]</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>Nos resulta el 2, si usted cuenta de izquierda a derecha el elemento de posición 5 es el elemento 2.</p>
+<p>Hasta ahora hemos visto como extraer sólo un elemento, pero podemos seleccionar varios elementos, para esto usaremos vectores en vez de elementos dentro de los corchetes. A continuación un ejemplo.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb40-1"></a><span class="co"># Seleccionado los elementos de posición 3 al 5.</span></span>
+<span id="cb40-2"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb40-2"></a>x[<span class="dv">3</span><span class="op">:</span><span class="dv">5</span>]</span></code></pre></div>
+<pre><code>## [1] 65  3  2</code></pre>
+<p>En efecto, hemos seleccionado los elementos de posición 3, 4 y 5 que son 65, 3, 2. Entonces, si deseamos seleccionar varios elementos, usaremos la posición de estos, pero definido como un vector. Veamos un ejemplo adicional en donde se selecciona los elementos de posición 7, 12 y 4.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb42-1"></a><span class="co"># Seleccionado los elementos de posición 7, 12 y 4. </span></span>
+<span id="cb42-2"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb42-2"></a>x[<span class="kw">c</span>(<span class="dv">7</span>,<span class="dv">12</span>,<span class="dv">4</span>)]</span></code></pre></div>
+<pre><code>## [1]   7 100   3</code></pre>
+<p>Hemos definido el vector de posiciones deseadas con <code>c(7,12,4)</code>. Y nos ha resultado los elementos 7, 100, 3. Con esta especificación se espera que se haya comprendido claramente el uso de vectores dentro de los corchetes.</p>
+<p>Pero si nosotros queremos seleccionar un conjunto de elementos pero indicando exclusión, es decir, indicando que no seleccione a uno o varios elementos, entonces usaremos el operador <code>-</code>. Con esto le indicaremos que nos seleccione todo el vector a excepción de (<code>-</code>). Veamos un ejemplo, en donde se desea seleccionar a todo el vector <code>x</code>, pero a excepción del primer elemento.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb44-1"></a><span class="co"># Seleccionado todo el vector x, a excepción, del elemento de posición 1.</span></span>
+<span id="cb44-2"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb44-2"></a>x[<span class="op">-</span><span class="dv">1</span>]</span></code></pre></div>
+<pre><code>##  [1]   3  65   3   2   5   7   6   5   9  99 100 102   1   2   2   3   6  87  12
+## [20]  12  13</code></pre>
+<p>En efecto, se ha selecionado todos los elemento del vector <code>x</code>, pero sin considerar el primer elemento. Esta especifiación lo podemos proyectar para excluir a varios elementos. Veamos un ejemplo en donde se quiere excluir a los elementos de posición 6, 10 y 3.</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb46-1"></a><span class="co"># Seleccionar el vector x, a excepción, de los elementos de </span></span>
+<span id="cb46-2"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb46-2"></a><span class="co"># posición 6, 10 y 3.</span></span>
+<span id="cb46-3"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb46-3"></a>x[<span class="op">-</span><span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">10</span>,<span class="dv">3</span>)]</span></code></pre></div>
+<pre><code>##  [1]  10   3   3   2   7   6   5  99 100 102   1   2   2   3   6  87  12  12  13</code></pre>
+<p>El resultado es el deseado.</p>
+</div>
+<div id="cómo-saber-cuántos-elementos-tiene-un-vector" class="section level3">
+<h3><span class="header-section-number">4.2.3</span> ¿Cómo saber cuántos elementos tiene un vector?</h3>
+<p>A veces, el vector a estudiar es un vector muy grande y no conocemos su dimensión (total de elementos). Entonces, para conocer el número de elementos de un vector usaremos la función <code>length()</code>, que tiene sólo un argumento que es el objeto del cual se desea saber su dimensión. Veamos un ejemplo y conozcamos cuántos elementos tiene el vector <code>x</code>.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb48-1"></a><span class="co"># Para saber el número de elementos del vector x.</span></span>
+<span id="cb48-2"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb48-2"></a><span class="kw">length</span>(x)</span></code></pre></div>
+<pre><code>## [1] 22</code></pre>
+<p>El software nos indica que el número de elementos del vector <code>x</code> es de 22.</p>
+<p>Asimismo, podemos usar esta función para seleccionar elementos (uniendo con lo visto anteriormente). Es así que si deseamos seleccionar el último elemento del vector <code>x</code>, podemos usar la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb50-1"></a><span class="co"># Seleccionado el último elemento del vector x.</span></span>
+<span id="cb50-2"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb50-2"></a>x[<span class="kw">length</span>(x)]</span></code></pre></div>
+<pre><code>## [1] 13</code></pre>
+<p>En efecto, hemos seleccionado el último elemento del vector <code>x</code>. Por último, si queremos seleccionar los últimos 4 elementos.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb52-1"></a><span class="co"># Seleccionado los últimos 4 elementos. </span></span>
+<span id="cb52-2"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cb52-2"></a>x[(<span class="kw">length</span>(x)<span class="op">-</span><span class="dv">3</span>)<span class="op">:</span><span class="kw">length</span>(x)]</span></code></pre></div>
+<pre><code>## [1] 87 12 12 13</code></pre>
+<p>Recordar que si deseamos seleccionar varios elementos, lo que tiene que estar dentro de los corchetes tiene que ser un vector, por eso colocamos <code>(length(x)-3):length(x)</code>. La primera parte <code>(length(x)-3)</code> hace referencia a inicio, es decir, desde que posición se desea seleccionar (22-3 = 19); la segunda parte <code>length(x)</code> indica el final (22). Es así que seleccionará desde el elemento 19 al 22 (los 4 últimos elementos).</p>
+<p>Usted puede pensar que es tedioso y podría ser más eficiente definir la sintaxis con los números, de esta manera <code>x[19:22]</code>. Déjeme decirle, que tiene cierta razón, pero su opción sólo sería viable cuando conozca el número total de elementos y tenga un sólo vector. Cuando usted desee automatizar procesos y trabaje con muchos vectores y de una dimensión colosal (que es lo que día a día se encuentra en un centro de trabajo). Usted verá la importancia y le parecerá más factible la sintaxis que hemos usado. Por el momento, estamos realizando ejemplos muy básicos, en capítulos posteriores verá la importancia de este tipo de sintaxis.</p>
 
+</div>
 </div>
 </div>
 

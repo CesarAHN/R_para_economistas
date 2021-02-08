@@ -1,6 +1,10 @@
 # VECTORES ALEATORIOS y SELECCIÓN DE ELEMENTOS.
 
-En este capítulo usted aprenderá a crear vectores de elementos aleatorios, por último, se mostrará como seleccionar uno o varios elementos de un vector. 
+En este capítulo usted aprenderá a crear vectores de elementos aleatorios, así también, cómo seleccionar uno o varios elementos de un vector, a crear vectores vacíos y conocer el tamaño de los vectores. 
+
+Quizá le parezca muy abstracto lo que se desarrollará en este capítulo, quizá usted se pregunte, ¿en el dia a día cómo voy a trabajar con vectores? o ¿para qué me servirá seleccionar elementos?. Déjeme decirle que en capítulos posteriores, los vectores se convertirán en columnas y las columnas en variables y las variables juntas generarán un dataframe o base de datos. Así que comprender cómo seleccionar elementos o saber el tamaño de vectores le permitirán filtrar observaciones en un futuro.
+
+En este y en el siguiente capítulo está lo más fundamental, si uno desea conocer el funcionamiento y en un futuro empezar a programar en el software R. Es asi que se recomienda leer, estos dos capítulos, las veces que sea posible hasta que quede asimilado por completo. 
 
 ## CREACIÓN DE VECTORES CON ELEMENTOS ALEATORIOS. 
 
@@ -180,7 +184,125 @@ round(prop.table(table(experimento))*100,4)
 
 Con 1000000 ensayos el porcentaje de caras es del `r paste0(round(prop.table(table(experimento))[1]*100,2),"%")` y el de sellos es de `r paste0(round(prop.table(table(experimento))[2]*100,2),"%")`. Es así como hemos podido demostrar la ley de grandes números. 
 
-## SELECCIÓN DE ELEMENTOS.
-
-
 [^2]: Esto no implica que nos salga los mismos resultados que anteriormente, por más que se ha colocado la misma semilla, los argumentos de la sintaxis anterior han variado. Lo cual implica un nuevo proceso aleatorio.
+
+## VECTORES VACÍOS Y SELECCIÓN DE ELEMENTOS.
+
+### Vectores vacíos.
+
+Hasta el momento hemos visto que un vector puede tener uno o más elementos. Pero también están los vectores que no tienen elementos y que son vacíos. A continuación veamos un ejemplo de un vector vacío.
+
+```{r}
+# Vector vacio.
+v1<-c()
+```
+
+Hemos creado el vector vacío, en el environment podemos ver que el vector `v1` está vacío, pero que existe en memoría. 
+<center>
+![vector vacio en el enviorenment](F:/R_para_economistas/vacio_vector.jpg)
+</center>
+
+Estos vectores nos serán útiles cuando veamos el tema de ciclos y el tema de funciones. Por el momento es suficiente con saber de su existencia.
+
+### Seleción de elementos usando [].
+
+Si nosotros necesitamos selecionar un elemento o un conjunto de elementos de un vector, tendremos que usar el operador `[]`. Veamos unos ejemplos.
+
+```{r}
+# Creando un vector. 
+x<-c(10,3,65,3,2,5,7,6,5,9,99,100,102,1,2,2,3,6,87,12,12,13)
+x
+```
+
+Hemos creado el vector `x`. Si usted quiere seleccionar el elemento de posición 8, usted debería de hacer lo siguiente.
+
+```{r}
+# Seleccionado el elemento de posición 8.
+x[8]
+```
+
+En efecto, nos ha selecionado el elemento `r x[8]` que corresponde al elemento de posición 8 contando de izquierda a derecha. Entonces, si queremos seleccionar o extraer elementos de un vector, primero se tiene que indicar el vector del cual se desea extraer el elemento o elementos luego abrir corchetes y colocar la posición del elementos y cerrar los corchetes. 
+
+Veamos otro ejemplo en donde se selecciona el elemento de posición 5. 
+
+```{r}
+# Seleccionado el elemento de posición 5.
+x[5]
+```
+
+Nos resulta el `r x[5]`, si usted cuenta de izquierda a derecha el elemento de posición 5 es el elemento `r x[5]`. 
+
+Hasta ahora hemos visto como extraer sólo un elemento, pero podemos seleccionar varios elementos, para esto usaremos vectores en vez de elementos dentro de los corchetes. A continuación un ejemplo.
+
+```{r}
+# Seleccionado los elementos de posición 3 al 5.
+x[3:5]
+```
+
+En efecto, hemos seleccionado los elementos de posición 3, 4 y 5 que son `r x[3:5]`. Entonces, si deseamos seleccionar varios elementos, usaremos la posición de estos, pero definido como un vector. Veamos un ejemplo adicional en donde se selecciona los elementos de posición 7, 12 y 4.
+
+```{r}
+# Seleccionado los elementos de posición 7, 12 y 4. 
+x[c(7,12,4)]
+```
+
+Hemos definido el vector de posiciones deseadas con `c(7,12,4)`. Y nos ha resultado los elementos `r x[c(7,12,4)]`. Con esta especificación se espera que se haya comprendido claramente el uso de vectores dentro de los corchetes. 
+
+Pero si nosotros queremos seleccionar un conjunto de elementos pero indicando exclusión, es decir, indicando que no seleccione a uno o varios elementos, entonces usaremos el operador `-`. Con esto le indicaremos que nos seleccione todo el vector a excepción de (`- `). Veamos un ejemplo, en donde se desea seleccionar a todo el vector `x`, pero a excepción del primer elemento. 
+
+
+```{r}
+# Seleccionado todo el vector x, a excepción, del elemento de posición 1.
+x[-1]
+```
+
+En efecto, se ha selecionado todos los elemento del vector `x`, pero sin considerar el primer elemento. Esta especifiación lo podemos proyectar para excluir a varios elementos. Veamos un ejemplo en donde se quiere excluir a los elementos de posición 6, 10 y 3.
+
+```{r}
+# Seleccionar el vector x, a excepción, de los elementos de 
+# posición 6, 10 y 3.
+x[-c(6,10,3)]
+```
+
+El resultado es el deseado. 
+
+### ¿Cómo saber cuántos elementos tiene un vector?
+
+A veces, el vector a estudiar es un vector muy grande y no conocemos su dimensión (total de elementos). Entonces, para conocer el número de elementos de un vector usaremos la función `length()`, que tiene sólo un argumento que es el objeto del cual se desea saber su dimensión. Veamos un ejemplo y conozcamos cuántos elementos tiene el vector `x`.
+
+```{r}
+# Para saber el número de elementos del vector x.
+length(x)
+```
+
+El software nos indica que el número de elementos del vector `x` es de `r length(x)`. 
+
+Asimismo, podemos usar esta función para seleccionar elementos (uniendo con lo visto anteriormente). Es así que si deseamos seleccionar el último elemento del vector `x`, podemos usar la siguiente sintaxis. 
+
+```{r}
+# Seleccionado el último elemento del vector x.
+x[length(x)]
+```
+
+En efecto, hemos seleccionado el último elemento del vector `x`. Por último, si queremos seleccionar los últimos 4 elementos. 
+
+```{r}
+# Seleccionado los últimos 4 elementos. 
+x[(length(x)-3):length(x)]
+```
+
+Recordar que si deseamos seleccionar varios elementos, lo que tiene que estar dentro de los corchetes tiene que ser un vector, por eso colocamos `(length(x)-3):length(x)`. La primera parte `(length(x)-3)` hace referencia a inicio, es decir, desde que posición se desea seleccionar (22-3 = 19); la segunda parte `length(x)` indica el final (22). Es así que seleccionará desde el elemento 19 al 22 (los 4 últimos elementos).
+
+Usted puede pensar que es tedioso y podría ser más eficiente definir la sintaxis con los números, de esta manera `x[19:22]`. Déjeme decirle, que tiene cierta razón, pero su opción sólo sería viable cuando conozca el número total de elementos y tenga un sólo vector. Cuando usted desee automatizar procesos y trabaje con muchos vectores y de una dimensión colosal (que es lo que día a día se encuentra en un centro de trabajo). Usted verá la importancia y le parecerá más factible la sintaxis que hemos usado. Por el momento, estamos realizando ejemplos muy básicos, en capítulos posteriores verá la importancia de este tipo de sintaxis. 
+
+
+
+
+
+
+
+
+
+
+
+
