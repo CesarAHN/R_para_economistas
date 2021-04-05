@@ -1,0 +1,333 @@
+# OPERADORES LÓGICOS Y ENCONTRAR LA POSICIÓN DE ELEMENTOS. 
+
+En este capítulo se tratará de cómo usar operados lógicos como: `y`, `o`, `igualdad`, `mayor que`, `menor que`, `diferente`, `negación`, entre otros. Gracias a estos operadores lógicos podremos filtrar y seleccionar elementos y variables de bases de datos. 
+
+## OPERADORES LÓGICOS.
+
+Al igual que las operaciones aritméticas, las operaciones lógicas tienen una importancia primordial ya que a través de ellas se pueden formar condicionales que nos simplificarán el procesamiento de datos. 
+
+Al usar un operador lógico en R, es como si le preguntaramos al software y él se limitara a responder sólo con un `TRUE` o `FALSE`. El programa no te arrojará otras respuestas a menos que hayas especificado mal la sintaxis para el uso de operadores lógicos. Asimismo, para R el valor numérico de `TRUE` es 1 y para `FALSE` es 0, esto nos permitirá, por ejemplo, saber cuántos elementos de un vector cumplen lo especificado en la operación lógica y cuántos no. 
+
+
+En la siguiente tabla se muestra los operadores lógicos más importantes:
+
+|OPERADOR LÓGICO|SINTAXIS|
+|:-------------:|:------:|
+|Igualdad|**==**|
+|Mayor que|**>**|
+|Menor que|**<**|
+|Mayor igual que|**>=**|
+|Menor igual que|**<=**|
+|Diferente|**!=**|
+|Negación|**!**|
+|y| **&**|
+|o|**\|**|
+|Pertenece|**%in%**|
+
+Primero definiremos un vector del cual podremos desarollar ejemplos usando los operadores lógicos. 
+
+```{r}
+# Definiendo el vector x.
+x<-c(5,2,4,8,6,4,0,8,1,4,7,3,11,5,1,1,2,3,4,3,3,7,7,10)
+
+# Mostrando el vector x.
+x
+```
+
+### Igualdad.
+
+Si nosotros queremos comprobar si dos objetos son iguales, entonces usaremos el operador de igualdad `==`. Es así que si deseamos saber si dos o más elementos son iguales o si uno o más vectores son iguales o otras operaciones tendremos que usar este operador. Veamos un ejemplo muy sencillo para comprenderlo. 
+
+Para esto vamos a consultar a **R** si 5 es igual a 7.
+
+```{r}
+# ¿El número 5 es igual al número 7?
+
+5==7
+```
+
+Como se muestra **R** nos arroja el booleano `r 5==7`. El cual nos indica que `5` no es igual a `7`. Ahora veamos un ejemplo en donde dos elementos son iguales. 
+
+```{r}
+# ¿El número 2.4 es igual a 2.4?
+2.4==2.4
+```
+
+Como era obvio, nos arroja el booleano `r 2.4==2.4`. 
+
+Hasta ahora hemos visto como saber si un elemento es igual a otro. Pero esta operción se puede proyectar a vectores. Por ejemplo, vamos a consultar a **R** que elementos del vector `x` son iguales a `3`. 
+
+```{r}
+# ¿Qué elementos del vector x son iguales a 3?
+x==3
+```
+Podemos ver que nos arroja `TRUE` o `FALSE` por cada elemento del vector `x`. Nos arroja `TRUE` en el elemento de posición `r which(x==3)[1]`, lo que nos indica que el elemento de posición `r which(x==3)[1]` es igual a `3`. Asimismo, también encontramos otros `TRUE` en los elementos de posición `r which(x==3)[-1]`, lo que nos indica también que en esos elementos del vector `x` son iguales a `3`.
+
+Veamos que sucede si preguntamos a **R** que elementos del vector `x` son iguales a `33`.
+
+```{r}
+# ¿Qué elementos del vector x son iguales a 33?
+x==33
+```
+
+El resultado que obtenemos son todos `FALSE`, lo que nos indica que no hay un elemento en el vector `x` que sea igual a `33`. 
+
+Hagamos una comprobación que nos arroje un similar resultado. Para esto vamos a decirle a R que sume cuantos elementos del vector `x` son iguales a `33`. Entonces, con la siguiente sintaxis sé que el total de elementos de `x` no son iguales a `33`.
+
+```{r}
+# Método que nos permite comprobar los resultados.
+sum(x==33)==0
+```
+
+Lo que hemos hecho es sumar (numéricamente los `TRUE` y `FALSE`), recordar que para R `TRUE` significa 1 y `FALSE` signfica 0. Entonces, si sumamos 33 `FALSE` nos resultará `0` que es igual al `0` que colocamos en la parte derecha del operador lógico.
+
+Y en efecto, el resultado es `r sum(x==33)==0`, lo que nos indica que no hay ningún elemento en el vector `x` que sea igual a `33`.
+
+### Mayor que.
+
+Si queremos saber si un elemento es "mayor que" otro elemento, entonces, se tiene que usar el operador lògico `>`. Este operador lógico también se puede proyectar a más objetos. Veamos un ejemplo, vamos a consultar a R si, 5 es mayor que 3. 
+
+```{r}
+# ¿El número 5 es mayor que 3?
+5>3
+```
+
+Como era obvio, nos arroja el valor de `r 5>3`, ya que, 5 es mayor que 3. Ahora veamos un ejemplo usando vectores. Vamos a consultarle a R, qué números son mayores que 8. 
+
+```{r}
+# ¿Qué elementos del vector x son mayores que 8?
+x>8
+```
+
+Podemos observar que los elementos de posición son el `r which(x>8)`. 
+
+### Menor que.
+
+Si queremos saber si un elemento es "menor que" otro elemento, entonces, se tiene que usar el operador lògico `<`. Este operador lógico también se puede proyectar a más objetos como: vectores, matrices, listas, etc. Veamos un ejemplo, vamos a consultar a R si, 7 es menor que 10. 
+
+```{r}
+# ¿El número 7 es menor que 10?
+7<10
+```
+
+En efecto, el resultado es verdadero `TRUE`, ya que, 7 es menor que 10. Ahora veamos un ejemplo en donde se le consunlta a R que elementos del vector `x` son menores que 3. 
+
+```{r}
+# ¿Qué elementos del vector x son menores que 3?
+x<3
+```
+
+Nos muestra que la posición de los elementos menores que 3 son: `r which(x<3)`.  
+
+### Diferente. 
+
+Otro de los operadores lógicos de mucha relevancia es el operador "diferente" que en R se representa con `!=`. Este operador servirá cuando queremos saber si un número es diferente a otro o cuando deseamos filtrar observaciones que son distintas al valor evaluado. Veamos un ejemplo en donde consultamos a R, si el 8 es diferente del 9.
+
+```{r}
+# ¿El número 8 es diferente del 9?
+8!=9
+```
+
+Como es obvio nos arroja `r 8!=9`, ya que, el 8 es diferente del 9. Veamos un ejemplo usando vectores. Vamos a consultarle a R que nos arroje los elementos que son distintos de 7. 
+
+```{r}
+# ¿Qué elementos del vector x que son diferentes de 7?
+x!=7
+```
+
+Nos arroja muchos `TRUE`, por lo que la gran mayoría de elementos son distintos de 7. Veamos cuántos elementos son diferentes de 7. 
+
+```{r}
+# ¿Cúantos números cumplen la condición?
+sum(x!=7)
+```
+R nos dice que hay `r sum(x!=7)` elementos que son diferentes de 7.
+
+### Negación. 
+
+La negación sirve para mutar el booleano de `TRUE` a `FALSE` o de `FALSE` a `TRUE`. Es así que si deseo consultar a R por una cuestión, puedo negar esta cuestión y obtener el resultado contrario. Veamos un ejemplo, en donde consultamos a R si 10 es igual a 8. Obviamente, nos dirá que es `FALSE`, pero si usamos la negación el booleano mutará a `TRUE`.
+
+```{r}
+# ¿El número 10 es igual 8?
+10==8
+
+# Usando la negación.
+!(10==8) # ¿El número 10 es diferente del número 8?
+```
+
+En efecto, al negar la consulta hemos obtenido el resultado contrario. Ahora veamos un ejemplo usando vectores. Vamos a consultarle a R cuales son los elementos que son iguales a 5, pero lo negaremos, por lo cual nos arrojará los que son distintos de 5. 
+
+```{r}
+# ¿Qué elementos del vector x son iguales a 5?
+x==5
+
+# Usando la negación. 
+!(x==5)  # Elementos distintos de 5.
+```
+
+El resultado es muy intuitivo y reulta ser el complemento del primero. Este tipo de operadores lógicos se usará con mayor frecuencia cuando se haga operaciones lógicas usando caracteres. 
+
+### Y condicional (Conjunción).
+
+El `Y` condicional es un operador lógico que representa la intersección entre dos o más operaciones lógicas. Es así que si deseamos obtener el resultado cuando si o si se cumplan dos o más operaciones lógicas, entonces, usaremos la condicional "y" que se representa como `&`.
+
+veamos un ejemplo, en donde se le consulta a R si el número 3 es menor que 8 y que el caracter "azul" es diferente del caracter "rojo". 
+
+```{r}
+# ¿El número 3 es menor que 8 y el caracter azul 
+# es diferente del caracter rojo?
+3<8 & "azul"!="rojo"
+```
+
+Como era de esperarse el resultado es `r 3<8 & "azul"!="rojo"`, ya que 3 es menor que 8 `y` además azul es distito de rojo.
+
+Ahora veamos un ejemplo en donde se usará más de dos operaciones lógicas. 
+
+Se el consultará a R si el 5 es mayor que 4 y si el 10 es menor que 6 y si 8 es igual a 8.0.
+
+```{r}
+# ¿el 5 es mayor que 4 y si el 10 es menor que 6 
+# y si 8 es igual a 8.0?
+
+5>4 & 10<6 & 8==8.0
+```
+
+El resultado que obtenemos es `r 5>4 & 10<6 & 8==8.0`, ya que la primera operación es verdadera, la segunda falsa y la tercera verdadera. Lo que en conjunto resulta ser `r 5>4 & 10<6 & 8==8.0`.
+
+Pero usted, puede estar preguntandose por qué un verdadero, un falso y otro verdadero da falso. Esto se puede entender de dos formas. La primera, intuitivamente; y la segunda, con la tabla de verdades de los cursos de lógica proposicional que se imparten en la educación básica. Veamos a detalle cada una de estas formas. 
+
+La forma intuitiva, si nosotros queremos saber el resultado de un conjunto de operaciones lógicas, nosotros sabemos que el resultado podría ser `TRUE` o ``FALSE`. El operador `y (&)` representa a la conjunción, ésta une dos o más proposiciones con el fin de poder construir a un proposición mayor y si esta intersección de proposiciones es verdadera entonces el resultado será verdadero, ya que estas dos proposiciones se podrán intercambiar. Entonces, será verdadero cuando el conjunto de operaciones lógicas resultan verdadero, ya que una verdad y otra verdad y otra verdad y otra verdad serán `VERDAD`. Si una de ellas es falsa, entonces el conjunto de operaciones lógicas resultará falso, ya que se rompe la relación de igualdad entre las operaciones lógicas. 
+
+La segunda forma, usando la tabla de verdades de los cursos de lógica proposicional, estoy seguro que usted recordará de sus cursos de lógica la siguiente tabla.
+
+|P|Q|P ^ Q|
+|:-------------:|:------:|:-------:|
+|V|V|**V**|
+|V|F|**F**|
+|F|V|**F**|
+|F|F|**F**|
+
+En este cuadro podemos ver dos proposiciones la proposición **P** y la proposición **Q**, cada una de estas proposiciones puede tomar el valor de `V (verdad)` o `F (falso)`, esto se representa en las dos primeras columnas de la tabla anterior. En la última columna tenemos el resultado de la intersección de **P** y **Q**, en donde observamos que sólo dos verdades resultan en verdad, en los otros casos resulta falso. Es así que si nosotros deseamos ejecutar un proceso y si o si el conjunto de proposiciones que evaluamos tienen que ser verdaderas entonces usaremos el operador `&`.
+
+### O condicional (disyunción).
+
+La `O` condicional representa la unión entre una y más operaciones lógicas, en R se representa con `|`. 
+Veamos un pequeño ejemplo, en donde consultamos a R si el 8 es igual a 9 o el 10 es igual 10.0.
+
+```{r}
+# ¿El número 8 es igual al número 9 o el 
+# número 10 es igual al número 10.0?
+
+8==9 | 10==10.0
+```
+
+El resultado que obtenemos es `r 8==9 | 10==10.0`, ya que la condicional `o` arroja la unión de las dos proposiciones. Es así que si la primera es `FALSE` y la segunda `TRUE`, entonces, el resultado es `TRUE`, ya que una de las proposiciones resultó ser `TRUE`. 
+
+A continuación mostramos la tabla de verdades para un mejor entendimiento. 
+
+|P|Q|P v Q|
+|:-------------:|:------:|:-------:|
+|V|V|**V**|
+|V|F|**V**|
+|F|V|**V**|
+|F|F|**F**|
+
+Sólo si el resultado en las dos proposiciones es falso entonces el resultado será falso, en los otros casos el resultado será verdadero. Es así que si nosotros queremos ejecutar un proceso y sólo queremos que una se las proposiciones sea verdadera para poder ejecutarlo, entonces usaremos el operador `|`.
+
+### Mayor y menor igual que.
+
+La diferencia con los operadores anteriores (mayor que y menor que) es que ahora se considerarán como límites los valores iguales al número evaluado. Veamos dos ejemplos, en el primero se consultará a R si el 4 es mayor igual a 18 y el 9 es menor igual que 9, 
+
+```{r}
+# ¿El número 4 es mayor igual que 18?
+4>=18
+
+# ¿El número 9 es menor igual que 9?
+9<=9
+```
+
+En el primer caso, el 4 no es mayor igual que 18; y en el segundo, el 8 si es menor igual que 9. 
+
+Proyectándolo a vectores. Vamos a er el ejemplo en donde se le consulta a R la posición de elementos que son mayores igual a 5 y menores iguales que 8. 
+
+```{r}
+# ¿Qué elementos del vector x son mayores iguales que 5
+# y menores iguales que 8?
+
+x>=5 & x<=8 
+```
+
+Los elementos de posición `r which(x>=5 & x<=8)` son mayores iguales que 5 y menores iguales que 7. Adicionalmete, si queremos saber cuántos números son, usamos la siguiente sintaxis. 
+
+```{r}
+# Para saber cuántos números cumplen la condición.
+sum(x>=5 & x<=8)
+```
+
+R nos indica que hay un total de `r sum(x>=5 & x<=8)` números que cumplen la condición. Es probable que usted piense que esto es en vano, ya que podría contar el número de `TRUE` sin la necesidad de correr `sum(x>=5 & x<=8)`. Esto sucede porque nuestro ejemplo es pequeño, pero si trabaja con datos reales, el tamaño de observaciones es mucho mayor. Así que esta última parte del codigo servirá mucho.
+
+### Operador pertenece. 
+
+El operador pertenece juega el mismo papel que en teoría de conjutos. Es así que si queremos saber si uno o varios elementos pertenecen a un objeto usaremos este operador. En R este operador se representa como `%in%`. El operador pertenece se usa mucho cuando se trabaja con caracteres. 
+
+Veamos un ejemplo en donde vamos a consultarle a R si el elemento 8 pertence al vector x.
+
+```{r}
+# Definimos el vector x.
+x<-c(1:10,2,3,4,3)
+
+# ¿El número 8 pertence al vector x?
+8 %in% x
+```
+
+Como era de esperarse nos arroja el valor de `r 8 %in% x`. Ahora veamos un ejemplo usando caracteres. 
+
+Vamos a consultarle a R si los elementos "Lunes" y "Martes" pertenecen al vector x.
+
+```{r}
+# Definimos el vector x.
+x<-c("Lunes","Martes","Miércoles","Jueves","Viernes","Sábado","Domingo")
+
+# ¿Los elementos "Lunes" y "Martes" pertenecen al vector x?
+
+c("Lunes","Martes") %in% x
+```
+
+En efecto, nos arroja como resultado `r c("Lunes","Martes") %in% x`. 
+
+¿Pero que sucede si invierto el orden de los objetos?
+
+El resultado que obtenemos será como si preguntaramos lo siguiente: los elementos del vector x pertenecen al objeto `c("Lunes","Martes")`.
+
+```{r}
+
+x %in% c("Lunes","Martes")
+```
+
+Nos arroja `TRUE`, `TRUE` y luego sólo `FALSE`. Esto es porque el primer elemento del vector x está en el objeto, lo mismo para el segundo elemento del vector x. Pero el tercer elemento del vector x ("Miércoles") no está en el objeto. 
+
+El operador pertenece sirve muchísimo porque nos ayuda a simplificar mucho la sintaxis de grandes operaciones lógicas. Veamos un ejemplo. 
+
+Le preguntamos a R que elementos del vector x son iguales a "A" o "B" o "C".
+
+```{r}
+# Definimos el vector x.
+set.seed(20)
+x<-sample(c("A","B","C","D"),20,T)
+x
+
+# ¿Qué elementos del vector x son iguales a "A" o "B" o "C"?
+x=="A" | x=="B" | x=="C"
+```
+
+Pero si usamos el operador pertenece (`%in%`) la sintaxis sería más limpia y más corta. 
+
+```{r}
+# La misma solución pero usando el operador pertenece. 
+
+x %in% c("A","B","C")
+```
+
+## ENCONTRAR LA POSICIÓN DE ELEMENTOS.
+
+
