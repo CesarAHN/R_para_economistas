@@ -1,6 +1,6 @@
-# OPERADORES LÓGICOS Y ENCONTRAR LA POSICIÓN DE ELEMENTOS. 
+# OPERADORES LÓGICOS, ÍNDICE DE ELEMENTOS Y CAMBIO DE VALORES. 
 
-En este capítulo se tratará de cómo usar operados lógicos como: `y`, `o`, `igualdad`, `mayor que`, `menor que`, `diferente`, `negación`, entre otros. Gracias a estos operadores lógicos podremos filtrar y seleccionar elementos y variables de bases de datos. 
+En este capítulo se tratará de cómo usar operados lógicos como: `y`, `o`, `igualdad`, `mayor que`, `menor que`, `diferente`, `negación`, entre otros. Gracias a estos operadores lógicos podremos filtrar y seleccionar elementos y variables de bases de datos. Además se aprenderá como encontrar el índice de elementos y cambiar valores de estos elementos siempre y cuando cumplan una condición.
 
 ## OPERADORES LÓGICOS.
 
@@ -328,6 +328,108 @@ Pero si usamos el operador pertenece (`%in%`) la sintaxis sería más limpia y m
 x %in% c("A","B","C")
 ```
 
-## ENCONTRAR LA POSICIÓN DE ELEMENTOS.
+## ENCONTRAR EL ÍNDICE DE ELEMENTOS Y CAMBIAR VALORES.
 
+En este capítulo hemos visto hasta el momento que se puede determinar que elemento(s) pertenecen al vector (siempre y cuando se cumplan determinada operación lógica), pero si uno desea saber la posición de este(os) elemento(s). Se tendrá que usar la función `which()`. Esta función permite encontrar la posición de los elementos siempre y cuando se cumpla una determinada operación lógica. 
 
+Veamos los argumentos de la función `which()`. 
+
+`which(x, arr.ind = FALSE, useNames = TRUE)`
+
+Donde:
+
+`x` = Es un vector lógico o un array.
+`arr.ind` = Argumento lógico que se usa cuando `x` es un array. Si es TRUE, entonces, devuelve los índices en una matriz cuando x es una matriz.
+`ùseNames` = Argumento lógico que se usa cuando `x` es una array. Si es TRUE, entonces, los nombres del array se deben de mostrar.
+
+Para este capítulo solo usaremos la función `which()` cuando el argumento `x` es lógico, así que no se tendrá en cuenta los dos últimos argumentos, ya que estos se usan cuando `x` es una array. 
+
+Entonces, vamos a ver un ejemplo. Pero primero vamos a crear el vector `x` que tiene los sigientes elementos.
+
+```{r}
+# Creando el vector x.
+set.seed(2021)
+x<-sample(1:100,50,T)
+
+```
+
+Se crea un vector aleatorio de 50 elementos los cuales pueden ser entre el 1 al 100 y pueden repetirse. 
+
+Veamos los elementos del vector `x` que acabamos de crear.
+
+```{r}
+x
+```
+
+Nosotros queremos saber las posiciones de los elementos del vector `x` son mayores que 50. Para esto realizamos la siguiente sintaxis. 
+
+```{r}
+# Para encontrar la posición de los elementos que son 
+# mayores a 50 del vector x.
+
+which(x>50)
+```
+
+Lo que nos ha arrojado R son las posiciones de los elementos que son mayores a 50 del vector `x`. Es así que el elemento de posición `r which(x>50)[1]` es mayor a 50. Si nos fijamos en el vector x, el elemento de posición 4 es el elemento de valor `r x[4]` que es mayor a 50.
+
+### CAMBIAR VALORES DE ELEMENTOS. 
+
+Una práctica común es cambiar el valor de los elementos de una variable siempre y cuando cumpla una condición o si queremos cambiar el valor de un elemento determinado.
+
+Veamos un ejemplo, para esto vamos a crear el vector aleatorio z.
+
+```{r}
+# Creando el vector aleatorio z.
+set.seed(2021)
+z<-sample(1:10, 30, T)
+```
+
+El vector `z` es un vector aleatorio de 30 elementos que pueden ser entre el 1 y 10 donde los elementos se repiten. El vector `z` tiene los siguientes elementos. 
+
+```{r}
+z
+```
+
+Por ejemplo. Si se desea cambiar el elemento de posición 9 por el 20, tendríamos que realizar la siguiente sintaxis. 
+
+```{r}
+# Cambiando el valor del elemento de índice 9
+# por el valor de 20 en el vector z.
+z[9]<-20
+```
+
+Veamos como ha quedado el vector `z`.
+
+```{r}
+z
+```
+
+En efecto, lo que hemos hecho es cambiar el valor del elemento de índice 9 por el valor de 20. 
+
+Ahora veamos un ejemplo en donde se desea cambiar por 100 todos los elementos que son iguales a 3. La sintaxis sería la siguiente.
+
+```{r}
+z[z==3]<-100
+```
+
+Veamos como nos ha quedado el vector `z`.
+
+```{r}
+z
+```
+
+En efecto, todos los elementos que valián 3 ahora valen 100. 
+
+Veamos un último ejemplo en donde los elementos de valor 5 se le sume 1000 con lo cual se convertirán en 1005. Para desarrollar lo siguiente usaremos la siguiente sintaxis.
+
+```{r}
+z[z==5]<-z[z==5]+1000
+```
+
+Y en efecto, los elementos de valor 5 ahora valen 1005.
+
+```{r}
+z
+```
+
+En el siguiente capítulo se verán los temas de factores y listas, objetos muy importantes en la programación en el software R.
