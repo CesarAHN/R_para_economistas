@@ -1,0 +1,96 @@
+# FACTORES Y LISTAS.
+
+En este capítulo se desarrollará el tema de factores donde los niveles no tienen un orden y otro en donde los niveles si están ordenados, para esto se usará las funciones: `factor()` y `ordered()`. Asimismo, se crearán listas y explicaremos para que sirven y cuando usarlas. 
+
+## Factores.
+
+En **R** un objeto factor es una variable que asigna índices a las categorías de las variable. Esto permite una mayor facilidad de procesamiento que si se mantendría la variable en string. Por otro lado, también sirve para asignar categorías a números, este uso es característico de softwares como STATA y SPSS. Hay dos tipos de variables factor en **R**: los que tienen los niveles desordenados (porque no es necesario que haya un orden) y los que tienen niveles ordenados. En el primero caso usaremos la función `factor()` o su variante `as.factor()`, y para el segundo caso, usaremos la función `ordered()`. 
+
+### Factores con niveles desordenados. 
+
+Los niveles no necesitarán un orden cuando las categorías de las variables no tienen un orden jerárquico. Por ejemplo, la variable sexo que tiene dos categorías: masculino y femenino. En esta variable el género másculino no vale más que el género femenino ni viceversa. Otro ejemplo, es el estado civil, en esta variable las categorías no tienen un orden jerarquico, ya que, ser soltero no es más o menos que estar casado o estar viudo. 
+
+Una vez que se ha comprendido cuando las categorías no tienen un orden jerarquico, podemos ver unos ejemplos para ver como funciona en el software la función `factor()`.
+
+Primero vamos a crear un vector aleatorio llamado `sexo` en donde se tienen las dos categorías: masculino y femenino. 
+
+```{r}
+# Generando el vector sexo.
+set.seed(2021)
+sexo<-sample(c("MASCULINO", "FEMENINO"), 33, T)
+
+# Hemos creado al vector sexo con 33 elementos.
+sexo
+```
+
+Podemos darnos cuenta que todos los elementos del vector `sexo` son character. Entonces, si nosotros queremos colocar un índice a cada variable y así mejorar el procesamiento, entonces necesitamos convertir a factor la variable sexo. 
+
+La forma más sencilla es usando la función `as.factor()`. Veamos como:
+
+```{r}
+# Convirtiendo a factor la variable sexo. 
+sexo1<-as.factor(sexo)
+```
+
+Estamos guardando el resultado en la variable `sexo1`.
+
+```{r}
+sexo1
+```
+
+Ahora los elementos del vector no son character, además, en la parte inferior se observa que se tiene dos niveles: `FEMENINO Y MASCULINO`. Lo que ha hecho el software es asignar un índice a cada categoría de la variable `sexo`, en este caso ha asignado el índice 1 a la categoría femenino y 2 a la categoría masculino. 
+Para observar esto usamos la función `str()` que nos arroja la estructura de cada vector. 
+
+```{r}
+# Viendo la estructura de la variable sexo1.
+str(sexo1)
+```
+
+En efecto, nos arroja que la variable `sexo1` tiene dos niveles: femenino y masculino y que el índice del primero es 1 y del segundo es 2. Esto es lo que se observa en la parte sombreada de amarillo de la siguiente imagen. 
+
+<center>
+![Índices del vector sexo1](F:/R_para_economistas/img/Factor1.jpg)
+</center>
+
+Primero observamos un `2`, luego un `1`, luego otro `1` y otro `1` y luego un `2` y así sicesivamente. estos son los índices que considera el software para cada categoría. Pero usted se preguntará cómo sé que el 2 corresponde a la categoría femenino y el 1 a masculino. El orden es el mismo que la posición de cada elemento. 
+
+<center>
+![Posición de los elementos del vector sexo1](F:/R_para_economistas/img/Factor2.jpg)
+</center>
+
+Otra forma para saber cual vale 1 y cual vale dos es el orden en el cual aparecen los niveles de la variable. Para saber cuales son los niveles podemos llamar al vector y ver en la última fila. 
+
+```{r}
+sexo1
+```
+
+O podemos usar la función `levels()`, para conocer los niveles del vector.[^1]
+
+[^1]: Esto nos servirá siempre y cuando el vector o variable tiene muchas observaciones. Imagínese que tiene 2000 observaciones, el software mostrará los primeras 1000 y luego recién lo hará con los niveles.
+
+```{r}
+levels(sexo1)
+```
+
+Por las dos formas podemos ver que el primer nivel es `FEMENINO` y el segundo es `MASCULINO`. Es así que el software le asignará el valor de 1 a femenino y 2 a masculino. Aquí surge una pregunta muy interesante ¿Por qué el software R empieza los índices con 1 y no con 0, como lo hacen otros softwares como python, java, stata, entre otros?
+
+La respuesta no es clara al 100%, sólo lo saben los que programaron **R**, pero es una ventaja de R, ya que, si empezaría en 0 el índice al llamar elementos de los vectores. Por ejemplo, si queremos llamar al primer elemento de un vector x usamos `x[1]`, en cambio, en python si queremos llamar al primer elemento tendremos que usar el índice 0, así `x[0]`. A mi parecer, el índice 0 para llamar al primer elemento me resulta extraño y confuso. Para mayor conocimiento y detalle del tema puede ingresar al siguiente enlace [stackoverflow](https://stackoverflow.com/questions/3135325/why-do-vector-indices-in-r-start-with-1-instead-of-0)
+
+Entonces, la cuestión es ¿se puede modificar el valor de los índices, es decir, que femenino tome 0 y 1 masculino manteniendo el nombre de las categorías? La respuesta es **NO**. Esto no es posible, pero no se observa la utilidad de colocar los índices con 0 y 1. Quizá piense que es necesario cuando desarrollará modelos de regresión o clasificación. En realidad, no, el software R sólo necesita que la variable sea factor o en su defecto dummizar las variables. Esta cuestión se verá más a detalle en capítulos finales. 
+
+Otra cuestión podría ser que a usted le interesa que femenino valga 2 y masculino valga 1. Esto sí es posible, para esto usaremos la función `factor()`.
+
+Primero veamos los argumentos de la función `factor()`.
+
+`factor(x = character(), levels, labels = levels, exclude = NA, ordered = is.ordered(x), nmax = NA)`
+
+Donde: 
+
+`x` = Es un vector.  
+`levels` = Son los niveles del vector x. 
+`labels` = Son las etiquetas que tomarán los niveles del vector x.
+`exclude` = Son los niveles que se excluirán a la hora de convertir en factor al vector x.
+`ordered` = Si deseamos que los niveles del vector x tengan un orden.
+`nmax` = El número máximo de niveles que se desea tener. 
+
+
