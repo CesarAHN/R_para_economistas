@@ -24,7 +24,7 @@
 <meta name="author" content="César Anderson Huamaní Ninahuanca" />
 
 
-<meta name="date" content="2021-04-29" />
+<meta name="date" content="2021-05-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -193,6 +193,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html"><i class="fa fa-check"></i><b>6</b> FACTORES Y LISTAS.</a><ul>
 <li class="chapter" data-level="6.1" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#factores."><i class="fa fa-check"></i><b>6.1</b> Factores.</a><ul>
 <li class="chapter" data-level="6.1.1" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#factores-con-niveles-desordenados."><i class="fa fa-check"></i><b>6.1.1</b> Factores con niveles desordenados.</a></li>
+<li class="chapter" data-level="6.1.2" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#factores-con-niveles-ordenados."><i class="fa fa-check"></i><b>6.1.2</b> Factores con niveles ordenados.</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -275,21 +276,90 @@ Para observar esto usamos la función <code>str()</code> que nos arroja la estru
 <pre><code>## [1] &quot;FEMENINO&quot;  &quot;MASCULINO&quot;</code></pre>
 <p>Por las dos formas podemos ver que el primer nivel es <code>FEMENINO</code> y el segundo es <code>MASCULINO</code>. Es así que el software le asignará el valor de 1 a femenino y 2 a masculino. Aquí surge una pregunta muy interesante ¿Por qué el software R empieza los índices con 1 y no con 0, como lo hacen otros softwares como python, java, stata, entre otros?</p>
 <p>La respuesta no es clara al 100%, sólo lo saben los que programaron <strong>R</strong>, pero es una ventaja de R, ya que, si empezaría en 0 el índice al llamar elementos de los vectores. Por ejemplo, si queremos llamar al primer elemento de un vector x usamos <code>x[1]</code>, en cambio, en python si queremos llamar al primer elemento tendremos que usar el índice 0, así <code>x[0]</code>. A mi parecer, el índice 0 para llamar al primer elemento me resulta extraño y confuso. Para mayor conocimiento y detalle del tema puede ingresar al siguiente enlace <a href="https://stackoverflow.com/questions/3135325/why-do-vector-indices-in-r-start-with-1-instead-of-0">stackoverflow</a></p>
-<p>Entonces, la cuestión es ¿se puede modificar el valor de los índices, es decir, que femenino tome 0 y 1 masculino manteniendo el nombre de las categorías? La respuesta es <strong>NO</strong>. Esto no es posible, pero no se observa la utilidad de colocar los índices con 0 y 1. Quizá piense que es necesario cuando desarrollará modelos de regresión o clasificación. En realidad, no, el software R sólo necesita que la variable sea factor o en su defecto dummizar las variables. Esta cuestión se verá más a detalle en capítulos finales.</p>
+<p>Entonces, la cuestión es ¿se puede modificar el valor de los índices, es decir, que femenino tome 0 y masculino 1, manteniendo el nombre de las categorías? La respuesta es <strong>NO</strong>. Esto no es posible, pero no se observa la utilidad de colocar los índices con 0 y 1. Quizá piense que es necesario cuando desarrollará modelos de regresión o clasificación. En realidad, no, el software R sólo necesita que la variable sea factor o en su defecto que las variables sean convertidas en dummies. Esta cuestión se verá más a detalle en capítulos finales.</p>
 <p>Otra cuestión podría ser que a usted le interesa que femenino valga 2 y masculino valga 1. Esto sí es posible, para esto usaremos la función <code>factor()</code>.</p>
 <p>Primero veamos los argumentos de la función <code>factor()</code>.</p>
 <p><code>factor(x = character(), levels, labels = levels, exclude = NA, ordered = is.ordered(x), nmax = NA)</code></p>
 <p>Donde:</p>
 <p><code>x</code> = Es un vector.<br />
-<code>levels</code> = Son los niveles del vector x.
-<code>labels</code> = Son las etiquetas que tomarán los niveles del vector x.
-<code>exclude</code> = Son los niveles que se excluirán a la hora de convertir en factor al vector x.
-<code>ordered</code> = Si deseamos que los niveles del vector x tengan un orden.
+<code>levels</code> = Son los niveles del vector x.<br />
+<code>labels</code> = Son las etiquetas que tomarán los niveles del vector x.<br />
+<code>exclude</code> = Son los niveles que se excluirán a la hora de convertir en factor al vector x.<br />
+<code>ordered</code> = Si deseamos que los niveles del vector x tengan un orden.<br />
 <code>nmax</code> = El número máximo de niveles que se desea tener.</p>
+<p>Para verlo a detalle vamos a usar la variable sexo que teníamos creado.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="factores-y-listas-.html#cb12-1"></a>sexo</span></code></pre></div>
+<pre><code>##  [1] &quot;MASCULINO&quot; &quot;FEMENINO&quot;  &quot;FEMENINO&quot;  &quot;FEMENINO&quot;  &quot;MASCULINO&quot; &quot;FEMENINO&quot; 
+##  [7] &quot;FEMENINO&quot;  &quot;FEMENINO&quot;  &quot;FEMENINO&quot;  &quot;FEMENINO&quot;  &quot;MASCULINO&quot; &quot;FEMENINO&quot; 
+## [13] &quot;FEMENINO&quot;  &quot;MASCULINO&quot; &quot;MASCULINO&quot; &quot;MASCULINO&quot; &quot;MASCULINO&quot; &quot;MASCULINO&quot;
+## [19] &quot;FEMENINO&quot;  &quot;MASCULINO&quot; &quot;FEMENINO&quot;  &quot;FEMENINO&quot;  &quot;MASCULINO&quot; &quot;FEMENINO&quot; 
+## [25] &quot;MASCULINO&quot; &quot;MASCULINO&quot; &quot;FEMENINO&quot;  &quot;FEMENINO&quot;  &quot;FEMENINO&quot;  &quot;FEMENINO&quot; 
+## [31] &quot;MASCULINO&quot; &quot;FEMENINO&quot;  &quot;MASCULINO&quot;</code></pre>
+<p>Por defecto, el software coloca los índices por orden alfabético. Por tal motivo, en los resultados anteriores colocaba a femenino el índice 1 y a masculino el índice 2. Pero si queremos cambiar el orden del indice, es decir, que el índice 2 sea para femenino y el índice 1 para masculino.</p>
+<p>Para obtener estos resultados ejecutaríamos la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="factores-y-listas-.html#cb14-1"></a>sexo2&lt;-<span class="kw">factor</span>(sexo, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;MASCULINO&quot;</span>,<span class="st">&quot;FEMENINO&quot;</span>))</span></code></pre></div>
+<p>Lo que hemos realizado es colocar los niveles con el argumento <code>levels</code>, es así que como primer nivel hemos considerado a <code>MASCULINO</code> y como segundo nivel a <code>FEMENINO</code>. Al colocar los niveles en ese orden, el software asignará los indices en ese orden.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="factores-y-listas-.html#cb15-1"></a>sexo2</span></code></pre></div>
+<pre><code>##  [1] MASCULINO FEMENINO  FEMENINO  FEMENINO  MASCULINO FEMENINO  FEMENINO 
+##  [8] FEMENINO  FEMENINO  FEMENINO  MASCULINO FEMENINO  FEMENINO  MASCULINO
+## [15] MASCULINO MASCULINO MASCULINO MASCULINO FEMENINO  MASCULINO FEMENINO 
+## [22] FEMENINO  MASCULINO FEMENINO  MASCULINO MASCULINO FEMENINO  FEMENINO 
+## [29] FEMENINO  FEMENINO  MASCULINO FEMENINO  MASCULINO
+## Levels: MASCULINO FEMENINO</code></pre>
+<p>En efecto, ahora el primer nivel es <code>MASCULINO</code> y el segundo es <code>FEMENINO</code>. También podemos observar con la función <code>str()</code>.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="factores-y-listas-.html#cb17-1"></a><span class="kw">str</span>(sexo2)</span></code></pre></div>
+<pre><code>##  Factor w/ 2 levels &quot;MASCULINO&quot;,&quot;FEMENINO&quot;: 1 2 2 2 1 2 2 2 2 2 ...</code></pre>
+<p>Detalle importante a considerar en este punto es que no podemos cometer errores al escribir los niveles, si nosotros escribimos un nivel distinto al que está en nuestra variable, entonces, cometeremos un error y no estaremos considerando a esa categoría en el nivel esperado. Veamos un ejemplo, y observemos lo que sucede.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="factores-y-listas-.html#cb19-1"></a>sexo3&lt;-<span class="kw">factor</span>(sexo, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;masculino&quot;</span>,<span class="st">&quot;FEMENINO&quot;</span>))</span></code></pre></div>
+<p>Aquí podemos observar que en vez de colocar el nivel <code>MASCULINO</code> se ha colocado en minusculas <code>masculino</code>. Lo cual nos genera un error ya que al no encontrar el nivel <code>masculino</code> no podrá colocar el índice, y por ende, asiganará el valor de <code>NA</code> a cada observación que no tiene el nivel correcto. Observemos.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="factores-y-listas-.html#cb20-1"></a>sexo3</span></code></pre></div>
+<pre><code>##  [1] &lt;NA&gt;     FEMENINO FEMENINO FEMENINO &lt;NA&gt;     FEMENINO FEMENINO FEMENINO
+##  [9] FEMENINO FEMENINO &lt;NA&gt;     FEMENINO FEMENINO &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;    
+## [17] &lt;NA&gt;     &lt;NA&gt;     FEMENINO &lt;NA&gt;     FEMENINO FEMENINO &lt;NA&gt;     FEMENINO
+## [25] &lt;NA&gt;     &lt;NA&gt;     FEMENINO FEMENINO FEMENINO FEMENINO &lt;NA&gt;     FEMENINO
+## [33] &lt;NA&gt;    
+## Levels: masculino FEMENINO</code></pre>
+<p>En efecto, le asignó el valor de <code>NA</code> a todos los elementos que no encontró un nivel que se le asigno, en este caso, a todos los que son <code>MASCULINO</code>.</p>
+<p>Entonces, aquí surge un cuestión ¿podemos cambiar los nombres de los niveles?, la respuesta es sí. Para realizar esto tenemos que usar el argumento <code>labels</code>. Veamos un ejemplo, en donde nuestros niveles estén en minúsculas.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="factores-y-listas-.html#cb22-1"></a>sexo4&lt;-<span class="kw">factor</span>(sexo, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;MASCULINO&quot;</span>, <span class="st">&quot;FEMENINO&quot;</span>),</span>
+<span id="cb22-2"><a href="factores-y-listas-.html#cb22-2"></a>              <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;masculino&quot;</span>, <span class="st">&quot;femenino&quot;</span>))</span></code></pre></div>
+<p>Hemos hecho el mismo procedimiento que anteriormente, pero ahora estamos utilizando el argumento <code>labels</code> que son las etiquetas que se asignarán a cada nivel. Veamos el resultado.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="factores-y-listas-.html#cb23-1"></a>sexo4</span></code></pre></div>
+<pre><code>##  [1] masculino femenino  femenino  femenino  masculino femenino  femenino 
+##  [8] femenino  femenino  femenino  masculino femenino  femenino  masculino
+## [15] masculino masculino masculino masculino femenino  masculino femenino 
+## [22] femenino  masculino femenino  masculino masculino femenino  femenino 
+## [29] femenino  femenino  masculino femenino  masculino
+## Levels: masculino femenino</code></pre>
+<p>Aquí lo fundamental, es el orden. Si nosotros consideramos primero a <code>MASCULINO</code> entonces su etiqueta debe de ser <code>masculino</code>, si nosotros hubiesemos considerado primero la etiqueta <code>femenino</code> en vez de <code>masculino</code>, se habría cambiado a todos los <code>MASCULINOS</code> por <code>femenino</code>. Por tal motivo, es fundamental el orden en el que se coloca los niveles y las etiquetas.</p>
+<p>Otra cuestión que puede surgir es el no considerar a uno o más categorías. Para realizar esto vamos a usar el argumento <code>exclude</code>. Vamos a crear el vector <code>x</code> para desarrollar un nuevo ejemplo.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="factores-y-listas-.html#cb25-1"></a><span class="co"># Creando el vector x.</span></span>
+<span id="cb25-2"><a href="factores-y-listas-.html#cb25-2"></a><span class="kw">set.seed</span>(<span class="dv">2021</span>)</span>
+<span id="cb25-3"><a href="factores-y-listas-.html#cb25-3"></a>x&lt;-<span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;D&quot;</span>), <span class="dv">30</span>, T)</span>
+<span id="cb25-4"><a href="factores-y-listas-.html#cb25-4"></a>x</span></code></pre></div>
+<pre><code>##  [1] &quot;C&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;D&quot; &quot;B&quot; &quot;D&quot; &quot;B&quot; &quot;C&quot; &quot;B&quot; &quot;B&quot; &quot;A&quot; &quot;C&quot; &quot;C&quot; &quot;A&quot; &quot;C&quot; &quot;D&quot;
+## [20] &quot;C&quot; &quot;D&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;A&quot; &quot;C&quot; &quot;B&quot; &quot;D&quot; &quot;B&quot; &quot;D&quot;</code></pre>
+<p>Hemos creado el vector <code>x</code> que tiene 30 elementos, los cuales son las letras: A, B, C y D.</p>
+<p>Entonces, si nosotros queremos convertir en factor a la variable <code>x</code> y no nos interesa el orden de los índices, entonces podemos correr la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="factores-y-listas-.html#cb27-1"></a><span class="kw">factor</span>(x)</span></code></pre></div>
+<pre><code>##  [1] C B B B C D D B D B C B B A C C A C D C D B C D A C B D B D
+## Levels: A B C D</code></pre>
+<p>Al no interesarnos el orden de los índices suficiente con colocar el vector <code>x</code> dentro de la función <code>factor()</code>. Como sabemos el software, asignará los índices en orden alfabético<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>.</p>
+<p>El resultado que hemos obtenido es el esperado a asignado los niveles en orden alfabético es así que el primer índice es para <code>A</code> y el segundo para <code>B</code>, y así sucesivamente.</p>
+<p>Pero si nosotros quisíeramos excluir al nivel <code>B</code> entonces usaríamos la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="factores-y-listas-.html#cb29-1"></a><span class="kw">factor</span>(x, <span class="dt">exclude =</span> <span class="st">&quot;B&quot;</span>)</span></code></pre></div>
+<pre><code>##  [1] C    &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; C    D    D    &lt;NA&gt; D    &lt;NA&gt; C    &lt;NA&gt; &lt;NA&gt; A    C   
+## [16] C    A    C    D    C    D    &lt;NA&gt; C    D    A    C    &lt;NA&gt; D    &lt;NA&gt; D   
+## Levels: A C D</code></pre>
+<p>Y en efecto, ya no estamos considerando al nivel <code>B</code> y asigna el valor de <code>NA</code> a todas los elementos que son <code>B</code>. Hasta ahora hemos visto ejemplos con factores en donde no es importante el orden de los niveles. Pero en la siguiente sección veremos a detalle como trabajar con niveles ordenados.</p>
+</div>
+<div id="factores-con-niveles-ordenados." class="section level3">
+<h3><span class="header-section-number">6.1.2</span> Factores con niveles ordenados.</h3>
 
 </div>
 </div>
 </div>
+
 
 
 
@@ -300,6 +370,7 @@ Para observar esto usamos la función <code>str()</code> que nos arroja la estru
 <hr />
 <ol start="1">
 <li id="fn1"><p>Esto nos servirá siempre y cuando el vector o variable tiene muchas observaciones. Imagínese que tiene 2000 observaciones, el software mostrará los primeras 1000 y luego recién lo hará con los niveles.<a href="factores-y-listas-.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Obtendríamos el mismo resultado si hubieramos usando la función <code>as.factor()</code>, pero esta función no acepta argumentos como levels, labels, exclude, entre otros.<a href="factores-y-listas-.html#fnref2" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

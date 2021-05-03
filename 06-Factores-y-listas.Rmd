@@ -76,7 +76,7 @@ Por las dos formas podemos ver que el primer nivel es `FEMENINO` y el segundo es
 
 La respuesta no es clara al 100%, sólo lo saben los que programaron **R**, pero es una ventaja de R, ya que, si empezaría en 0 el índice al llamar elementos de los vectores. Por ejemplo, si queremos llamar al primer elemento de un vector x usamos `x[1]`, en cambio, en python si queremos llamar al primer elemento tendremos que usar el índice 0, así `x[0]`. A mi parecer, el índice 0 para llamar al primer elemento me resulta extraño y confuso. Para mayor conocimiento y detalle del tema puede ingresar al siguiente enlace [stackoverflow](https://stackoverflow.com/questions/3135325/why-do-vector-indices-in-r-start-with-1-instead-of-0)
 
-Entonces, la cuestión es ¿se puede modificar el valor de los índices, es decir, que femenino tome 0 y 1 masculino manteniendo el nombre de las categorías? La respuesta es **NO**. Esto no es posible, pero no se observa la utilidad de colocar los índices con 0 y 1. Quizá piense que es necesario cuando desarrollará modelos de regresión o clasificación. En realidad, no, el software R sólo necesita que la variable sea factor o en su defecto dummizar las variables. Esta cuestión se verá más a detalle en capítulos finales. 
+Entonces, la cuestión es ¿se puede modificar el valor de los índices, es decir, que femenino tome 0 y masculino 1, manteniendo el nombre de las categorías? La respuesta es **NO**. Esto no es posible, pero no se observa la utilidad de colocar los índices con 0 y 1. Quizá piense que es necesario cuando desarrollará modelos de regresión o clasificación. En realidad, no, el software R sólo necesita que la variable sea factor o en su defecto que las variables sean convertidas en dummies. Esta cuestión se verá más a detalle en capítulos finales. 
 
 Otra cuestión podría ser que a usted le interesa que femenino valga 2 y masculino valga 1. Esto sí es posible, para esto usaremos la función `factor()`.
 
@@ -87,10 +87,97 @@ Primero veamos los argumentos de la función `factor()`.
 Donde: 
 
 `x` = Es un vector.  
-`levels` = Son los niveles del vector x. 
-`labels` = Son las etiquetas que tomarán los niveles del vector x.
-`exclude` = Son los niveles que se excluirán a la hora de convertir en factor al vector x.
-`ordered` = Si deseamos que los niveles del vector x tengan un orden.
-`nmax` = El número máximo de niveles que se desea tener. 
+`levels` = Son los niveles del vector x.  
+`labels` = Son las etiquetas que tomarán los niveles del vector x.  
+`exclude` = Son los niveles que se excluirán a la hora de convertir en factor al vector x.  
+`ordered` = Si deseamos que los niveles del vector x tengan un orden.  
+`nmax` = El número máximo de niveles que se desea tener.   
 
+Para verlo a detalle vamos a usar la variable sexo que teníamos creado. 
+
+```{r}
+sexo
+```
+
+Por defecto, el software coloca los índices por orden alfabético. Por tal motivo, en los resultados anteriores colocaba a femenino el índice 1 y a masculino el índice 2. Pero si queremos cambiar el orden del indice, es decir, que el índice 2 sea para femenino y el índice 1 para masculino. 
+
+Para obtener estos resultados ejecutaríamos la siguiente sintaxis. 
+
+```{r}
+sexo2<-factor(sexo, levels = c("MASCULINO","FEMENINO"))
+```
+
+Lo que hemos realizado es colocar los niveles con el argumento `levels`, es así que como primer nivel hemos considerado a `MASCULINO` y como segundo nivel a `FEMENINO`. Al colocar los niveles en ese orden, el software asignará los indices en ese orden. 
+
+```{r}
+sexo2
+```
+
+En efecto, ahora el primer nivel es `MASCULINO` y el segundo es `FEMENINO`. También podemos observar con la función `str()`.
+
+```{r}
+str(sexo2)
+```
+
+Detalle importante a considerar en este punto es que no podemos cometer errores al escribir los niveles, si nosotros escribimos un nivel distinto al que está en nuestra variable, entonces, cometeremos un error y no estaremos considerando a esa categoría en el nivel esperado. Veamos un ejemplo, y observemos lo que sucede. 
+
+```{r}
+sexo3<-factor(sexo, levels = c("masculino","FEMENINO"))
+```
+
+Aquí podemos observar que en vez de colocar el nivel `MASCULINO` se ha colocado en minusculas `masculino`. Lo cual nos genera un error ya que al no encontrar el nivel `masculino` no podrá colocar el índice, y por ende, asiganará el valor de `NA` a cada observación que no tiene el nivel correcto. Observemos. 
+
+```{r}
+sexo3
+```
+
+En efecto, le asignó el valor de `NA` a todos los elementos que no encontró un nivel que se le asigno, en este caso, a todos los que son `MASCULINO`. 
+
+Entonces, aquí surge un cuestión ¿podemos cambiar los nombres de los niveles?, la respuesta es sí. Para realizar esto tenemos que usar el argumento `labels`. Veamos un ejemplo, en donde nuestros niveles estén en minúsculas. 
+
+```{r}
+sexo4<-factor(sexo, levels = c("MASCULINO", "FEMENINO"),
+              labels = c("masculino", "femenino"))
+```
+
+Hemos hecho el mismo procedimiento que anteriormente, pero ahora estamos utilizando el argumento `labels` que son las etiquetas que se asignarán a cada nivel. Veamos el resultado. 
+
+```{r}
+sexo4
+```
+
+Aquí lo fundamental, es el orden. Si nosotros consideramos primero a `MASCULINO` entonces su etiqueta debe de ser `masculino`, si nosotros hubiesemos considerado primero la etiqueta `femenino` en vez de `masculino`, se habría cambiado a todos los `MASCULINOS` por `femenino`. Por tal motivo, es fundamental el orden en el que se coloca los niveles y las etiquetas. 
+
+Otra cuestión que puede surgir es el no considerar a uno o más categorías. Para realizar esto vamos a usar el argumento `exclude`. Vamos a crear el vector `x` para desarrollar un nuevo ejemplo. 
+
+```{r}
+# Creando el vector x.
+set.seed(2021)
+x<-sample(c("A","B","C","D"), 30, T)
+x
+```
+
+Hemos creado el vector `x` que tiene 30 elementos, los cuales son las letras: A, B, C y D. 
+
+Entonces, si nosotros queremos convertir en factor a la variable `x` y no nos interesa el orden de los índices, entonces podemos correr la siguiente sintaxis. 
+
+```{r}
+factor(x)
+```
+
+Al no interesarnos el orden de los índices suficiente con colocar el vector `x` dentro de la función `factor()`. Como sabemos el software, asignará los índices en orden alfabético[^2].
+
+[^2]: Obtendríamos el mismo resultado si hubieramos usando la función `as.factor()`, pero esta función no acepta argumentos como levels, labels, exclude, entre otros. 
+
+El resultado que hemos obtenido es el esperado a asignado los niveles en orden alfabético es así que el primer índice es para `A` y el segundo para `B`, y así sucesivamente. 
+
+Pero si nosotros quisíeramos excluir al nivel `B` entonces usaríamos la siguiente sintaxis. 
+
+```{r}
+factor(x, exclude = "B")
+```
+
+Y en efecto, ya no estamos considerando al nivel `B` y asigna el valor de `NA` a todas los elementos que son `B`. Hasta ahora hemos visto ejemplos con factores en donde no es importante el orden de los niveles. Pero en la siguiente sección veremos a detalle como trabajar con niveles ordenados. 
+
+### Factores con niveles ordenados. 
 
