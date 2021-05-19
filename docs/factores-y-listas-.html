@@ -24,7 +24,7 @@
 <meta name="author" content="César Anderson Huamaní Ninahuanca" />
 
 
-<meta name="date" content="2021-05-03" />
+<meta name="date" content="2021-05-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -195,6 +195,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1.1" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#factores-con-niveles-desordenados."><i class="fa fa-check"></i><b>6.1.1</b> Factores con niveles desordenados.</a></li>
 <li class="chapter" data-level="6.1.2" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#factores-con-niveles-ordenados."><i class="fa fa-check"></i><b>6.1.2</b> Factores con niveles ordenados.</a></li>
 </ul></li>
+<li class="chapter" data-level="6.2" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#listas."><i class="fa fa-check"></i><b>6.2</b> Listas.</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#cómo-se-obtiene-cada-objeto-de-una-lista"><i class="fa fa-check"></i><b>6.2.1</b> ¿Cómo se obtiene cada objeto de una lista?</a></li>
+<li class="chapter" data-level="6.2.2" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#asignado-nombres-a-los-objetos-de-una-lista."><i class="fa fa-check"></i><b>6.2.2</b> Asignado nombres a los objetos de una lista.</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -355,6 +359,135 @@ Para observar esto usamos la función <code>str()</code> que nos arroja la estru
 </div>
 <div id="factores-con-niveles-ordenados." class="section level3">
 <h3><span class="header-section-number">6.1.2</span> Factores con niveles ordenados.</h3>
+<p>En encuestas se suele preguntas sobre satisfacción, nivel de recomendación o percepción. En este tipo de preguntas el orden de los niveles tiene suma importancia, ya que no es lo mismo sentirse muy satisfecho con sentirse satisfecho. Entonces, si nosotros sabemos que los niveles de una variable se tienen que ordenar jerarqueicamente, tendremos que convertirlo a una variable factor ordenado. En R para conseguir esto, se puede usar la función <code>ordered()</code>.</p>
+<p>La función <code>ordered()</code> tiene los mismos argumentos que la función <code>factor()</code>, así que será sencillo su aplicación. Veamos un ejemplo en donde se tiene la satisfacción sobre el servicio de alcantarillado de un barrio.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="factores-y-listas-.html#cb31-1"></a><span class="co"># Creando la variable que representa la satisfacción </span></span>
+<span id="cb31-2"><a href="factores-y-listas-.html#cb31-2"></a><span class="co"># sobre el servicio de alcantarillado.</span></span>
+<span id="cb31-3"><a href="factores-y-listas-.html#cb31-3"></a>satis&lt;-<span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;MUY SATISFECHO&quot;</span>,<span class="st">&quot;SATISFECHO&quot;</span>,<span class="st">&quot;NEUTRAL&quot;</span>,</span>
+<span id="cb31-4"><a href="factores-y-listas-.html#cb31-4"></a>                <span class="st">&quot;INSATISFECHO&quot;</span>,<span class="st">&quot;MUY SATISFECHO&quot;</span>), <span class="dv">30</span>, T)</span>
+<span id="cb31-5"><a href="factores-y-listas-.html#cb31-5"></a>satis</span></code></pre></div>
+<pre><code>##  [1] &quot;MUY SATISFECHO&quot; &quot;SATISFECHO&quot;     &quot;NEUTRAL&quot;        &quot;INSATISFECHO&quot;  
+##  [5] &quot;MUY SATISFECHO&quot; &quot;MUY SATISFECHO&quot; &quot;MUY SATISFECHO&quot; &quot;SATISFECHO&quot;    
+##  [9] &quot;NEUTRAL&quot;        &quot;NEUTRAL&quot;        &quot;SATISFECHO&quot;     &quot;SATISFECHO&quot;    
+## [13] &quot;MUY SATISFECHO&quot; &quot;NEUTRAL&quot;        &quot;SATISFECHO&quot;     &quot;MUY SATISFECHO&quot;
+## [17] &quot;MUY SATISFECHO&quot; &quot;MUY SATISFECHO&quot; &quot;INSATISFECHO&quot;   &quot;INSATISFECHO&quot;  
+## [21] &quot;NEUTRAL&quot;        &quot;NEUTRAL&quot;        &quot;SATISFECHO&quot;     &quot;MUY SATISFECHO&quot;
+## [25] &quot;SATISFECHO&quot;     &quot;MUY SATISFECHO&quot; &quot;MUY SATISFECHO&quot; &quot;MUY SATISFECHO&quot;
+## [29] &quot;MUY SATISFECHO&quot; &quot;MUY SATISFECHO&quot;</code></pre>
+<p>Hemos creado el vector <code>satis</code> que contiene la satisfacción de 30 individuos sobre el servicio de alcantarillado de un barrio. La satisfacción tiene 5 niveles: muy satisfecho, satisfecho, neutral, insatisfecho, muy insatisfecho.</p>
+<p>Nosotros tenemos que asignarle valores númericos a cada nivel, ya que en un futuro realizaremos análisis factorial con estas variable y otras. Entonces, si queremos asignarle valores y sabemos que tienen que tener un orden donde muy insatisfecho es el nivel más bajo y muy satisfecho el valor más alto. Tendremos que realizar la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="factores-y-listas-.html#cb33-1"></a><span class="co"># Convirtiendo en factor ordenado. </span></span>
+<span id="cb33-2"><a href="factores-y-listas-.html#cb33-2"></a>satis1&lt;-<span class="kw">ordered</span>(satis, <span class="dt">levels=</span><span class="kw">c</span>(<span class="st">&quot;MUY INSATISFECHO&quot;</span>,<span class="st">&quot;INSATISFECHO&quot;</span>,</span>
+<span id="cb33-3"><a href="factores-y-listas-.html#cb33-3"></a>                                <span class="st">&quot;NEUTRAL&quot;</span>,<span class="st">&quot;SATISFECHO&quot;</span>,<span class="st">&quot;MUY SATISFECHO&quot;</span>))</span>
+<span id="cb33-4"><a href="factores-y-listas-.html#cb33-4"></a>satis1</span></code></pre></div>
+<pre><code>##  [1] MUY SATISFECHO SATISFECHO     NEUTRAL        INSATISFECHO   MUY SATISFECHO
+##  [6] MUY SATISFECHO MUY SATISFECHO SATISFECHO     NEUTRAL        NEUTRAL       
+## [11] SATISFECHO     SATISFECHO     MUY SATISFECHO NEUTRAL        SATISFECHO    
+## [16] MUY SATISFECHO MUY SATISFECHO MUY SATISFECHO INSATISFECHO   INSATISFECHO  
+## [21] NEUTRAL        NEUTRAL        SATISFECHO     MUY SATISFECHO SATISFECHO    
+## [26] MUY SATISFECHO MUY SATISFECHO MUY SATISFECHO MUY SATISFECHO MUY SATISFECHO
+## 5 Levels: MUY INSATISFECHO &lt; INSATISFECHO &lt; NEUTRAL &lt; ... &lt; MUY SATISFECHO</code></pre>
+<p>En efecto, hemos obtenido un factor donde los niveles están ordenados de menor a mayor. ¿Cómo se ha hecho? Al usar la función <code>ordered()</code> el primer argumento que se tiene que considerar es el vector que queremos ordenar (<code>satis</code>) y el segundo argumento son los niveles, pero los niveles tienen que estar en el orden que se desea, es decir, desde el que tendrá el valor más pequeño hasta el que tendrá el valor más grande, por eso los niveles empezó desde muy insatisfecho.</p>
+<p>Este resultado también podemos obtenerlo con la función <code>factor()</code> siempre y cuando consideremos un argumento adicional, el cual es <code>ordered = TRUE</code>. Veamos como se haría lo mismo con la función <code>factor()</code>.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="factores-y-listas-.html#cb35-1"></a><span class="co"># Obteniendo el mismo resultado con la función factor().</span></span>
+<span id="cb35-2"><a href="factores-y-listas-.html#cb35-2"></a>satis2&lt;-<span class="kw">factor</span>(satis, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;MUY INSATISFECHO&quot;</span>,<span class="st">&quot;INSATISFECHO&quot;</span>,</span>
+<span id="cb35-3"><a href="factores-y-listas-.html#cb35-3"></a>                                <span class="st">&quot;NEUTRAL&quot;</span>,<span class="st">&quot;SATISFECHO&quot;</span>,<span class="st">&quot;MUY SATISFECHO&quot;</span>),</span>
+<span id="cb35-4"><a href="factores-y-listas-.html#cb35-4"></a>               <span class="dt">ordered =</span> T)</span>
+<span id="cb35-5"><a href="factores-y-listas-.html#cb35-5"></a>satis2</span></code></pre></div>
+<pre><code>##  [1] MUY SATISFECHO SATISFECHO     NEUTRAL        INSATISFECHO   MUY SATISFECHO
+##  [6] MUY SATISFECHO MUY SATISFECHO SATISFECHO     NEUTRAL        NEUTRAL       
+## [11] SATISFECHO     SATISFECHO     MUY SATISFECHO NEUTRAL        SATISFECHO    
+## [16] MUY SATISFECHO MUY SATISFECHO MUY SATISFECHO INSATISFECHO   INSATISFECHO  
+## [21] NEUTRAL        NEUTRAL        SATISFECHO     MUY SATISFECHO SATISFECHO    
+## [26] MUY SATISFECHO MUY SATISFECHO MUY SATISFECHO MUY SATISFECHO MUY SATISFECHO
+## 5 Levels: MUY INSATISFECHO &lt; INSATISFECHO &lt; NEUTRAL &lt; ... &lt; MUY SATISFECHO</code></pre>
+<p>Como sabemos al asignarle un orden, los valores tendrán un orden. Lo que nos permitirá hacer futuros cálculos. Es asíq ue si lo queremos ver en números sólo tendríamos que aplicarle la función <code>as.numeric()</code> que convierte al factor en un vector numérico.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="factores-y-listas-.html#cb37-1"></a><span class="co"># Convirtiendo a numérico el factor ordenado. </span></span>
+<span id="cb37-2"><a href="factores-y-listas-.html#cb37-2"></a><span class="kw">as.numeric</span>(satis1)</span></code></pre></div>
+<pre><code>##  [1] 5 4 3 2 5 5 5 4 3 3 4 4 5 3 4 5 5 5 2 2 3 3 4 5 4 5 5 5 5 5</code></pre>
+<p>En efecto, hemos obtenido los valores numéricos de cada categoría en donde se le asigna el valor de 1 al nivel más pequeño que es <code>MUY INSATISFECHO</code> y el valor de 5 al nivel <code>MUY SATISFECHO</code>.</p>
+</div>
+</div>
+<div id="listas." class="section level2">
+<h2><span class="header-section-number">6.2</span> Listas.</h2>
+<p>Uno de los objetos más importantes en R son las listas, las listas son capaces de almacenar a otros objetos, por ejemplo: vectores, matrices, factores, entre otros. La particularidad de las listas es que no permite que los objetos que contiene pierdan sus características. Es así que si yo tengo una lista de vectores y matrices, los vectores no perderán sus características y seguirán siendo vectores, lo mismo para las matrices.</p>
+<p>Veamos un ejemplo en donde vamos a crear una lista que contenga 5 vectores.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="factores-y-listas-.html#cb39-1"></a><span class="co"># Creando los 5 vectores. </span></span>
+<span id="cb39-2"><a href="factores-y-listas-.html#cb39-2"></a>x1&lt;-<span class="kw">c</span>(1L,2L,5L,7L)</span>
+<span id="cb39-3"><a href="factores-y-listas-.html#cb39-3"></a>x2&lt;-<span class="kw">c</span>(<span class="st">&quot;LUZ&quot;</span>,<span class="st">&quot;OSCURIDAD&quot;</span>,<span class="st">&quot;NIEBLA&quot;</span>)</span>
+<span id="cb39-4"><a href="factores-y-listas-.html#cb39-4"></a>x3&lt;-<span class="kw">c</span>(<span class="fl">1.1</span>,<span class="fl">4.3</span>,<span class="fl">6.6</span>,<span class="fl">7.6</span>)</span>
+<span id="cb39-5"><a href="factores-y-listas-.html#cb39-5"></a>x4&lt;-<span class="kw">c</span>(<span class="dv">1</span><span class="op">+</span>4i,6i)</span>
+<span id="cb39-6"><a href="factores-y-listas-.html#cb39-6"></a>x5&lt;-<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>,<span class="ot">FALSE</span>, <span class="ot">TRUE</span>)</span></code></pre></div>
+<p>Hemos creado 5 vectores: vector de enteros, de caracteres, númerico, complejo y lógico.</p>
+<p>Si nosotros queremos tener todo en un mismo objeto, podríamos concatenarlo, pero al hacer eso se perdería la característica de cada vector, ya que lo convertiría en un vector character como se vio en el segundo capítulo.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="factores-y-listas-.html#cb40-1"></a>x&lt;-<span class="kw">c</span>(x1,x2,x3,x4,x5)</span>
+<span id="cb40-2"><a href="factores-y-listas-.html#cb40-2"></a></span>
+<span id="cb40-3"><a href="factores-y-listas-.html#cb40-3"></a><span class="kw">class</span>(x)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>Entonces, si no queremos que pierda sus características tendremos que integrarlo en una lista. Para crear una lista se usa la función <code>list()</code>.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="factores-y-listas-.html#cb42-1"></a><span class="co"># Creando una lista que contenga a los 5 vectores. </span></span>
+<span id="cb42-2"><a href="factores-y-listas-.html#cb42-2"></a>lista&lt;-<span class="kw">list</span>(x1,x2,x3,x4,x5)</span>
+<span id="cb42-3"><a href="factores-y-listas-.html#cb42-3"></a></span>
+<span id="cb42-4"><a href="factores-y-listas-.html#cb42-4"></a>lista</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] 1 2 5 7
+## 
+## [[2]]
+## [1] &quot;LUZ&quot;       &quot;OSCURIDAD&quot; &quot;NIEBLA&quot;   
+## 
+## [[3]]
+## [1] 1.1 4.3 6.6 7.6
+## 
+## [[4]]
+## [1] 1+4i 0+6i
+## 
+## [[5]]
+## [1]  TRUE FALSE FALSE  TRUE</code></pre>
+<p>La lista que acabamos de crear nos muestra los 5 vectores y cada uno no ha perdido sus características.</p>
+<div id="cómo-se-obtiene-cada-objeto-de-una-lista" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> ¿Cómo se obtiene cada objeto de una lista?</h3>
+<p>Una vez que se ha creado la lista usted, puede tener la necesidad de usar uno o varios de los objetos, entonces, usted tiene que llamar a los objetos que contiene sus lista.</p>
+<p>El procedimiento es similar al que se usa para llamar elementos de un vector, en esos casos se usaba los corchetes <code>[]</code>, para el caso de listas se usa los doble corchetes <code>[[]]</code>. Por ejemplo si nosotros queremos llamar al primer vector de nuestra lista, entonces aplicaríamos la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="factores-y-listas-.html#cb44-1"></a><span class="co"># Llamando al primer objeto de nuestra lista. </span></span>
+<span id="cb44-2"><a href="factores-y-listas-.html#cb44-2"></a>lista[[<span class="dv">1</span>]]</span></code></pre></div>
+<pre><code>## [1] 1 2 5 7</code></pre>
+<p>en efecto al aplicar doble corchete a la lista y colocar dentro de ella el número 1, estamos llamando al primer objeto.</p>
+<p>Como se mencionó anteriormente, al guardarlo en una lista no pierde sus características el vector, por lo cual el primero objeto de la lista es un vector integer.</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="factores-y-listas-.html#cb46-1"></a><span class="co"># Viendo si se mantiene las características de los objetos. </span></span>
+<span id="cb46-2"><a href="factores-y-listas-.html#cb46-2"></a><span class="kw">class</span>(lista[[<span class="dv">1</span>]])</span></code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<p>En efecto, es de la clase integer.</p>
+<p>Ahora, si queremos llamar al cuarto objeto, entonces, usaríamos la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="factores-y-listas-.html#cb48-1"></a><span class="co"># Llamando al cuarto objeto de la lista.</span></span>
+<span id="cb48-2"><a href="factores-y-listas-.html#cb48-2"></a>lista[[<span class="dv">4</span>]]</span></code></pre></div>
+<pre><code>## [1] 1+4i 0+6i</code></pre>
+</div>
+<div id="asignado-nombres-a-los-objetos-de-una-lista." class="section level3">
+<h3><span class="header-section-number">6.2.2</span> Asignado nombres a los objetos de una lista.</h3>
+<p>Los objetos de una lista admiten nombres, por lo que se les puede asignar nombres y luego llamarlos por esos nombres. Con la función <code>names()</code> se obtiene o se les asigna nombres. Primero apliquemos la función <code>names()</code> a la lista que hemos creado con el fin de obtener los nombres de la lista, como sabemos que no tienen nombres nuestros objetos nos arrojará el valor de NULL.</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="factores-y-listas-.html#cb50-1"></a><span class="co"># Obteniendo los nombres de nuestra lista. </span></span>
+<span id="cb50-2"><a href="factores-y-listas-.html#cb50-2"></a><span class="kw">names</span>(lista)</span></code></pre></div>
+<pre><code>## NULL</code></pre>
+<p>En efecto, no arroja NULL. Lo que vamos hacer ahora es asignarle nombres. Los nombres serán las clases de cada vector.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="factores-y-listas-.html#cb52-1"></a><span class="co"># Asignando nombres a nuestra lista.</span></span>
+<span id="cb52-2"><a href="factores-y-listas-.html#cb52-2"></a><span class="kw">names</span>(lista)&lt;-<span class="kw">c</span>(<span class="st">&quot;entero&quot;</span>,<span class="st">&quot;caracter&quot;</span>,<span class="st">&quot;numerico&quot;</span>,<span class="st">&quot;complejo&quot;</span>,<span class="st">&quot;logico&quot;</span>)</span></code></pre></div>
+<p>Veamos si nuestra lista ya tiene nombres.</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="factores-y-listas-.html#cb53-1"></a><span class="kw">names</span>(lista)</span></code></pre></div>
+<pre><code>## [1] &quot;entero&quot;   &quot;caracter&quot; &quot;numerico&quot; &quot;complejo&quot; &quot;logico&quot;</code></pre>
+<p>En efecto, ya tienen nombres, por lo cual ya podremos llamarlos por sus nombres. Por ejemplo, vamos a llamar al objeto llamado <code>caracter</code>, pero para llamarlo por sus nombres, ya no se necesitará usar el doble corchete <code>[[]]</code>, sino el símbolo de dólar <code>$</code>.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="factores-y-listas-.html#cb55-1"></a><span class="co"># Llamando al objeto llamado caracter.</span></span>
+<span id="cb55-2"><a href="factores-y-listas-.html#cb55-2"></a>lista<span class="op">$</span>caracter</span></code></pre></div>
+<pre><code>## [1] &quot;LUZ&quot;       &quot;OSCURIDAD&quot; &quot;NIEBLA&quot;</code></pre>
+<p>El resultado, es el objeto que contiene elementos caracter. Entonces podemos llamar a los objetos de una lista de dos formas con el doble corchete <code>[[]]</code> cuando tenga o no tenga nombres nuestros objetos o con el <code>$</code> siempre y cuando los objetos tengan nombres.</p>
+<p>Como último ejemplo, veremos como llamar al segundo elemento del vector llamado entero de nuestra lista.</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="factores-y-listas-.html#cb57-1"></a><span class="co"># Llamando al segundo elemento del vector entero de la lista.</span></span>
+<span id="cb57-2"><a href="factores-y-listas-.html#cb57-2"></a>lista<span class="op">$</span>entero[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="factores-y-listas-.html#cb59-1"></a><span class="co"># O también podemos llamarlo con:</span></span>
+<span id="cb59-2"><a href="factores-y-listas-.html#cb59-2"></a>lista[[<span class="dv">1</span>]][<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>Al final obtenemos el mismo resultado.</p>
+<p>En el siguiente capítulo se verá el tema de matrices, desde como crearlas hasta llamar elementos.</p>
 
 </div>
 </div>

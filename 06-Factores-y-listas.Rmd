@@ -181,3 +181,159 @@ Y en efecto, ya no estamos considerando al nivel `B` y asigna el valor de `NA` a
 
 ### Factores con niveles ordenados. 
 
+En encuestas se suele preguntas sobre satisfacción, nivel de recomendación o percepción. En este tipo de preguntas el orden de los niveles tiene suma importancia, ya que no es lo mismo sentirse muy satisfecho con sentirse satisfecho. Entonces, si nosotros sabemos que los niveles de una variable se tienen que ordenar jerarqueicamente, tendremos que convertirlo a una variable factor ordenado. En R para conseguir esto, se puede usar la función `ordered()`. 
+
+La función `ordered()` tiene los mismos argumentos que la función `factor()`, así que será sencillo su aplicación. Veamos un ejemplo en donde se tiene la satisfacción sobre el servicio de alcantarillado de un barrio.
+
+```{r}
+# Creando la variable que representa la satisfacción 
+# sobre el servicio de alcantarillado.
+satis<-sample(c("MUY SATISFECHO","SATISFECHO","NEUTRAL",
+                "INSATISFECHO","MUY SATISFECHO"), 30, T)
+satis
+```
+Hemos creado el vector `satis` que contiene la satisfacción de 30 individuos sobre el servicio de alcantarillado de un barrio. La satisfacción tiene 5 niveles: muy satisfecho, satisfecho, neutral, insatisfecho, muy insatisfecho.
+
+Nosotros tenemos que asignarle valores númericos a cada nivel, ya que en un futuro realizaremos análisis factorial con estas variable y otras. Entonces, si queremos asignarle valores y sabemos que tienen que tener un orden donde muy insatisfecho es el nivel más bajo y muy satisfecho el valor más alto. Tendremos que realizar la siguiente sintaxis.
+
+```{r}
+# Convirtiendo en factor ordenado. 
+satis1<-ordered(satis, levels=c("MUY INSATISFECHO","INSATISFECHO",
+                                "NEUTRAL","SATISFECHO","MUY SATISFECHO"))
+satis1
+```
+
+En efecto, hemos obtenido un factor donde los niveles están ordenados de menor a mayor. ¿Cómo se ha hecho? Al usar la función `ordered()` el primer argumento que se tiene que considerar es el vector que queremos ordenar (`satis`) y el segundo argumento son los niveles, pero los niveles tienen que estar en el orden que se desea, es decir, desde el que tendrá el valor más pequeño hasta el que tendrá el valor más grande, por eso los niveles empezó desde muy insatisfecho. 
+
+Este resultado también podemos obtenerlo con la función `factor()` siempre y cuando consideremos un argumento adicional, el cual es `ordered = TRUE`. Veamos como se haría lo mismo con la función `factor()`. 
+
+```{r}
+# Obteniendo el mismo resultado con la función factor().
+satis2<-factor(satis, levels = c("MUY INSATISFECHO","INSATISFECHO",
+                                "NEUTRAL","SATISFECHO","MUY SATISFECHO"),
+               ordered = T)
+satis2
+```
+
+Como sabemos al asignarle un orden, los valores tendrán un orden. Lo que nos permitirá hacer futuros cálculos. Es asíq ue si lo queremos ver en números sólo tendríamos que aplicarle la función `as.numeric()` que convierte al factor en un vector numérico.
+
+```{r}
+# Convirtiendo a numérico el factor ordenado. 
+as.numeric(satis1)
+```
+
+En efecto, hemos obtenido los valores numéricos de cada categoría en donde se le asigna el valor de 1 al nivel más pequeño que es `MUY INSATISFECHO` y el valor de 5 al nivel `MUY SATISFECHO`. 
+
+## Listas. 
+
+Uno de los objetos más importantes en R son las listas, las listas son capaces de almacenar a otros objetos, por ejemplo: vectores, matrices, factores, entre otros. La particularidad de las listas es que no permite que los objetos que contiene pierdan sus características. Es así que si yo tengo una lista de vectores y matrices, los vectores no perderán sus características y seguirán siendo vectores, lo mismo para las matrices. 
+
+Veamos un ejemplo en donde vamos a crear una lista que contenga 5 vectores. 
+
+```{r}
+# Creando los 5 vectores. 
+x1<-c(1L,2L,5L,7L)
+x2<-c("LUZ","OSCURIDAD","NIEBLA")
+x3<-c(1.1,4.3,6.6,7.6)
+x4<-c(1+4i,6i)
+x5<-c(TRUE, FALSE,FALSE, TRUE)
+
+```
+
+Hemos creado 5 vectores: vector de enteros, de caracteres, númerico, complejo y lógico. 
+
+Si nosotros queremos tener todo en un mismo objeto, podríamos concatenarlo, pero al hacer eso se perdería la característica de cada vector, ya que lo convertiría en un vector `r class(c(x1,x2,x3,x4,x5))` como se vio en el segundo capítulo. 
+
+```{r}
+x<-c(x1,x2,x3,x4,x5)
+
+class(x)
+```
+
+Entonces, si no queremos que pierda sus características tendremos que integrarlo en una lista. Para crear una lista se usa la función `list()`. 
+
+```{r}
+# Creando una lista que contenga a los 5 vectores. 
+lista<-list(x1,x2,x3,x4,x5)
+
+lista
+```
+
+La lista que acabamos de crear nos muestra los 5 vectores y cada uno no ha perdido sus características. 
+
+### ¿Cómo se obtiene cada objeto de una lista?
+
+Una vez que se ha creado la lista usted, puede tener la necesidad de usar uno o varios de los objetos, entonces, usted tiene que llamar a los objetos que contiene sus lista. 
+
+El procedimiento es similar al que se usa para llamar elementos de un vector, en esos casos se usaba los corchetes `[]`, para el caso de listas se usa los doble corchetes `[[]]`. Por ejemplo si nosotros queremos llamar al primer vector de nuestra lista, entonces aplicaríamos la siguiente sintaxis. 
+
+```{r}
+# Llamando al primer objeto de nuestra lista. 
+lista[[1]]
+
+```
+
+en efecto al aplicar doble corchete a la lista y colocar dentro de ella el número 1, estamos llamando al primer objeto. 
+
+Como se mencionó anteriormente, al guardarlo en una lista no pierde sus características el vector, por lo cual el primero objeto de la lista es un vector integer. 
+
+```{r}
+# Viendo si se mantiene las características de los objetos. 
+class(lista[[1]])
+```
+
+En efecto, es de la clase `r class(lista[[1]])`. 
+
+Ahora, si queremos llamar al cuarto objeto, entonces, usaríamos la siguiente sintaxis. 
+
+```{r}
+# Llamando al cuarto objeto de la lista.
+lista[[4]]
+```
+
+### Asignado nombres a los objetos de una lista. 
+
+Los objetos de una lista admiten nombres, por lo que se les puede asignar nombres y luego llamarlos por esos nombres. Con la función `names()` se obtiene o se les asigna nombres. Primero apliquemos la función `names()` a la lista que hemos creado con el fin de obtener los nombres de la lista, como sabemos que no tienen nombres nuestros objetos nos arrojará el valor de NULL. 
+
+```{r}
+# Obteniendo los nombres de nuestra lista. 
+names(lista)
+```
+
+En efecto, no arroja NULL. Lo que vamos hacer ahora es asignarle nombres. Los nombres serán las clases de cada vector. 
+
+```{r}
+# Asignando nombres a nuestra lista.
+names(lista)<-c("entero","caracter","numerico","complejo","logico")
+```
+
+Veamos si nuestra lista ya tiene nombres.
+
+```{r}
+names(lista)
+```
+
+En efecto, ya tienen nombres, por lo cual ya podremos llamarlos por sus nombres. Por ejemplo, vamos a llamar al objeto llamado `caracter`, pero para llamarlo por sus nombres, ya no se necesitará usar el doble corchete `[[]]`, sino el símbolo de dólar `$`. 
+
+```{r}
+# Llamando al objeto llamado caracter.
+lista$caracter
+```
+
+El resultado, es el objeto que contiene elementos caracter. Entonces podemos llamar a los objetos de una lista de dos formas con el doble corchete `[[]]` cuando tenga o no tenga nombres nuestros objetos o con el `$` siempre y cuando los objetos tengan nombres. 
+
+Como último ejemplo, veremos como llamar al segundo elemento del vector llamado entero de nuestra lista. 
+
+```{r}
+# Llamando al segundo elemento del vector entero de la lista.
+lista$entero[2]
+
+# O también podemos llamarlo con:
+lista[[1]][2]
+```
+Al final obtenemos el mismo resultado. 
+
+En el siguiente capítulo se verá el tema de matrices, desde como crearlas hasta llamar elementos. 
+
+
+
