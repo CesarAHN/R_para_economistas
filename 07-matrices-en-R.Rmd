@@ -1,0 +1,244 @@
+# MATRICES.
+
+El uso de matrices es muy importante para resolver problemas de optimización estática y dinámica. Pero si se tiene un perfil estadístico su uso es menor, ya que la mayoría de procedimientos estadísticos ya están desarrollados en `packages`. El principal uso que se le da es para la creación de funciones, para aprender como se selecciona filas y columnas, esto nos dará una visión muy amplia cuando tengamos que crear un data frame, que se verá en los siguientes capítulos.
+
+## Creación de matrices. 
+Al igual que un curso de álgebra lineal en el software R la construcción de matrices se hace a través de vectores. La función que crea matrices es la función `matrix()`, que tiene los siguientes argumentos:
+
+`matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE, dimnames = NULL)`
+
+Donde:  
+`data` = Es un vector.  
+`nrow` = El número de filas que tendrá la matriz, el valor de defecto es de 1 fila.   
+`ncol` = El número de columnas que tendrá la matriz, el valor de defecto es de 1 columna.  
+`byrow` = Es un argumento lógico que si toma el valor de TRUE, entonces, creará la matriz ordenando los elementos por filas. Su valor por defecto es FALSE, lo que implica que crea la matriz ordenando los elementos por columnas.   
+`dimnames` = Es una lista en donde se colocará los nombres de las filas y columnas. Su valor por defecto es NULL, lo que implica que las filas como las columnas no tendrán nombres. 
+
+Veamos un sencillo ejemplo en donde crearemos una matriz de 2x2. 
+
+```{r}
+# Creando una matriz 2x2.
+matrix(1:4, nrow = 2)
+```
+
+En efecto, se ha creado la matriz de 2x2 en donde se usó los elementos del 1 al 4 (`1:4`) y se indicó que el número de filas sea de 2 (`nrow = 2`). Además ordenó los elementos por columnas, ya que el valor por defecto de byrow es FALSE (`byrow = FALSE`).
+
+Ahora veamos como crear una matriz 3x2, es decir, que tenga 3 filas y 2 columnas. 
+
+```{r}
+# Creando la matriz 3x2.
+matrix(1:6, nrow = 3, ncol = 2)
+```
+
+Se ha creado la matriz 3x2, en este caso se ha tenido que especificar el número de filas con el argumento `nrow = 3` y el número de columnas con el argumento `ncol = 2`.
+
+El siguiente ejemplo, será similar al anterior pero en este caso vamos a usar el argumento `byrow`. Lo que implica que se ordenará los elementos por filas. 
+
+```{r}
+# Creando una matriz donde los elementos se ordenan por filas. 
+matrix(1:6, nrow = 3, ncol = 2, byrow = T)
+```
+
+En efecto, ahora los elementos se han completado por filas, anteriormente este ordenamiento se daba por columnas. 
+
+Por último, veremos un ejemplo en donde las filas como las columnas tengan nombres. 
+
+```{r}
+# Creando una matriz donde las filas y columnas tengan nombres. 
+matrix(1:6, nrow = 3, ncol = 2, byrow = T,
+       dimnames = list(c("Año 2020","Año 2021","Año 2022"),
+                       c("Sexo Masculino","Sexo Femenino")))
+```
+
+Ahora, veamos el caso en donde se desea crear una matriz 4x4 pero sólo se le brinda un vector de 10 elementos. En este caso el número de elementos es inferior al que requerirá una matriz 4x4, lo que hará el software es completar los elementos faltantes con los primeros elementos del vector hasta completar 16 elementos. 
+
+```{r}
+# Creando una matriz con menos elementos que la matriz. 
+matrix(1:10, ncol = 4, nrow = 4)
+```
+
+Si nos fijamos bien, agregó los elementos 1, 2, 3, 4, 5, 6 en la matriz, ya que sólo se le brindó 10 elementos. Asimismo, nos ha arrojado un mensaje de advertencia en donde nos dice que `la longitud de los datos [10] no es un submúltiplo o múltiplo del número de filas [4] en la matriz`.
+
+Resultado contrario arrojará cuando se le asigne un vector con más elementos que elementos de la matriz. Por ejemplo se le brindará 10 elementos, pero le especificamos una matriz de 2x2. 
+
+```{r}
+# Creando una matriz con más elementos que la matriz. 
+matrix(1:10, ncol = 2, nrow = 2)
+```
+
+Sólo a colocado los 4 primeros elementos. 
+
+## Concatenar matrices por filas o columnas. 
+
+Si nosotros queremos juntar matrices por filas, es decir, apilar matrices por filas entonces usaremos la función `rbind()`. Veamos una ejemplo. 
+
+Vamos a juntar 2 matrices por las filas. Para lo cual creamos las dos matrices. 
+
+```{r}
+# La primera matriz. 
+m1<-matrix(c("Azul","Rojo","Amarillo","Verde"), ncol = 2)
+m1
+
+# La segunda matriz. 
+m2<-matrix(1:4, ncol = 2)
+m2
+```
+
+La primera matriz se guardó en el objeto `m1` y la segundo en el objeto `m2`. Las vamos a concatenar por filas, es decir, vamos a crear una matriz 4x2. 
+
+```{r}
+# concatenando las matrices por filas.
+rbind(m1,m2)
+```
+
+En efecto, se tiene un matriz 4x2. 
+
+Ahora veamos el caso de concatenar matrices por columnas, para esto se usará la función `cbind()`. Vamos a concatenar 2 matrices 3x2 para que el resultado sea una matriz 3x4.
+
+Primero vamos a crear las 2 matrices 3x2.
+
+```{r}
+# Primera matriz.
+ma1<-matrix(c("A","B","C","D","E","F"), ncol = 2, nrow = 3)
+ma1
+
+# Segunda matriz. 
+ma2<-matrix(2012:2017, ncol = 2, nrow = 3)
+ma2
+```
+
+Hemos creado las 2 matrices 3x2 que han sido guardadas en los objetos `ma1` y `ma2`. Ahora los concatenamos por columnas con la función `cbind()`. 
+
+```{r}
+# Concatenando las matrices por columnas. 
+cbind(ma1,ma2)
+```
+
+En efecto, se ha creado la matriz 3x4. 
+
+El uso de las funciones `rbind()` y `cbind()` también se podrá usar cuando queramos juntar data frames. 
+
+## Selecionar elementos de una matriz. 
+En capítulos anteriores se seleccionaba elementos de vectores usando corchetes `[]` y de las listas usando doble corchete `[[]]` o con el símbolo de dólar `$`. En el caso de matrices también se usan los corchetes `[]`, pero dentro de ellos debe de ir un indicador de la fila y la columna del vector. La estructura será la siguiente:
+
+`matriz[fila,columna]`
+
+Si queremos seleccionar elementos de la matriz, primero se colocará el objeto matriz, luego los corchetes, dentro de estos corchetes dos números: el primero indica la fila y el segundo la columna de la matriz.
+
+Para ver ejemplos, crearemos una matriz 5x4 con elementos aleatorios.
+
+```{r}
+# Creando la matriz 5x4.
+set.seed(2021)
+m<-matrix(sample(1:100, 20), ncol = 4, nrow = 5)
+m
+```
+
+La matriz que se ha creado se ha guardado en el objeto `m`. 
+
+Si queremos seleccionar el elemento de la fila 1 y columna 2, la sintaxis sería la siguiente:
+
+```{r}
+# Seleccionando el elemento de la fila 1 y columna 2.
+m[1,2]
+```
+
+con `m` llamamos a la matriz, con `[1,2]` llamamos al elemento de la primera fila y de la segunda columna. El resultado es `r m[1,2]`. 
+
+A continuación se muestra dos ejemplos adicionales de selección de elementos. 
+
+```{r}
+# Seleccionando el elemento de la fila 3 y columna 4.
+m[3,4]
+
+# Seleccoando el elemento de la fila 4 y columna 2.
+m[4,2]
+```
+
+Si queremos seleccionar todo una fila o toda una columna.
+
+```{r}
+# Seleccionado toda la columna 2.
+m[,2]
+
+# Seleccioando toda la fila 3.
+m[3,]
+```
+
+Si se quiere seleccionar más de una fila o columna.
+
+```{r}
+# Seleccioando las filas 2 y 3. 
+m[2:3,]
+
+# Seleccioando las columnas 1 y 4.
+m[,c(1,4)]
+```
+
+Si se quiere excluir filas o columnas. 
+
+```{r}
+# Excluyendo la fila 2. 
+m[-2,]
+
+# Excluyendo la columna 1.
+m[,-1]
+
+# Excluyendo las columnas 2 y 4.
+m[,-c(2,4)]
+```
+
+La forma en la que se ha seleccionado elementos, filas o columnas será el mismo que usaremos para hacer selecciones en los objetos data frame. 
+
+## Dimensiones de la matriz.
+Las matrices tiene filas y columnas. Si nosotros nos encontramos con un objeto que es una matriz, sabremos el número de filas y el de columnas con la función `dim()`. 
+
+Por ejemplo deseamos saber cual es el número de filas y columnas de la matriz `m`. 
+
+```{r}
+# Para saber el número de filas y columnas de la matriz.
+dim(m)
+```
+
+Nos indica que son 5 filas y 4 columnas. Ahora si queremos saber sólo el número de filas, entonces usaremos la siguiente sintaxis.
+
+```{r}
+# Para saber el número de filas. 
+dim(m)[1]
+```
+
+Y para saber el número de columnas. 
+
+```{r}
+# Para saber el número de columnas.
+dim(m)[2]
+```
+
+Y para saber el número de elementos de la matriz usaremos la función `length()` 
+
+```{r}
+# Para saber el número de elementos de la matriz.
+length(m)
+```
+
+Por último, para saber si un objeto es una matriz. Usaremos la función `is.matrix()`. 
+
+```{r}
+is.matrix(m)
+```
+
+En el siguiente capítulo se mostrará como realizar operaciones matemáticas y estadísticas con matrices. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

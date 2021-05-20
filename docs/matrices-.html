@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 MATRICES. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</title>
+  <meta name="description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 MATRICES. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  <meta name="github-repo" content="CesarAHN/bookdown_intro" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 MATRICES. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
+  
+  <meta name="twitter:description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  
+
+<meta name="author" content="César Anderson Huamaní Ninahuanca" />
+
+
+<meta name="date" content="2021-05-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="factores-y-listas-.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - PARA ECONOMISTAS</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prólogo</a></li>
+<li class="chapter" data-level="1" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html"><i class="fa fa-check"></i><b>1</b> R COMO CALCULADORA.</a><ul>
+<li class="chapter" data-level="1.1" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#principales-operaciones-matemáticas."><i class="fa fa-check"></i><b>1.1</b> PRINCIPALES OPERACIONES MATEMÁTICAS.</a></li>
+<li class="chapter" data-level="1.2" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#decimales-exactos-y-redondeo-de-cifras."><i class="fa fa-check"></i><b>1.2</b> DECIMALES EXACTOS Y REDONDEO DE CIFRAS.</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#número-de-cifras."><i class="fa fa-check"></i><b>1.2.1</b> NÚMERO DE CIFRAS.</a></li>
+<li class="chapter" data-level="1.2.2" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#redondeo."><i class="fa fa-check"></i><b>1.2.2</b> REDONDEO.</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#guardar-o-definir-objetos."><i class="fa fa-check"></i><b>1.3</b> GUARDAR O DEFINIR OBJETOS.</a></li>
+<li class="chapter" data-level="1.4" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#funciones."><i class="fa fa-check"></i><b>1.4</b> FUNCIONES.</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="vectores-.html"><a href="vectores-.html"><i class="fa fa-check"></i><b>2</b> VECTORES.</a><ul>
+<li class="chapter" data-level="2.1" data-path="vectores-.html"><a href="vectores-.html#definición-de-un-vector."><i class="fa fa-check"></i><b>2.1</b> DEFINICIÓN DE UN VECTOR.</a></li>
+<li class="chapter" data-level="2.2" data-path="vectores-.html"><a href="vectores-.html#clases-de-vectores."><i class="fa fa-check"></i><b>2.2</b> CLASES DE VECTORES.</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="vectores-.html"><a href="vectores-.html#cómo-saber-si-un-objeto-es-un-vector"><i class="fa fa-check"></i><b>2.2.1</b> ¿Cómo saber si un objeto es un vector?</a></li>
+<li class="chapter" data-level="2.2.2" data-path="vectores-.html"><a href="vectores-.html#cómo-saber-de-que-clase-es-un-vector"><i class="fa fa-check"></i><b>2.2.2</b> ¿Cómo saber de que clase es un vector?</a></li>
+<li class="chapter" data-level="2.2.3" data-path="vectores-.html"><a href="vectores-.html#qué-pasa-si-defino-un-vector-con-distintas-clases-de-elementos"><i class="fa fa-check"></i><b>2.2.3</b> ¿Qué pasa si defino un vector con distintas clases de elementos?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="vectores-.html"><a href="vectores-.html#número-de-elementos-de-un-vector."><i class="fa fa-check"></i><b>2.3</b> NÚMERO DE ELEMENTOS DE UN VECTOR.</a></li>
+<li class="chapter" data-level="2.4" data-path="vectores-.html"><a href="vectores-.html#funciones-para-construir-vectores-más-eficientemente."><i class="fa fa-check"></i><b>2.4</b> FUNCIONES PARA CONSTRUIR VECTORES MÁS EFICIENTEMENTE.</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="vectores-.html"><a href="vectores-.html#vectores-de-elementos-consecutivos"><i class="fa fa-check"></i><b>2.4.1</b> Vectores de elementos consecutivos:</a></li>
+<li class="chapter" data-level="2.4.2" data-path="vectores-.html"><a href="vectores-.html#vectores-con-patrones"><i class="fa fa-check"></i><b>2.4.2</b> Vectores con patrones:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="vectores-.html"><a href="vectores-.html#concatenar-elementos-y-vectores."><i class="fa fa-check"></i><b>2.5</b> CONCATENAR ELEMENTOS Y VECTORES.</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><i class="fa fa-check"></i><b>3</b> OPERACIONES MATEMÁTICAS Y ESTADÍSTICAS CON VECTORES.</a><ul>
+<li class="chapter" data-level="3.1" data-path="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html#operaciones-matemáticas."><i class="fa fa-check"></i><b>3.1</b> OPERACIONES MATEMÁTICAS.</a></li>
+<li class="chapter" data-level="3.2" data-path="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html#operaciones-estadísticas."><i class="fa fa-check"></i><b>3.2</b> OPERACIONES ESTADÍSTICAS.</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html#cómo-trabajar-con-missing-o-elementos-faltantes-na"><i class="fa fa-check"></i><b>3.2.1</b> ¿CÓMO TRABAJAR CON MISSING O ELEMENTOS FALTANTES (NA)?</a></li>
+<li class="chapter" data-level="3.2.2" data-path="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html#cómo-ordenar-elementos-de-los-vectores"><i class="fa fa-check"></i><b>3.2.2</b> ¿CÓMO ORDENAR ELEMENTOS DE LOS VECTORES?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html"><i class="fa fa-check"></i><b>4</b> VECTORES ALEATORIOS y SELECCIÓN DE ELEMENTOS.</a><ul>
+<li class="chapter" data-level="4.1" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#creación-de-vectores-con-elementos-aleatorios."><i class="fa fa-check"></i><b>4.1</b> CREACIÓN DE VECTORES CON ELEMENTOS ALEATORIOS.</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#aplicación-ley-de-grandes-números."><i class="fa fa-check"></i><b>4.1.1</b> APLICACIÓN: LEY DE GRANDES NÚMEROS.</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#vectores-vacíos-y-selección-de-elementos."><i class="fa fa-check"></i><b>4.2</b> VECTORES VACÍOS Y SELECCIÓN DE ELEMENTOS.</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#vectores-vacíos."><i class="fa fa-check"></i><b>4.2.1</b> Vectores vacíos.</a></li>
+<li class="chapter" data-level="4.2.2" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#seleción-de-elementos-usando-."><i class="fa fa-check"></i><b>4.2.2</b> Seleción de elementos usando [].</a></li>
+<li class="chapter" data-level="4.2.3" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cómo-saber-cuántos-elementos-tiene-un-vector"><i class="fa fa-check"></i><b>4.2.3</b> ¿Cómo saber cuántos elementos tiene un vector?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><i class="fa fa-check"></i><b>5</b> OPERADORES LÓGICOS, ÍNDICE DE ELEMENTOS Y CAMBIO DE VALORES.</a><ul>
+<li class="chapter" data-level="5.1" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#operadores-lógicos."><i class="fa fa-check"></i><b>5.1</b> OPERADORES LÓGICOS.</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#igualdad."><i class="fa fa-check"></i><b>5.1.1</b> Igualdad.</a></li>
+<li class="chapter" data-level="5.1.2" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#mayor-que."><i class="fa fa-check"></i><b>5.1.2</b> Mayor que.</a></li>
+<li class="chapter" data-level="5.1.3" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#menor-que."><i class="fa fa-check"></i><b>5.1.3</b> Menor que.</a></li>
+<li class="chapter" data-level="5.1.4" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#diferente."><i class="fa fa-check"></i><b>5.1.4</b> Diferente.</a></li>
+<li class="chapter" data-level="5.1.5" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#negación."><i class="fa fa-check"></i><b>5.1.5</b> Negación.</a></li>
+<li class="chapter" data-level="5.1.6" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#y-condicional-conjunción."><i class="fa fa-check"></i><b>5.1.6</b> Y condicional (Conjunción).</a></li>
+<li class="chapter" data-level="5.1.7" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#o-condicional-disyunción."><i class="fa fa-check"></i><b>5.1.7</b> O condicional (disyunción).</a></li>
+<li class="chapter" data-level="5.1.8" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#mayor-y-menor-igual-que."><i class="fa fa-check"></i><b>5.1.8</b> Mayor y menor igual que.</a></li>
+<li class="chapter" data-level="5.1.9" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#operador-pertenece."><i class="fa fa-check"></i><b>5.1.9</b> Operador pertenece.</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#encontrar-el-índice-de-elementos-y-cambiar-valores."><i class="fa fa-check"></i><b>5.2</b> ENCONTRAR EL ÍNDICE DE ELEMENTOS Y CAMBIAR VALORES.</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#cambiar-valores-de-elementos."><i class="fa fa-check"></i><b>5.2.1</b> CAMBIAR VALORES DE ELEMENTOS.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html"><i class="fa fa-check"></i><b>6</b> FACTORES Y LISTAS.</a><ul>
+<li class="chapter" data-level="6.1" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#factores."><i class="fa fa-check"></i><b>6.1</b> Factores.</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#factores-con-niveles-desordenados."><i class="fa fa-check"></i><b>6.1.1</b> Factores con niveles desordenados.</a></li>
+<li class="chapter" data-level="6.1.2" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#factores-con-niveles-ordenados."><i class="fa fa-check"></i><b>6.1.2</b> Factores con niveles ordenados.</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#listas."><i class="fa fa-check"></i><b>6.2</b> Listas.</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#cómo-se-obtiene-cada-objeto-de-una-lista"><i class="fa fa-check"></i><b>6.2.1</b> ¿Cómo se obtiene cada objeto de una lista?</a></li>
+<li class="chapter" data-level="6.2.2" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#asignado-nombres-a-los-objetos-de-una-lista."><i class="fa fa-check"></i><b>6.2.2</b> Asignado nombres a los objetos de una lista.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="matrices-.html"><a href="matrices-.html"><i class="fa fa-check"></i><b>7</b> MATRICES.</a><ul>
+<li class="chapter" data-level="7.1" data-path="matrices-.html"><a href="matrices-.html#creación-de-matrices."><i class="fa fa-check"></i><b>7.1</b> Creación de matrices.</a></li>
+<li class="chapter" data-level="7.2" data-path="matrices-.html"><a href="matrices-.html#concatenar-matrices-por-filas-o-columnas."><i class="fa fa-check"></i><b>7.2</b> Concatenar matrices por filas o columnas.</a></li>
+<li class="chapter" data-level="7.3" data-path="matrices-.html"><a href="matrices-.html#selecionar-elementos-de-una-matriz."><i class="fa fa-check"></i><b>7.3</b> Selecionar elementos de una matriz.</a></li>
+<li class="chapter" data-level="7.4" data-path="matrices-.html"><a href="matrices-.html#dimensiones-de-la-matriz."><i class="fa fa-check"></i><b>7.4</b> Dimensiones de la matriz.</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="matrices." class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> MATRICES.</h1>
+<p>El uso de matrices es muy importante para resolver problemas de optimización estática y dinámica. Pero si se tiene un perfil estadístico su uso es menor, ya que la mayoría de procedimientos estadísticos ya están desarrollados en <code>packages</code>. El principal uso que se le da es para la creación de funciones, para aprender como se selecciona filas y columnas, esto nos dará una visión muy amplia cuando tengamos que crear un data frame, que se verá en los siguientes capítulos.</p>
+<div id="creación-de-matrices." class="section level2">
+<h2><span class="header-section-number">7.1</span> Creación de matrices.</h2>
+<p>Al igual que un curso de álgebra lineal en el software R la construcción de matrices se hace a través de vectores. La función que crea matrices es la función <code>matrix()</code>, que tiene los siguientes argumentos:</p>
+<p><code>matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE, dimnames = NULL)</code></p>
+<p>Donde:<br />
+<code>data</code> = Es un vector.<br />
+<code>nrow</code> = El número de filas que tendrá la matriz, el valor de defecto es de 1 fila.<br />
+<code>ncol</code> = El número de columnas que tendrá la matriz, el valor de defecto es de 1 columna.<br />
+<code>byrow</code> = Es un argumento lógico que si toma el valor de TRUE, entonces, creará la matriz ordenando los elementos por filas. Su valor por defecto es FALSE, lo que implica que crea la matriz ordenando los elementos por columnas.<br />
+<code>dimnames</code> = Es una lista en donde se colocará los nombres de las filas y columnas. Su valor por defecto es NULL, lo que implica que las filas como las columnas no tendrán nombres.</p>
+<p>Veamos un sencillo ejemplo en donde crearemos una matriz de 2x2.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="matrices-.html#cb1-1"></a><span class="co"># Creando una matriz 2x2.</span></span>
+<span id="cb1-2"><a href="matrices-.html#cb1-2"></a><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">nrow =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    3
+## [2,]    2    4</code></pre>
+<p>En efecto, se ha creado la matriz de 2x2 en donde se usó los elementos del 1 al 4 (<code>1:4</code>) y se indicó que el número de filas sea de 2 (<code>nrow = 2</code>). Además ordenó los elementos por columnas, ya que el valor por defecto de byrow es FALSE (<code>byrow = FALSE</code>).</p>
+<p>Ahora veamos como crear una matriz 3x2, es decir, que tenga 3 filas y 2 columnas.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="matrices-.html#cb3-1"></a><span class="co"># Creando la matriz 3x2.</span></span>
+<span id="cb3-2"><a href="matrices-.html#cb3-2"></a><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">nrow =</span> <span class="dv">3</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    4
+## [2,]    2    5
+## [3,]    3    6</code></pre>
+<p>Se ha creado la matriz 3x2, en este caso se ha tenido que especificar el número de filas con el argumento <code>nrow = 3</code> y el número de columnas con el argumento <code>ncol = 2</code>.</p>
+<p>El siguiente ejemplo, será similar al anterior pero en este caso vamos a usar el argumento <code>byrow</code>. Lo que implica que se ordenará los elementos por filas.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="matrices-.html#cb5-1"></a><span class="co"># Creando una matriz donde los elementos se ordenan por filas. </span></span>
+<span id="cb5-2"><a href="matrices-.html#cb5-2"></a><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">nrow =</span> <span class="dv">3</span>, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">byrow =</span> T)</span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    2
+## [2,]    3    4
+## [3,]    5    6</code></pre>
+<p>En efecto, ahora los elementos se han completado por filas, anteriormente este ordenamiento se daba por columnas.</p>
+<p>Por último, veremos un ejemplo en donde las filas como las columnas tengan nombres.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="matrices-.html#cb7-1"></a><span class="co"># Creando una matriz donde las filas y columnas tengan nombres. </span></span>
+<span id="cb7-2"><a href="matrices-.html#cb7-2"></a><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">nrow =</span> <span class="dv">3</span>, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">byrow =</span> T,</span>
+<span id="cb7-3"><a href="matrices-.html#cb7-3"></a>       <span class="dt">dimnames =</span> <span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;Año 2020&quot;</span>,<span class="st">&quot;Año 2021&quot;</span>,<span class="st">&quot;Año 2022&quot;</span>),</span>
+<span id="cb7-4"><a href="matrices-.html#cb7-4"></a>                       <span class="kw">c</span>(<span class="st">&quot;Sexo Masculino&quot;</span>,<span class="st">&quot;Sexo Femenino&quot;</span>)))</span></code></pre></div>
+<pre><code>##          Sexo Masculino Sexo Femenino
+## Año 2020              1             2
+## Año 2021              3             4
+## Año 2022              5             6</code></pre>
+<p>Ahora, veamos el caso en donde se desea crear una matriz 4x4 pero sólo se le brinda un vector de 10 elementos. En este caso el número de elementos es inferior al que requerirá una matriz 4x4, lo que hará el software es completar los elementos faltantes con los primeros elementos del vector hasta completar 16 elementos.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="matrices-.html#cb9-1"></a><span class="co"># Creando una matriz con menos elementos que la matriz. </span></span>
+<span id="cb9-2"><a href="matrices-.html#cb9-2"></a><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">ncol =</span> <span class="dv">4</span>, <span class="dt">nrow =</span> <span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## Warning in matrix(1:10, ncol = 4, nrow = 4): la longitud de los datos [10] no es
+## un submúltiplo o múltiplo del número de filas [4] en la matriz</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    1    5    9    3
+## [2,]    2    6   10    4
+## [3,]    3    7    1    5
+## [4,]    4    8    2    6</code></pre>
+<p>Si nos fijamos bien, agregó los elementos 1, 2, 3, 4, 5, 6 en la matriz, ya que sólo se le brindó 10 elementos. Asimismo, nos ha arrojado un mensaje de advertencia en donde nos dice que <code>la longitud de los datos [10] no es un submúltiplo o múltiplo del número de filas [4] en la matriz</code>.</p>
+<p>Resultado contrario arrojará cuando se le asigne un vector con más elementos que elementos de la matriz. Por ejemplo se le brindará 10 elementos, pero le especificamos una matriz de 2x2.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="matrices-.html#cb12-1"></a><span class="co"># Creando una matriz con más elementos que la matriz. </span></span>
+<span id="cb12-2"><a href="matrices-.html#cb12-2"></a><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    3
+## [2,]    2    4</code></pre>
+<p>Sólo a colocado los 4 primeros elementos.</p>
+</div>
+<div id="concatenar-matrices-por-filas-o-columnas." class="section level2">
+<h2><span class="header-section-number">7.2</span> Concatenar matrices por filas o columnas.</h2>
+<p>Si nosotros queremos juntar matrices por filas, es decir, apilar matrices por filas entonces usaremos la función <code>rbind()</code>. Veamos una ejemplo.</p>
+<p>Vamos a juntar 2 matrices por las filas. Para lo cual creamos las dos matrices.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="matrices-.html#cb14-1"></a><span class="co"># La primera matriz. </span></span>
+<span id="cb14-2"><a href="matrices-.html#cb14-2"></a>m1&lt;-<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="st">&quot;Azul&quot;</span>,<span class="st">&quot;Rojo&quot;</span>,<span class="st">&quot;Amarillo&quot;</span>,<span class="st">&quot;Verde&quot;</span>), <span class="dt">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb14-3"><a href="matrices-.html#cb14-3"></a>m1</span></code></pre></div>
+<pre><code>##      [,1]   [,2]      
+## [1,] &quot;Azul&quot; &quot;Amarillo&quot;
+## [2,] &quot;Rojo&quot; &quot;Verde&quot;</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="matrices-.html#cb16-1"></a><span class="co"># La segunda matriz. </span></span>
+<span id="cb16-2"><a href="matrices-.html#cb16-2"></a>m2&lt;-<span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb16-3"><a href="matrices-.html#cb16-3"></a>m2</span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    3
+## [2,]    2    4</code></pre>
+<p>La primera matriz se guardó en el objeto <code>m1</code> y la segundo en el objeto <code>m2</code>. Las vamos a concatenar por filas, es decir, vamos a crear una matriz 4x2.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="matrices-.html#cb18-1"></a><span class="co"># concatenando las matrices por filas.</span></span>
+<span id="cb18-2"><a href="matrices-.html#cb18-2"></a><span class="kw">rbind</span>(m1,m2)</span></code></pre></div>
+<pre><code>##      [,1]   [,2]      
+## [1,] &quot;Azul&quot; &quot;Amarillo&quot;
+## [2,] &quot;Rojo&quot; &quot;Verde&quot;   
+## [3,] &quot;1&quot;    &quot;3&quot;       
+## [4,] &quot;2&quot;    &quot;4&quot;</code></pre>
+<p>En efecto, se tiene un matriz 4x2.</p>
+<p>Ahora veamos el caso de concatenar matrices por columnas, para esto se usará la función <code>cbind()</code>. Vamos a concatenar 2 matrices 3x2 para que el resultado sea una matriz 3x4.</p>
+<p>Primero vamos a crear las 2 matrices 3x2.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="matrices-.html#cb20-1"></a><span class="co"># Primera matriz.</span></span>
+<span id="cb20-2"><a href="matrices-.html#cb20-2"></a>ma1&lt;-<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;D&quot;</span>,<span class="st">&quot;E&quot;</span>,<span class="st">&quot;F&quot;</span>), <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">3</span>)</span>
+<span id="cb20-3"><a href="matrices-.html#cb20-3"></a>ma1</span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,] &quot;A&quot;  &quot;D&quot; 
+## [2,] &quot;B&quot;  &quot;E&quot; 
+## [3,] &quot;C&quot;  &quot;F&quot;</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="matrices-.html#cb22-1"></a><span class="co"># Segunda matriz. </span></span>
+<span id="cb22-2"><a href="matrices-.html#cb22-2"></a>ma2&lt;-<span class="kw">matrix</span>(<span class="dv">2012</span><span class="op">:</span><span class="dv">2017</span>, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">3</span>)</span>
+<span id="cb22-3"><a href="matrices-.html#cb22-3"></a>ma2</span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,] 2012 2015
+## [2,] 2013 2016
+## [3,] 2014 2017</code></pre>
+<p>Hemos creado las 2 matrices 3x2 que han sido guardadas en los objetos <code>ma1</code> y <code>ma2</code>. Ahora los concatenamos por columnas con la función <code>cbind()</code>.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="matrices-.html#cb24-1"></a><span class="co"># Concatenando las matrices por columnas. </span></span>
+<span id="cb24-2"><a href="matrices-.html#cb24-2"></a><span class="kw">cbind</span>(ma1,ma2)</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]   [,4]  
+## [1,] &quot;A&quot;  &quot;D&quot;  &quot;2012&quot; &quot;2015&quot;
+## [2,] &quot;B&quot;  &quot;E&quot;  &quot;2013&quot; &quot;2016&quot;
+## [3,] &quot;C&quot;  &quot;F&quot;  &quot;2014&quot; &quot;2017&quot;</code></pre>
+<p>En efecto, se ha creado la matriz 3x4.</p>
+<p>El uso de las funciones <code>rbind()</code> y <code>cbind()</code> también se podrá usar cuando queramos juntar data frames.</p>
+</div>
+<div id="selecionar-elementos-de-una-matriz." class="section level2">
+<h2><span class="header-section-number">7.3</span> Selecionar elementos de una matriz.</h2>
+<p>En capítulos anteriores se seleccionaba elementos de vectores usando corchetes <code>[]</code> y de las listas usando doble corchete <code>[[]]</code> o con el símbolo de dólar <code>$</code>. En el caso de matrices también se usan los corchetes <code>[]</code>, pero dentro de ellos debe de ir un indicador de la fila y la columna del vector. La estructura será la siguiente:</p>
+<p><code>matriz[fila,columna]</code></p>
+<p>Si queremos seleccionar elementos de la matriz, primero se colocará el objeto matriz, luego los corchetes, dentro de estos corchetes dos números: el primero indica la fila y el segundo la columna de la matriz.</p>
+<p>Para ver ejemplos, crearemos una matriz 5x4 con elementos aleatorios.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="matrices-.html#cb26-1"></a><span class="co"># Creando la matriz 5x4.</span></span>
+<span id="cb26-2"><a href="matrices-.html#cb26-2"></a><span class="kw">set.seed</span>(<span class="dv">2021</span>)</span>
+<span id="cb26-3"><a href="matrices-.html#cb26-3"></a>m&lt;-<span class="kw">matrix</span>(<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, <span class="dv">20</span>), <span class="dt">ncol =</span> <span class="dv">4</span>, <span class="dt">nrow =</span> <span class="dv">5</span>)</span>
+<span id="cb26-4"><a href="matrices-.html#cb26-4"></a>m</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    7   70   76    3
+## [2,]   38   64   51   98
+## [3,]   46   99   60   26
+## [4,]   58   69   18   36
+## [5,]   12   23   88   31</code></pre>
+<p>La matriz que se ha creado se ha guardado en el objeto <code>m</code>.</p>
+<p>Si queremos seleccionar el elemento de la fila 1 y columna 2, la sintaxis sería la siguiente:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="matrices-.html#cb28-1"></a><span class="co"># Seleccionando el elemento de la fila 1 y columna 2.</span></span>
+<span id="cb28-2"><a href="matrices-.html#cb28-2"></a>m[<span class="dv">1</span>,<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] 70</code></pre>
+<p>con <code>m</code> llamamos a la matriz, con <code>[1,2]</code> llamamos al elemento de la primera fila y de la segunda columna. El resultado es 70.</p>
+<p>A continuación se muestra dos ejemplos adicionales de selección de elementos.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="matrices-.html#cb30-1"></a><span class="co"># Seleccionando el elemento de la fila 3 y columna 4.</span></span>
+<span id="cb30-2"><a href="matrices-.html#cb30-2"></a>m[<span class="dv">3</span>,<span class="dv">4</span>]</span></code></pre></div>
+<pre><code>## [1] 26</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="matrices-.html#cb32-1"></a><span class="co"># Seleccoando el elemento de la fila 4 y columna 2.</span></span>
+<span id="cb32-2"><a href="matrices-.html#cb32-2"></a>m[<span class="dv">4</span>,<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] 69</code></pre>
+<p>Si queremos seleccionar todo una fila o toda una columna.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="matrices-.html#cb34-1"></a><span class="co"># Seleccionado toda la columna 2.</span></span>
+<span id="cb34-2"><a href="matrices-.html#cb34-2"></a>m[,<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] 70 64 99 69 23</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="matrices-.html#cb36-1"></a><span class="co"># Seleccioando toda la fila 3.</span></span>
+<span id="cb36-2"><a href="matrices-.html#cb36-2"></a>m[<span class="dv">3</span>,]</span></code></pre></div>
+<pre><code>## [1] 46 99 60 26</code></pre>
+<p>Si se quiere seleccionar más de una fila o columna.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="matrices-.html#cb38-1"></a><span class="co"># Seleccioando las filas 2 y 3. </span></span>
+<span id="cb38-2"><a href="matrices-.html#cb38-2"></a>m[<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>,]</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]   38   64   51   98
+## [2,]   46   99   60   26</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="matrices-.html#cb40-1"></a><span class="co"># Seleccioando las columnas 1 y 4.</span></span>
+<span id="cb40-2"><a href="matrices-.html#cb40-2"></a>m[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>)]</span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    7    3
+## [2,]   38   98
+## [3,]   46   26
+## [4,]   58   36
+## [5,]   12   31</code></pre>
+<p>Si se quiere excluir filas o columnas.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="matrices-.html#cb42-1"></a><span class="co"># Excluyendo la fila 2. </span></span>
+<span id="cb42-2"><a href="matrices-.html#cb42-2"></a>m[<span class="op">-</span><span class="dv">2</span>,]</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    7   70   76    3
+## [2,]   46   99   60   26
+## [3,]   58   69   18   36
+## [4,]   12   23   88   31</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="matrices-.html#cb44-1"></a><span class="co"># Excluyendo la columna 1.</span></span>
+<span id="cb44-2"><a href="matrices-.html#cb44-2"></a>m[,<span class="op">-</span><span class="dv">1</span>]</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]   70   76    3
+## [2,]   64   51   98
+## [3,]   99   60   26
+## [4,]   69   18   36
+## [5,]   23   88   31</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="matrices-.html#cb46-1"></a><span class="co"># Excluyendo las columnas 2 y 4.</span></span>
+<span id="cb46-2"><a href="matrices-.html#cb46-2"></a>m[,<span class="op">-</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>)]</span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    7   76
+## [2,]   38   51
+## [3,]   46   60
+## [4,]   58   18
+## [5,]   12   88</code></pre>
+<p>La forma en la que se ha seleccionado elementos, filas o columnas será el mismo que usaremos para hacer selecciones en los objetos data frame.</p>
+</div>
+<div id="dimensiones-de-la-matriz." class="section level2">
+<h2><span class="header-section-number">7.4</span> Dimensiones de la matriz.</h2>
+<p>Las matrices tiene filas y columnas. Si nosotros nos encontramos con un objeto que es una matriz, sabremos el número de filas y el de columnas con la función <code>dim()</code>.</p>
+<p>Por ejemplo deseamos saber cual es el número de filas y columnas de la matriz <code>m</code>.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="matrices-.html#cb48-1"></a><span class="co"># Para saber el número de filas y columnas de la matriz.</span></span>
+<span id="cb48-2"><a href="matrices-.html#cb48-2"></a><span class="kw">dim</span>(m)</span></code></pre></div>
+<pre><code>## [1] 5 4</code></pre>
+<p>Nos indica que son 5 filas y 4 columnas. Ahora si queremos saber sólo el número de filas, entonces usaremos la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="matrices-.html#cb50-1"></a><span class="co"># Para saber el número de filas. </span></span>
+<span id="cb50-2"><a href="matrices-.html#cb50-2"></a><span class="kw">dim</span>(m)[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<p>Y para saber el número de columnas.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="matrices-.html#cb52-1"></a><span class="co"># Para saber el número de columnas.</span></span>
+<span id="cb52-2"><a href="matrices-.html#cb52-2"></a><span class="kw">dim</span>(m)[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p>Y para saber el número de elementos de la matriz usaremos la función <code>length()</code></p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="matrices-.html#cb54-1"></a><span class="co"># Para saber el número de elementos de la matriz.</span></span>
+<span id="cb54-2"><a href="matrices-.html#cb54-2"></a><span class="kw">length</span>(m)</span></code></pre></div>
+<pre><code>## [1] 20</code></pre>
+<p>Por último, para saber si un objeto es una matriz. Usaremos la función <code>is.matrix()</code>.</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="matrices-.html#cb56-1"></a><span class="kw">is.matrix</span>(m)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>En el siguiente capítulo se mostrará como realizar operaciones matemáticas y estadísticas con matrices.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="factores-y-listas-.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/CesarAHN/R_para_economistas/edit/master/07-matrices-en-R.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/CesarAHN/R_para_economistas/blob/master/07-matrices-en-R.Rmd",
+"text": null
+},
+"download": ["bookdownproj.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
