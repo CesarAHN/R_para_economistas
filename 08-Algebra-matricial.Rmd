@@ -1,0 +1,374 @@
+# ÁLGEBRA MATRICIAL.
+
+En este capítulo se desarrollará operaciones matemáticas con matrices. Y en la parte final se muestra como resolver un sistema de ecuaciones lineales. 
+
+## Operaciones básicas.
+
+En la siguiente tabla se muestran las operaciones y su sintaxis. 
+
+|OPERACIÓN|SINTAXIS|
+|:-------:|:------:|
+|Adición|+|
+|Sustracción|-|
+|Multiplicación por un escalar|\*|
+|Producto de Matrices|\%\*\%|
+|Potencia de una matriz|mtx.exp()|
+|Producto exterior|\%o\%|
+|Producto Kronecker|\%x\%|
+
+Primero, crearemos un par de matrices que nos permitirán desarrollar estas operaciones. 
+
+```{r}
+# Primera matriz.
+A<-matrix(1:4, ncol = 2)
+A
+
+# Segunda matriz.
+B<-matrix(c(4,2,0,1), ncol = 2)
+B
+```
+
+Si se desea sumar matrices entonces se usa el operador `+`. 
+
+```{r}
+# Sumando las 2 matrices. 
+A+B
+```
+
+si usted desea restar las matrices, tendrá que usar el operador `-`.
+
+```{r}
+# Restando las 2 matrices. 
+A-B
+```
+
+Si se desea multiplicar por un escalar a una matriz, entonces se usará el operador `*`. Por ejemplo, vamos a multiplicar 5 por la matriz A.
+
+```{r}
+# Multiplicación de un escalar por una matriz. 
+5*A
+```
+
+Para el caso de multiplicación de matrices, se tendrá que usar el operador `%*%`. 
+
+```{r}
+# Multiplicación de matrices. 
+A%*%B
+```
+
+También podríamos multiplicar la matriz A tres veces.
+
+```{r}
+# Multiplicación de A por A por A.
+A%*%A%*%A
+```
+
+La lógica indica que si deseamos multiplicar la matriz A 4 veces, tendremos que usar `A%*%A%*%A%*%A`. Y si deseamos multiplicar la matriz A 5 veces `A%*%A%*%A%*%A%*%A`. Pero esto puede resultar tedioso si desea usted desea elevar la matriz A a la 10 o a la 15 o a un exponente mayor. Entonces, se tiene que crear una función que permita desarrollar este cálculo. 
+
+Planteo la siguiente función para la solución de este tipo de problemas. 
+
+```{r}
+matriz_n<-function(x, n){
+  y<-1
+  t<-x
+  while (y+1<=n) {
+    t<-t%*%x
+    y<-y+1
+  }
+  t
+}
+```
+
+Para la construcción de esta función estoy usando funciones como `while()` que se verá en el siguiente capítulo, asimismo, en los capítulos finales se mostrará como crear funciones para solucionar cualquier tipo de problema. 
+
+Pongamos en práctica la función que se acaba de crear. Vamos a elevar la matriz A al cubo.
+
+```{r}
+# La matriz A al cubo.
+matriz_n(A, 3)
+
+```
+
+El resultado es igual al que se haría manualmente. 
+
+```{r}
+A%*%A%*%A
+```
+
+Esto es una muestra de cómo podríamos solucionar este problema creando nuestras propias funciones, lo que es el reflejo fiel de la palabra programar. 
+
+Pero el problema es sencillo y otros usuarios de R, ya han programado una función similar a la que hemos desarrollado y lo tienen documentado en un paquete. 
+
+Un paquete en R, es una compilación de funciones que han sido creadas por los usuarios y se pueden descargar desde el CRAM de R. Para instalar un paquete tendremos que usar la función `install.package()`. 
+
+Como ejemplo, vamos a instalar el paquete `Biodem` que tiene una función que calcula la potencia de las matrices. 
+
+```{r, eval=FALSE}
+# Instalar el paquete Biodem.
+install.packages("Biodem")
+```
+
+Los paquetes sólo se instalan una vez y nada más. El siguiente paso es cargar el paquete en nuestro entorno de R. Para esto se usa la función `library()`. 
+
+```{r}
+library(Biodem)
+```
+
+Se tendrá que cargar los paquetes cada vez que inicies sesión en R, es decir, cada vez que usted abra el software. 
+
+Una vez cargado el paquete llamaremos a la función `mtx.exp()` que nos permite calcular las potencias de las matrices. Vamos a calcular lo mismo que hicimos con la función que hemos creado, es decir, elevar la matriz A al cubo.
+
+```{r}
+# Elevar la matriz al cubo. 
+mtx.exp(A,3)
+```
+
+Entonces, hay dos posibilidades. La primera es crear nuestra propia función o descargar un paquete en donde haya una función que permita realizar el cálculo que deseamos
+
+Un punto interesante es el tiempo que realiza nuestro procesador para realizar el cálculo, pero esto lo veremos en los anexos. 
+
+Por otro lado, si nosotros deseamos calcular el producto exterior de las matrices. 
+
+```{r}
+# Producto exterior de la matriz A.
+A%o%A
+```
+
+El producto exterior de matrices nos servirá para el cálculo del producto Kronecker. En ese sentido, para hallar el producto Kronecker se tendrá que usar el operador `%x%`.
+
+```{r}
+# El producto Kronecker de la matriz A con ella misma. 
+A%x%A
+```
+
+## Principales operaciones con matrices. 
+En la siguiente tabla se muestran las principales operaciones de las matrices y su sintaxis en el software R.
+
+|OPERACIÓN|SINTAXIS|
+|:-------:|:------:|
+|Transpuesta|**t()**|
+|Diagonal|**diag()**|
+|Traza|**sum(diag())**|
+|Determinante|**det()**|
+|Inversa|**solve()**|
+|Descomposición|**qr()**|
+|Rango|**qr()$rank**|
+|Descomposición de cholesky|**chol()**|
+|Varianza|**var()**|
+
+
+Si nosotros queremos calcular la transpuesta de la matriz A, entonces, usaremos la función `t()`.
+
+```{r}
+# La matriz A. 
+A
+
+# Su transpuesta.
+t(A)
+```
+
+Asimismo, si se quere calcular la diagonal de la matriz A, tendremos que usar la función `diag()`. 
+
+```{r}
+# La diagonal de la matriz A.
+diag(A)
+```
+
+Como sabemos la traza de una matriz es la suma de la diagonal. Entonces, si queremos calcular la traza de la matriz, sólo tendríamos que sumar los valores de los elementos de la diagonal. 
+
+```{r}
+# Calculando la traza de la matriz. 
+sum(diag(A))
+```
+
+Pero si usted desea crear la función para la traza, lo podría hacer de la siguiente manera. 
+
+```{r}
+# Creando la función que calcule la traza. 
+traza<-function(x){
+  sum(diag(x))
+}
+
+# Aplicando la función que calcula la traza.
+traza(A)
+```
+
+Lo que nos resulta en el mismo resultado. 
+
+Uno de los calculos muy importantes en matrices cuadradas es el cálculo de la determinante. En R para calcular la determinante con la función `det()`.
+
+```{r}
+# Calculando la determinante de la matriz A. 
+det(A)
+```
+
+Asimismo, si deseamos calcular la inversa de la matriz, entonces, usaremos la función `solve()`.
+
+```{r}
+# Calculando la inversa de la matriz A.
+solve(A)
+```
+
+En álgebra matricial también es muy importante descomponer las matrices (factorizar), en R se puede descomponer matrices con el método de descomposicón QR el cual es el producto de la matriz Q (matriz ortogonal) y la matriz R (matriz triángulo superior). Para lo cual se usa la función `qr()`.
+
+```{r}
+# Calculando la descomposición de una matriz. 
+qr(A)
+```
+
+Primero si nos damos cuenta el resultado es una lista que contiene 4 objetos. 
+
+```{r}
+class(qr(A))
+```
+
+Al ser una lista podemos llamar a cada uno de los objetos con el doble corchete `[[]]` o con el dólar `$` usando el nombre de los objetos. 
+
+El objeto `qr` es una matriz que contiene a la matriz R, es el triángulo superior de esta matriz y a la matriz Q, que es el triángulo superior pero de forma compacta.
+
+Si nosotros queremos ver cuales son las matrices Q y R específicamente, tendremos que usar las funciones `qr.Q()` y `qr.R()`, en donde el argumento de las dos funciones es el objeto `qr`.
+
+```{r}
+# Calculando la matriz Q.
+qr.Q(qr(A))
+
+# Calculando la matriz R.
+qr.R(qr(A))
+```
+
+Perfecto, hemos obtenido la matriz Q que es una matriz ortogonal y la matriz R que es una matriz triángulo superior.
+
+Asimismo, podemos hacer la comprobación. Sabemos que ha descompuesto nuestra matriz A en dos matrices en: Q y R. Entonces si multplicamos la matriz Q por la matriz R deberíamos de obtener la matriz A. 
+
+```{r}
+# Comprobando que la descomposición es la correcta. 
+qr.Q(qr(A))%*%qr.R(qr(A))
+```
+
+En efecto, tenemos la matriz A, por lo cual el método de descomposición queda comprobado. 
+
+Ahora si deseamos saber el rango de la matriz, usaremos la misma función `qr()` y llamaremos al objeto `rank`.
+
+```{r}
+# Calculando el rango de la matriz.
+qr(A)$rank
+```
+
+Que nos indica que es de rango `r qr(A)$rank`.
+
+También podemos descomponer las matrices por el método de cholesky, pero lo primordial para poder desarrollar este método es que la matriz se simétrica y definida positiva. Por lo que para mostrar un ejemplo, vamos a crear una matriz simétrica y definida positiva. 
+
+```{r}
+C<-matrix(c(4,1,1,4), ncol = 2)
+C
+```
+
+El método de Cholesky dice que descompondrá a la matriz en dos matrices, la primera en una matriz triángulo inferior y la segunda es la transpuesta de la matriz triángulo inferior. 
+
+\[X=R*R'\]
+
+En el software R se usa la función `chol()`, pero el resultado que arroja es la matriz triángulo superior, ya que usa la siguiente fórmula para descomponer. 
+
+\[X=R'*R\]
+
+Donde: $R$ es la matriz triángulo inferior.  
+
+Es así que el software R arroja $R'$, por eso se convierte en una matriz triángulo superior.
+
+```{r}
+# Determinando la matriz triángulo superior por la descompisición
+# de Cholesky.
+chol(C)
+```
+
+Comprobando que el resultado de la factorización es el correcto. 
+
+```{r}
+# Comprobando.
+t(chol(C))%*%chol(C)
+```
+
+Y en efecto, obtenemos la matriz original, por lo que la descomposición de Cholesky es la correcta.
+
+Por último, para el cálculo de la matriz de varianzas y covarianzas se usará la función `var()`. Vamos a calcular la matriz de varianas y covarianzas de la matriz A.
+
+```{r}
+var(A)
+```
+
+## Solución a sistemas de ecuación. 
+
+El software R también nos permite resolver sistemas de ecuaciones. Por ejemplo, si tenemos el siguiente sistema de ecuaciones. 
+
+\[2x+3y=1\]
+
+\[3x-7y=2\]
+
+Para poder desarrollarlo se puede hacer mediante el cálculo matricial, lo que se tendrá que hacer es convertir las dos ecuaciones en matrices. 
+
+\[\begin{pmatrix}
+2 & 3\\ 
+3 & 7
+\end{pmatrix}\begin{pmatrix}
+x \\ 
+y
+\end{pmatrix} = \begin{pmatrix}
+1\\ 
+2
+\end{pmatrix}\]
+
+Las matrices que nos interesan son la primera y la tercera. Las creamos.
+
+```{r}
+# La primera matriz.
+D<-matrix(c(2,3,3,-7), nrow = 2, byrow = TRUE)
+D
+
+# La segunda Matriz.
+v<-matrix(1:2, ncol = 1)
+v
+```
+
+Como se puede ver las matrices son iguales a las ecuaciones que se muestran.
+
+Para poder obtener respuesta se hace usa la función `solve()`.
+
+```{r}
+# Para solucionar el sistema de ecuaciones.
+solucion<-solve(D,v)    
+solucion
+```
+
+Guardamos el resultado en el objeto `solucion` y podemos ver que nos arroja los valores de `x` y `y` que resuelven el sistema de ecuaciones. 
+
+Podemos cambiar los nombres de las filas con el fin de obtener un resultado más accesible a los ojos. 
+
+```{r}
+dimnames(solucion)<-list(c("x", "y"), NULL)
+solucion
+```
+
+Perfecto, ahora se muestran los resultados de `x` y `y` que resuelven las ecuaciones.
+
+## Valores y vectores propios.
+
+Si usted desea calcular, los valores y vectores propios de una matriz tendrá que usar la función `eigen()`.
+
+Para el ejemplo se calculará los valores y vectores propios de la matriz `C`, la que se usó para la factorización con el método de cholesky.
+
+```{r}
+# Para el cálculo de valores y vectores propios.
+eigen(C)  
+```
+
+El objeto que hemos obtenido es una lista, por lo cual, si sólo deseamos los valores propios se tendría que usar la siguiente sintaxis `eigen()$values`. Asimismo, si sólo deseo los vectores propios, la sintaxis que se tendría que usar sería`eigen()$vectors`.
+
+```{r}
+# Sólo para los valores propios.
+eigen(C)$values
+
+# Sólo para los vectores propios.
+eigen(C)$vectors
+```
+
+En los últimos capítulos se verá aplicaciones en economía, específicamente en la maximización de la utilidad del consumidor, minimización de los costos de producción, modelos de regresión lineal, entre otras, usando matrices. Por el momento no podemos hacerlo, ya que aún no hemos desarrollado el capítulo de calculo diferencial. 

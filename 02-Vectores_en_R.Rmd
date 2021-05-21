@@ -2,13 +2,13 @@
 
 Uno de los objetos más importantes del entorno **R** son los vectores. Un vector en **R** es un objeto que agrupa a varios elementos, es algo muy similar a un conjunto. Gracias a ellos se pueden construir matrices, listas, data frame, etc. Lo que posibilita que se pueda hacer análisis de datos al más alto nivel. Por tanto, en las siguientes lineas se muestra como definir vectores, sus clases, y las funciones más importantes para poder obtener vectores y realizar operaciones matemáticas, lógicas y estadísticas.
 
-## DEFINICIÓN DE UN VECTOR.
+## Definición de un vector.
 
 Para poder definir un vector se puede usar cualquiera de los tres operadores `<-`, `=`, `->`. En este libro, de aquí para adelante, para definir vectores usaremos el símbolo `<-`.
 
 Tambien es necesario la función `c` que sirve para concatenar elementos (más adelante se verá a más detalle esta función). Con estas dos herramientas es  suficiente para poder definir vectores.
 
-## CLASES DE VECTORES.
+## Clases de vectores.
 En R, al igual que en otros softwares los objetos son de distintas clases. Esto permite un orden a la hora de transformar o generar operaciones, ya que todo vector, no puede aceptar operaciones matemáticas, estadísticas o lógicas.
 
 En la siguiente tabla se muestran las clases de vectores que se pueden usar en **R**.
@@ -146,7 +146,7 @@ is.integer(v); is.numeric(v); is.logical(v); is.character(v); is.complex(v)
 
 En efecto, el vector es un vector **complejo**.
 
-## NÚMERO DE ELEMENTOS DE UN VECTOR. 
+## Número de elementos de un vector.
 Si deseamos conocer el número de elementos o dimensión o tamaño que tiene un vector. Nosotros usaremos la función `length()`. La cual nos permitirá conocer el número de elementos por los que está compuesto el vector. Veamos el siguiente ejemplo.
 
 ```{r}
@@ -170,7 +170,7 @@ length(c("Marcos","Rocio",12,12,12,3434,5656,788,5,4, TRUE,F))
 
 El vector que acabamos de crear tiene `r length(c("Marcos","Rocio",12,12,12,3434,5656,788,5,4, TRUE,F))` elementos.
 
-## FUNCIONES PARA CONSTRUIR VECTORES MÁS EFICIENTEMENTE.
+## Funciones para construir vectores más eficientemente.
 
 ### Vectores de elementos consecutivos:
 
@@ -377,7 +377,7 @@ R nos dice en la documentación de la función `seq()` que si sólo usamos el ar
 
 Para más detalle puede revisar la documentación de la función `?seq`.
 
-## CONCATENAR ELEMENTOS Y VECTORES.
+## Concatenar elementos y vectores.
 
 Para concatenar elementos, como se explicó antes, se usa la función `c()`, asimismo, si deseamos concatenar vectores con elementos tambipen se usará `c()`.
 

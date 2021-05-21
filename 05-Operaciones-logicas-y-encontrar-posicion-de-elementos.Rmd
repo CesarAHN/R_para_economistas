@@ -2,7 +2,7 @@
 
 En este capítulo se tratará de cómo usar operados lógicos como: `y`, `o`, `igualdad`, `mayor que`, `menor que`, `diferente`, `negación`, entre otros. Gracias a estos operadores lógicos podremos filtrar y seleccionar elementos y variables de bases de datos. Además se aprenderá como encontrar el índice de elementos y cambiar valores de estos elementos siempre y cuando cumplan una condición.
 
-## OPERADORES LÓGICOS.
+## Operadores lógicos.
 
 Al igual que las operaciones aritméticas, las operaciones lógicas tienen una importancia primordial ya que a través de ellas se pueden formar condicionales que nos simplificarán el procesamiento de datos. 
 
@@ -328,7 +328,7 @@ Pero si usamos el operador pertenece (`%in%`) la sintaxis sería más limpia y m
 x %in% c("A","B","C")
 ```
 
-## ENCONTRAR EL ÍNDICE DE ELEMENTOS Y CAMBIAR VALORES.
+## Encontrar el índice de elementos y cambiar valores.
 
 En este capítulo hemos visto hasta el momento que se puede determinar que elemento(s) pertenecen al vector (siempre y cuando se cumplan determinada operación lógica), pero si uno desea saber la posición de este(os) elemento(s). Se tendrá que usar la función `which()`. Esta función permite encontrar la posición de los elementos siempre y cuando se cumpla una determinada operación lógica. 
 
@@ -372,7 +372,7 @@ which(x>50)
 
 Lo que nos ha arrojado R son las posiciones de los elementos que son mayores a 50 del vector `x`. Es así que el elemento de posición `r which(x>50)[1]` es mayor a 50. Si nos fijamos en el vector x, el elemento de posición 4 es el elemento de valor `r x[4]` que es mayor a 50.
 
-### CAMBIAR VALORES DE ELEMENTOS. 
+### Cambiar valores de elementos.
 
 Una práctica común es cambiar el valor de los elementos de una variable siempre y cuando cumpla una condición o si queremos cambiar el valor de un elemento determinado.
 

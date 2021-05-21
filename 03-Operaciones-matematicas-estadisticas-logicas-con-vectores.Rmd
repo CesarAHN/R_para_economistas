@@ -2,7 +2,7 @@
 
 En este capítulo se desarrollará operaciones matemáticas y estadísticas con vectores. Para este capítulo es fundamental recordar lo que se desarrolló en el capítulo 1 llamado "R como calculadora".
 
-## OPERACIONES MATEMÁTICAS.
+## Operaciones matemáticas.
 
 En el siguiente tabla se mostrarán algunas operaciones que se pueden hacer con vectores en R.
 
@@ -114,7 +114,7 @@ diff(x)
 
 Como el vector **x** es una secuencia que aumenta de 1 en 1. Al aplicar esta función el resultado nos muestra que cada elemento del vector se diferencia en una unidad.
 
-## OPERACIONES ESTADÍSTICAS.
+## Operaciones estadísticas.
 
 A continuación se presentarán las funciones para realizar operaciones estadísticas con vectores.
 
@@ -211,7 +211,7 @@ Es así que si usted desea calcular el coeficiente de correlación de spearman. 
 cor(x,y, method = "spearman")
 ```
 
-### ¿CÓMO TRABAJAR CON MISSING O ELEMENTOS FALTANTES (NA)?  
+### ¿Cómo trabajar con missings o elementos faltantes (NA)?  
 Hasta ahora hemos visto que nuestros datos están completos, pero en el día a día la mayoría de veces no se cuenta con la totalidad de los datos y se tiene **missing values** o mejor conocidos como valores faltantes. En R, a estos valores faltantes se les conoce como `NA` (not available). 
 
 Si se tiene `NA` en un vector, entonces, las funciones que hemos utilizado para hacer cálculos matemáticos y estadísticos arrojarán como resultado `NA`. Veamos un ejemplo para que quede claro. 
@@ -240,7 +240,7 @@ Hemos podido solucionar el problema de los elementos faltantes.
 
 Es así que si usted tiene valores faltantes y desea obtener el cálculo de los estadísticos sin tener en consideración a éstos, tiene que usar el argumento `na.rm=TRUE`. 
  
-### ¿CÓMO ORDENAR ELEMENTOS DE LOS VECTORES?
+### ¿Cómo ordenar elementos de los vectores?
 
 En este apartado se verá cómo ordenar los elementos de los vectores con las funciones `sort()` y `rev()`[^2]. La función `sort()` permite ordenar elementos de manera decreciente o creciente, mientras que la función `rev()` permite obtener el vector en orden inverso. 
 

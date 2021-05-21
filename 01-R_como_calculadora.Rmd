@@ -4,7 +4,7 @@ Uno de los primeros pasos para poder dominar **R** es comprender su uso como si 
 
 [^1]: Las operaciones que se realizarán están pensadas para un usuario que recién comienza en **R**.
 
-## PRINCIPALES OPERACIONES MATEMÁTICAS.
+## Principales operaciones matemáticas.
 Desarrollar calculos matemáticos en **R** es muy similar que usar una calculadora, a continuación mostramos los principales operadores aritméticos y su sintaxis en el entorno **R**.
 
 |OPERACIÓN| SINTAXIS|
@@ -147,9 +147,9 @@ cospi(1/4)   # Coseno de 45 grados sexagesimales.
 tanpi(1/4)   # Tangente de 45 grados sexagesimales.
 ```
 
-## DECIMALES EXACTOS Y REDONDEO DE CIFRAS.
+## Decimales exactos y redondeo de cifras.
 
-### NÚMERO DE CIFRAS.
+### Número de cifras.
 
 Si al realizar los cálculos usted desea obtener los resultados con un número determinado de cifras se tendrá que usar la función `print()`[^2] en donde se tendrá que especificar el número de dígitos que se desea. 
 
@@ -198,7 +198,7 @@ options(digits=10)
 
 Y con eso todos los resultados que se calculen se mostraran con 10 cifras. Asimismo, es preciso aclarar que esta función puede arrojar como máximo de 22 dígitos. 
 
-### REDONDEO.
+### Redondeo.
 
 Si se desea redondear una operación se tendrá que usar la función `round()`, que al igual que el anterior se tendrá que especificar el número de dígitos, que en este caso será el número de decimales a los que se desea redondear.
 
@@ -216,7 +216,7 @@ Sí sólo se considera la función `round()` redondeará a la cifra entera:
 round(sqrt(3))
 ```
 
-## GUARDAR O DEFINIR OBJETOS.
+## Guardar o definir objetos.
 
 Hasta ahora sólo hemos hecho calculos y sólo los hemos mostrado en la consola. Pero puede surgir la necesidad de guardar estos cálculos para que en un futuro podamos generar cálculos más complejos o llamar a estos resultados. Entonces, surge la necesidad de guardar nuestros resultados. 
 
@@ -280,7 +280,7 @@ Veamos un ejemplo en donde intentamos definir un objeto en donde el nombre de es
 ```
 Vemos que nos sale un mensaje de error, que nos dice que hay un símbolo inesperado en `1y` el cual es el `1`. Entonces, para definir objetos, estos nunca tienen que empezar con un número. 
 
-## FUNCIONES.
+## Funciones.
 Entonces, una vez que ya sabemos definir objetos, veremos otro de los objetos fundamentales en R, estos son las funciones[^5]. Una función realiza un proceso o algoritmo que ha sido programado con anterioriedad. 
 
 [^5]: En esta parte del libro, veremos sólo una parte introductoria de funciones, en el capítulo 9 veremos a más detalle y profundidad este tema. 

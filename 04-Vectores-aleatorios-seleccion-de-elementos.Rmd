@@ -6,7 +6,7 @@ Quizá le parezca muy abstracto lo que se desarrollará en este capítulo, quiz�
 
 En este y en el siguiente capítulo está lo más fundamental, si uno desea conocer el funcionamiento y en un futuro empezar a programar en el software R. Es asi que se recomienda leer, estos dos capítulos, las veces que sea posible hasta que quede asimilado por completo. 
 
-## CREACIÓN DE VECTORES CON ELEMENTOS ALEATORIOS. 
+## Creación de vectores con elementos aleatorios.
 
 Para poder crear vectores con elementos aleatorios tendremos que usar la función `sample()`. Veamos a continuación su sintaxis. 
 
@@ -127,7 +127,7 @@ prop.table(table(sexo))
 
 El `r paste0(round(prop.table(table(sexo))[1]*100,2),"%")` son hombres y el `r paste0(round(prop.table(table(sexo))[2]*100,2),"%")` son mujeres. En efecto, gracias a especificar el vector de probabilidades de suceso de cada elemento del vector universal se ha podido obtener la proporción del 30% y 70% entre hombres y mujeres, aproximadamente.
 
-### APLICACIÓN: LEY DE GRANDES NÚMEROS. 
+### Aplicación: Ley de grandes números.
 
 Una de las leyes más importantes en la teoría de la probabilidad es la "**ley de grandes números**". La cual nos dice que al aumentar el número de ensayos de un experimento, este tiende a la esperanza matemática de la variable aleatoria que se ha generado en el experimento. 
 
@@ -186,7 +186,7 @@ Con 1000000 ensayos el porcentaje de caras es del `r paste0(round(prop.table(tab
 
 [^2]: Esto no implica que nos salga los mismos resultados que anteriormente, por más que se ha colocado la misma semilla, los argumentos de la sintaxis anterior han variado. Lo cual implica un nuevo proceso aleatorio.
 
-## VECTORES VACÍOS Y SELECCIÓN DE ELEMENTOS.
+## Vectores vacios y selección de elementos.
 
 ### Vectores vacíos.
 
