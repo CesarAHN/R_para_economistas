@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 9 CONDICIONAL IF ELSE. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</title>
+  <meta name="description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 9 CONDICIONAL IF ELSE. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  <meta name="github-repo" content="CesarAHN/bookdown_intro" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 9 CONDICIONAL IF ELSE. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
+  
+  <meta name="twitter:description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  
+
+<meta name="author" content="César Anderson Huamaní Ninahuanca" />
+
+
+<meta name="date" content="2021-06-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="álgebra-matricial-.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - PARA ECONOMISTAS</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prólogo</a></li>
+<li class="chapter" data-level="1" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html"><i class="fa fa-check"></i><b>1</b> R COMO CALCULADORA.</a><ul>
+<li class="chapter" data-level="1.1" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#principales-operaciones-matemáticas."><i class="fa fa-check"></i><b>1.1</b> Principales operaciones matemáticas.</a></li>
+<li class="chapter" data-level="1.2" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#decimales-exactos-y-redondeo-de-cifras."><i class="fa fa-check"></i><b>1.2</b> Decimales exactos y redondeo de cifras.</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#número-de-cifras."><i class="fa fa-check"></i><b>1.2.1</b> Número de cifras.</a></li>
+<li class="chapter" data-level="1.2.2" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#redondeo."><i class="fa fa-check"></i><b>1.2.2</b> Redondeo.</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#guardar-o-definir-objetos."><i class="fa fa-check"></i><b>1.3</b> Guardar o definir objetos.</a></li>
+<li class="chapter" data-level="1.4" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#funciones."><i class="fa fa-check"></i><b>1.4</b> Funciones.</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="vectores-.html"><a href="vectores-.html"><i class="fa fa-check"></i><b>2</b> VECTORES.</a><ul>
+<li class="chapter" data-level="2.1" data-path="vectores-.html"><a href="vectores-.html#definición-de-un-vector."><i class="fa fa-check"></i><b>2.1</b> Definición de un vector.</a></li>
+<li class="chapter" data-level="2.2" data-path="vectores-.html"><a href="vectores-.html#clases-de-vectores."><i class="fa fa-check"></i><b>2.2</b> Clases de vectores.</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="vectores-.html"><a href="vectores-.html#cómo-saber-si-un-objeto-es-un-vector"><i class="fa fa-check"></i><b>2.2.1</b> ¿Cómo saber si un objeto es un vector?</a></li>
+<li class="chapter" data-level="2.2.2" data-path="vectores-.html"><a href="vectores-.html#cómo-saber-de-que-clase-es-un-vector"><i class="fa fa-check"></i><b>2.2.2</b> ¿Cómo saber de que clase es un vector?</a></li>
+<li class="chapter" data-level="2.2.3" data-path="vectores-.html"><a href="vectores-.html#qué-pasa-si-defino-un-vector-con-distintas-clases-de-elementos"><i class="fa fa-check"></i><b>2.2.3</b> ¿Qué pasa si defino un vector con distintas clases de elementos?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="vectores-.html"><a href="vectores-.html#número-de-elementos-de-un-vector."><i class="fa fa-check"></i><b>2.3</b> Número de elementos de un vector.</a></li>
+<li class="chapter" data-level="2.4" data-path="vectores-.html"><a href="vectores-.html#funciones-para-construir-vectores-más-eficientemente."><i class="fa fa-check"></i><b>2.4</b> Funciones para construir vectores más eficientemente.</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="vectores-.html"><a href="vectores-.html#vectores-de-elementos-consecutivos"><i class="fa fa-check"></i><b>2.4.1</b> Vectores de elementos consecutivos:</a></li>
+<li class="chapter" data-level="2.4.2" data-path="vectores-.html"><a href="vectores-.html#vectores-con-patrones"><i class="fa fa-check"></i><b>2.4.2</b> Vectores con patrones:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="vectores-.html"><a href="vectores-.html#concatenar-elementos-y-vectores."><i class="fa fa-check"></i><b>2.5</b> Concatenar elementos y vectores.</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><i class="fa fa-check"></i><b>3</b> OPERACIONES MATEMÁTICAS Y ESTADÍSTICAS CON VECTORES.</a><ul>
+<li class="chapter" data-level="3.1" data-path="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html#operaciones-matemáticas."><i class="fa fa-check"></i><b>3.1</b> Operaciones matemáticas.</a></li>
+<li class="chapter" data-level="3.2" data-path="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html#operaciones-estadísticas."><i class="fa fa-check"></i><b>3.2</b> Operaciones estadísticas.</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html#cómo-trabajar-con-missings-o-elementos-faltantes-na"><i class="fa fa-check"></i><b>3.2.1</b> ¿Cómo trabajar con missings o elementos faltantes (NA)?</a></li>
+<li class="chapter" data-level="3.2.2" data-path="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html#cómo-ordenar-elementos-de-los-vectores"><i class="fa fa-check"></i><b>3.2.2</b> ¿Cómo ordenar elementos de los vectores?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html"><i class="fa fa-check"></i><b>4</b> VECTORES ALEATORIOS y SELECCIÓN DE ELEMENTOS.</a><ul>
+<li class="chapter" data-level="4.1" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#creación-de-vectores-con-elementos-aleatorios."><i class="fa fa-check"></i><b>4.1</b> Creación de vectores con elementos aleatorios.</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#aplicación-ley-de-grandes-números."><i class="fa fa-check"></i><b>4.1.1</b> Aplicación: Ley de grandes números.</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#vectores-vacios-y-selección-de-elementos."><i class="fa fa-check"></i><b>4.2</b> Vectores vacios y selección de elementos.</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#vectores-vacíos."><i class="fa fa-check"></i><b>4.2.1</b> Vectores vacíos.</a></li>
+<li class="chapter" data-level="4.2.2" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#seleción-de-elementos-usando-."><i class="fa fa-check"></i><b>4.2.2</b> Seleción de elementos usando [].</a></li>
+<li class="chapter" data-level="4.2.3" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cómo-saber-cuántos-elementos-tiene-un-vector"><i class="fa fa-check"></i><b>4.2.3</b> ¿Cómo saber cuántos elementos tiene un vector?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><i class="fa fa-check"></i><b>5</b> OPERADORES LÓGICOS, ÍNDICE DE ELEMENTOS Y CAMBIO DE VALORES.</a><ul>
+<li class="chapter" data-level="5.1" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#operadores-lógicos."><i class="fa fa-check"></i><b>5.1</b> Operadores lógicos.</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#igualdad."><i class="fa fa-check"></i><b>5.1.1</b> Igualdad.</a></li>
+<li class="chapter" data-level="5.1.2" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#mayor-que."><i class="fa fa-check"></i><b>5.1.2</b> Mayor que.</a></li>
+<li class="chapter" data-level="5.1.3" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#menor-que."><i class="fa fa-check"></i><b>5.1.3</b> Menor que.</a></li>
+<li class="chapter" data-level="5.1.4" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#diferente."><i class="fa fa-check"></i><b>5.1.4</b> Diferente.</a></li>
+<li class="chapter" data-level="5.1.5" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#negación."><i class="fa fa-check"></i><b>5.1.5</b> Negación.</a></li>
+<li class="chapter" data-level="5.1.6" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#y-condicional-conjunción."><i class="fa fa-check"></i><b>5.1.6</b> Y condicional (Conjunción).</a></li>
+<li class="chapter" data-level="5.1.7" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#o-condicional-disyunción."><i class="fa fa-check"></i><b>5.1.7</b> O condicional (disyunción).</a></li>
+<li class="chapter" data-level="5.1.8" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#mayor-y-menor-igual-que."><i class="fa fa-check"></i><b>5.1.8</b> Mayor y menor igual que.</a></li>
+<li class="chapter" data-level="5.1.9" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#operador-pertenece."><i class="fa fa-check"></i><b>5.1.9</b> Operador pertenece.</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#encontrar-el-índice-de-elementos-y-cambiar-valores."><i class="fa fa-check"></i><b>5.2</b> Encontrar el índice de elementos y cambiar valores.</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#cambiar-valores-de-elementos."><i class="fa fa-check"></i><b>5.2.1</b> Cambiar valores de elementos.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html"><i class="fa fa-check"></i><b>6</b> FACTORES Y LISTAS.</a><ul>
+<li class="chapter" data-level="6.1" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#factores."><i class="fa fa-check"></i><b>6.1</b> Factores.</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#factores-con-niveles-desordenados."><i class="fa fa-check"></i><b>6.1.1</b> Factores con niveles desordenados.</a></li>
+<li class="chapter" data-level="6.1.2" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#factores-con-niveles-ordenados."><i class="fa fa-check"></i><b>6.1.2</b> Factores con niveles ordenados.</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#listas."><i class="fa fa-check"></i><b>6.2</b> Listas.</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#cómo-se-obtiene-cada-objeto-de-una-lista"><i class="fa fa-check"></i><b>6.2.1</b> ¿Cómo se obtiene cada objeto de una lista?</a></li>
+<li class="chapter" data-level="6.2.2" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#asignado-nombres-a-los-objetos-de-una-lista."><i class="fa fa-check"></i><b>6.2.2</b> Asignado nombres a los objetos de una lista.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="matrices-.html"><a href="matrices-.html"><i class="fa fa-check"></i><b>7</b> MATRICES.</a><ul>
+<li class="chapter" data-level="7.1" data-path="matrices-.html"><a href="matrices-.html#creación-de-matrices."><i class="fa fa-check"></i><b>7.1</b> Creación de matrices.</a></li>
+<li class="chapter" data-level="7.2" data-path="matrices-.html"><a href="matrices-.html#concatenar-matrices-por-filas-o-columnas."><i class="fa fa-check"></i><b>7.2</b> Concatenar matrices por filas o columnas.</a></li>
+<li class="chapter" data-level="7.3" data-path="matrices-.html"><a href="matrices-.html#selecionar-elementos-de-una-matriz."><i class="fa fa-check"></i><b>7.3</b> Selecionar elementos de una matriz.</a></li>
+<li class="chapter" data-level="7.4" data-path="matrices-.html"><a href="matrices-.html#dimensiones-de-la-matriz."><i class="fa fa-check"></i><b>7.4</b> Dimensiones de la matriz.</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="álgebra-matricial-.html"><a href="álgebra-matricial-.html"><i class="fa fa-check"></i><b>8</b> ÁLGEBRA MATRICIAL.</a><ul>
+<li class="chapter" data-level="8.1" data-path="álgebra-matricial-.html"><a href="álgebra-matricial-.html#operaciones-básicas."><i class="fa fa-check"></i><b>8.1</b> Operaciones básicas.</a></li>
+<li class="chapter" data-level="8.2" data-path="álgebra-matricial-.html"><a href="álgebra-matricial-.html#principales-operaciones-con-matrices."><i class="fa fa-check"></i><b>8.2</b> Principales operaciones con matrices.</a></li>
+<li class="chapter" data-level="8.3" data-path="álgebra-matricial-.html"><a href="álgebra-matricial-.html#solución-a-sistemas-de-ecuación."><i class="fa fa-check"></i><b>8.3</b> Solución a sistemas de ecuación.</a></li>
+<li class="chapter" data-level="8.4" data-path="álgebra-matricial-.html"><a href="álgebra-matricial-.html#valores-y-vectores-propios."><i class="fa fa-check"></i><b>8.4</b> Valores y vectores propios.</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="condicional-if-else-.html"><a href="condicional-if-else-.html"><i class="fa fa-check"></i><b>9</b> CONDICIONAL IF ELSE.</a><ul>
+<li class="chapter" data-level="9.1" data-path="condicional-if-else-.html"><a href="condicional-if-else-.html#condicional-if."><i class="fa fa-check"></i><b>9.1</b> Condicional if.</a></li>
+<li class="chapter" data-level="9.2" data-path="condicional-if-else-.html"><a href="condicional-if-else-.html#condicional-if-else.-1"><i class="fa fa-check"></i><b>9.2</b> Condicional if else.</a></li>
+<li class="chapter" data-level="9.3" data-path="condicional-if-else-.html"><a href="condicional-if-else-.html#condicional-if-else-anidado."><i class="fa fa-check"></i><b>9.3</b> Condicional if else anidado.</a></li>
+<li class="chapter" data-level="9.4" data-path="condicional-if-else-.html"><a href="condicional-if-else-.html#unicidad-de-la-condicional-if."><i class="fa fa-check"></i><b>9.4</b> Unicidad de la condicional if.</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="condicional-if-else." class="section level1">
+<h1><span class="header-section-number">Chapter 9</span> CONDICIONAL IF ELSE.</h1>
+<p>En este capítulo se muestra la condicional <code>if</code> que ejecuta un proceso siempre y cuando la condición lógica es verdadera. Esta condicional es fundamental en cualquier lenguaje de programación. Asimismo, si se complementa con la condicional <code>else</code> o <code>else if</code> se aborda la totalidad de los casos a la hora de programar un proceso.</p>
+<div id="condicional-if." class="section level2">
+<h2><span class="header-section-number">9.1</span> Condicional if.</h2>
+<p>La condicional <code>if</code> sirve para ejecutar procesos cuando se cumple una condición lógica que se le asigna. En R tiene la siguiente sintaxis.</p>
+<p><code>if("condición lógica"){"Proceso a ejecutarse"}</code></p>
+<p>Siempre y cuando la condición lógica se cumpla se ejecutará el proceso especificado.</p>
+<p>Veamos un ejemplo en donde usamos la condicional <code>if</code>. Para lo cual vamos a definir un vector.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="condicional-if-else-.html#cb1-1"></a><span class="co"># Definiendo el vector x.</span></span>
+<span id="cb1-2"><a href="condicional-if-else-.html#cb1-2"></a>x&lt;-<span class="dv">10</span></span>
+<span id="cb1-3"><a href="condicional-if-else-.html#cb1-3"></a>x</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<p>Hemos creado el vector <code>x</code> que contiene al elemento 10.</p>
+<p>Vamos a consultarle al programa si el vector x es igual a 10 y si es correcto que imprima la oración “El vector x vale 10”.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="condicional-if-else-.html#cb3-1"></a><span class="co"># ¿x es igual a 10? </span></span>
+<span id="cb3-2"><a href="condicional-if-else-.html#cb3-2"></a><span class="cf">if</span>(x<span class="op">==</span><span class="dv">10</span>){</span>
+<span id="cb3-3"><a href="condicional-if-else-.html#cb3-3"></a>  <span class="kw">print</span>(<span class="st">&quot;El vector x vale 10&quot;</span>)</span>
+<span id="cb3-4"><a href="condicional-if-else-.html#cb3-4"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;El vector x vale 10&quot;</code></pre>
+<p>En efecto, el software a impreso la oración “El vector x vale 10”. Pero veamos como se obtuvo este resultado. Primero, se colocó la condición lógica <code>x==10</code> y al ser <code>TRUE</code> entonces procedió a ejecutar el proceso el cual era <code>print("El vector x vale 10")</code>. La función <code>print()</code> se usa para imprimir el contenido de los objetos.</p>
+<p>Ahora veamos que sucede si la condicional no es <code>TRUE</code> sino <code>FALSE</code>. Para esto vamos a consultarle al software si x es igual a 100 y si es correcto que imprima la oración “El vector x vale 100”.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="condicional-if-else-.html#cb5-1"></a><span class="co"># ¿x es igual a 100?</span></span>
+<span id="cb5-2"><a href="condicional-if-else-.html#cb5-2"></a><span class="cf">if</span>(x<span class="op">==</span><span class="dv">100</span>){</span>
+<span id="cb5-3"><a href="condicional-if-else-.html#cb5-3"></a>  <span class="kw">print</span>(<span class="st">&quot;El vector x vale 100&quot;</span>)</span>
+<span id="cb5-4"><a href="condicional-if-else-.html#cb5-4"></a>}</span></code></pre></div>
+<p>No nos arroja absolutamente nada. Esto sucede porque no se cumple la condición lógica lo que implica que no se ejecutará el proceso que se encuentra entre llaves <code>print("El vector x vale 100")</code>.</p>
+<p>Ahora hagamos una aplicación a un sorteo. Vamos a escoger a un individuo de un total de 5 personas y si el individuo ganador es “Luis”, entonces le diremos al software que imprima la oración “El ganador del sorteo es Luis”.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="condicional-if-else-.html#cb6-1"></a><span class="co"># Creando el vector de personas que participarán en el sorteo.</span></span>
+<span id="cb6-2"><a href="condicional-if-else-.html#cb6-2"></a>x&lt;-<span class="kw">c</span>(<span class="st">&quot;Juan&quot;</span>,<span class="st">&quot;David&quot;</span>,<span class="st">&quot;Luis&quot;</span>,<span class="st">&quot;Marcos&quot;</span>,<span class="st">&quot;Manuel&quot;</span>)</span></code></pre></div>
+<p>El siguiente paso es escoger a un ganador, para esto se usará la función <code>sample()</code>.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="condicional-if-else-.html#cb7-1"></a><span class="co"># Escogiendo al ganador.</span></span>
+<span id="cb7-2"><a href="condicional-if-else-.html#cb7-2"></a><span class="kw">set.seed</span>(<span class="dv">2021</span>)</span>
+<span id="cb7-3"><a href="condicional-if-else-.html#cb7-3"></a>y&lt;-<span class="kw">sample</span>(x, <span class="dv">1</span>, F)</span></code></pre></div>
+<p>Por último le consultaremos al software si “Luis” es el ganador.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="condicional-if-else-.html#cb8-1"></a><span class="cf">if</span>(y<span class="op">==</span><span class="st">&quot;Luis&quot;</span>){</span>
+<span id="cb8-2"><a href="condicional-if-else-.html#cb8-2"></a>  <span class="kw">print</span>(<span class="st">&quot;El ganador del sorteo es Luis&quot;</span>)</span>
+<span id="cb8-3"><a href="condicional-if-else-.html#cb8-3"></a>}</span></code></pre></div>
+<p>No nos imprime nada, lo que implica que el ganador no era Luis. Veamos cual fue la persona que ganó el sorteo.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="condicional-if-else-.html#cb9-1"></a><span class="co"># La persona que ganó el sorteo. </span></span>
+<span id="cb9-2"><a href="condicional-if-else-.html#cb9-2"></a>y</span></code></pre></div>
+<pre><code>## [1] &quot;David&quot;</code></pre>
+<p>El ganador fue David. Lo que generó que no imprima el nombre de Luis como ganador del sorteo.</p>
+<p>Ahora veamos otro ejemplo en donde vamos a crear una función que imprima nombres siempre y cuando la edad de la persona es menor a 30 años. Para lo cual vamos a crear una función.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="condicional-if-else-.html#cb11-1"></a><span class="co"># Creando la función que imprime nombres.</span></span>
+<span id="cb11-2"><a href="condicional-if-else-.html#cb11-2"></a>imp_nombre&lt;-<span class="cf">function</span>(nombre,edad){</span>
+<span id="cb11-3"><a href="condicional-if-else-.html#cb11-3"></a>  <span class="cf">if</span>(edad<span class="op">&lt;</span><span class="dv">30</span>){</span>
+<span id="cb11-4"><a href="condicional-if-else-.html#cb11-4"></a>    <span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;El nombre es: &quot;</span>,nombre))</span>
+<span id="cb11-5"><a href="condicional-if-else-.html#cb11-5"></a>  }</span>
+<span id="cb11-6"><a href="condicional-if-else-.html#cb11-6"></a>}</span></code></pre></div>
+<p>Nuestra función <code>imp_nombre</code> tiene dos argumentos: nombre y edad. Lo que hace nuestra función es que si la edad es menor que 30, entonces imprimirá <code>El nombre es ........</code>. Si no es así, entonces, no imprimirá nada porque no se cumple la condicional.</p>
+<p>Veamos un ejemplo en donde la edad es 17 y el nombre es Natalia.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="condicional-if-else-.html#cb12-1"></a><span class="co"># ¿Imprimirá el nombre de Natalia, si ella tiene 17 años?</span></span>
+<span id="cb12-2"><a href="condicional-if-else-.html#cb12-2"></a><span class="kw">imp_nombre</span>(<span class="dt">nombre =</span> <span class="st">&quot;Natalia&quot;</span>, <span class="dt">edad =</span> <span class="dv">17</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;El nombre es: Natalia&quot;</code></pre>
+<p>Imprimió el nombre ya que 17 es menor que 30.</p>
+</div>
+<div id="condicional-if-else.-1" class="section level2">
+<h2><span class="header-section-number">9.2</span> Condicional if else.</h2>
+<p>La condicional <code>if else</code> sirve para ejecutar procesos donde haya dos escenarios. Es decir, si se cumple la condición el software tiene que ejecitar el proceso, pero si no se cumple, entonces el software tiene que ejecutar otro proceso. Para entender mejor, veamos primero como es la sintaxis de esta condicional.</p>
+<p><code>if("Condición lógica"){"Se realiza el proceso si cumple la condición"} else {"Se realiza el proceso si no se cumple la condición" }</code></p>
+<p>Retomemos el ejemplo del sorteo. En el cual creamos un vector de nombres y se realizó el sorteo, en donde si el ganador era Luis, entonces, imprimiría la oración <code>El ganador del sorteo es Luis</code>. Ahora lo que haremos es agregar la condicional <code>else</code> y que imprima el nombre del ganador si el ganador no es Luis.</p>
+<p>Primero volveremos a correr el código del sorteo.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="condicional-if-else-.html#cb14-1"></a><span class="co"># Escogiendo al ganador.</span></span>
+<span id="cb14-2"><a href="condicional-if-else-.html#cb14-2"></a><span class="kw">set.seed</span>(<span class="dv">2021</span>)</span>
+<span id="cb14-3"><a href="condicional-if-else-.html#cb14-3"></a>y&lt;-<span class="kw">sample</span>(x, <span class="dv">1</span>, F)</span></code></pre></div>
+<p>El ganador se encuentra en el vector <code>y</code>.</p>
+<p>Ahora agregando la condicional <code>else</code>.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="condicional-if-else-.html#cb15-1"></a><span class="co"># En el ejemplo del sorteo, agregando la condicional else.</span></span>
+<span id="cb15-2"><a href="condicional-if-else-.html#cb15-2"></a><span class="cf">if</span>(y<span class="op">==</span><span class="st">&quot;Luis&quot;</span>){</span>
+<span id="cb15-3"><a href="condicional-if-else-.html#cb15-3"></a>  <span class="kw">print</span>(<span class="st">&quot;El ganador del sorteo es Luis&quot;</span>)</span>
+<span id="cb15-4"><a href="condicional-if-else-.html#cb15-4"></a>} <span class="cf">else</span> {</span>
+<span id="cb15-5"><a href="condicional-if-else-.html#cb15-5"></a>  <span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;El ganador del sorteo es &quot;</span>, y))</span>
+<span id="cb15-6"><a href="condicional-if-else-.html#cb15-6"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;El ganador del sorteo es David&quot;</code></pre>
+<p>Nos arroja que el ganador es David. Esto se da porque la condicional no se <code>TRUE</code>, entonces, tiene que ejecutar el proceso que se encuentra en la condicional <code>else</code>.</p>
+<p>Veamos el mismo ejemplo, pero ahora cambiemos la semilla para obtener otro resultado. Probemos con la semilla <code>1010</code>.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="condicional-if-else-.html#cb17-1"></a><span class="co"># Cambiando la semilla para obtener otro resultado.</span></span>
+<span id="cb17-2"><a href="condicional-if-else-.html#cb17-2"></a><span class="co"># Escogiendo al ganador.</span></span>
+<span id="cb17-3"><a href="condicional-if-else-.html#cb17-3"></a><span class="kw">set.seed</span>(<span class="dv">1010</span>)</span>
+<span id="cb17-4"><a href="condicional-if-else-.html#cb17-4"></a>y&lt;-<span class="kw">sample</span>(x, <span class="dv">1</span>, F)</span>
+<span id="cb17-5"><a href="condicional-if-else-.html#cb17-5"></a></span>
+<span id="cb17-6"><a href="condicional-if-else-.html#cb17-6"></a><span class="co"># Encontrando al ganador.</span></span>
+<span id="cb17-7"><a href="condicional-if-else-.html#cb17-7"></a><span class="cf">if</span>(y<span class="op">==</span><span class="st">&quot;Luis&quot;</span>){</span>
+<span id="cb17-8"><a href="condicional-if-else-.html#cb17-8"></a>  <span class="kw">print</span>(<span class="st">&quot;El ganador del sorteo es Luis&quot;</span>)</span>
+<span id="cb17-9"><a href="condicional-if-else-.html#cb17-9"></a>} <span class="cf">else</span> {</span>
+<span id="cb17-10"><a href="condicional-if-else-.html#cb17-10"></a>  <span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;El ganador del sorteo es &quot;</span>, y))</span>
+<span id="cb17-11"><a href="condicional-if-else-.html#cb17-11"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;El ganador del sorteo es Marcos&quot;</code></pre>
+<p>Nos arroja que el ganador del sorteo es Marcos. Ya que otra vez, la condicional no es <code>TRUE</code>.</p>
+<p>Veamos un ejemplo adicional en donde agregemos la condicional <code>else</code> al ejemplo de imprimir el nombre. En este ejemplo siempre y cuando la edad era menor a 30 se imprimía el nombre. En este caso tendrá que imprimir la oración <code>La edad es mayor a 30. No se imprimirá el nombre</code>, siempre y cuando no se cumpla la condición de que la edad sea menor que 30.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="condicional-if-else-.html#cb19-1"></a><span class="co"># Agregando la condicional else a la función.</span></span>
+<span id="cb19-2"><a href="condicional-if-else-.html#cb19-2"></a>imp_nombre&lt;-<span class="cf">function</span>(nombre,edad){</span>
+<span id="cb19-3"><a href="condicional-if-else-.html#cb19-3"></a>  <span class="cf">if</span>(edad<span class="op">&lt;</span><span class="dv">30</span>){</span>
+<span id="cb19-4"><a href="condicional-if-else-.html#cb19-4"></a>    <span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;El nombre es: &quot;</span>,nombre))</span>
+<span id="cb19-5"><a href="condicional-if-else-.html#cb19-5"></a>  } <span class="cf">else</span> {</span>
+<span id="cb19-6"><a href="condicional-if-else-.html#cb19-6"></a>    <span class="kw">print</span>(<span class="st">&quot;La edad es mayor a 30. No se imprimirá el nombre&quot;</span>)</span>
+<span id="cb19-7"><a href="condicional-if-else-.html#cb19-7"></a>  }</span>
+<span id="cb19-8"><a href="condicional-if-else-.html#cb19-8"></a>}</span></code></pre></div>
+<p>Ahora probemos con Ítalo que tiene 52 años ¿Cuál será el resultado?</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="condicional-if-else-.html#cb20-1"></a><span class="co"># Probemos si imprime el nombre de Ítalo que tiene 52 años.</span></span>
+<span id="cb20-2"><a href="condicional-if-else-.html#cb20-2"></a><span class="kw">imp_nombre</span>(<span class="dt">nombre =</span> <span class="st">&quot;Ítalo&quot;</span>, <span class="dt">edad =</span> <span class="dv">52</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;La edad es mayor a 30. No se imprimirá el nombre&quot;</code></pre>
+<p>Al ser la edad de Ítalo 52 no se cumple la condición porque tendrá que ejecutar el proceso que se encuntre en <code>else</code>. Por eso es que nos arroja <code>"La edad es mayor a 30. No se imprimirá el nombre"</code>.</p>
+<p>Hasta el momento hemos visto sólo como cubrir dos escenarios, el que resultaría si se cumple la condición y el que pasaría si no se cumple. Pero en la vida real, no sólo se tiene un par de escenarios sino muchos más. Para abordar estos múltiples escenarios usaremos <code>if else</code> anidados.</p>
+</div>
+<div id="condicional-if-else-anidado." class="section level2">
+<h2><span class="header-section-number">9.3</span> Condicional if else anidado.</h2>
+<p>Como se mencionó cuando se quiere cubrir más de 2 escenarios se tendrá que recurrir a <code>if else</code> anidados. La sintaxis para tres escenarios es la siguiente.</p>
+<p><code># if("Condición 1"){"Se realiza el proceso si cumple la condición 1"} else if ("Condición 2") {" Se realiza el proceso si no se cumple la condición 1 y si la condición 2"}  else {"Se realiza el proceso si no se cumple la condición 1 y la condición 2"}</code></p>
+<p>Pero esto se puede aplicar para más escenarios.</p>
+<p>Primero veamos un ejemplo. Retomemos el ejemplo de la impresión de nombres. Lo que haremos ahora es agregar una condición adicional en donde si la edad es mayor igual a 30 y menor que 60, entonces imprima sólo la inicial del nombre, pero si es mayor igual que 60 que imprime <code>La edad es mayor a 60. No se imprimirá el nombre</code>.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="condicional-if-else-.html#cb22-1"></a><span class="co"># Agregado una condición lógica más al ejemplo de impresión de nombres.</span></span>
+<span id="cb22-2"><a href="condicional-if-else-.html#cb22-2"></a>imp_nombre&lt;-<span class="cf">function</span>(nombre,edad){</span>
+<span id="cb22-3"><a href="condicional-if-else-.html#cb22-3"></a>  <span class="cf">if</span>(edad<span class="op">&lt;</span><span class="dv">30</span>){</span>
+<span id="cb22-4"><a href="condicional-if-else-.html#cb22-4"></a>    <span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;El nombre es: &quot;</span>,nombre))</span>
+<span id="cb22-5"><a href="condicional-if-else-.html#cb22-5"></a>  } <span class="cf">else</span> <span class="cf">if</span>(edad<span class="op">&gt;=</span><span class="dv">30</span> <span class="op">&amp;</span><span class="st"> </span>edad<span class="op">&lt;</span><span class="dv">60</span>) {</span>
+<span id="cb22-6"><a href="condicional-if-else-.html#cb22-6"></a>    <span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;La inicial del nombre es: &quot;</span>, <span class="kw">substring</span>(nombre,<span class="dv">1</span>,<span class="dv">1</span>)))</span>
+<span id="cb22-7"><a href="condicional-if-else-.html#cb22-7"></a>  } <span class="cf">else</span> {</span>
+<span id="cb22-8"><a href="condicional-if-else-.html#cb22-8"></a>    <span class="kw">print</span>(<span class="st">&quot;La edad es mayor a 60. No se imprimirá el nombre&quot;</span>)</span>
+<span id="cb22-9"><a href="condicional-if-else-.html#cb22-9"></a>  }</span>
+<span id="cb22-10"><a href="condicional-if-else-.html#cb22-10"></a>}</span></code></pre></div>
+<p>Para que nos arroje la inicial del nombre estamos usando la función <code>substring()</code><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> que nos permite extraer caracteres de un vector o elemento caracter.</p>
+<p>Ahora veamos que nos arroja si Luis tiene 44 años.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="condicional-if-else-.html#cb23-1"></a><span class="kw">imp_nombre</span>(<span class="dt">nombre =</span> <span class="st">&quot;Luis&quot;</span>, <span class="dt">edad =</span> <span class="dv">44</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;La inicial del nombre es: L&quot;</code></pre>
+<p>Como Luis tiene 44 años no se cumple la primera condición lógica, por lo que no se imprime el proceso inherente al <code>if</code>, entonces, pasa a comprobar la segunda condición lógica la cual si es <code>TRUE</code>, por lo que imprime el proceso inherente al <code>else if</code>, el cual es <code>"La inicial del nombre es L"</code></p>
+<p>Veamos ahora que resultaría con Antonio que tiene 87 años.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="condicional-if-else-.html#cb25-1"></a><span class="kw">imp_nombre</span>(<span class="dt">nombre =</span> <span class="st">&quot;Antonio&quot;</span>, <span class="dt">edad =</span> <span class="dv">87</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;La edad es mayor a 60. No se imprimirá el nombre&quot;</code></pre>
+<p>Al tener Antonio 87 años de edad no cumple ni la primera ni la segunda condición lógica por lo que se ejecutará el proceso inherente al <code>else</code> que es: <code>"La edad es mayor a 60. No se imprimirá el nombre"</code>.</p>
+<p>Por último, veamos el caso en el que se considere 4 escenarios. Lo que se hará es colocar otra condición en la cual si la edad es mayor a 100 entonces que el software imprima la oración <code>Ha vivido más de un siglo. Larga vida para usted:</code> concatenado con el nombre.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="condicional-if-else-.html#cb27-1"></a><span class="co"># Agregando una nueva condición.</span></span>
+<span id="cb27-2"><a href="condicional-if-else-.html#cb27-2"></a>imp_nombre&lt;-<span class="cf">function</span>(nombre,edad){</span>
+<span id="cb27-3"><a href="condicional-if-else-.html#cb27-3"></a>  <span class="cf">if</span>(edad<span class="op">&lt;</span><span class="dv">30</span>){</span>
+<span id="cb27-4"><a href="condicional-if-else-.html#cb27-4"></a>    <span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;El nombre es: &quot;</span>,nombre))</span>
+<span id="cb27-5"><a href="condicional-if-else-.html#cb27-5"></a>  } <span class="cf">else</span> <span class="cf">if</span>(edad<span class="op">&gt;=</span><span class="dv">30</span> <span class="op">&amp;</span><span class="st"> </span>edad<span class="op">&lt;</span><span class="dv">60</span>) {</span>
+<span id="cb27-6"><a href="condicional-if-else-.html#cb27-6"></a>    <span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;La inicial del nombre es: &quot;</span>, <span class="kw">substring</span>(nombre,<span class="dv">1</span>,<span class="dv">1</span>)))</span>
+<span id="cb27-7"><a href="condicional-if-else-.html#cb27-7"></a>  } <span class="cf">else</span> <span class="cf">if</span>(edad<span class="op">&gt;=</span><span class="dv">60</span> <span class="op">&amp;</span><span class="st"> </span>edad<span class="op">&lt;</span><span class="dv">100</span>){</span>
+<span id="cb27-8"><a href="condicional-if-else-.html#cb27-8"></a>    <span class="kw">print</span>(<span class="st">&quot;La edad es mayor a 60 pero menor que 100. No se imprimirá el nombre&quot;</span>)</span>
+<span id="cb27-9"><a href="condicional-if-else-.html#cb27-9"></a>  } <span class="cf">else</span> {</span>
+<span id="cb27-10"><a href="condicional-if-else-.html#cb27-10"></a>    <span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;Ha vivido más de un siglo. Larga vida para: &quot;</span>, nombre))</span>
+<span id="cb27-11"><a href="condicional-if-else-.html#cb27-11"></a>  }</span>
+<span id="cb27-12"><a href="condicional-if-else-.html#cb27-12"></a>}</span></code></pre></div>
+<p>Veamos que sucedería con Ariadna que tiene 105 años.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="condicional-if-else-.html#cb28-1"></a><span class="kw">imp_nombre</span>(<span class="dt">nombre =</span> <span class="st">&quot;Ariadna&quot;</span>, <span class="dt">edad =</span> <span class="dv">105</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Ha vivido más de un siglo. Larga vida para: Ariadna&quot;</code></pre>
+<p>Al no cumplirse ninguna de las 3 condiciones el software ejecutará el proceso inherente al <code>else</code> por lo que nos arroja: <code>"Ha vivido más de un siglo. Larga vida para: Ariadna"</code>.</p>
+<p>Si usted desea agregar más escenarios, tiene todas las herramientas para lograr el objetivo.</p>
+</div>
+<div id="unicidad-de-la-condicional-if." class="section level2">
+<h2><span class="header-section-number">9.4</span> Unicidad de la condicional if.</h2>
+<p>La unicidad de la condicional <code>if</code> se refiere a que sólo evalua a un elemento. Como está expresamente detallado en la documentación<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> de esta función.</p>
+<p><code>A length-one logical vector that is not NA. Conditions of length greater than one are currently accepted with a warning, but only the first element is used. An error is signalled instead when the environment variable _R_CHECK_LENGTH_1_CONDITION_ is set to true. Other types are coerced to logical if possible, ignoring any class.</code></p>
+<p>Nos dice que si en la condicional el vector tiene una longitud mayor a 1, entonces lo evaluará pero arrojará un mensaje de advertecia en donde indica que sólo ha evaluado al primer elemento.</p>
+<p>Para ver esto realicemos un pequeño ejemplo.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="condicional-if-else-.html#cb30-1"></a><span class="co"># Creando el vector x.</span></span>
+<span id="cb30-2"><a href="condicional-if-else-.html#cb30-2"></a>x&lt;-<span class="dv">1</span><span class="op">:</span><span class="dv">5</span></span>
+<span id="cb30-3"><a href="condicional-if-else-.html#cb30-3"></a></span>
+<span id="cb30-4"><a href="condicional-if-else-.html#cb30-4"></a><span class="co"># Que imprima el vector x si es menor que 3.</span></span>
+<span id="cb30-5"><a href="condicional-if-else-.html#cb30-5"></a><span class="cf">if</span>(x<span class="op">&lt;</span><span class="dv">3</span>){</span>
+<span id="cb30-6"><a href="condicional-if-else-.html#cb30-6"></a>  <span class="kw">print</span>(x)</span>
+<span id="cb30-7"><a href="condicional-if-else-.html#cb30-7"></a>}</span></code></pre></div>
+<pre><code>## Warning in if (x &lt; 3) {: la condición tiene longitud &gt; 1 y sólo el primer
+## elemento será usado</code></pre>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<p>Como era de esperarse nos arroja el mensaje de advertencia en donde nos dice que sólo usará el primer elemento del vector <code>x</code>.</p>
+<p>Entonces, usted puede preguntarse ¿Qué función usar cuando el vector a evaluar tiene más de un elemento?</p>
+<p>Se tiene una variedad muy amplia de opciones, que iremos viendo con el pasar de los capítulos. Pero en el capítulo siguiente veremos un par que resuelvan este pequeño inconveniente, veremos especificamente el ciclo <code>for</code> y la función <code>ifelse()</code>.</p>
+
+</div>
+</div>
+
+
+
+
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Esta función la veremos más a detalle en el capítulo de manipulación de caracteres.<a href="condicional-if-else-.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Puede acceder a la documentación de la función con la siguiente sintaxis: <code>?control</code>.<a href="condicional-if-else-.html#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="álgebra-matricial-.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/CesarAHN/R_para_economistas/edit/master/09-Condicional-if-else.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/CesarAHN/R_para_economistas/blob/master/09-Condicional-if-else.Rmd",
+"text": null
+},
+"download": ["bookdownproj.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

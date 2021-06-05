@@ -1,0 +1,263 @@
+# CONDICIONAL IF ELSE.
+En este capítulo se muestra la condicional `if` que ejecuta un proceso siempre y cuando la condición lógica es verdadera. Esta condicional es fundamental en cualquier lenguaje de programación. Asimismo, si se complementa con la condicional `else` o `else if` se aborda la totalidad de los casos a la hora de programar un proceso. 
+
+## Condicional if.
+La condicional `if` sirve para ejecutar procesos cuando se cumple una condición lógica que se le asigna. En R tiene la siguiente sintaxis. 
+
+`if("condición lógica"){"Proceso a ejecutarse"}`
+
+Siempre y cuando la condición lógica se cumpla se ejecutará el proceso especificado. 
+
+Veamos un ejemplo en donde usamos la condicional `if`. Para lo cual vamos a definir un vector. 
+
+```{r}
+# Definiendo el vector x.
+x<-10
+x
+```
+Hemos creado el vector `x` que contiene al elemento 10. 
+
+Vamos a consultarle al programa si el vector x es igual a 10 y si es correcto que imprima la oración "El vector x vale 10".
+
+```{r}
+# ¿x es igual a 10? 
+if(x==10){
+  print("El vector x vale 10")
+}
+```
+En efecto, el software a impreso la oración "El vector x vale 10". Pero veamos como se obtuvo este resultado. Primero, se colocó la condición lógica `x==10` y al ser `TRUE` entonces procedió a ejecutar el proceso el cual era `print("El vector x vale 10")`. La función `print()` se usa para imprimir el contenido de los objetos. 
+
+Ahora veamos que sucede si la condicional no es `TRUE` sino `FALSE`. Para esto vamos a consultarle al software si x es igual a 100 y si es correcto que imprima la oración "El vector x vale 100".
+
+```{r}
+# ¿x es igual a 100?
+if(x==100){
+  print("El vector x vale 100")
+}
+```
+
+No nos arroja absolutamente nada. Esto sucede porque no se cumple la condición lógica lo que implica que no se ejecutará el proceso que se encuentra entre llaves `print("El vector x vale 100")`. 
+
+Ahora hagamos una aplicación a un sorteo. Vamos a escoger a un individuo de un total de 5 personas y si el individuo ganador es "Luis", entonces le diremos al software que imprima la oración "El ganador del sorteo es Luis".
+
+```{r}
+# Creando el vector de personas que participarán en el sorteo.
+x<-c("Juan","David","Luis","Marcos","Manuel")
+```
+
+El siguiente paso es escoger a un ganador, para esto se usará la función `sample()`.
+
+```{r}
+# Escogiendo al ganador.
+set.seed(2021)
+y<-sample(x, 1, F)
+```
+
+Por último le consultaremos al software si "Luis" es el ganador. 
+
+```{r}
+if(y=="Luis"){
+  print("El ganador del sorteo es Luis")
+}
+```
+
+No nos imprime nada, lo que implica que el ganador no era Luis. Veamos cual fue la persona que ganó el sorteo. 
+
+```{r}
+# La persona que ganó el sorteo. 
+y
+```
+
+El ganador fue `r y`. Lo que generó que no imprima el nombre de Luis como ganador del sorteo. 
+
+Ahora veamos otro ejemplo en donde vamos a crear una función que imprima nombres siempre y cuando la edad de la persona es menor a 30 años. Para lo cual vamos a crear una función.
+
+```{r}
+# Creando la función que imprime nombres.
+imp_nombre<-function(nombre,edad){
+  if(edad<30){
+    print(paste0("El nombre es: ",nombre))
+  }
+}
+
+```
+
+Nuestra función `imp_nombre` tiene dos argumentos: nombre y edad. Lo que hace nuestra función es que si la edad es menor que 30, entonces imprimirá `El nombre es ........`. Si no es así, entonces, no imprimirá nada porque no se cumple la condicional. 
+
+Veamos un ejemplo en donde la edad es 17 y el nombre es Natalia. 
+
+```{r}
+# ¿Imprimirá el nombre de Natalia, si ella tiene 17 años?
+imp_nombre(nombre = "Natalia", edad = 17)
+```
+
+Imprimió el nombre ya que 17 es menor que 30. 
+
+## Condicional if else.
+
+La condicional `if else` sirve para ejecutar procesos donde haya dos escenarios. Es decir, si se cumple la condición el software tiene que ejecitar el proceso, pero si no se cumple, entonces el software tiene que ejecutar otro proceso. Para entender mejor, veamos primero como es la sintaxis de esta condicional. 
+
+`if("Condición lógica"){"Se realiza el proceso si cumple la condición"} else {"Se realiza el proceso si no se cumple la condición" }`
+
+Retomemos el ejemplo del sorteo. En el cual creamos un vector de nombres y se realizó el sorteo, en donde si el ganador era Luis, entonces, imprimiría la oración `El ganador del sorteo es Luis`. Ahora lo que haremos es agregar la condicional `else` y que imprima el nombre del ganador si el ganador no es Luis. 
+
+Primero volveremos a correr el código del sorteo. 
+
+```{r}
+# Escogiendo al ganador.
+set.seed(2021)
+y<-sample(x, 1, F)
+```
+
+El ganador se encuentra en el vector `y`.
+
+Ahora agregando la condicional `else`.
+```{r}
+# En el ejemplo del sorteo, agregando la condicional else.
+if(y=="Luis"){
+  print("El ganador del sorteo es Luis")
+} else {
+  print(paste0("El ganador del sorteo es ", y))
+}
+```
+
+Nos arroja que el ganador es `r y`. Esto se da porque la condicional no se `TRUE`, entonces, tiene que ejecutar el proceso que se encuentra en la condicional `else`.
+
+Veamos el mismo ejemplo, pero ahora cambiemos la semilla para obtener otro resultado. Probemos con la semilla `1010`.
+
+```{r}
+# Cambiando la semilla para obtener otro resultado.
+# Escogiendo al ganador.
+set.seed(1010)
+y<-sample(x, 1, F)
+
+# Encontrando al ganador.
+if(y=="Luis"){
+  print("El ganador del sorteo es Luis")
+} else {
+  print(paste0("El ganador del sorteo es ", y))
+}
+
+```
+
+Nos arroja que el ganador del sorteo es `r y`. Ya que otra vez, la condicional no es `TRUE`. 
+
+Veamos un ejemplo adicional en donde agregemos la condicional `else` al ejemplo de imprimir el nombre. En este ejemplo siempre y cuando la edad era menor a 30 se imprimía el nombre. En este caso tendrá que imprimir la oración `La edad es mayor a 30. No se imprimirá el nombre`, siempre y cuando no se cumpla la condición de que la edad sea menor que 30.
+
+```{r}
+# Agregando la condicional else a la función.
+imp_nombre<-function(nombre,edad){
+  if(edad<30){
+    print(paste0("El nombre es: ",nombre))
+  } else {
+    print("La edad es mayor a 30. No se imprimirá el nombre")
+  }
+}
+```
+
+Ahora probemos con Ítalo que tiene 52 años ¿Cuál será el resultado?
+
+```{r}
+# Probemos si imprime el nombre de Ítalo que tiene 52 años.
+imp_nombre(nombre = "Ítalo", edad = 52)
+```
+
+Al ser la edad de Ítalo 52 no se cumple la condición porque tendrá que ejecutar el proceso que se encuntre en `else`. Por eso es que nos arroja `"La edad es mayor a 30. No se imprimirá el nombre"`. 
+
+Hasta el momento hemos visto sólo como cubrir dos escenarios, el que resultaría si se cumple la condición y el que pasaría si no se cumple. Pero en la vida real, no sólo se tiene un par de escenarios sino muchos más. Para abordar estos múltiples escenarios usaremos `if else` anidados.
+
+## Condicional if else anidado.  
+Como se mencionó cuando se quiere cubrir más de 2 escenarios se tendrá que recurrir a `if else` anidados. La sintaxis para tres escenarios es la siguiente. 
+
+`# if("Condición 1"){"Se realiza el proceso si cumple la condición 1"} else if ("Condición 2") {" Se realiza el proceso si no se cumple la condición 1 y si la condición 2"}  else {"Se realiza el proceso si no se cumple la condición 1 y la condición 2"}`
+
+Pero esto se puede aplicar para más escenarios. 
+
+Primero veamos un ejemplo. Retomemos el ejemplo de la impresión de nombres. Lo que haremos ahora es agregar una condición adicional en donde si la edad es mayor igual a 30 y menor que 60, entonces imprima sólo la inicial del nombre, pero si es mayor igual que 60 que imprime `La edad es mayor a 60. No se imprimirá el nombre`.
+
+```{r}
+# Agregado una condición lógica más al ejemplo de impresión de nombres.
+imp_nombre<-function(nombre,edad){
+  if(edad<30){
+    print(paste0("El nombre es: ",nombre))
+  } else if(edad>=30 & edad<60) {
+    print(paste0("La inicial del nombre es: ", substring(nombre,1,1)))
+  } else {
+    print("La edad es mayor a 60. No se imprimirá el nombre")
+  }
+}
+```
+
+Para que nos arroje la inicial del nombre estamos usando la función `substring()`[^1] que nos permite extraer caracteres de un vector o elemento caracter.  
+
+[^1]: Esta función la veremos más a detalle en el capítulo de manipulación de caracteres.
+
+Ahora veamos que nos arroja si Luis tiene 44 años. 
+
+```{r}
+imp_nombre(nombre = "Luis", edad = 44)
+```
+
+Como Luis tiene 44 años no se cumple la primera condición lógica, por lo que no se imprime el proceso inherente al `if`, entonces, pasa a comprobar la segunda condición lógica la cual si es `TRUE`, por lo que imprime el proceso inherente al `else if`, el cual es `"La inicial del nombre es L"`
+
+Veamos ahora que resultaría con Antonio que tiene 87 años.
+
+```{r}
+imp_nombre(nombre = "Antonio", edad = 87)
+```
+
+Al tener Antonio 87 años de edad no cumple ni la primera ni la segunda condición lógica por lo que se ejecutará el proceso inherente al `else` que es: `"La edad es mayor a 60. No se imprimirá el nombre"`.
+
+Por último, veamos el caso en el que se considere 4 escenarios. Lo que se hará es colocar otra condición en la cual si la edad es mayor a 100 entonces que el software imprima la oración `Ha vivido más de un siglo. Larga vida para usted: ` concatenado con el nombre.
+
+```{r}
+# Agregando una nueva condición.
+imp_nombre<-function(nombre,edad){
+  if(edad<30){
+    print(paste0("El nombre es: ",nombre))
+  } else if(edad>=30 & edad<60) {
+    print(paste0("La inicial del nombre es: ", substring(nombre,1,1)))
+  } else if(edad>=60 & edad<100){
+    print("La edad es mayor a 60 pero menor que 100. No se imprimirá el nombre")
+  } else {
+    print(paste0("Ha vivido más de un siglo. Larga vida para: ", nombre))
+  }
+}
+```
+
+Veamos que sucedería con Ariadna que tiene 105 años. 
+
+```{r}
+imp_nombre(nombre = "Ariadna", edad = 105)
+```
+
+Al no cumplirse ninguna de las 3 condiciones el software ejecutará el proceso inherente al `else` por lo que nos arroja: `"Ha vivido más de un siglo. Larga vida para: Ariadna"`. 
+
+Si usted desea agregar más escenarios, tiene todas las herramientas para lograr el objetivo.
+
+## Unicidad de la condicional if. 
+La unicidad de la condicional `if` se refiere a que sólo evalua a un elemento. Como está  expresamente detallado en la documentación[^2] de esta función. 
+
+[^2]: Puede acceder a la documentación de la función con la siguiente sintaxis: `?control`.
+
+`A length-one logical vector that is not NA. Conditions of length greater than one are currently accepted with a warning, but only the first element is used. An error is signalled instead when the environment variable _R_CHECK_LENGTH_1_CONDITION_ is set to true. Other types are coerced to logical if possible, ignoring any class.`
+
+Nos dice que si en la condicional el vector tiene una longitud mayor a 1, entonces lo evaluará pero arrojará un mensaje de advertecia en donde indica que sólo ha evaluado al primer elemento. 
+
+Para ver esto realicemos un pequeño ejemplo. 
+
+```{r}
+# Creando el vector x.
+x<-1:5
+
+# Que imprima el vector x si es menor que 3.
+if(x<3){
+  print(x)
+}
+```
+
+Como era de esperarse nos arroja el mensaje de advertencia en donde nos dice que sólo usará el primer elemento del vector `x`.
+
+Entonces, usted puede preguntarse ¿Qué función usar cuando el vector a evaluar tiene más de un elemento? 
+
+Se tiene una variedad muy amplia de opciones, que iremos viendo con el pasar de los capítulos. Pero en el capítulo siguiente veremos un par que resuelvan este pequeño inconveniente, veremos especificamente el ciclo `for` y la función `ifelse()`. 
