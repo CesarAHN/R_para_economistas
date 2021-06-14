@@ -192,7 +192,55 @@ sexo
 
 En efecto, todos los elementos que eran 0 se han cambiado por "Femenino" y todos los que era 1 se han cambiado por "Masculino". 
 
-Estoy seguro que usted se está preguntando ¿Todo eso para cambiar los 0 por "Femenino" y los 1 por "Masculino"? En realidad sí. ¿Pero si con otros softwares se obtiene el resultado muchó más fácil? En realidad sí. Pero repito, aquí estamos viendo las formas de usar el loop `for` con la condicional `if else`. Esto que parece innecesario, a la hora de aplicarlo a matrices, listas o dataframe será tan útil y verá la facilidad con lo que resuelve futuras cuestiones. 
+Estoy seguro que usted se está preguntando ¿Todo eso para cambiar los 0 por "Femenino" y los 1 por "Masculino"? En realidad sí. ¿Pero si con otros softwares se obtiene el mismo resultado muchó más fácil? En realidad sí. Pero repito, aquí estamos viendo las formas de usar el loop `for` con la condicional `if else`. Esto que parece innecesario, a la hora de aplicarlo a matrices, listas o dataframe será tan útil y verá la facilidad con lo que resuelve futuras cuestiones. Veremos estas aplicaciones más útiles cuando completemos el tema de data frame, por el momento, será suficiente con conocer como se aplica el loop con sus dos variantes. Pero sí ha quedado insatisfecho, a continuación, se muestra como resolver este tipo de cuestiones usando la función `ifelse()`.
+
+
+## Función ifelse().
+Una forma de realizar el proceso anterior sin la necesidad de usar el loop `for` explícitamente y sin tanto código, es usar la función `ifelse()`, el cuál realiza el loop `for` implícitamente y resulta muchísimo más sencillo de usar. Pero como todo proceso que genere simplicidad, solo servirá para un número pequeño de aplicaciones, por lo cual, no englobará en al loop `for`.
+
+Vamos a realizar el mismo ejercicio que el anterior.
+
+```{r}
+# creando el vector sexo.
+set.seed(2021)
+sexo<-sample(0:1, 30, T)
+
+# Los elementos del vector sexo.
+sexo
+
+# Resolviendo con la función ifelse.
+ifelse(sexo==0,"Femenino","Masculino")
+```
+
+Y en efecto, hemos obtenido el mismo resultado. 
+
+¿Cómo se hizo?
+
+La función `ifelse()` tiene la siguiente sintaxis. 
+
+`ifelse(test, yes, no)`
+
+En donde el primero argumento `test` es una prueba lógica que puede ser TRUE o FALSE; el segundo argumento `yes` es el valor que retornará la función si el `test` resulta TRUE; por último, el argumento `no` es el valor que retornará la función si el `test` resulta FALSE. 
+
+En ese sentido, la prueba lógica o `test` en nuestro ejemplo fue `sexo==0`, en `yes` hemos asignado el valor de "Femenino" y en `no` el valor de "Masculino", lo que implica que si la variable `sexo==0` es TRUE, entonces asignará "Femenino", pero si es FALSE asignará "Masculino".
+
+El uso de esta función es muy sencilla y puede anidarla. Para observar un pequeño ejemplo supongamos que tenemos el vector civil, el cual tiene elementos entre 0, 1 y 2. Y nos indican que 0 es soltero, 1 casado y 2 viudo.
+
+```{r}
+# Creando el vector civil.
+set.seed(2021)
+civil<-sample(0:2, 20, T)
+
+# Viendo los elementos del vector civil.
+civil
+
+# Resolviendo el problema usando la función ifelse. 
+ifelse(civil==0, "Soltero",
+       ifelse(civil==1, "Casado", "viudo"))
+```
+
+
+
 
 
 

@@ -24,7 +24,7 @@
 <meta name="author" content="César Anderson Huamaní Ninahuanca" />
 
 
-<meta name="date" content="2021-06-13" />
+<meta name="date" content="2021-06-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -224,6 +224,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.1.2" data-path="loop-for-y-if-else-para-más-de-un-elemento-.html"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#el-iterador-como-un-subobjeto."><i class="fa fa-check"></i><b>10.1.2</b> El iterador como un subobjeto.</a></li>
 </ul></li>
 <li class="chapter" data-level="10.2" data-path="loop-for-y-if-else-para-más-de-un-elemento-.html"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#el-loop-for-con-las-condicionales-if-else."><i class="fa fa-check"></i><b>10.2</b> El loop for con las condicionales if else.</a></li>
+<li class="chapter" data-level="10.3" data-path="loop-for-y-if-else-para-más-de-un-elemento-.html"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#función-ifelse."><i class="fa fa-check"></i><b>10.3</b> Función ifelse().</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -401,6 +402,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb21-6"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb21-6"></a>    sexo[i]&lt;-<span class="st">&quot;Masculino&quot;</span></span>
 <span id="cb21-7"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb21-7"></a>  }</span>
 <span id="cb21-8"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb21-8"></a>}</span></code></pre></div>
+<p>Estamos usando el método donde se considera al iterador como subobjeto ¿Le invitamos a realizar el mismo ejericio pero usando el iterador como objeto? ¿Con qué método le resultó más fácil?</p>
 <p>Viendo como quedó el vector <code>sexo</code> luego de aplicar el loop <code>for</code>.</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb22-1"></a>sexo</span></code></pre></div>
 <pre><code>##  [1] &quot;Femenino&quot;  &quot;Masculino&quot; &quot;Masculino&quot; &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Masculino&quot;
@@ -408,6 +410,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [13] &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Femenino&quot;  &quot;Femenino&quot;  &quot;Femenino&quot;  &quot;Femenino&quot; 
 ## [19] &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Masculino&quot; &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Masculino&quot;
 ## [25] &quot;Femenino&quot;  &quot;Femenino&quot;  &quot;Masculino&quot; &quot;Masculino&quot; &quot;Masculino&quot; &quot;Masculino&quot;</code></pre>
+<p>En efecto, todos los elementos que eran 0 se han cambiado por “Femenino” y todos los que era 1 se han cambiado por “Masculino”.</p>
+<p>Estoy seguro que usted se está preguntando ¿Todo eso para cambiar los 0 por “Femenino” y los 1 por “Masculino”? En realidad sí. ¿Pero si con otros softwares se obtiene el mismo resultado muchó más fácil? En realidad sí. Pero repito, aquí estamos viendo las formas de usar el loop <code>for</code> con la condicional <code>if else</code>. Esto que parece innecesario, a la hora de aplicarlo a matrices, listas o dataframe será tan útil y verá la facilidad con lo que resuelve futuras cuestiones. Veremos estas aplicaciones más útiles cuando completemos el tema de data frame, por el momento, será suficiente con conocer como se aplica el loop con sus dos variantes. Pero sí ha quedado insatisfecho, a continuación, se muestra como resolver este tipo de cuestiones usando la función <code>ifelse()</code>.</p>
+</div>
+<div id="función-ifelse." class="section level2">
+<h2><span class="header-section-number">10.3</span> Función ifelse().</h2>
+<p>Una forma de realizar el proceso anterior sin la necesidad de usar el loop <code>for</code> explícitamente y sin tanto código, es usar la función <code>ifelse()</code>, el cuál realiza el loop <code>for</code> implícitamente y resulta muchísimo más sencillo de usar. Pero como todo proceso que genere simplicidad, solo servirá para un número pequeño de aplicaciones, por lo cual, no englobará en al loop <code>for</code>.</p>
+<p>Vamos a realizar el mismo ejercicio que el anterior.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb24-1"></a><span class="co"># creando el vector sexo.</span></span>
+<span id="cb24-2"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb24-2"></a><span class="kw">set.seed</span>(<span class="dv">2021</span>)</span>
+<span id="cb24-3"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb24-3"></a>sexo&lt;-<span class="kw">sample</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">1</span>, <span class="dv">30</span>, T)</span>
+<span id="cb24-4"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb24-4"></a></span>
+<span id="cb24-5"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb24-5"></a><span class="co"># Los elementos del vector sexo.</span></span>
+<span id="cb24-6"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb24-6"></a>sexo</span></code></pre></div>
+<pre><code>##  [1] 0 1 1 1 0 1 1 1 1 1 0 1 1 0 0 0 0 0 1 0 1 1 0 1 0 0 1 1 1 1</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb26-1"></a><span class="co"># Resolviendo con la función ifelse.</span></span>
+<span id="cb26-2"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb26-2"></a><span class="kw">ifelse</span>(sexo<span class="op">==</span><span class="dv">0</span>,<span class="st">&quot;Femenino&quot;</span>,<span class="st">&quot;Masculino&quot;</span>)</span></code></pre></div>
+<pre><code>##  [1] &quot;Femenino&quot;  &quot;Masculino&quot; &quot;Masculino&quot; &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Masculino&quot;
+##  [7] &quot;Masculino&quot; &quot;Masculino&quot; &quot;Masculino&quot; &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Masculino&quot;
+## [13] &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Femenino&quot;  &quot;Femenino&quot;  &quot;Femenino&quot;  &quot;Femenino&quot; 
+## [19] &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Masculino&quot; &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Masculino&quot;
+## [25] &quot;Femenino&quot;  &quot;Femenino&quot;  &quot;Masculino&quot; &quot;Masculino&quot; &quot;Masculino&quot; &quot;Masculino&quot;</code></pre>
+<p>Y en efecto, hemos obtenido el mismo resultado.</p>
+<p>¿Cómo se hizo?</p>
+<p>La función <code>ifelse()</code> tiene la siguiente sintaxis.</p>
+<p><code>ifelse(test, yes, no)</code></p>
+<p>En donde el primero argumento <code>test</code> es una prueba lógica que puede ser TRUE o FALSE; el segundo argumento <code>yes</code> es el valor que retornará la función si el <code>test</code> resulta TRUE; por último, el argumento <code>no</code> es el valor que retornará la función si el <code>test</code> resulta FALSE.</p>
+<p>En ese sentido, la prueba lógica o <code>test</code> en nuestro ejemplo fue <code>sexo==0</code>, en <code>yes</code> hemos asignado el valor de “Femenino” y en <code>no</code> el valor de “Masculino”, lo que implica que si la variable <code>sexo==0</code> es TRUE, entonces asignará “Femenino”, pero si es FALSE asignará “Masculino”.</p>
+<p>El uso de esta función es muy sencilla y puede anidarla. Para observar un pequeño ejemplo supongamos que tenemos el vector civil, el cual tiene elementos entre 0, 1 y 2. Y nos indican que 0 es soltero, 1 casado y 2 viudo.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb28-1"></a><span class="co"># Creando el vector civil.</span></span>
+<span id="cb28-2"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb28-2"></a><span class="kw">set.seed</span>(<span class="dv">2021</span>)</span>
+<span id="cb28-3"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb28-3"></a>civil&lt;-<span class="kw">sample</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">2</span>, <span class="dv">20</span>, T)</span>
+<span id="cb28-4"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb28-4"></a></span>
+<span id="cb28-5"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb28-5"></a><span class="co"># Viendo los elementos del vector civil.</span></span>
+<span id="cb28-6"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb28-6"></a>civil</span></code></pre></div>
+<pre><code>##  [1] 2 1 1 1 2 1 1 2 1 1 0 2 2 0 2 2 1 2 0 2</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb30-1"></a><span class="co"># Resolviendo el problema usando la función ifelse. </span></span>
+<span id="cb30-2"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb30-2"></a><span class="kw">ifelse</span>(civil<span class="op">==</span><span class="dv">0</span>, <span class="st">&quot;Soltero&quot;</span>,</span>
+<span id="cb30-3"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb30-3"></a>       <span class="kw">ifelse</span>(civil<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;Casado&quot;</span>, <span class="st">&quot;viudo&quot;</span>))</span></code></pre></div>
+<pre><code>##  [1] &quot;viudo&quot;   &quot;Casado&quot;  &quot;Casado&quot;  &quot;Casado&quot;  &quot;viudo&quot;   &quot;Casado&quot;  &quot;Casado&quot; 
+##  [8] &quot;viudo&quot;   &quot;Casado&quot;  &quot;Casado&quot;  &quot;Soltero&quot; &quot;viudo&quot;   &quot;viudo&quot;   &quot;Soltero&quot;
+## [15] &quot;viudo&quot;   &quot;viudo&quot;   &quot;Casado&quot;  &quot;viudo&quot;   &quot;Soltero&quot; &quot;viudo&quot;</code></pre>
 
 </div>
 </div>
