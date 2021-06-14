@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 11 Loop for. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</title>
+  <meta name="description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 11 Loop for. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  <meta name="github-repo" content="CesarAHN/bookdown_intro" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 11 Loop for. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
+  
+  <meta name="twitter:description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  
+
+<meta name="author" content="César Anderson Huamaní Ninahuanca" />
+
+
+<meta name="date" content="2021-06-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="loop-for-y-if-else-para-más-de-un-elemento-.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - PARA ECONOMISTAS</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prólogo</a></li>
+<li class="chapter" data-level="1" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html"><i class="fa fa-check"></i><b>1</b> R COMO CALCULADORA.</a><ul>
+<li class="chapter" data-level="1.1" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#principales-operaciones-matemáticas."><i class="fa fa-check"></i><b>1.1</b> Principales operaciones matemáticas.</a></li>
+<li class="chapter" data-level="1.2" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#decimales-exactos-y-redondeo-de-cifras."><i class="fa fa-check"></i><b>1.2</b> Decimales exactos y redondeo de cifras.</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#número-de-cifras."><i class="fa fa-check"></i><b>1.2.1</b> Número de cifras.</a></li>
+<li class="chapter" data-level="1.2.2" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#redondeo."><i class="fa fa-check"></i><b>1.2.2</b> Redondeo.</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#guardar-o-definir-objetos."><i class="fa fa-check"></i><b>1.3</b> Guardar o definir objetos.</a></li>
+<li class="chapter" data-level="1.4" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#funciones."><i class="fa fa-check"></i><b>1.4</b> Funciones.</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="vectores-.html"><a href="vectores-.html"><i class="fa fa-check"></i><b>2</b> VECTORES.</a><ul>
+<li class="chapter" data-level="2.1" data-path="vectores-.html"><a href="vectores-.html#definición-de-un-vector."><i class="fa fa-check"></i><b>2.1</b> Definición de un vector.</a></li>
+<li class="chapter" data-level="2.2" data-path="vectores-.html"><a href="vectores-.html#clases-de-vectores."><i class="fa fa-check"></i><b>2.2</b> Clases de vectores.</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="vectores-.html"><a href="vectores-.html#cómo-saber-si-un-objeto-es-un-vector"><i class="fa fa-check"></i><b>2.2.1</b> ¿Cómo saber si un objeto es un vector?</a></li>
+<li class="chapter" data-level="2.2.2" data-path="vectores-.html"><a href="vectores-.html#cómo-saber-de-que-clase-es-un-vector"><i class="fa fa-check"></i><b>2.2.2</b> ¿Cómo saber de que clase es un vector?</a></li>
+<li class="chapter" data-level="2.2.3" data-path="vectores-.html"><a href="vectores-.html#qué-pasa-si-defino-un-vector-con-distintas-clases-de-elementos"><i class="fa fa-check"></i><b>2.2.3</b> ¿Qué pasa si defino un vector con distintas clases de elementos?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="vectores-.html"><a href="vectores-.html#número-de-elementos-de-un-vector."><i class="fa fa-check"></i><b>2.3</b> Número de elementos de un vector.</a></li>
+<li class="chapter" data-level="2.4" data-path="vectores-.html"><a href="vectores-.html#funciones-para-construir-vectores-más-eficientemente."><i class="fa fa-check"></i><b>2.4</b> Funciones para construir vectores más eficientemente.</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="vectores-.html"><a href="vectores-.html#vectores-de-elementos-consecutivos"><i class="fa fa-check"></i><b>2.4.1</b> Vectores de elementos consecutivos:</a></li>
+<li class="chapter" data-level="2.4.2" data-path="vectores-.html"><a href="vectores-.html#vectores-con-patrones"><i class="fa fa-check"></i><b>2.4.2</b> Vectores con patrones:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="vectores-.html"><a href="vectores-.html#concatenar-elementos-y-vectores."><i class="fa fa-check"></i><b>2.5</b> Concatenar elementos y vectores.</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><i class="fa fa-check"></i><b>3</b> OPERACIONES MATEMÁTICAS Y ESTADÍSTICAS CON VECTORES.</a><ul>
+<li class="chapter" data-level="3.1" data-path="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html#operaciones-matemáticas."><i class="fa fa-check"></i><b>3.1</b> Operaciones matemáticas.</a></li>
+<li class="chapter" data-level="3.2" data-path="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html#operaciones-estadísticas."><i class="fa fa-check"></i><b>3.2</b> Operaciones estadísticas.</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html#cómo-trabajar-con-missings-o-elementos-faltantes-na"><i class="fa fa-check"></i><b>3.2.1</b> ¿Cómo trabajar con missings o elementos faltantes (NA)?</a></li>
+<li class="chapter" data-level="3.2.2" data-path="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html#cómo-ordenar-elementos-de-los-vectores"><i class="fa fa-check"></i><b>3.2.2</b> ¿Cómo ordenar elementos de los vectores?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html"><i class="fa fa-check"></i><b>4</b> VECTORES ALEATORIOS y SELECCIÓN DE ELEMENTOS.</a><ul>
+<li class="chapter" data-level="4.1" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#creación-de-vectores-con-elementos-aleatorios."><i class="fa fa-check"></i><b>4.1</b> Creación de vectores con elementos aleatorios.</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#aplicación-ley-de-grandes-números."><i class="fa fa-check"></i><b>4.1.1</b> Aplicación: Ley de grandes números.</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#vectores-vacios-y-selección-de-elementos."><i class="fa fa-check"></i><b>4.2</b> Vectores vacios y selección de elementos.</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#vectores-vacíos."><i class="fa fa-check"></i><b>4.2.1</b> Vectores vacíos.</a></li>
+<li class="chapter" data-level="4.2.2" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#seleción-de-elementos-usando-."><i class="fa fa-check"></i><b>4.2.2</b> Seleción de elementos usando [].</a></li>
+<li class="chapter" data-level="4.2.3" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cómo-saber-cuántos-elementos-tiene-un-vector"><i class="fa fa-check"></i><b>4.2.3</b> ¿Cómo saber cuántos elementos tiene un vector?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><i class="fa fa-check"></i><b>5</b> OPERADORES LÓGICOS, ÍNDICE DE ELEMENTOS Y CAMBIO DE VALORES.</a><ul>
+<li class="chapter" data-level="5.1" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#operadores-lógicos."><i class="fa fa-check"></i><b>5.1</b> Operadores lógicos.</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#igualdad."><i class="fa fa-check"></i><b>5.1.1</b> Igualdad.</a></li>
+<li class="chapter" data-level="5.1.2" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#mayor-que."><i class="fa fa-check"></i><b>5.1.2</b> Mayor que.</a></li>
+<li class="chapter" data-level="5.1.3" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#menor-que."><i class="fa fa-check"></i><b>5.1.3</b> Menor que.</a></li>
+<li class="chapter" data-level="5.1.4" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#diferente."><i class="fa fa-check"></i><b>5.1.4</b> Diferente.</a></li>
+<li class="chapter" data-level="5.1.5" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#negación."><i class="fa fa-check"></i><b>5.1.5</b> Negación.</a></li>
+<li class="chapter" data-level="5.1.6" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#y-condicional-conjunción."><i class="fa fa-check"></i><b>5.1.6</b> Y condicional (Conjunción).</a></li>
+<li class="chapter" data-level="5.1.7" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#o-condicional-disyunción."><i class="fa fa-check"></i><b>5.1.7</b> O condicional (disyunción).</a></li>
+<li class="chapter" data-level="5.1.8" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#mayor-y-menor-igual-que."><i class="fa fa-check"></i><b>5.1.8</b> Mayor y menor igual que.</a></li>
+<li class="chapter" data-level="5.1.9" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#operador-pertenece."><i class="fa fa-check"></i><b>5.1.9</b> Operador pertenece.</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#encontrar-el-índice-de-elementos-y-cambiar-valores."><i class="fa fa-check"></i><b>5.2</b> Encontrar el índice de elementos y cambiar valores.</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#cambiar-valores-de-elementos."><i class="fa fa-check"></i><b>5.2.1</b> Cambiar valores de elementos.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html"><i class="fa fa-check"></i><b>6</b> FACTORES Y LISTAS.</a><ul>
+<li class="chapter" data-level="6.1" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#factores."><i class="fa fa-check"></i><b>6.1</b> Factores.</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#factores-con-niveles-desordenados."><i class="fa fa-check"></i><b>6.1.1</b> Factores con niveles desordenados.</a></li>
+<li class="chapter" data-level="6.1.2" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#factores-con-niveles-ordenados."><i class="fa fa-check"></i><b>6.1.2</b> Factores con niveles ordenados.</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#listas."><i class="fa fa-check"></i><b>6.2</b> Listas.</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#cómo-se-obtiene-cada-objeto-de-una-lista"><i class="fa fa-check"></i><b>6.2.1</b> ¿Cómo se obtiene cada objeto de una lista?</a></li>
+<li class="chapter" data-level="6.2.2" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#asignado-nombres-a-los-objetos-de-una-lista."><i class="fa fa-check"></i><b>6.2.2</b> Asignado nombres a los objetos de una lista.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="matrices-.html"><a href="matrices-.html"><i class="fa fa-check"></i><b>7</b> MATRICES.</a><ul>
+<li class="chapter" data-level="7.1" data-path="matrices-.html"><a href="matrices-.html#creación-de-matrices."><i class="fa fa-check"></i><b>7.1</b> Creación de matrices.</a></li>
+<li class="chapter" data-level="7.2" data-path="matrices-.html"><a href="matrices-.html#concatenar-matrices-por-filas-o-columnas."><i class="fa fa-check"></i><b>7.2</b> Concatenar matrices por filas o columnas.</a></li>
+<li class="chapter" data-level="7.3" data-path="matrices-.html"><a href="matrices-.html#selecionar-elementos-de-una-matriz."><i class="fa fa-check"></i><b>7.3</b> Selecionar elementos de una matriz.</a></li>
+<li class="chapter" data-level="7.4" data-path="matrices-.html"><a href="matrices-.html#dimensiones-de-la-matriz."><i class="fa fa-check"></i><b>7.4</b> Dimensiones de la matriz.</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="álgebra-matricial-.html"><a href="álgebra-matricial-.html"><i class="fa fa-check"></i><b>8</b> ÁLGEBRA MATRICIAL.</a><ul>
+<li class="chapter" data-level="8.1" data-path="álgebra-matricial-.html"><a href="álgebra-matricial-.html#operaciones-básicas."><i class="fa fa-check"></i><b>8.1</b> Operaciones básicas.</a></li>
+<li class="chapter" data-level="8.2" data-path="álgebra-matricial-.html"><a href="álgebra-matricial-.html#principales-operaciones-con-matrices."><i class="fa fa-check"></i><b>8.2</b> Principales operaciones con matrices.</a></li>
+<li class="chapter" data-level="8.3" data-path="álgebra-matricial-.html"><a href="álgebra-matricial-.html#solución-a-sistemas-de-ecuación."><i class="fa fa-check"></i><b>8.3</b> Solución a sistemas de ecuación.</a></li>
+<li class="chapter" data-level="8.4" data-path="álgebra-matricial-.html"><a href="álgebra-matricial-.html#valores-y-vectores-propios."><i class="fa fa-check"></i><b>8.4</b> Valores y vectores propios.</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="condicional-if-else-.html"><a href="condicional-if-else-.html"><i class="fa fa-check"></i><b>9</b> CONDICIONAL IF ELSE.</a><ul>
+<li class="chapter" data-level="9.1" data-path="condicional-if-else-.html"><a href="condicional-if-else-.html#condicional-if."><i class="fa fa-check"></i><b>9.1</b> Condicional if.</a></li>
+<li class="chapter" data-level="9.2" data-path="condicional-if-else-.html"><a href="condicional-if-else-.html#condicional-if-else.-1"><i class="fa fa-check"></i><b>9.2</b> Condicional if else.</a></li>
+<li class="chapter" data-level="9.3" data-path="condicional-if-else-.html"><a href="condicional-if-else-.html#condicional-if-else-anidado."><i class="fa fa-check"></i><b>9.3</b> Condicional if else anidado.</a></li>
+<li class="chapter" data-level="9.4" data-path="condicional-if-else-.html"><a href="condicional-if-else-.html#unicidad-de-la-condicional-if."><i class="fa fa-check"></i><b>9.4</b> Unicidad de la condicional if.</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="loop-for-y-if-else-para-más-de-un-elemento-.html"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html"><i class="fa fa-check"></i><b>10</b> LOOP FOR Y IF ELSE PARA MÁS DE UN ELEMENTO.</a></li>
+<li class="chapter" data-level="11" data-path="loop-for-.html"><a href="loop-for-.html"><i class="fa fa-check"></i><b>11</b> Loop for.</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="loop-for." class="section level1">
+<h1><span class="header-section-number">Chapter 11</span> Loop for.</h1>
+<p>Gracias al loop <code>for</code> podremos realizar tareas similares automáticamente. El loop permite hacer el recorrido de todos los elementos de un vector con el fin de asignar a la operación procedente cada uno de los elementos del recorrido. La sintaxis del loop <code>for</code> es la siguiente:</p>
+<p><code>for (var in seq) {expression}</code></p>
+<p>Donde se le asigna un iterador (<code>var</code>), que puede ser cualquier letra o palabra, que hará el recorrido por el vector (<code>seq</code>) para asignar cada elemento de este en la <code>expresión</code>.</p>
+<p>Veamos un ejemplo para que quede más claro. Vamos a imprimir el siguiente texto “Este es el número: …”, en los tres puntos asignaremos los números desde el 1 al 10.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="loop-for-.html#cb1-1"></a><span class="co"># Usando el loop for.</span></span>
+<span id="cb1-2"><a href="loop-for-.html#cb1-2"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>) {</span>
+<span id="cb1-3"><a href="loop-for-.html#cb1-3"></a>  <span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;Este es el número: &quot;</span>,i))</span>
+<span id="cb1-4"><a href="loop-for-.html#cb1-4"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;Este es el número: 1&quot;
+## [1] &quot;Este es el número: 2&quot;
+## [1] &quot;Este es el número: 3&quot;
+## [1] &quot;Este es el número: 4&quot;
+## [1] &quot;Este es el número: 5&quot;
+## [1] &quot;Este es el número: 6&quot;
+## [1] &quot;Este es el número: 7&quot;
+## [1] &quot;Este es el número: 8&quot;
+## [1] &quot;Este es el número: 9&quot;
+## [1] &quot;Este es el número: 10&quot;</code></pre>
+<p>Primero, hemos asignado un iterador llamado <code>i</code> que hará el recorrido por todos los elementos del vector <code>1:10</code>, cada elemento lo usará en la ejecución de la expresión <code>print(paste0("Este es el número: ",i))</code>, es decir, el iterador <code>i</code> tomará cada uno de los elementos del vector <code>1:10</code> y los asignará en la expresión <code>print(paste0("Este es el número: ",i))</code>.</p>
+<p>Gracias a esto hemos obtenido el resultado esperado en donde se ha impreso el texto “Este es el número: 1”, “Este es el número: 2”, y así sucesivamente hasta “Este es el número: 10”.</p>
+<p>La característica principal del loop <code>for</code> en R es sencilles para su uso.</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="loop-for-y-if-else-para-más-de-un-elemento-.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/CesarAHN/R_para_economistas/edit/master/10-loop-for-if-else-multiples-elementos.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/CesarAHN/R_para_economistas/blob/master/10-loop-for-if-else-multiples-elementos.Rmd",
+"text": null
+},
+"download": ["bookdownproj.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
