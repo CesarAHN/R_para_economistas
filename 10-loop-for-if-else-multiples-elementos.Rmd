@@ -1,4 +1,4 @@
-# LOOP FOR Y IF ELSE PARA MÁS DE UN ELEMENTO.
+# LOOP FOR E IF ELSE PARA MÁS DE UN ELEMENTO.
 
 En este capítulo se se mostrará como usar el loop `for` que nos permitirá realizar múltiples procesos con una sencilla sintaxis. Asimismo, gracias al loop `for` podremos evaluar más de un elemento al usar las condicionales `if else`. Por último, veremos el uso de la función `ifelse()` que nos otorgará el mismo resultado que si usaramos el loop `for` con las condicionales `if else`. 
 

@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 10 LOOP FOR E IF ELSE PARA MÁS DE UN ELEMENTO. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</title>
+  <meta name="description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 10 LOOP FOR E IF ELSE PARA MÁS DE UN ELEMENTO. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  <meta name="github-repo" content="CesarAHN/bookdown_intro" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 10 LOOP FOR E IF ELSE PARA MÁS DE UN ELEMENTO. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
+  
+  <meta name="twitter:description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  
+
+<meta name="author" content="César Anderson Huamaní Ninahuanca" />
+
+
+<meta name="date" content="2021-07-06" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="condicional-if-else-.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - PARA ECONOMISTAS</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prólogo</a></li>
+<li class="chapter" data-level="1" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html"><i class="fa fa-check"></i><b>1</b> R COMO CALCULADORA.</a><ul>
+<li class="chapter" data-level="1.1" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#principales-operaciones-matemáticas."><i class="fa fa-check"></i><b>1.1</b> Principales operaciones matemáticas.</a></li>
+<li class="chapter" data-level="1.2" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#decimales-exactos-y-redondeo-de-cifras."><i class="fa fa-check"></i><b>1.2</b> Decimales exactos y redondeo de cifras.</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#número-de-cifras."><i class="fa fa-check"></i><b>1.2.1</b> Número de cifras.</a></li>
+<li class="chapter" data-level="1.2.2" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#redondeo."><i class="fa fa-check"></i><b>1.2.2</b> Redondeo.</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#guardar-o-definir-objetos."><i class="fa fa-check"></i><b>1.3</b> Guardar o definir objetos.</a></li>
+<li class="chapter" data-level="1.4" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#funciones."><i class="fa fa-check"></i><b>1.4</b> Funciones.</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="vectores-.html"><a href="vectores-.html"><i class="fa fa-check"></i><b>2</b> VECTORES.</a><ul>
+<li class="chapter" data-level="2.1" data-path="vectores-.html"><a href="vectores-.html#definición-de-un-vector."><i class="fa fa-check"></i><b>2.1</b> Definición de un vector.</a></li>
+<li class="chapter" data-level="2.2" data-path="vectores-.html"><a href="vectores-.html#clases-de-vectores."><i class="fa fa-check"></i><b>2.2</b> Clases de vectores.</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="vectores-.html"><a href="vectores-.html#cómo-saber-si-un-objeto-es-un-vector"><i class="fa fa-check"></i><b>2.2.1</b> ¿Cómo saber si un objeto es un vector?</a></li>
+<li class="chapter" data-level="2.2.2" data-path="vectores-.html"><a href="vectores-.html#cómo-saber-de-que-clase-es-un-vector"><i class="fa fa-check"></i><b>2.2.2</b> ¿Cómo saber de que clase es un vector?</a></li>
+<li class="chapter" data-level="2.2.3" data-path="vectores-.html"><a href="vectores-.html#qué-pasa-si-defino-un-vector-con-distintas-clases-de-elementos"><i class="fa fa-check"></i><b>2.2.3</b> ¿Qué pasa si defino un vector con distintas clases de elementos?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="vectores-.html"><a href="vectores-.html#número-de-elementos-de-un-vector."><i class="fa fa-check"></i><b>2.3</b> Número de elementos de un vector.</a></li>
+<li class="chapter" data-level="2.4" data-path="vectores-.html"><a href="vectores-.html#funciones-para-construir-vectores-más-eficientemente."><i class="fa fa-check"></i><b>2.4</b> Funciones para construir vectores más eficientemente.</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="vectores-.html"><a href="vectores-.html#vectores-de-elementos-consecutivos"><i class="fa fa-check"></i><b>2.4.1</b> Vectores de elementos consecutivos:</a></li>
+<li class="chapter" data-level="2.4.2" data-path="vectores-.html"><a href="vectores-.html#vectores-con-patrones"><i class="fa fa-check"></i><b>2.4.2</b> Vectores con patrones:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="vectores-.html"><a href="vectores-.html#concatenar-elementos-y-vectores."><i class="fa fa-check"></i><b>2.5</b> Concatenar elementos y vectores.</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><i class="fa fa-check"></i><b>3</b> OPERACIONES MATEMÁTICAS Y ESTADÍSTICAS CON VECTORES.</a><ul>
+<li class="chapter" data-level="3.1" data-path="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html#operaciones-matemáticas."><i class="fa fa-check"></i><b>3.1</b> Operaciones matemáticas.</a></li>
+<li class="chapter" data-level="3.2" data-path="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html#operaciones-estadísticas."><i class="fa fa-check"></i><b>3.2</b> Operaciones estadísticas.</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html#cómo-trabajar-con-missings-o-elementos-faltantes-na"><i class="fa fa-check"></i><b>3.2.1</b> ¿Cómo trabajar con missings o elementos faltantes (NA)?</a></li>
+<li class="chapter" data-level="3.2.2" data-path="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html#cómo-ordenar-elementos-de-los-vectores"><i class="fa fa-check"></i><b>3.2.2</b> ¿Cómo ordenar elementos de los vectores?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html"><i class="fa fa-check"></i><b>4</b> VECTORES ALEATORIOS y SELECCIÓN DE ELEMENTOS.</a><ul>
+<li class="chapter" data-level="4.1" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#creación-de-vectores-con-elementos-aleatorios."><i class="fa fa-check"></i><b>4.1</b> Creación de vectores con elementos aleatorios.</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#aplicación-ley-de-grandes-números."><i class="fa fa-check"></i><b>4.1.1</b> Aplicación: Ley de grandes números.</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#vectores-vacios-y-selección-de-elementos."><i class="fa fa-check"></i><b>4.2</b> Vectores vacios y selección de elementos.</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#vectores-vacíos."><i class="fa fa-check"></i><b>4.2.1</b> Vectores vacíos.</a></li>
+<li class="chapter" data-level="4.2.2" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#seleción-de-elementos-usando-."><i class="fa fa-check"></i><b>4.2.2</b> Seleción de elementos usando [].</a></li>
+<li class="chapter" data-level="4.2.3" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cómo-saber-cuántos-elementos-tiene-un-vector"><i class="fa fa-check"></i><b>4.2.3</b> ¿Cómo saber cuántos elementos tiene un vector?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><i class="fa fa-check"></i><b>5</b> OPERADORES LÓGICOS, ÍNDICE DE ELEMENTOS Y CAMBIO DE VALORES.</a><ul>
+<li class="chapter" data-level="5.1" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#operadores-lógicos."><i class="fa fa-check"></i><b>5.1</b> Operadores lógicos.</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#igualdad."><i class="fa fa-check"></i><b>5.1.1</b> Igualdad.</a></li>
+<li class="chapter" data-level="5.1.2" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#mayor-que."><i class="fa fa-check"></i><b>5.1.2</b> Mayor que.</a></li>
+<li class="chapter" data-level="5.1.3" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#menor-que."><i class="fa fa-check"></i><b>5.1.3</b> Menor que.</a></li>
+<li class="chapter" data-level="5.1.4" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#diferente."><i class="fa fa-check"></i><b>5.1.4</b> Diferente.</a></li>
+<li class="chapter" data-level="5.1.5" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#negación."><i class="fa fa-check"></i><b>5.1.5</b> Negación.</a></li>
+<li class="chapter" data-level="5.1.6" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#y-condicional-conjunción."><i class="fa fa-check"></i><b>5.1.6</b> Y condicional (Conjunción).</a></li>
+<li class="chapter" data-level="5.1.7" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#o-condicional-disyunción."><i class="fa fa-check"></i><b>5.1.7</b> O condicional (disyunción).</a></li>
+<li class="chapter" data-level="5.1.8" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#mayor-y-menor-igual-que."><i class="fa fa-check"></i><b>5.1.8</b> Mayor y menor igual que.</a></li>
+<li class="chapter" data-level="5.1.9" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#operador-pertenece."><i class="fa fa-check"></i><b>5.1.9</b> Operador pertenece.</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#encontrar-el-índice-de-elementos-y-cambiar-valores."><i class="fa fa-check"></i><b>5.2</b> Encontrar el índice de elementos y cambiar valores.</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#cambiar-valores-de-elementos."><i class="fa fa-check"></i><b>5.2.1</b> Cambiar valores de elementos.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html"><i class="fa fa-check"></i><b>6</b> FACTORES Y LISTAS.</a><ul>
+<li class="chapter" data-level="6.1" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#factores."><i class="fa fa-check"></i><b>6.1</b> Factores.</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#factores-con-niveles-desordenados."><i class="fa fa-check"></i><b>6.1.1</b> Factores con niveles desordenados.</a></li>
+<li class="chapter" data-level="6.1.2" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#factores-con-niveles-ordenados."><i class="fa fa-check"></i><b>6.1.2</b> Factores con niveles ordenados.</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#listas."><i class="fa fa-check"></i><b>6.2</b> Listas.</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#cómo-se-obtiene-cada-objeto-de-una-lista"><i class="fa fa-check"></i><b>6.2.1</b> ¿Cómo se obtiene cada objeto de una lista?</a></li>
+<li class="chapter" data-level="6.2.2" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#asignado-nombres-a-los-objetos-de-una-lista."><i class="fa fa-check"></i><b>6.2.2</b> Asignado nombres a los objetos de una lista.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="matrices-.html"><a href="matrices-.html"><i class="fa fa-check"></i><b>7</b> MATRICES.</a><ul>
+<li class="chapter" data-level="7.1" data-path="matrices-.html"><a href="matrices-.html#creación-de-matrices."><i class="fa fa-check"></i><b>7.1</b> Creación de matrices.</a></li>
+<li class="chapter" data-level="7.2" data-path="matrices-.html"><a href="matrices-.html#concatenar-matrices-por-filas-o-columnas."><i class="fa fa-check"></i><b>7.2</b> Concatenar matrices por filas o columnas.</a></li>
+<li class="chapter" data-level="7.3" data-path="matrices-.html"><a href="matrices-.html#selecionar-elementos-de-una-matriz."><i class="fa fa-check"></i><b>7.3</b> Selecionar elementos de una matriz.</a></li>
+<li class="chapter" data-level="7.4" data-path="matrices-.html"><a href="matrices-.html#dimensiones-de-la-matriz."><i class="fa fa-check"></i><b>7.4</b> Dimensiones de la matriz.</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="álgebra-matricial-.html"><a href="álgebra-matricial-.html"><i class="fa fa-check"></i><b>8</b> ÁLGEBRA MATRICIAL.</a><ul>
+<li class="chapter" data-level="8.1" data-path="álgebra-matricial-.html"><a href="álgebra-matricial-.html#operaciones-básicas."><i class="fa fa-check"></i><b>8.1</b> Operaciones básicas.</a></li>
+<li class="chapter" data-level="8.2" data-path="álgebra-matricial-.html"><a href="álgebra-matricial-.html#principales-operaciones-con-matrices."><i class="fa fa-check"></i><b>8.2</b> Principales operaciones con matrices.</a></li>
+<li class="chapter" data-level="8.3" data-path="álgebra-matricial-.html"><a href="álgebra-matricial-.html#solución-a-sistemas-de-ecuación."><i class="fa fa-check"></i><b>8.3</b> Solución a sistemas de ecuación.</a></li>
+<li class="chapter" data-level="8.4" data-path="álgebra-matricial-.html"><a href="álgebra-matricial-.html#valores-y-vectores-propios."><i class="fa fa-check"></i><b>8.4</b> Valores y vectores propios.</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="condicional-if-else-.html"><a href="condicional-if-else-.html"><i class="fa fa-check"></i><b>9</b> CONDICIONAL IF ELSE.</a><ul>
+<li class="chapter" data-level="9.1" data-path="condicional-if-else-.html"><a href="condicional-if-else-.html#condicional-if."><i class="fa fa-check"></i><b>9.1</b> Condicional if.</a></li>
+<li class="chapter" data-level="9.2" data-path="condicional-if-else-.html"><a href="condicional-if-else-.html#condicional-if-else.-1"><i class="fa fa-check"></i><b>9.2</b> Condicional if else.</a></li>
+<li class="chapter" data-level="9.3" data-path="condicional-if-else-.html"><a href="condicional-if-else-.html#condicional-if-else-anidado."><i class="fa fa-check"></i><b>9.3</b> Condicional if else anidado.</a></li>
+<li class="chapter" data-level="9.4" data-path="condicional-if-else-.html"><a href="condicional-if-else-.html#unicidad-de-la-condicional-if."><i class="fa fa-check"></i><b>9.4</b> Unicidad de la condicional if.</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="loop-for-e-if-else-para-más-de-un-elemento-.html"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html"><i class="fa fa-check"></i><b>10</b> LOOP FOR E IF ELSE PARA MÁS DE UN ELEMENTO.</a><ul>
+<li class="chapter" data-level="10.1" data-path="loop-for-e-if-else-para-más-de-un-elemento-.html"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#loop-for."><i class="fa fa-check"></i><b>10.1</b> Loop for.</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="loop-for-e-if-else-para-más-de-un-elemento-.html"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#el-iterador-como-objeto."><i class="fa fa-check"></i><b>10.1.1</b> El iterador como objeto.</a></li>
+<li class="chapter" data-level="10.1.2" data-path="loop-for-e-if-else-para-más-de-un-elemento-.html"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#el-iterador-como-un-subobjeto."><i class="fa fa-check"></i><b>10.1.2</b> El iterador como un subobjeto.</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="loop-for-e-if-else-para-más-de-un-elemento-.html"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#el-loop-for-con-las-condicionales-if-else."><i class="fa fa-check"></i><b>10.2</b> El loop for con las condicionales if else.</a></li>
+<li class="chapter" data-level="10.3" data-path="loop-for-e-if-else-para-más-de-un-elemento-.html"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#función-ifelse."><i class="fa fa-check"></i><b>10.3</b> Función ifelse().</a></li>
+<li class="chapter" data-level="10.4" data-path="loop-for-e-if-else-para-más-de-un-elemento-.html"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#declaración-break-y-next."><i class="fa fa-check"></i><b>10.4</b> Declaración Break y Next.</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="loop-for-e-if-else-para-más-de-un-elemento." class="section level1">
+<h1><span class="header-section-number">Chapter 10</span> LOOP FOR E IF ELSE PARA MÁS DE UN ELEMENTO.</h1>
+<p>En este capítulo se se mostrará como usar el loop <code>for</code> que nos permitirá realizar múltiples procesos con una sencilla sintaxis. Asimismo, gracias al loop <code>for</code> podremos evaluar más de un elemento al usar las condicionales <code>if else</code>. Por último, veremos el uso de la función <code>ifelse()</code> que nos otorgará el mismo resultado que si usaramos el loop <code>for</code> con las condicionales <code>if else</code>.</p>
+<div id="loop-for." class="section level2">
+<h2><span class="header-section-number">10.1</span> Loop for.</h2>
+<p>Gracias al loop <code>for</code> podremos realizar tareas similares automáticamente. El loop permite hacer el recorrido de todos los elementos de un vector con el fin de asignar a la operación procedente cada uno de los elementos del recorrido. La sintaxis del loop <code>for</code> es la siguiente:</p>
+<p><code>for (var in seq) {expression}</code></p>
+<p>Donde se le asigna un iterador (<code>var</code>), que puede ser cualquier letra o palabra, que hará el recorrido por el vector (<code>seq</code>) para asignar cada elemento de este en la <code>expresión</code>.</p>
+<p>El iterador puede jugar el papel de objeto o de subobjeto, es decir, en el primer caso el iterador entra en la expresión como un objeto que será argumento de una función, en el segundo caso el iterador entra como un subobjeto de otro objeto y en conjunto servirán de argumento de una función.</p>
+<div id="el-iterador-como-objeto." class="section level3">
+<h3><span class="header-section-number">10.1.1</span> El iterador como objeto.</h3>
+<p>Veamos un ejemplo para que quede más claro. Vamos a imprimir el siguiente texto “Este es el número: …”, en los tres puntos asignaremos los números desde el 1 al 10.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb1-1"></a><span class="co"># Usando el loop for.</span></span>
+<span id="cb1-2"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb1-2"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>) {</span>
+<span id="cb1-3"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb1-3"></a>  <span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;Este es el número: &quot;</span>,i))</span>
+<span id="cb1-4"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb1-4"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;Este es el número: 1&quot;
+## [1] &quot;Este es el número: 2&quot;
+## [1] &quot;Este es el número: 3&quot;
+## [1] &quot;Este es el número: 4&quot;
+## [1] &quot;Este es el número: 5&quot;
+## [1] &quot;Este es el número: 6&quot;
+## [1] &quot;Este es el número: 7&quot;
+## [1] &quot;Este es el número: 8&quot;
+## [1] &quot;Este es el número: 9&quot;
+## [1] &quot;Este es el número: 10&quot;</code></pre>
+<p>Primero, hemos asignado un iterador llamado <code>i</code> que hará el recorrido por todos los elementos del vector <code>1:10</code>, cada elemento lo usará en la ejecución de la expresión <code>print(paste0("Este es el número: ",i))</code>, es decir, el iterador <code>i</code> tomará cada uno de los elementos del vector <code>1:10</code> y los asignará en la expresión <code>print(paste0("Este es el número: ",i))</code>.</p>
+<p>Gracias a esto hemos obtenido el resultado esperado en donde se ha impreso el texto “Este es el número: 1”, “Este es el número: 2”, y así sucesivamente hasta “Este es el número: 10”.</p>
+<p>Como se habrá podida dar cuenta una de las características principales del loop <code>for</code> en R es su sencilles para su uso. Se le invita a realizar la misma operación en otros softwares<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> y verá la diferencia.</p>
+</div>
+<div id="el-iterador-como-un-subobjeto." class="section level3">
+<h3><span class="header-section-number">10.1.2</span> El iterador como un subobjeto.</h3>
+<p>Ahora veamos un ejemplo en donde el vector por donde se hará el recorrido es una vector caracter.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb3-1"></a><span class="co"># Ejemplo usando un vector caracter.</span></span>
+<span id="cb3-2"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb3-2"></a>x&lt;-<span class="kw">c</span>(<span class="st">&quot;Azul&quot;</span>,<span class="st">&quot;Rojo&quot;</span>,<span class="st">&quot;Amarillo&quot;</span>,<span class="st">&quot;Rosado&quot;</span>,<span class="st">&quot;Marrón&quot;)</span></span>
+<span id="cb3-3"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb3-3"></a></span>
+<span id="cb3-4"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb3-4"></a><span class="st">for (i in 1:length(x)) {</span></span>
+<span id="cb3-5"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb3-5"></a><span class="st">  print(paste0(&quot;</span>Este es el color<span class="op">:</span><span class="st"> &quot;,x[i]))</span></span>
+<span id="cb3-6"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb3-6"></a><span class="st">}</span></span></code></pre></div>
+<pre><code>## [1] &quot;Este es el color: Azul&quot;
+## [1] &quot;Este es el color: Rojo&quot;
+## [1] &quot;Este es el color: Amarillo&quot;
+## [1] &quot;Este es el color: Rosado&quot;
+## [1] &quot;Este es el color: Marrón&quot;</code></pre>
+<p>En esta ocasión hemos complicado un poco el uso, pero con el fin de que usted se de cuenta que el iterador también puede ser usado como un subobjeto, en este caso el iterador <code>i</code> es un subobjeto del objeto <code>x</code>.</p>
+<p>Primero, se ha definido el vector <code>x</code> con los nombres: “Azul”,“Rojo”,“Amarillo”,“Rosado”,“Marrón”. Posteriormente, en la sintaxis del loop <code>for</code> se ha asignado un iterador llamado <code>i</code> que hará el recorrido por el vector <code>1:length(x)</code>, es decir, desde el número 1 hasta el tamaño del vector <code>x</code> (desde 1 al 5). Cada uno de estos elementos se asignarán en la expresión <code>x[i]</code> (llamará a cada uno de los elementos del vector <code>x</code>, desde el primero al último, ya que se convertirá en <code>x[1]</code>, <code>x[2]</code>, <code>x[3]</code>, <code>x[4]</code> y <code>x[5]</code>).</p>
+<p>Lo principal de este ejemplo, es darse cuenta de la importancia que juega el iterador que ya no solo juega el papel de objeto, como en el primer ejemplo, sino como subobjeto de otro objeto.</p>
+<p>Quizá le parezca un poco complicado al inicio, pero como se comentó al inicio este loop puede ser escrito de una manera más sencilla, a continuación, se muestra la sintaxis.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb5-1"></a><span class="co"># El ejemplo 2 con una sintaxis más sencilla.</span></span>
+<span id="cb5-2"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb5-2"></a><span class="cf">for</span> (i <span class="cf">in</span> x) {</span>
+<span id="cb5-3"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb5-3"></a>  <span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;Este es el color: &quot;</span>,  i))</span>
+<span id="cb5-4"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb5-4"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;Este es el color: Azul&quot;
+## [1] &quot;Este es el color: Rojo&quot;
+## [1] &quot;Este es el color: Amarillo&quot;
+## [1] &quot;Este es el color: Rosado&quot;
+## [1] &quot;Este es el color: Marrón&quot;</code></pre>
+<p>En este caso se puede observar que el iterador juega el papel de objeto. ¿Cómo así? El iterador <code>i</code> recorrerá el vector <code>x</code>, es decir, todos los elementos de <code>x</code> (“Azul”,“Rojo”,“Amarillo”,“Rosado”,“Marrón”) y los asignará en la expresión <code>print(paste0("Este es el color: ",  i))</code>.</p>
+<p>Usted se puede estar preguntando ¿Cuál es el fin de colocar al iterador como subobjeto si la sintaxis es más sencilla considerando al iterador como objeto? En el ejemplo que hemos visto y por su sencilles es más fácil usar al iterador como objeto, pero cuando avancemos más y deseemos hacer loops más complicados en donde haya más de un iterador o dentro de funciones, tendremos que usar al iterador como subobjeto. Así que por el momento es preciso aprender las dos formas.</p>
+<p>Avancemos un poco más y realicemos un ejemplo un poquillo más complicado.</p>
+<p>Vamos a realizar un loop en el cual se guardan los resultados en un vector externo.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb7-1"></a><span class="co"># Guardando los resultados en un vector externo.</span></span>
+<span id="cb7-2"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb7-2"></a>x&lt;-<span class="kw">c</span>()</span>
+<span id="cb7-3"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb7-3"></a><span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>) {</span>
+<span id="cb7-4"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb7-4"></a>  y&lt;-t<span class="op">^</span><span class="dv">2</span></span>
+<span id="cb7-5"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb7-5"></a>  x&lt;-<span class="kw">c</span>(x,y)</span>
+<span id="cb7-6"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb7-6"></a>}</span></code></pre></div>
+<p>Primero hemos creado un vector vacio <code>x</code> donde guardaremos los resultados del loop, posteriormente en el loop <code>for</code> se asigna el iterador <code>t</code> que hará el recorrido por el vector <code>1:5</code>, asignando cada elemento en la expresión <code>y&lt;-t^2; x&lt;-c(x,y)</code>. Lo que hará será elevar los elementos del vector <code>1:5</code> al cuadrado y guardarlo en el objeto <code>y</code>. En la expresión <code>x&lt;-c(x,y)</code> le decimos al software que guarde en el objeto <code>x</code> el vector que se genera al juntar el objeto <code>x</code> con el objeto <code>y</code>. Como el valor de <code>y</code> cambiará con cada elemento ya que el iterador tomará uno por uno los elementos del vector <code>1:5</code>, entonces, es preciso guardar cada resultado.</p>
+<p>Para observar que se ha guardado en el objeto <code>x</code> corramos este vector.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb8-1"></a>x</span></code></pre></div>
+<pre><code>## [1]  1  4  9 16 25</code></pre>
+<p>Como se puede dar cuenta el vector <code>x</code> tiene los elementos 1, 4, 9, 16, 25 que resultan al elevar cada elementos del vector <code>1:5</code> al cuadrado.</p>
+<p>Usted puede ser perpicaz y al haber leído todos los capítulos de este libro, usted puede decir que el resultado anterior saldría solo con ejecutar <code>(1:5)^2</code>. En efecto, sí, el resultado es el mismo, pero repito, por el momento estamos haciendo ejemplos muy sencillos para que se tenga una total comprensión de los usos del loop <code>for</code>.</p>
+</div>
+</div>
+<div id="el-loop-for-con-las-condicionales-if-else." class="section level2">
+<h2><span class="header-section-number">10.2</span> El loop for con las condicionales if else.</h2>
+<p>Usted recuerda del capítulo anterior la unicidad de las condicionales <code>if else</code>, el cual implicaba que solo se evaluara el primer elemento de un vector. Ahora gracias al loop <code>for</code> podremos evaluar todos los elementos del vector.</p>
+<p>Veamos un ejemplo en donde se da a conocer el problema y cómo podríamos solucionar esto usando el loop <code>for</code>.</p>
+<p>El ejemplo es el siguiente, queremos saber que elementos del vector <code>p</code> son menores a 30, y si es así que imprima los elementos. Es obvio que tenemos que usar la condicional <code>if</code>.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb10-1"></a><span class="co"># Creando el vector p.</span></span>
+<span id="cb10-2"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb10-2"></a><span class="kw">set.seed</span>(<span class="dv">3000</span>)</span>
+<span id="cb10-3"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb10-3"></a>p&lt;-<span class="kw">sample</span>(<span class="dv">20</span><span class="op">:</span><span class="dv">50</span>, <span class="dv">20</span>, T)</span>
+<span id="cb10-4"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb10-4"></a></span>
+<span id="cb10-5"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb10-5"></a><span class="co"># El vector p tiene los elementos.</span></span>
+<span id="cb10-6"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb10-6"></a>p</span></code></pre></div>
+<pre><code>##  [1] 42 49 34 26 34 44 29 30 40 42 38 30 36 22 42 21 46 21 28 34</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb12-1"></a><span class="co"># Realizando la condicional if.</span></span>
+<span id="cb12-2"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb12-2"></a><span class="cf">if</span>(p<span class="op">&lt;</span><span class="dv">30</span>){</span>
+<span id="cb12-3"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb12-3"></a>  <span class="kw">print</span>(p)</span>
+<span id="cb12-4"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb12-4"></a>}</span></code></pre></div>
+<pre><code>## Warning in if (p &lt; 30) {: la condición tiene longitud &gt; 1 y sólo el primer
+## elemento será usado</code></pre>
+<p>¿Cómo es posible que no haya impreso ningún elemento? Como se mencionó, la condicional <code>if</code> sólo evaluó el primer elemento del vector <code>p</code> y este al no ser 42 menor que 30, nos resulta que la prueba lógica <code>p&lt;30</code> es <code>FALSE</code> por lo cual no ejecuta el proceso <code>print(p)</code>.</p>
+<p>Entonces, estamos atados de manos, pero usted puede observar una posible solución usando la siguiente sintaxis:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb14-1"></a><span class="cf">if</span>(p[<span class="dv">1</span>]<span class="op">&lt;</span><span class="dv">30</span>){</span>
+<span id="cb14-2"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb14-2"></a>  <span class="kw">print</span>(p)</span>
+<span id="cb14-3"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb14-3"></a>}</span>
+<span id="cb14-4"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb14-4"></a></span>
+<span id="cb14-5"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb14-5"></a><span class="cf">if</span>(p[<span class="dv">2</span>]<span class="op">&lt;</span><span class="dv">30</span>){</span>
+<span id="cb14-6"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb14-6"></a>  <span class="kw">print</span>(p)</span>
+<span id="cb14-7"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb14-7"></a>}</span>
+<span id="cb14-8"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb14-8"></a></span>
+<span id="cb14-9"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb14-9"></a><span class="cf">if</span>(p[<span class="dv">3</span>]<span class="op">&lt;</span><span class="dv">30</span>){</span>
+<span id="cb14-10"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb14-10"></a>  <span class="kw">print</span>(p)</span>
+<span id="cb14-11"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb14-11"></a>}</span>
+<span id="cb14-12"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb14-12"></a></span>
+<span id="cb14-13"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb14-13"></a><span class="co"># Así sucesivamente hasta</span></span>
+<span id="cb14-14"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb14-14"></a></span>
+<span id="cb14-15"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb14-15"></a><span class="cf">if</span>(p[<span class="dv">20</span>]<span class="op">&lt;</span><span class="dv">30</span>){</span>
+<span id="cb14-16"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb14-16"></a>  <span class="kw">print</span>(p)</span>
+<span id="cb14-17"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb14-17"></a>}</span></code></pre></div>
+<p>Pero esto no es para nade eficiente, y sería un demente si pierde su tiempo escribiendo esa sintaxis.</p>
+<p>Entonces, nuestra salvación es el loop <code>for</code>. A continuación se muestra la sintaxis usando al iterador como un objeto.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb15-1"></a><span class="co"># Resolviendo el problema usando el loop for.</span></span>
+<span id="cb15-2"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb15-2"></a><span class="cf">for</span> (i <span class="cf">in</span> p) {</span>
+<span id="cb15-3"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb15-3"></a> <span class="cf">if</span>(i<span class="op">&lt;</span><span class="dv">30</span>){</span>
+<span id="cb15-4"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb15-4"></a>  <span class="kw">print</span>(i)</span>
+<span id="cb15-5"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb15-5"></a>} </span>
+<span id="cb15-6"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb15-6"></a>}</span></code></pre></div>
+<pre><code>## [1] 26
+## [1] 29
+## [1] 22
+## [1] 21
+## [1] 21
+## [1] 28</code></pre>
+<p>Y a continuación la solución usando al iterador como un subobjeto.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb17-1"></a><span class="co"># Resolviendo el problema usando el loop for.</span></span>
+<span id="cb17-2"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb17-2"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(p)) {</span>
+<span id="cb17-3"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb17-3"></a> <span class="cf">if</span>(p[i]<span class="op">&lt;</span><span class="dv">30</span>){</span>
+<span id="cb17-4"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb17-4"></a>  <span class="kw">print</span>(p[i])</span>
+<span id="cb17-5"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb17-5"></a>} </span>
+<span id="cb17-6"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb17-6"></a>}</span></code></pre></div>
+<pre><code>## [1] 26
+## [1] 29
+## [1] 22
+## [1] 21
+## [1] 21
+## [1] 28</code></pre>
+<p>Con estas soluciones se puede observar el tiempo que nos hemos ahorrado si sabemos usar correctamente el loop <code>for</code>.</p>
+<p>Ahora veamos otro ejemplo en donde tenemos el vector sexo que tiene 30 elementos que pueden ser 0 y 1. Asimismo, nos indican que 0 indica que el sexo es femenino y que 1 indica que el sexo es masculino. Entonces, nos piden que cambiemos los 0 y 1 por los nombres femenino y masculino.</p>
+<p>Con los conocimientos que tenemos podemos aplicar el loop for de la siguiente manera.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb19-1"></a><span class="co"># creando el vector sexo.</span></span>
+<span id="cb19-2"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb19-2"></a><span class="kw">set.seed</span>(<span class="dv">2021</span>)</span>
+<span id="cb19-3"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb19-3"></a>sexo&lt;-<span class="kw">sample</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">1</span>, <span class="dv">30</span>, T)</span>
+<span id="cb19-4"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb19-4"></a></span>
+<span id="cb19-5"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb19-5"></a><span class="co"># Los elementos del vector sexo.</span></span>
+<span id="cb19-6"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb19-6"></a>sexo</span></code></pre></div>
+<pre><code>##  [1] 0 1 1 1 0 1 1 1 1 1 0 1 1 0 0 0 0 0 1 0 1 1 0 1 0 0 1 1 1 1</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb21-1"></a><span class="co"># Aplicando el loop for.</span></span>
+<span id="cb21-2"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb21-2"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(sexo)) {</span>
+<span id="cb21-3"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb21-3"></a>  <span class="cf">if</span>(sexo[i]<span class="op">==</span><span class="dv">0</span>){</span>
+<span id="cb21-4"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb21-4"></a>    sexo[i]&lt;-<span class="st">&quot;Femenino&quot;</span></span>
+<span id="cb21-5"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb21-5"></a>  } <span class="cf">else</span> <span class="cf">if</span> (sexo[i]<span class="op">==</span><span class="dv">1</span>){</span>
+<span id="cb21-6"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb21-6"></a>    sexo[i]&lt;-<span class="st">&quot;Masculino&quot;</span></span>
+<span id="cb21-7"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb21-7"></a>  }</span>
+<span id="cb21-8"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb21-8"></a>}</span></code></pre></div>
+<p>Estamos usando el método donde se considera al iterador como subobjeto ¿Le invitamos a realizar el mismo ejericio pero usando el iterador como objeto? ¿Con qué método le resultó más fácil?</p>
+<p>Viendo como quedó el vector <code>sexo</code> luego de aplicar el loop <code>for</code>.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb22-1"></a>sexo</span></code></pre></div>
+<pre><code>##  [1] &quot;Femenino&quot;  &quot;Masculino&quot; &quot;Masculino&quot; &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Masculino&quot;
+##  [7] &quot;Masculino&quot; &quot;Masculino&quot; &quot;Masculino&quot; &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Masculino&quot;
+## [13] &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Femenino&quot;  &quot;Femenino&quot;  &quot;Femenino&quot;  &quot;Femenino&quot; 
+## [19] &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Masculino&quot; &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Masculino&quot;
+## [25] &quot;Femenino&quot;  &quot;Femenino&quot;  &quot;Masculino&quot; &quot;Masculino&quot; &quot;Masculino&quot; &quot;Masculino&quot;</code></pre>
+<p>En efecto, todos los elementos que eran 0 se han cambiado por “Femenino” y todos los que era 1 se han cambiado por “Masculino”.</p>
+<p>Estoy seguro que usted se está preguntando ¿Todo eso para cambiar los 0 por “Femenino” y los 1 por “Masculino”? En realidad sí. ¿Pero si con otros softwares se obtiene el mismo resultado muchó más fácil? En realidad sí. Pero repito, aquí estamos viendo las formas de usar el loop <code>for</code> con la condicional <code>if else</code>. Esto que parece innecesario, a la hora de aplicarlo a matrices, listas o dataframe será tan útil y verá la facilidad con lo que resuelve futuras cuestiones. Veremos estas aplicaciones más útiles cuando completemos el tema de data frame, por el momento, será suficiente con conocer como se aplica el loop con sus dos variantes. Pero sí ha quedado insatisfecho, a continuación, se muestra como resolver este tipo de cuestiones usando la función <code>ifelse()</code>.</p>
+</div>
+<div id="función-ifelse." class="section level2">
+<h2><span class="header-section-number">10.3</span> Función ifelse().</h2>
+<p>Una forma de realizar el proceso anterior sin la necesidad de usar el loop <code>for</code> explícitamente y sin tanto código, es usar la función <code>ifelse()</code>, el cuál realiza el loop <code>for</code> implícitamente y resulta muchísimo más sencillo de usar. Pero como todo proceso que genere simplicidad, solo servirá para un número pequeño de aplicaciones, por lo cual, no englobará en al loop <code>for</code>.</p>
+<p>Vamos a realizar el mismo ejercicio que el anterior.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb24-1"></a><span class="co"># creando el vector sexo.</span></span>
+<span id="cb24-2"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb24-2"></a><span class="kw">set.seed</span>(<span class="dv">2021</span>)</span>
+<span id="cb24-3"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb24-3"></a>sexo&lt;-<span class="kw">sample</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">1</span>, <span class="dv">30</span>, T)</span>
+<span id="cb24-4"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb24-4"></a></span>
+<span id="cb24-5"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb24-5"></a><span class="co"># Los elementos del vector sexo.</span></span>
+<span id="cb24-6"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb24-6"></a>sexo</span></code></pre></div>
+<pre><code>##  [1] 0 1 1 1 0 1 1 1 1 1 0 1 1 0 0 0 0 0 1 0 1 1 0 1 0 0 1 1 1 1</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb26-1"></a><span class="co"># Resolviendo con la función ifelse.</span></span>
+<span id="cb26-2"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb26-2"></a><span class="kw">ifelse</span>(sexo<span class="op">==</span><span class="dv">0</span>,<span class="st">&quot;Femenino&quot;</span>,<span class="st">&quot;Masculino&quot;</span>)</span></code></pre></div>
+<pre><code>##  [1] &quot;Femenino&quot;  &quot;Masculino&quot; &quot;Masculino&quot; &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Masculino&quot;
+##  [7] &quot;Masculino&quot; &quot;Masculino&quot; &quot;Masculino&quot; &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Masculino&quot;
+## [13] &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Femenino&quot;  &quot;Femenino&quot;  &quot;Femenino&quot;  &quot;Femenino&quot; 
+## [19] &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Masculino&quot; &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Masculino&quot;
+## [25] &quot;Femenino&quot;  &quot;Femenino&quot;  &quot;Masculino&quot; &quot;Masculino&quot; &quot;Masculino&quot; &quot;Masculino&quot;</code></pre>
+<p>Y en efecto, hemos obtenido el mismo resultado.</p>
+<p>¿Cómo se hizo?</p>
+<p>La función <code>ifelse()</code> tiene la siguiente sintaxis.</p>
+<p><code>ifelse(test, yes, no)</code></p>
+<p>En donde el primero argumento <code>test</code> es una prueba lógica que puede ser TRUE o FALSE; el segundo argumento <code>yes</code> es el valor que retornará la función si el <code>test</code> resulta TRUE; por último, el argumento <code>no</code> es el valor que retornará la función si el <code>test</code> resulta FALSE.</p>
+<p>En ese sentido, la prueba lógica o <code>test</code> en nuestro ejemplo fue <code>sexo==0</code>, en <code>yes</code> hemos asignado el valor de “Femenino” y en <code>no</code> el valor de “Masculino”, lo que implica que si la variable <code>sexo==0</code> es TRUE, entonces asignará “Femenino”, pero si es FALSE asignará “Masculino”.</p>
+<p>El uso de esta función es muy sencilla y puede anidarla. Para observar un pequeño ejemplo supongamos que tenemos el vector civil, el cual tiene elementos entre 0, 1 y 2. Y nos indican que 0 es soltero, 1 casado y 2 viudo.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb28-1"></a><span class="co"># Creando el vector civil.</span></span>
+<span id="cb28-2"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb28-2"></a><span class="kw">set.seed</span>(<span class="dv">2021</span>)</span>
+<span id="cb28-3"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb28-3"></a>civil&lt;-<span class="kw">sample</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">2</span>, <span class="dv">20</span>, T)</span>
+<span id="cb28-4"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb28-4"></a></span>
+<span id="cb28-5"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb28-5"></a><span class="co"># Viendo los elementos del vector civil.</span></span>
+<span id="cb28-6"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb28-6"></a>civil</span></code></pre></div>
+<pre><code>##  [1] 2 1 1 1 2 1 1 2 1 1 0 2 2 0 2 2 1 2 0 2</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb30-1"></a><span class="co"># Resolviendo el problema usando la función ifelse. </span></span>
+<span id="cb30-2"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb30-2"></a><span class="kw">ifelse</span>(civil<span class="op">==</span><span class="dv">0</span>, <span class="st">&quot;Soltero&quot;</span>,</span>
+<span id="cb30-3"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb30-3"></a>       <span class="kw">ifelse</span>(civil<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;Casado&quot;</span>, <span class="st">&quot;viudo&quot;</span>))</span></code></pre></div>
+<pre><code>##  [1] &quot;viudo&quot;   &quot;Casado&quot;  &quot;Casado&quot;  &quot;Casado&quot;  &quot;viudo&quot;   &quot;Casado&quot;  &quot;Casado&quot; 
+##  [8] &quot;viudo&quot;   &quot;Casado&quot;  &quot;Casado&quot;  &quot;Soltero&quot; &quot;viudo&quot;   &quot;viudo&quot;   &quot;Soltero&quot;
+## [15] &quot;viudo&quot;   &quot;viudo&quot;   &quot;Casado&quot;  &quot;viudo&quot;   &quot;Soltero&quot; &quot;viudo&quot;</code></pre>
+<p>En efecto, hemos obtenido el resultado esperado. Cuando se vea los capítulos del paquete <code>dplyr</code> se mostrará el uso de la función <code>case_when()</code> que realiza el mismo procedimiento que la función <code>ifelse()</code>, pero con una menor sintaxis y con código más limpio y entendible.</p>
+</div>
+<div id="declaración-break-y-next." class="section level2">
+<h2><span class="header-section-number">10.4</span> Declaración Break y Next.</h2>
+<p>En R se tiene las declaraciones <code>break</code> y <code>next</code>. La declaración <code>break</code> nos permite detener el loop <code>for</code> o el ciclo <code>while</code><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>, mientras que la declaración <code>next</code> nos permite saltar una deteminada iteración en el loop <code>for</code>. Veamos a continuación la aplicación de cada uno.</p>
+<p>Como se mencionó la declaración <code>break</code> detiene el loop <code>for</code> siempre y cuando una determinada condición lógica sea <code>TRUE</code>. Por ejemplo, vamos a imprimir las letras del abecedario hasta la letra H. Una vez que se ha impreso la letra H que se detenga el loop <code>for</code>.</p>
+<p>Para esto vamos a usar la función <code>LETTERS</code> que nos arroja las letras del abecedario en mayúscula.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb32-1"></a><span class="co"># Las letras del abecedario en mayúscula.</span></span>
+<span id="cb32-2"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb32-2"></a>LETTERS</span></code></pre></div>
+<pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot;
+## [20] &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb34-1"></a><span class="co"># Construyendo el loop for.</span></span>
+<span id="cb34-2"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb34-2"></a></span>
+<span id="cb34-3"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb34-3"></a><span class="cf">for</span> (i <span class="cf">in</span> LETTERS) {</span>
+<span id="cb34-4"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb34-4"></a>  <span class="cf">if</span>(i<span class="op">==</span><span class="st">&quot;H&quot;</span>){</span>
+<span id="cb34-5"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb34-5"></a>    <span class="kw">print</span>(i)</span>
+<span id="cb34-6"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb34-6"></a>    <span class="cf">break</span></span>
+<span id="cb34-7"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb34-7"></a>  } <span class="cf">else</span> {</span>
+<span id="cb34-8"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb34-8"></a>   <span class="kw">print</span>(i) </span>
+<span id="cb34-9"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb34-9"></a>  }</span>
+<span id="cb34-10"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb34-10"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;A&quot;
+## [1] &quot;B&quot;
+## [1] &quot;C&quot;
+## [1] &quot;D&quot;
+## [1] &quot;E&quot;
+## [1] &quot;F&quot;
+## [1] &quot;G&quot;
+## [1] &quot;H&quot;</code></pre>
+<p>En efecto, solo se ha impreso hasta la letra “H”. Pero ¿cómo sucedió? Primero, si nosotros no consideramos a la declaración <code>break</code> el loop <code>for</code> hubiese impreso todas las letras del abecedario. Entonces, al incluir el <code>break</code> le decimos al software que cuando el iterador sea igual a “H” entonces imprima la letra de la iteración y que detenga el loop. Ahora, si no se cumple la condión, entonces que imprima la letra de la iteración. Es así que cuando el iterador vale “H” se cumple la condición entonces imprime “H” y detiene el loop.</p>
+<p>Por otro lado, la declaración <code>next</code> nos permite saltar la iteración siempre y cuando la condición lógica sea <code>TRUE</code>. Veamos un ejemplo para ver su aplicación.</p>
+<p>Por ejemplo, vamos a ser el mismo loop que en el ejemplo anterior, pero ahora vamos a saltar la iteración, siempre y cuando la iteracción sea igual a la letra “H”. Es decir, si la iteración es igual a “H” entonces no será impreso.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb36-1"></a><span class="cf">for</span> (i <span class="cf">in</span> LETTERS) {</span>
+<span id="cb36-2"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb36-2"></a>  <span class="cf">if</span>(i<span class="op">==</span><span class="st">&quot;H&quot;</span>){</span>
+<span id="cb36-3"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb36-3"></a>    <span class="cf">next</span></span>
+<span id="cb36-4"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb36-4"></a>  } <span class="cf">else</span> {</span>
+<span id="cb36-5"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb36-5"></a>   <span class="kw">print</span>(i) </span>
+<span id="cb36-6"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb36-6"></a>  }</span>
+<span id="cb36-7"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#cb36-7"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;A&quot;
+## [1] &quot;B&quot;
+## [1] &quot;C&quot;
+## [1] &quot;D&quot;
+## [1] &quot;E&quot;
+## [1] &quot;F&quot;
+## [1] &quot;G&quot;
+## [1] &quot;I&quot;
+## [1] &quot;J&quot;
+## [1] &quot;K&quot;
+## [1] &quot;L&quot;
+## [1] &quot;M&quot;
+## [1] &quot;N&quot;
+## [1] &quot;O&quot;
+## [1] &quot;P&quot;
+## [1] &quot;Q&quot;
+## [1] &quot;R&quot;
+## [1] &quot;S&quot;
+## [1] &quot;T&quot;
+## [1] &quot;U&quot;
+## [1] &quot;V&quot;
+## [1] &quot;W&quot;
+## [1] &quot;X&quot;
+## [1] &quot;Y&quot;
+## [1] &quot;Z&quot;</code></pre>
+<p>Y en efecto, no se ha impreso la letra “H” y esto sucede porque en la sintaxis indicamos que si el iterador es igual a “H” entonces ejecute <code>next</code>, es decir, no imprima a la letra “H”.</p>
+<p>En el siguiente capítulo veremos el tema del ciclo <code>while()</code> que es complementario al ciclo <code>for()</code>. Este ciclo, también usa las declaraciones <code>next</code> y <code>break</code>, incluso, su aplicación es más útil que en el loop <code>for()</code>.</p>
+
+</div>
+</div>
+
+
+
+
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Esta sencilles sólo puede ser semejante si usted usa el software python.<a href="loop-for-e-if-else-para-más-de-un-elemento-.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>El ciclo while se desarrollará en el siguiente capítulo.<a href="loop-for-e-if-else-para-más-de-un-elemento-.html#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="condicional-if-else-.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/CesarAHN/R_para_economistas/edit/master/10-loop-for-if-else-multiples-elementos.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/CesarAHN/R_para_economistas/blob/master/10-loop-for-if-else-multiples-elementos.Rmd",
+"text": null
+},
+"download": ["bookdownproj.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
