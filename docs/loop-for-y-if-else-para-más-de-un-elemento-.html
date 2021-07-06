@@ -24,7 +24,7 @@
 <meta name="author" content="César Anderson Huamaní Ninahuanca" />
 
 
-<meta name="date" content="2021-06-14" />
+<meta name="date" content="2021-07-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -225,6 +225,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="10.2" data-path="loop-for-y-if-else-para-más-de-un-elemento-.html"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#el-loop-for-con-las-condicionales-if-else."><i class="fa fa-check"></i><b>10.2</b> El loop for con las condicionales if else.</a></li>
 <li class="chapter" data-level="10.3" data-path="loop-for-y-if-else-para-más-de-un-elemento-.html"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#función-ifelse."><i class="fa fa-check"></i><b>10.3</b> Función ifelse().</a></li>
+<li class="chapter" data-level="10.4" data-path="loop-for-y-if-else-para-más-de-un-elemento-.html"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#declaración-break-y-next."><i class="fa fa-check"></i><b>10.4</b> Declaración Break y Next.</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -247,7 +248,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="loop-for-y-if-else-para-más-de-un-elemento." class="section level1">
 <h1><span class="header-section-number">Chapter 10</span> LOOP FOR Y IF ELSE PARA MÁS DE UN ELEMENTO.</h1>
-<p>En este capítulo se se mostrará como usar el loop <code>for</code> que nos permitirá realizar múltiples procesos con una sencilla sintaxis. Asimismo, gracias al loop <code>for</code> podremos evaluar más de un elemento al usar las condicionales <code>if else</code>. Por último, veremos el uso de la función <code>ifelse()</code> que nos otorgará el mismo resultado que si usaramos un el loop <code>for</code> con las condicionales <code>if else</code>.</p>
+<p>En este capítulo se se mostrará como usar el loop <code>for</code> que nos permitirá realizar múltiples procesos con una sencilla sintaxis. Asimismo, gracias al loop <code>for</code> podremos evaluar más de un elemento al usar las condicionales <code>if else</code>. Por último, veremos el uso de la función <code>ifelse()</code> que nos otorgará el mismo resultado que si usaramos el loop <code>for</code> con las condicionales <code>if else</code>.</p>
 <div id="loop-for." class="section level2">
 <h2><span class="header-section-number">10.1</span> Loop for.</h2>
 <p>Gracias al loop <code>for</code> podremos realizar tareas similares automáticamente. El loop permite hacer el recorrido de todos los elementos de un vector con el fin de asignar a la operación procedente cada uno de los elementos del recorrido. La sintaxis del loop <code>for</code> es la siguiente:</p>
@@ -451,9 +452,76 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>##  [1] &quot;viudo&quot;   &quot;Casado&quot;  &quot;Casado&quot;  &quot;Casado&quot;  &quot;viudo&quot;   &quot;Casado&quot;  &quot;Casado&quot; 
 ##  [8] &quot;viudo&quot;   &quot;Casado&quot;  &quot;Casado&quot;  &quot;Soltero&quot; &quot;viudo&quot;   &quot;viudo&quot;   &quot;Soltero&quot;
 ## [15] &quot;viudo&quot;   &quot;viudo&quot;   &quot;Casado&quot;  &quot;viudo&quot;   &quot;Soltero&quot; &quot;viudo&quot;</code></pre>
+<p>En efecto, hemos obtenido el resultado esperado. Cuando se vea los capítulos del paquete <code>dplyr</code> se mostrará el uso de la función <code>case_when()</code> que realiza el mismo procedimiento que la función <code>ifelse()</code>, pero con una menor sintaxis y con código más limpio y entendible.</p>
+</div>
+<div id="declaración-break-y-next." class="section level2">
+<h2><span class="header-section-number">10.4</span> Declaración Break y Next.</h2>
+<p>En R se tiene las declaraciones <code>break</code> y <code>next</code>. La declaración <code>break</code> nos permite detener el loop <code>for</code> o el ciclo <code>while</code><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>, mientras que la declaración <code>next</code> nos permite saltar una deteminada iteración en el loop <code>for</code>. Veamos a continuación la aplicación de cada uno.</p>
+<p>Como se mencionó la declaración <code>break</code> detiene el loop <code>for</code> siempre y cuando una determinada condición lógica sea <code>TRUE</code>. Por ejemplo, vamos a imprimir las letras del abecedario hasta la letra H. Una vez que se ha impreso la letra H que se detenga el loop <code>for</code>.</p>
+<p>Para esto vamos a usar la función <code>LETTERS</code> que nos arroja las letras del abecedario en mayúscula.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb32-1"></a><span class="co"># Las letras del abecedario en mayúscula.</span></span>
+<span id="cb32-2"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb32-2"></a>LETTERS</span></code></pre></div>
+<pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot;
+## [20] &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb34-1"></a><span class="co"># Construyendo el loop for.</span></span>
+<span id="cb34-2"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb34-2"></a></span>
+<span id="cb34-3"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb34-3"></a><span class="cf">for</span> (i <span class="cf">in</span> LETTERS) {</span>
+<span id="cb34-4"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb34-4"></a>  <span class="cf">if</span>(i<span class="op">==</span><span class="st">&quot;H&quot;</span>){</span>
+<span id="cb34-5"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb34-5"></a>    <span class="kw">print</span>(i)</span>
+<span id="cb34-6"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb34-6"></a>    <span class="cf">break</span></span>
+<span id="cb34-7"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb34-7"></a>  } <span class="cf">else</span> {</span>
+<span id="cb34-8"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb34-8"></a>   <span class="kw">print</span>(i) </span>
+<span id="cb34-9"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb34-9"></a>  }</span>
+<span id="cb34-10"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb34-10"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;A&quot;
+## [1] &quot;B&quot;
+## [1] &quot;C&quot;
+## [1] &quot;D&quot;
+## [1] &quot;E&quot;
+## [1] &quot;F&quot;
+## [1] &quot;G&quot;
+## [1] &quot;H&quot;</code></pre>
+<p>En efecto, solo se ha impreso hasta la letra “H”. Pero ¿cómo sucedió? Primero, si nosotros no consideramos a la declaración <code>break</code> el loop <code>for</code> hubiese impreso todas las letras del abecedario. Entonces, al incluir el <code>break</code> le decimos al software que cuando el iterador sea igual a “H” entonces imprima la letra de la iteración y que detenga el loop. Ahora, si no se cumple la condión, entonces que imprima la letra de la iteración. Es así que cuando el iterador vale “H” se cumple la condición entonces imprime “H” y detiene el loop.</p>
+<p>Por otro lado, la declaración <code>next</code> nos permite saltar la iteración siempre y cuando la condición lógica sea <code>TRUE</code>. Veamos un ejemplo para ver su aplicación.</p>
+<p>Por ejemplo, vamos a ser el mismo loop que en el ejemplo anterior, pero ahora vamos a saltar la iteración, siempre y cuando la iteracción sea igual a la letra “H”. Es decir, si la iteración es igual a “H” entonces no será impreso.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb36-1"></a><span class="cf">for</span> (i <span class="cf">in</span> LETTERS) {</span>
+<span id="cb36-2"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb36-2"></a>  <span class="cf">if</span>(i<span class="op">==</span><span class="st">&quot;H&quot;</span>){</span>
+<span id="cb36-3"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb36-3"></a>    <span class="cf">next</span></span>
+<span id="cb36-4"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb36-4"></a>  } <span class="cf">else</span> {</span>
+<span id="cb36-5"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb36-5"></a>   <span class="kw">print</span>(i) </span>
+<span id="cb36-6"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb36-6"></a>  }</span>
+<span id="cb36-7"><a href="loop-for-y-if-else-para-más-de-un-elemento-.html#cb36-7"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;A&quot;
+## [1] &quot;B&quot;
+## [1] &quot;C&quot;
+## [1] &quot;D&quot;
+## [1] &quot;E&quot;
+## [1] &quot;F&quot;
+## [1] &quot;G&quot;
+## [1] &quot;I&quot;
+## [1] &quot;J&quot;
+## [1] &quot;K&quot;
+## [1] &quot;L&quot;
+## [1] &quot;M&quot;
+## [1] &quot;N&quot;
+## [1] &quot;O&quot;
+## [1] &quot;P&quot;
+## [1] &quot;Q&quot;
+## [1] &quot;R&quot;
+## [1] &quot;S&quot;
+## [1] &quot;T&quot;
+## [1] &quot;U&quot;
+## [1] &quot;V&quot;
+## [1] &quot;W&quot;
+## [1] &quot;X&quot;
+## [1] &quot;Y&quot;
+## [1] &quot;Z&quot;</code></pre>
+<p>Y en efecto, no se ha impreso la letra “H” y esto sucede porque en la sintaxis indicamos que si el iterador es igual a “H” entonces ejecute <code>next</code>, es decir, no imprima a la letra “H”.</p>
+<p>En el siguiente capítulo veremos el tema del ciclo <code>while()</code> que es complementario al ciclo <code>for()</code>. Este ciclo, también usa las declaraciones <code>next</code> y <code>break</code>, incluso, su aplicación es más útil que en el loop <code>for()</code>.</p>
 
 </div>
 </div>
+
 
 
 
@@ -464,6 +532,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <ol start="1">
 <li id="fn1"><p>Esta sencilles sólo puede ser semejante si usted usa el software python.<a href="loop-for-y-if-else-para-más-de-un-elemento-.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>El ciclo while se desarrollará en el siguiente capítulo.<a href="loop-for-y-if-else-para-más-de-un-elemento-.html#fnref2" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

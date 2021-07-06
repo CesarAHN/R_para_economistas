@@ -1,6 +1,6 @@
 # LOOP FOR Y IF ELSE PARA MÁS DE UN ELEMENTO.
 
-En este capítulo se se mostrará como usar el loop `for` que nos permitirá realizar múltiples procesos con una sencilla sintaxis. Asimismo, gracias al loop `for` podremos evaluar más de un elemento al usar las condicionales `if else`. Por último, veremos el uso de la función `ifelse()` que nos otorgará el mismo resultado que si usaramos un el loop `for` con las condicionales `if else`. 
+En este capítulo se se mostrará como usar el loop `for` que nos permitirá realizar múltiples procesos con una sencilla sintaxis. Asimismo, gracias al loop `for` podremos evaluar más de un elemento al usar las condicionales `if else`. Por último, veremos el uso de la función `ifelse()` que nos otorgará el mismo resultado que si usaramos el loop `for` con las condicionales `if else`. 
 
 ## Loop for. 
 
@@ -238,6 +238,68 @@ civil
 ifelse(civil==0, "Soltero",
        ifelse(civil==1, "Casado", "viudo"))
 ```
+
+En efecto, hemos obtenido el resultado esperado. Cuando se vea los capítulos del paquete `dplyr` se mostrará el uso de la función `case_when()` que realiza el mismo procedimiento que la función `ifelse()`, pero con una menor sintaxis y con código más limpio y entendible.
+
+## Declaración Break y Next.
+
+En R se tiene las declaraciones `break` y `next`. La declaración `break` nos permite detener el loop `for` o el ciclo `while`[^2], mientras que la declaración `next` nos permite saltar una deteminada iteración en el loop `for`. Veamos a continuación la aplicación de cada uno. 
+
+[^2]: El ciclo while se desarrollará en el siguiente capítulo.
+
+Como se mencionó la declaración `break` detiene el loop `for` siempre y cuando una determinada condición lógica sea `TRUE`. Por ejemplo, vamos a imprimir las letras del abecedario hasta la letra H. Una vez que se ha impreso la letra H que se detenga el loop `for`.
+
+Para esto vamos a usar la función `LETTERS` que nos arroja las letras del abecedario en mayúscula. 
+
+```{r}
+# Las letras del abecedario en mayúscula.
+LETTERS
+
+# Construyendo el loop for.
+
+for (i in LETTERS) {
+  if(i=="H"){
+    print(i)
+    break
+  } else {
+   print(i) 
+  }
+}
+```
+
+En efecto, solo se ha impreso hasta la letra "H". Pero ¿cómo sucedió? Primero, si nosotros no consideramos a la declaración `break` el loop `for` hubiese impreso todas las letras del abecedario. Entonces, al incluir el `break` le decimos al software que cuando el iterador sea igual a "H" entonces imprima la letra de la iteración y que detenga el loop. Ahora, si no se cumple la condión, entonces que imprima la letra de la iteración. Es así que cuando el iterador vale "H" se cumple la condición entonces imprime "H" y detiene el loop.
+
+Por otro lado, la declaración `next` nos permite saltar la iteración siempre y cuando la condición lógica sea `TRUE`. Veamos un ejemplo para ver su aplicación. 
+
+Por ejemplo, vamos a ser el mismo loop que en el ejemplo anterior, pero ahora vamos a saltar la iteración, siempre y cuando la iteracción sea igual a la letra "H". Es decir, si la iteración es igual a "H" entonces no será impreso. 
+
+```{r}
+for (i in LETTERS) {
+  if(i=="H"){
+    next
+  } else {
+   print(i) 
+  }
+}
+```
+
+Y en efecto, no se ha impreso la letra "H" y esto sucede porque en la sintaxis indicamos que si el iterador es igual a "H" entonces ejecute `next`, es decir, no imprima a la letra "H".
+
+En el siguiente capítulo veremos el tema del ciclo `while()` que es complementario al ciclo `for()`. Este ciclo, también usa las declaraciones `next` y `break`, incluso, su aplicación es más útil que en el loop `for()`.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
