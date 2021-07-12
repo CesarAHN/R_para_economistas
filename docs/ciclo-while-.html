@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 11 CICLO WHILE. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</title>
+  <meta name="description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 11 CICLO WHILE. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  <meta name="github-repo" content="CesarAHN/bookdown_intro" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 11 CICLO WHILE. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
+  
+  <meta name="twitter:description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  
+
+<meta name="author" content="César Anderson Huamaní Ninahuanca" />
+
+
+<meta name="date" content="2021-07-12" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="loop-for-e-if-else-para-más-de-un-elemento-.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - PARA ECONOMISTAS</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prólogo</a></li>
+<li class="chapter" data-level="1" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html"><i class="fa fa-check"></i><b>1</b> R COMO CALCULADORA.</a><ul>
+<li class="chapter" data-level="1.1" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#principales-operaciones-matemáticas."><i class="fa fa-check"></i><b>1.1</b> Principales operaciones matemáticas.</a></li>
+<li class="chapter" data-level="1.2" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#decimales-exactos-y-redondeo-de-cifras."><i class="fa fa-check"></i><b>1.2</b> Decimales exactos y redondeo de cifras.</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#número-de-cifras."><i class="fa fa-check"></i><b>1.2.1</b> Número de cifras.</a></li>
+<li class="chapter" data-level="1.2.2" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#redondeo."><i class="fa fa-check"></i><b>1.2.2</b> Redondeo.</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#guardar-o-definir-objetos."><i class="fa fa-check"></i><b>1.3</b> Guardar o definir objetos.</a></li>
+<li class="chapter" data-level="1.4" data-path="r-como-calculadora-.html"><a href="r-como-calculadora-.html#funciones."><i class="fa fa-check"></i><b>1.4</b> Funciones.</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="vectores-.html"><a href="vectores-.html"><i class="fa fa-check"></i><b>2</b> VECTORES.</a><ul>
+<li class="chapter" data-level="2.1" data-path="vectores-.html"><a href="vectores-.html#definición-de-un-vector."><i class="fa fa-check"></i><b>2.1</b> Definición de un vector.</a></li>
+<li class="chapter" data-level="2.2" data-path="vectores-.html"><a href="vectores-.html#clases-de-vectores."><i class="fa fa-check"></i><b>2.2</b> Clases de vectores.</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="vectores-.html"><a href="vectores-.html#cómo-saber-si-un-objeto-es-un-vector"><i class="fa fa-check"></i><b>2.2.1</b> ¿Cómo saber si un objeto es un vector?</a></li>
+<li class="chapter" data-level="2.2.2" data-path="vectores-.html"><a href="vectores-.html#cómo-saber-de-que-clase-es-un-vector"><i class="fa fa-check"></i><b>2.2.2</b> ¿Cómo saber de que clase es un vector?</a></li>
+<li class="chapter" data-level="2.2.3" data-path="vectores-.html"><a href="vectores-.html#qué-pasa-si-defino-un-vector-con-distintas-clases-de-elementos"><i class="fa fa-check"></i><b>2.2.3</b> ¿Qué pasa si defino un vector con distintas clases de elementos?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="vectores-.html"><a href="vectores-.html#número-de-elementos-de-un-vector."><i class="fa fa-check"></i><b>2.3</b> Número de elementos de un vector.</a></li>
+<li class="chapter" data-level="2.4" data-path="vectores-.html"><a href="vectores-.html#funciones-para-construir-vectores-más-eficientemente."><i class="fa fa-check"></i><b>2.4</b> Funciones para construir vectores más eficientemente.</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="vectores-.html"><a href="vectores-.html#vectores-de-elementos-consecutivos"><i class="fa fa-check"></i><b>2.4.1</b> Vectores de elementos consecutivos:</a></li>
+<li class="chapter" data-level="2.4.2" data-path="vectores-.html"><a href="vectores-.html#vectores-con-patrones"><i class="fa fa-check"></i><b>2.4.2</b> Vectores con patrones:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="vectores-.html"><a href="vectores-.html#concatenar-elementos-y-vectores."><i class="fa fa-check"></i><b>2.5</b> Concatenar elementos y vectores.</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><i class="fa fa-check"></i><b>3</b> OPERACIONES MATEMÁTICAS Y ESTADÍSTICAS CON VECTORES.</a><ul>
+<li class="chapter" data-level="3.1" data-path="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html#operaciones-matemáticas."><i class="fa fa-check"></i><b>3.1</b> Operaciones matemáticas.</a></li>
+<li class="chapter" data-level="3.2" data-path="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html#operaciones-estadísticas."><i class="fa fa-check"></i><b>3.2</b> Operaciones estadísticas.</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html#cómo-trabajar-con-missings-o-elementos-faltantes-na"><i class="fa fa-check"></i><b>3.2.1</b> ¿Cómo trabajar con missings o elementos faltantes (NA)?</a></li>
+<li class="chapter" data-level="3.2.2" data-path="operaciones-matemáticas-y-estadísticas-con-vectores-.html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores-.html#cómo-ordenar-elementos-de-los-vectores"><i class="fa fa-check"></i><b>3.2.2</b> ¿Cómo ordenar elementos de los vectores?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html"><i class="fa fa-check"></i><b>4</b> VECTORES ALEATORIOS y SELECCIÓN DE ELEMENTOS.</a><ul>
+<li class="chapter" data-level="4.1" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#creación-de-vectores-con-elementos-aleatorios."><i class="fa fa-check"></i><b>4.1</b> Creación de vectores con elementos aleatorios.</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#aplicación-ley-de-grandes-números."><i class="fa fa-check"></i><b>4.1.1</b> Aplicación: Ley de grandes números.</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#vectores-vacios-y-selección-de-elementos."><i class="fa fa-check"></i><b>4.2</b> Vectores vacios y selección de elementos.</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#vectores-vacíos."><i class="fa fa-check"></i><b>4.2.1</b> Vectores vacíos.</a></li>
+<li class="chapter" data-level="4.2.2" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#seleción-de-elementos-usando-."><i class="fa fa-check"></i><b>4.2.2</b> Seleción de elementos usando [].</a></li>
+<li class="chapter" data-level="4.2.3" data-path="vectores-aleatorios-y-selección-de-elementos-.html"><a href="vectores-aleatorios-y-selección-de-elementos-.html#cómo-saber-cuántos-elementos-tiene-un-vector"><i class="fa fa-check"></i><b>4.2.3</b> ¿Cómo saber cuántos elementos tiene un vector?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><i class="fa fa-check"></i><b>5</b> OPERADORES LÓGICOS, ÍNDICE DE ELEMENTOS Y CAMBIO DE VALORES.</a><ul>
+<li class="chapter" data-level="5.1" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#operadores-lógicos."><i class="fa fa-check"></i><b>5.1</b> Operadores lógicos.</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#igualdad."><i class="fa fa-check"></i><b>5.1.1</b> Igualdad.</a></li>
+<li class="chapter" data-level="5.1.2" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#mayor-que."><i class="fa fa-check"></i><b>5.1.2</b> Mayor que.</a></li>
+<li class="chapter" data-level="5.1.3" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#menor-que."><i class="fa fa-check"></i><b>5.1.3</b> Menor que.</a></li>
+<li class="chapter" data-level="5.1.4" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#diferente."><i class="fa fa-check"></i><b>5.1.4</b> Diferente.</a></li>
+<li class="chapter" data-level="5.1.5" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#negación."><i class="fa fa-check"></i><b>5.1.5</b> Negación.</a></li>
+<li class="chapter" data-level="5.1.6" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#y-condicional-conjunción."><i class="fa fa-check"></i><b>5.1.6</b> Y condicional (Conjunción).</a></li>
+<li class="chapter" data-level="5.1.7" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#o-condicional-disyunción."><i class="fa fa-check"></i><b>5.1.7</b> O condicional (disyunción).</a></li>
+<li class="chapter" data-level="5.1.8" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#mayor-y-menor-igual-que."><i class="fa fa-check"></i><b>5.1.8</b> Mayor y menor igual que.</a></li>
+<li class="chapter" data-level="5.1.9" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#operador-pertenece."><i class="fa fa-check"></i><b>5.1.9</b> Operador pertenece.</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#encontrar-el-índice-de-elementos-y-cambiar-valores."><i class="fa fa-check"></i><b>5.2</b> Encontrar el índice de elementos y cambiar valores.</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores-.html#cambiar-valores-de-elementos."><i class="fa fa-check"></i><b>5.2.1</b> Cambiar valores de elementos.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html"><i class="fa fa-check"></i><b>6</b> FACTORES Y LISTAS.</a><ul>
+<li class="chapter" data-level="6.1" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#factores."><i class="fa fa-check"></i><b>6.1</b> Factores.</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#factores-con-niveles-desordenados."><i class="fa fa-check"></i><b>6.1.1</b> Factores con niveles desordenados.</a></li>
+<li class="chapter" data-level="6.1.2" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#factores-con-niveles-ordenados."><i class="fa fa-check"></i><b>6.1.2</b> Factores con niveles ordenados.</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#listas."><i class="fa fa-check"></i><b>6.2</b> Listas.</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#cómo-se-obtiene-cada-objeto-de-una-lista"><i class="fa fa-check"></i><b>6.2.1</b> ¿Cómo se obtiene cada objeto de una lista?</a></li>
+<li class="chapter" data-level="6.2.2" data-path="factores-y-listas-.html"><a href="factores-y-listas-.html#asignado-nombres-a-los-objetos-de-una-lista."><i class="fa fa-check"></i><b>6.2.2</b> Asignado nombres a los objetos de una lista.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="matrices-.html"><a href="matrices-.html"><i class="fa fa-check"></i><b>7</b> MATRICES.</a><ul>
+<li class="chapter" data-level="7.1" data-path="matrices-.html"><a href="matrices-.html#creación-de-matrices."><i class="fa fa-check"></i><b>7.1</b> Creación de matrices.</a></li>
+<li class="chapter" data-level="7.2" data-path="matrices-.html"><a href="matrices-.html#concatenar-matrices-por-filas-o-columnas."><i class="fa fa-check"></i><b>7.2</b> Concatenar matrices por filas o columnas.</a></li>
+<li class="chapter" data-level="7.3" data-path="matrices-.html"><a href="matrices-.html#selecionar-elementos-de-una-matriz."><i class="fa fa-check"></i><b>7.3</b> Selecionar elementos de una matriz.</a></li>
+<li class="chapter" data-level="7.4" data-path="matrices-.html"><a href="matrices-.html#dimensiones-de-la-matriz."><i class="fa fa-check"></i><b>7.4</b> Dimensiones de la matriz.</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="álgebra-matricial-.html"><a href="álgebra-matricial-.html"><i class="fa fa-check"></i><b>8</b> ÁLGEBRA MATRICIAL.</a><ul>
+<li class="chapter" data-level="8.1" data-path="álgebra-matricial-.html"><a href="álgebra-matricial-.html#operaciones-básicas."><i class="fa fa-check"></i><b>8.1</b> Operaciones básicas.</a></li>
+<li class="chapter" data-level="8.2" data-path="álgebra-matricial-.html"><a href="álgebra-matricial-.html#principales-operaciones-con-matrices."><i class="fa fa-check"></i><b>8.2</b> Principales operaciones con matrices.</a></li>
+<li class="chapter" data-level="8.3" data-path="álgebra-matricial-.html"><a href="álgebra-matricial-.html#solución-a-sistemas-de-ecuación."><i class="fa fa-check"></i><b>8.3</b> Solución a sistemas de ecuación.</a></li>
+<li class="chapter" data-level="8.4" data-path="álgebra-matricial-.html"><a href="álgebra-matricial-.html#valores-y-vectores-propios."><i class="fa fa-check"></i><b>8.4</b> Valores y vectores propios.</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="condicional-if-else-.html"><a href="condicional-if-else-.html"><i class="fa fa-check"></i><b>9</b> CONDICIONAL IF ELSE.</a><ul>
+<li class="chapter" data-level="9.1" data-path="condicional-if-else-.html"><a href="condicional-if-else-.html#condicional-if."><i class="fa fa-check"></i><b>9.1</b> Condicional if.</a></li>
+<li class="chapter" data-level="9.2" data-path="condicional-if-else-.html"><a href="condicional-if-else-.html#condicional-if-else.-1"><i class="fa fa-check"></i><b>9.2</b> Condicional if else.</a></li>
+<li class="chapter" data-level="9.3" data-path="condicional-if-else-.html"><a href="condicional-if-else-.html#condicional-if-else-anidado."><i class="fa fa-check"></i><b>9.3</b> Condicional if else anidado.</a></li>
+<li class="chapter" data-level="9.4" data-path="condicional-if-else-.html"><a href="condicional-if-else-.html#unicidad-de-la-condicional-if."><i class="fa fa-check"></i><b>9.4</b> Unicidad de la condicional if.</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="loop-for-e-if-else-para-más-de-un-elemento-.html"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html"><i class="fa fa-check"></i><b>10</b> LOOP FOR E IF ELSE PARA MÁS DE UN ELEMENTO.</a><ul>
+<li class="chapter" data-level="10.1" data-path="loop-for-e-if-else-para-más-de-un-elemento-.html"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#loop-for."><i class="fa fa-check"></i><b>10.1</b> Loop for.</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="loop-for-e-if-else-para-más-de-un-elemento-.html"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#el-iterador-como-objeto."><i class="fa fa-check"></i><b>10.1.1</b> El iterador como objeto.</a></li>
+<li class="chapter" data-level="10.1.2" data-path="loop-for-e-if-else-para-más-de-un-elemento-.html"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#el-iterador-como-un-subobjeto."><i class="fa fa-check"></i><b>10.1.2</b> El iterador como un subobjeto.</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="loop-for-e-if-else-para-más-de-un-elemento-.html"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#el-loop-for-con-las-condicionales-if-else."><i class="fa fa-check"></i><b>10.2</b> El loop for con las condicionales if else.</a></li>
+<li class="chapter" data-level="10.3" data-path="loop-for-e-if-else-para-más-de-un-elemento-.html"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#función-ifelse."><i class="fa fa-check"></i><b>10.3</b> Función ifelse().</a></li>
+<li class="chapter" data-level="10.4" data-path="loop-for-e-if-else-para-más-de-un-elemento-.html"><a href="loop-for-e-if-else-para-más-de-un-elemento-.html#declaración-break-y-next."><i class="fa fa-check"></i><b>10.4</b> Declaración Break y Next.</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="ciclo-while-.html"><a href="ciclo-while-.html"><i class="fa fa-check"></i><b>11</b> CICLO WHILE.</a><ul>
+<li class="chapter" data-level="11.1" data-path="ciclo-while-.html"><a href="ciclo-while-.html#sintaxis-del-ciclo-while."><i class="fa fa-check"></i><b>11.1</b> Sintaxis del ciclo while.</a></li>
+<li class="chapter" data-level="11.2" data-path="ciclo-while-.html"><a href="ciclo-while-.html#ejemplos-de-uso-del-ciclo-while."><i class="fa fa-check"></i><b>11.2</b> Ejemplos de uso del ciclo while.</a></li>
+<li class="chapter" data-level="11.3" data-path="ciclo-while-.html"><a href="ciclo-while-.html#aplicaciones-con-las-declaraciones-break-y-next."><i class="fa fa-check"></i><b>11.3</b> Aplicaciones con las declaraciones Break y Next.</a></li>
+<li class="chapter" data-level="11.4" data-path="ciclo-while-.html"><a href="ciclo-while-.html#aplicación-en-la-maximización-de-beneficios-del-productor."><i class="fa fa-check"></i><b>11.4</b> Aplicación en la maximización de beneficios del productor.</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ciclo-while." class="section level1">
+<h1><span class="header-section-number">Chapter 11</span> CICLO WHILE.</h1>
+<p>En este capítulo aprenderá sobre el uso y aplicaciones del ciclo <code>while()</code>. Primero, se verá la sintaxis del ciclo, posteriormente unos ejemplos siemples y otros usando las declaraciones <code>break</code> y <code>next</code>; y en la parte final, su aplicación en economía, específicamente en la maximización de beneficios del productor.</p>
+<div id="sintaxis-del-ciclo-while." class="section level2">
+<h2><span class="header-section-number">11.1</span> Sintaxis del ciclo while.</h2>
+<p>El ciclo <code>while()</code> sirve para ejecutar una determinada expresión siempre y cuando la condición lógica sea <code>TRUE</code>, una vez que la condición lógica pasa a ser <code>FALSE</code> el ciclo finaliza. Es así que nos servirá para ejecutar expresiones secuenciales.</p>
+<p>La sintaxis del ciclo <code>while()</code> es la siguiente.</p>
+<p><code>while (cond) {expression}</code></p>
+<p>Donde <code>cond</code> es la condición lógica y <code>expression</code> es la expresión o expresiones que se ejecutarán siempre y cuando la condición lógica sea <code>TRUE</code>.</p>
+<p>Ahora veamos unos ejemplos de como usar este ciclo.</p>
+</div>
+<div id="ejemplos-de-uso-del-ciclo-while." class="section level2">
+<h2><span class="header-section-number">11.2</span> Ejemplos de uso del ciclo while.</h2>
+<p>como primer ejemplo vamos a imprimir la oración “EL objeto z vale: …” (en los 3 puntos irá el valor que toma z) siempre y cuando el objeto <code>z</code> que vale 8 sea menor que 15. Si el objeto <code>z</code> es mayor o igual que 15, entonces, se dejará de imprimir la oración. Asimismo, por cada iteración el valor de <code>z</code> se va incrementando en una unidad.</p>
+<p>Veamos como sería la sintaxis para este ejemplo.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="ciclo-while-.html#cb1-1"></a><span class="co"># Definiendo el objeto z.</span></span>
+<span id="cb1-2"><a href="ciclo-while-.html#cb1-2"></a>z&lt;-<span class="dv">8</span></span>
+<span id="cb1-3"><a href="ciclo-while-.html#cb1-3"></a></span>
+<span id="cb1-4"><a href="ciclo-while-.html#cb1-4"></a><span class="co"># Aplicando el ciclo while. </span></span>
+<span id="cb1-5"><a href="ciclo-while-.html#cb1-5"></a><span class="cf">while</span> (z<span class="op">&lt;</span><span class="dv">15</span>) {</span>
+<span id="cb1-6"><a href="ciclo-while-.html#cb1-6"></a>  <span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;El objeto z vale: &quot;</span>,z))</span>
+<span id="cb1-7"><a href="ciclo-while-.html#cb1-7"></a>  z&lt;-z<span class="op">+</span><span class="dv">1</span></span>
+<span id="cb1-8"><a href="ciclo-while-.html#cb1-8"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;El objeto z vale: 8&quot;
+## [1] &quot;El objeto z vale: 9&quot;
+## [1] &quot;El objeto z vale: 10&quot;
+## [1] &quot;El objeto z vale: 11&quot;
+## [1] &quot;El objeto z vale: 12&quot;
+## [1] &quot;El objeto z vale: 13&quot;
+## [1] &quot;El objeto z vale: 14&quot;</code></pre>
+<p>En efecto solo se ha impreso la oración hasta que el valor de <code>z</code> sea menor a 15. Pero ¿cómo sucedió? Primero, se ha creado el objeto <code>z</code> que es igual a 8, luego al crear el ciclo <code>while()</code> en la condición escribimos <code>z&lt;15</code>, por lo que para cada iteración el software evaluaba si <code>z</code> era menor a 15 y si el resultado era <code>TRUE</code> entonces ejecutaba las expresiones: <code>print(paste0("El objeto z vale: ",z))</code> y <code>z&lt;-z+1</code>. En el primer caso imprimía la oración y en el segundo sumaba 1 al valor de <code>z</code>. Entonces, al inicio <code>z</code> valía 8 entro en la condición y <code>z</code> era menor que 15 por lo que la condición era <code>TRUE</code> entonces ejecutó las expresiones: “El objeto z vale: 8” y sumó a <code>z</code> el valor de 1 con lo cual <code>z</code> pasó a valer 9. Continuó con el mismo proceso hasta que <code>z</code> fue igual a 15 en donde al probar la condición lógica <code>z&lt;15</code> resultó <code>FALSE</code> por lo que detuvo el ciclo.</p>
+<p>Gracias al ciclo <code>while()</code> se puede realizar procesos infinitos, para correr un bucle infinito solo tenemos que colocar <code>TRUE</code> en la condición lógica y ejecutará la expresión infinitas veces (esto no es al 100% porque se detendrá el proceso cuando el computador no pueda seguir ejecutando la expresión, por problemas de capacidad).</p>
+<p>A continuación se muestra la sintaxis para un bucle infinito, que imprima infinitas veces la oración “Detenme por favor”. Le recomendamos no correr esta sintaxis, pero si lo hace, para cancelar el bucle solo tiene que presionar la tecla “esc” (escape) en su computador.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="ciclo-while-.html#cb3-1"></a><span class="co"># Creando el bucle infinito.</span></span>
+<span id="cb3-2"><a href="ciclo-while-.html#cb3-2"></a><span class="cf">while</span> (<span class="ot">TRUE</span>) {</span>
+<span id="cb3-3"><a href="ciclo-while-.html#cb3-3"></a>  <span class="kw">print</span>(<span class="st">&quot;Detenme por favor&quot;</span>)</span>
+<span id="cb3-4"><a href="ciclo-while-.html#cb3-4"></a>}</span></code></pre></div>
+<p>Si usted lo ejecuta, verá que se imprime la oración “Detenme por favor” muchas veces hasta que usted detiene el proceso. Pero ¿Cómo sucedio? Primero, lo que hemos hecho es colocar <code>TRUE</code> en la condición, lo cual hace que la condición lógica siempre sea <code>TRUE</code> por lo que el ciclo <code>while()</code> no se detendrá, entonces, al ser <code>TRUE</code> la condición ejecutará la expresión <code>print("Detenme por favor")</code> hasta que usted lo detenga.</p>
+<p>Ahora veremos un ejemplo usando elementos aleatorios. Vamos a definir el objeto <code>x</code> y con valor igual a 7, a este objeto se le irá sumando aleatoriamente <code>+1</code> o <code>-1</code> y se realizará este proceso hasta siempre y cuando el objeto <code>x</code> sea mayor igual que 0 y menor igual a 15. Y como último paso graficamos los valores que ha tomado <code>x</code> hasta que la condición lógica sea <code>FALSE</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="ciclo-while-.html#cb4-1"></a><span class="co"># Creando el objeto x.</span></span>
+<span id="cb4-2"><a href="ciclo-while-.html#cb4-2"></a>x&lt;-<span class="dv">7</span></span>
+<span id="cb4-3"><a href="ciclo-while-.html#cb4-3"></a></span>
+<span id="cb4-4"><a href="ciclo-while-.html#cb4-4"></a><span class="co"># Creando el vector y.</span></span>
+<span id="cb4-5"><a href="ciclo-while-.html#cb4-5"></a>y&lt;-<span class="kw">c</span>()</span>
+<span id="cb4-6"><a href="ciclo-while-.html#cb4-6"></a></span>
+<span id="cb4-7"><a href="ciclo-while-.html#cb4-7"></a><span class="co"># El ciclo while.</span></span>
+<span id="cb4-8"><a href="ciclo-while-.html#cb4-8"></a><span class="cf">while</span> (x<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x<span class="op">&lt;=</span><span class="dv">15</span>) {</span>
+<span id="cb4-9"><a href="ciclo-while-.html#cb4-9"></a>  x&lt;-x<span class="op">+</span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>), <span class="dv">1</span>)</span>
+<span id="cb4-10"><a href="ciclo-while-.html#cb4-10"></a>  y&lt;-<span class="kw">c</span>(y,x)</span>
+<span id="cb4-11"><a href="ciclo-while-.html#cb4-11"></a>}</span>
+<span id="cb4-12"><a href="ciclo-while-.html#cb4-12"></a></span>
+<span id="cb4-13"><a href="ciclo-while-.html#cb4-13"></a><span class="co"># Viendo el último valor que toma x</span></span>
+<span id="cb4-14"><a href="ciclo-while-.html#cb4-14"></a>x</span></code></pre></div>
+<pre><code>## [1] -1</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="ciclo-while-.html#cb6-1"></a><span class="co"># Por último graficamos los valores que ha tomado x.</span></span>
+<span id="cb6-2"><a href="ciclo-while-.html#cb6-2"></a><span class="kw">plot</span>(y, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Lo que hemos construido es una caminata aleatoria (random walk), y el gráfico lo representa de una manera muy clara. Expliquemos lo que se ha realizado. Primero, se ha creado el objeto <code>x</code> que es igual a 7 y el objeto <code>y</code> que es un vector vacío (Estamos creando este vector porque ahí se guardarán los valores que tomará x). Luego, contruimos el <code>while()</code>, en la condición colocamos las condiciones lógicas <code>x&gt;=0 &amp; x&lt;=15</code>, entonces, mientras <code>x</code> cumpla esas condiciones se ejecutarán las expresiones <code>x&lt;-x+sample(c(-1,1), size = 1)</code> y <code>y&lt;-c(y,x)</code>. La primera expresión es la caminata aleatoria, ya que tenemos un valor inicial determinado (<code>x==7</code>) y un proceso aleatorio (<code>sample(c(-1,1), 1)</code>)<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. Entonces, cada vez que se ejecuta las expresiones se suma un valor igual a +1 o -1 a <code>x</code> y esto se guarda en el objeto <code>y</code>. El ciclo continuará hasta que x no cumpla la condición lógica.</p>
+<p>Asimismo, vemos que se detiene el ciclo, porque <code>x</code> ya no cumple la condición lógica, ya que <code>x</code> es igual a -1. Por último estamos graficando el vector <code>y</code>, ya que en ese vector se han guardado los distintos valores que toma <code>x</code>. Para esto usamos la función <code>plot()</code> que se verá más a detalle en capítulos posteriores.</p>
+<p>Ahora, veamos un ejemplo similar, pero ahora tendremos dos objetos, el objeto <code>m</code> y el objeto <code>p</code> que valdrán 4 cada uno. A estos objetos se les sumará <code>+1</code> o <code>-1</code> hasta que <code>m</code> sea mayor igual que 0 o <code>p</code> sea menor igual que 10. Y como último paso graficamos los valores que ha tomado <code>m</code> y <code>p</code>.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="ciclo-while-.html#cb7-1"></a><span class="co"># Definiendo los objetos m y p.</span></span>
+<span id="cb7-2"><a href="ciclo-while-.html#cb7-2"></a>m&lt;-<span class="dv">4</span></span>
+<span id="cb7-3"><a href="ciclo-while-.html#cb7-3"></a>p&lt;-<span class="dv">4</span></span>
+<span id="cb7-4"><a href="ciclo-while-.html#cb7-4"></a></span>
+<span id="cb7-5"><a href="ciclo-while-.html#cb7-5"></a><span class="co"># Definiendo los objetos en donde se guardarán los resultados.</span></span>
+<span id="cb7-6"><a href="ciclo-while-.html#cb7-6"></a>m_g&lt;-<span class="kw">c</span>()</span>
+<span id="cb7-7"><a href="ciclo-while-.html#cb7-7"></a>p_g&lt;-<span class="kw">c</span>()</span>
+<span id="cb7-8"><a href="ciclo-while-.html#cb7-8"></a></span>
+<span id="cb7-9"><a href="ciclo-while-.html#cb7-9"></a><span class="co"># El ciclo while.</span></span>
+<span id="cb7-10"><a href="ciclo-while-.html#cb7-10"></a><span class="cf">while</span> (m<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">|</span><span class="st"> </span>p<span class="op">&lt;=</span><span class="dv">10</span>) {</span>
+<span id="cb7-11"><a href="ciclo-while-.html#cb7-11"></a>  m&lt;-m<span class="op">+</span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>), <span class="dv">1</span>)</span>
+<span id="cb7-12"><a href="ciclo-while-.html#cb7-12"></a>  p&lt;-p<span class="op">+</span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>), <span class="dv">1</span>)</span>
+<span id="cb7-13"><a href="ciclo-while-.html#cb7-13"></a>  m_g&lt;-<span class="kw">c</span>(m_g,m)</span>
+<span id="cb7-14"><a href="ciclo-while-.html#cb7-14"></a>  p_g&lt;-<span class="kw">c</span>(p_g,p)</span>
+<span id="cb7-15"><a href="ciclo-while-.html#cb7-15"></a>}</span>
+<span id="cb7-16"><a href="ciclo-while-.html#cb7-16"></a></span>
+<span id="cb7-17"><a href="ciclo-while-.html#cb7-17"></a><span class="co"># Los valores finales que toman m y p.</span></span>
+<span id="cb7-18"><a href="ciclo-while-.html#cb7-18"></a>m</span></code></pre></div>
+<pre><code>## [1] -3</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="ciclo-while-.html#cb9-1"></a>p</span></code></pre></div>
+<pre><code>## [1] 11</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="ciclo-while-.html#cb11-1"></a><span class="co"># Graficando la trayectoria de m y p.</span></span>
+<span id="cb11-2"><a href="ciclo-while-.html#cb11-2"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb11-3"><a href="ciclo-while-.html#cb11-3"></a></span>
+<span id="cb11-4"><a href="ciclo-while-.html#cb11-4"></a>df&lt;-<span class="kw">data.frame</span>(m_g,p_g)</span>
+<span id="cb11-5"><a href="ciclo-while-.html#cb11-5"></a>df<span class="op">$</span>n&lt;-<span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(df<span class="op">$</span>m_g)</span>
+<span id="cb11-6"><a href="ciclo-while-.html#cb11-6"></a></span>
+<span id="cb11-7"><a href="ciclo-while-.html#cb11-7"></a><span class="kw">ggplot</span>(df,<span class="kw">aes</span>(<span class="dt">x=</span>n,<span class="dt">y=</span>m_g, <span class="dt">color=</span><span class="st">&quot;m_g&quot;</span>))<span class="op">+</span></span>
+<span id="cb11-8"><a href="ciclo-while-.html#cb11-8"></a><span class="st">  </span><span class="kw">geom_line</span>()<span class="op">+</span></span>
+<span id="cb11-9"><a href="ciclo-while-.html#cb11-9"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y=</span>p_g, <span class="dt">color=</span><span class="st">&quot;p_g&quot;</span>))<span class="op">+</span></span>
+<span id="cb11-10"><a href="ciclo-while-.html#cb11-10"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Veces que se ejecutó el ciclo while&quot;</span>,</span>
+<span id="cb11-11"><a href="ciclo-while-.html#cb11-11"></a>       <span class="dt">y=</span><span class="st">&quot;Trayectoria&quot;</span>)<span class="op">+</span></span>
+<span id="cb11-12"><a href="ciclo-while-.html#cb11-12"></a><span class="st">  </span><span class="kw">theme_bw</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Igual que en el ejemplo anterior hemos creado 2 caminatas aleatorias, la diferencia es que ahora en la condición lógica se especificó el operador o <code>|</code> con lo cual para que la condición sea <code>FALSE</code> los dos objetos tenían que estar fuera de la condición, por un lado <code>m</code> tenía que ser menor que 0 y a la vez <code>p</code> tenía que ser mayor que 8. Esto se comprueba, ya que <code>m</code> cuando se detuvo el ciclo vale -3 y <code>p</code> vale 11.</p>
+<p>Por último, estamos graficando las trayectorias pero en este caso estamos usando el paquete <code>ggplot2</code>, el uso de este paquete también se desarrollará en capítulos posteriores. Por el momento, es suficiente si se ha llegado a comprender el uso del ciclo <code>while()</code>.</p>
+<p>Recuerde que cuando usted replique este ejemplo y el anterior obtendrá resultados distintos, y por ende, gráficos distintos ya que estamos ejecutando procesos aleatorios.</p>
+</div>
+<div id="aplicaciones-con-las-declaraciones-break-y-next." class="section level2">
+<h2><span class="header-section-number">11.3</span> Aplicaciones con las declaraciones Break y Next.</h2>
+<p>Las declaraciones <code>break</code> y <code>next</code> cumplen el mismo rol que se explicó en la capítulo anterior. Es así que si deseamos detener el ciclo <code>while()</code> por más que la condición lógica sea <code>TRUE</code> tendremos que usar <code>break</code> y si deseamos saltar una iteración, entonces usaremos la declaración <code>next</code>.</p>
+<p>Veamos primero un ejemplo de como usar la declaración <code>break</code>. Vamos a crear una ecuación de segundo grado y vamos asignar valores continuamente hasta que se encuentre una de las raíces. Como no sabemos en que rango se encontrará la raíz, entonces haremos un bucle infinito y se detendrá cuando encuentre la solución.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="ciclo-while-.html#cb12-1"></a><span class="co"># La ecuación a encontrar solución.</span></span>
+<span id="cb12-2"><a href="ciclo-while-.html#cb12-2"></a><span class="co"># x^2+2*x-3=0</span></span>
+<span id="cb12-3"><a href="ciclo-while-.html#cb12-3"></a></span>
+<span id="cb12-4"><a href="ciclo-while-.html#cb12-4"></a><span class="co"># EL ciclo while.</span></span>
+<span id="cb12-5"><a href="ciclo-while-.html#cb12-5"></a>x&lt;-<span class="dv">0</span></span>
+<span id="cb12-6"><a href="ciclo-while-.html#cb12-6"></a><span class="cf">while</span> (<span class="ot">TRUE</span>) {</span>
+<span id="cb12-7"><a href="ciclo-while-.html#cb12-7"></a>  y&lt;-x<span class="op">**</span><span class="dv">2</span><span class="op">+</span><span class="dv">2</span><span class="op">*</span>x</span>
+<span id="cb12-8"><a href="ciclo-while-.html#cb12-8"></a>  <span class="cf">if</span>(<span class="kw">round</span>(y,<span class="dv">3</span>)<span class="op">==</span><span class="dv">3</span>){</span>
+<span id="cb12-9"><a href="ciclo-while-.html#cb12-9"></a>    <span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;La raíz o solución de la ecuación es: &quot;</span>, x))</span>
+<span id="cb12-10"><a href="ciclo-while-.html#cb12-10"></a>    <span class="cf">break</span></span>
+<span id="cb12-11"><a href="ciclo-while-.html#cb12-11"></a>  }</span>
+<span id="cb12-12"><a href="ciclo-while-.html#cb12-12"></a>  x&lt;-x<span class="fl">+0.001</span></span>
+<span id="cb12-13"><a href="ciclo-while-.html#cb12-13"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;La raíz o solución de la ecuación es: 1&quot;</code></pre>
+<p>Nos arroja <code>"La raíz o solución de la ecuación es: 1"</code> y en efecto es 1. Es fácil comprobar por el método de factorización por aspa simple que las raíces son 1 y -3. Pero ¿Qué se hizo? Primero se definió el objeto <code>x</code> igual a 0. Posteriormente en la condicional del ciclo se colocó <code>TRUE</code> por lo que el bucle es infinito, por lo que ejecutará <code>y&lt;-x**2+2*x</code> y se detendrá cuando el valor aproximado hasta las milésimas sea igual a 3, si eso esucede entonces imprimirá “La raíz o solución de la ecuación es: …” y se detendrá el ciclo, pero si no es así entonces, al valor de <code>x</code> le irá sumando 0.001 en cada iteración. Es así que cuando x fue igual a 1 el valor de <code>y</code> fue 3. Por lo que se detuvo el ciclo.</p>
+<p>Estoy seguro que usted se esté preguntando ¿tengo que hacer todo eso para saber las raíces de las ecuaciones? ¿Y si no sé desde dónde parte? ¿Y si le sumo a x valores más pequeños? Y otras dudas. Déjeme decirle que este sólo era un ejemplo de uso del ciclo <code>while()</code> con la declaración <code>break</code> y por eso fue programado de esa forma, pero si su interés es calcular las raíces de las ecuaciones cuadráticas o de mayor exponente, hay otras formas más eficientes de obtenerlo. Para una muestra se deja a continuación el siguiente código que resuelve el mismo problema.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="ciclo-while-.html#cb14-1"></a><span class="co"># Método sencillo para calcular las raíces de ecuaciones.</span></span>
+<span id="cb14-2"><a href="ciclo-while-.html#cb14-2"></a><span class="kw">as.numeric</span>(<span class="kw">polyroot</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">1</span>)))</span></code></pre></div>
+<pre><code>## [1]  1 -3</code></pre>
+<p>Y en efecto nos resulta 1, -3. ¿Le pareció interesante? Estoy seguro que sí, pero no coma ansias este tipo de soluciones y otras se verán en capítulos posteriores.</p>
+<p>Ahora veamos un ejemplo en donde se use la declaración <code>next</code>, vamos a sumarle 1000 a cada uno de los elementos del vector <code>t</code>, pero si estos elementos son múltiplos de 5 no se les sumará nada.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="ciclo-while-.html#cb16-1"></a><span class="co"># Definiendo el vector t.</span></span>
+<span id="cb16-2"><a href="ciclo-while-.html#cb16-2"></a><span class="kw">set.seed</span>(<span class="dv">2021</span>)</span>
+<span id="cb16-3"><a href="ciclo-while-.html#cb16-3"></a>t&lt;-<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">50</span>, <span class="dv">20</span>)</span>
+<span id="cb16-4"><a href="ciclo-while-.html#cb16-4"></a>t</span></code></pre></div>
+<pre><code>##  [1]  7 38 46 39 12  6 49 44  5 47 23 48 18  3 26 22 31 19  4 21</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="ciclo-while-.html#cb18-1"></a><span class="co"># El ciclo while.</span></span>
+<span id="cb18-2"><a href="ciclo-while-.html#cb18-2"></a>r&lt;-<span class="dv">0</span></span>
+<span id="cb18-3"><a href="ciclo-while-.html#cb18-3"></a><span class="cf">while</span>(r<span class="op">&lt;=</span><span class="kw">length</span>(t)<span class="op">-</span><span class="dv">1</span>){</span>
+<span id="cb18-4"><a href="ciclo-while-.html#cb18-4"></a>  r&lt;-r<span class="op">+</span><span class="dv">1</span></span>
+<span id="cb18-5"><a href="ciclo-while-.html#cb18-5"></a>  <span class="cf">if</span>(t[r]<span class="op">%%</span><span class="dv">5</span><span class="op">==</span><span class="dv">0</span>){</span>
+<span id="cb18-6"><a href="ciclo-while-.html#cb18-6"></a>    <span class="cf">next</span></span>
+<span id="cb18-7"><a href="ciclo-while-.html#cb18-7"></a>  } <span class="cf">else</span>{</span>
+<span id="cb18-8"><a href="ciclo-while-.html#cb18-8"></a>    t[r]&lt;-t[r]<span class="op">+</span><span class="dv">1000</span></span>
+<span id="cb18-9"><a href="ciclo-while-.html#cb18-9"></a>  }</span>
+<span id="cb18-10"><a href="ciclo-while-.html#cb18-10"></a>}</span>
+<span id="cb18-11"><a href="ciclo-while-.html#cb18-11"></a></span>
+<span id="cb18-12"><a href="ciclo-while-.html#cb18-12"></a><span class="co"># Cómo quedó el vector t?</span></span>
+<span id="cb18-13"><a href="ciclo-while-.html#cb18-13"></a>t</span></code></pre></div>
+<pre><code>##  [1] 1007 1038 1046 1039 1012 1006 1049 1044    5 1047 1023 1048 1018 1003 1026
+## [16] 1022 1031 1019 1004 1021</code></pre>
+<p>Y en efecto, solo los números que no son múltiplo de 5 se les ha sumado 1000. Pero ¿Cómo sucedió? Primero creamos el vector <code>t</code> que tiene 20 elementos aleatorios. Luego creamos el objeto <code>r</code> igual a 0, este objeto nos permitirá hacer el recorrido por todos los elementos del vector <code>t</code>, será como el iterador. Luego en la condicional <code>r&lt;=length(t)-1</code> le indicamos al software que ejecute las expresiones siempre y cuando el valor de <code>r</code> sea menor o igual al tamaño del vector <code>t</code> menos 1. Entonces, sí el elemento es múltiplo de 5 <code>t[r]%%5==0</code> pasará a la siguiente iteración, sino es así le sumará 100.</p>
+</div>
+<div id="aplicación-en-la-maximización-de-beneficios-del-productor." class="section level2">
+<h2><span class="header-section-number">11.4</span> Aplicación en la maximización de beneficios del productor.</h2>
+<p>Ahora, veamos una aplicación a la economía, específicamente en la teoría de la empresa. Vamos a maximizar los beneficios del productor, para esto tenemos que recordar que los productores maximizan sus beneficios cuando los ingresos marginales son iguales a los costos marginales.</p>
+<p>Sabemos que la función de precios del productor viene determinada por:
+<span class="math display">\[P=600-4Q\]</span>
+Y la función de costos totales por:
+<span class="math display">\[CT=Q^2+8000\]</span></p>
+<p>El productor actualmente está produciendo 10 unidades y quiere saber cómo sería la trayectoria de las utilidades si produciría hasta una cantidad de 100, asimismo desea saber cuál es la producción que maximiza sus beneficios, así como sus ingresos y costos totales en ese nivel de producción.</p>
+<p>Para resolverlo tenemos que recordar que si la diferencia entre el ingreso marginal y el costo marginal es cero entonces el productor está maximizando la utilidad, entonces, como primer paso debemos de calcular el ingreso marginal y el costo marginal.</p>
+<p>Calculando el ingreso marginal.</p>
+<p><span class="math display">\[IT=P*Q  ----&gt;IT=(600-4Q)Q\]</span>
+<span class="math display">\[IT=600Q-4Q^2\]</span>
+<span class="math display">\[IMg=600-8Q\]</span></p>
+<p>Calculando el costo marginal.</p>
+<p><span class="math display">\[CT=Q^2+8000\]</span>
+<span class="math display">\[CMg=2Q\]</span></p>
+<p>Una vez que tenemos los ingresos y costos marginales. Procedemos a calcular lo que se pide en el ejercicio.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="ciclo-while-.html#cb20-1"></a>produccion&lt;-<span class="dv">10</span></span>
+<span id="cb20-2"><a href="ciclo-while-.html#cb20-2"></a>beneficios&lt;-<span class="kw">c</span>()</span>
+<span id="cb20-3"><a href="ciclo-while-.html#cb20-3"></a></span>
+<span id="cb20-4"><a href="ciclo-while-.html#cb20-4"></a><span class="cf">while</span> (produccion<span class="op">&lt;=</span><span class="dv">110</span>) {</span>
+<span id="cb20-5"><a href="ciclo-while-.html#cb20-5"></a>  IMg&lt;-<span class="dv">600-8</span><span class="op">*</span>produccion</span>
+<span id="cb20-6"><a href="ciclo-while-.html#cb20-6"></a>  CMg&lt;-<span class="dv">2</span><span class="op">*</span>produccion</span>
+<span id="cb20-7"><a href="ciclo-while-.html#cb20-7"></a>  IT&lt;-<span class="dv">600</span><span class="op">*</span>produccion<span class="dv">-4</span><span class="op">*</span>produccion<span class="op">^</span><span class="dv">2</span></span>
+<span id="cb20-8"><a href="ciclo-while-.html#cb20-8"></a>  CT&lt;-produccion<span class="op">^</span><span class="dv">2</span><span class="op">+</span><span class="dv">8000</span></span>
+<span id="cb20-9"><a href="ciclo-while-.html#cb20-9"></a>  beneficios&lt;-<span class="kw">c</span>(beneficios,IT<span class="op">-</span>CT)</span>
+<span id="cb20-10"><a href="ciclo-while-.html#cb20-10"></a>  <span class="cf">if</span>(IMg<span class="op">-</span>CMg<span class="op">==</span><span class="dv">0</span>){</span>
+<span id="cb20-11"><a href="ciclo-while-.html#cb20-11"></a>    <span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;La producción máxima se alcanza cuando se produce: &quot;</span>,</span>
+<span id="cb20-12"><a href="ciclo-while-.html#cb20-12"></a>                 produccion,<span class="st">&quot; unidades&quot;</span>))</span>
+<span id="cb20-13"><a href="ciclo-while-.html#cb20-13"></a>  }</span>
+<span id="cb20-14"><a href="ciclo-while-.html#cb20-14"></a>  produccion&lt;-produccion<span class="op">+</span><span class="dv">1</span></span>
+<span id="cb20-15"><a href="ciclo-while-.html#cb20-15"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;La producción máxima se alcanza cuando se produce: 60 unidades&quot;</code></pre>
+<p>El software nos indica que la producción que maximiza los beneficios es de 60 unidades producidas. Podemos graficar este resultado.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="ciclo-while-.html#cb22-1"></a>df&lt;-<span class="kw">data.frame</span>(<span class="dt">produccion=</span><span class="dv">10</span><span class="op">:</span><span class="dv">110</span>,</span>
+<span id="cb22-2"><a href="ciclo-while-.html#cb22-2"></a>               <span class="dt">beneficios=</span>beneficios)</span>
+<span id="cb22-3"><a href="ciclo-while-.html#cb22-3"></a></span>
+<span id="cb22-4"><a href="ciclo-while-.html#cb22-4"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb22-5"><a href="ciclo-while-.html#cb22-5"></a><span class="kw">library</span>(ggrepel)</span>
+<span id="cb22-6"><a href="ciclo-while-.html#cb22-6"></a></span>
+<span id="cb22-7"><a href="ciclo-while-.html#cb22-7"></a><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x=</span>produccion,<span class="dt">y=</span>beneficios))<span class="op">+</span></span>
+<span id="cb22-8"><a href="ciclo-while-.html#cb22-8"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size=</span><span class="fl">1.3</span>)<span class="op">+</span></span>
+<span id="cb22-9"><a href="ciclo-while-.html#cb22-9"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">10</span>,<span class="dv">110</span>,<span class="dv">10</span>))<span class="op">+</span></span>
+<span id="cb22-10"><a href="ciclo-while-.html#cb22-10"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="kw">min</span>(beneficios),<span class="kw">max</span>(beneficios),<span class="dv">1000</span>))<span class="op">+</span></span>
+<span id="cb22-11"><a href="ciclo-while-.html#cb22-11"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="dv">60</span>, <span class="dt">color=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
+<span id="cb22-12"><a href="ciclo-while-.html#cb22-12"></a><span class="st">  </span><span class="kw">geom_label</span>(<span class="dt">x=</span><span class="dv">70</span>, <span class="dt">y=</span><span class="kw">max</span>(beneficios)<span class="op">-</span><span class="dv">500</span>,<span class="dt">label=</span><span class="st">&quot;Máximo</span><span class="ch">\n</span><span class="st">Beneficio&quot;</span>)<span class="op">+</span></span>
+<span id="cb22-13"><a href="ciclo-while-.html#cb22-13"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">x=</span><span class="dv">60</span>,<span class="dt">y=</span><span class="kw">max</span>(beneficios), <span class="dt">size=</span><span class="dv">5</span>, <span class="dt">color=</span><span class="st">&quot;blue&quot;</span>)<span class="op">+</span></span>
+<span id="cb22-14"><a href="ciclo-while-.html#cb22-14"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;MAXIMIZACIÓN DE BENEFICIOS DEL PRODUCTOR&quot;</span>)<span class="op">+</span></span>
+<span id="cb22-15"><a href="ciclo-while-.html#cb22-15"></a><span class="st">  </span><span class="kw">theme_bw</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>Se puede apreciar que el máximo beneficio se alcanza con la producción de 60 unidades.</p>
+<p>Al igual que la vez anterior, el gráfico se hizo con <code>ggplot2</code>, que se verá en capítulos posteriores.</p>
+<p>Ahora, para calcular los ingresos y costos totales que maximizan el beneficio podemos correr lo mismo pero solo agregamos un <code>brake</code> cuando el IMg es igual al CMg.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="ciclo-while-.html#cb23-1"></a>produccion&lt;-<span class="dv">10</span></span>
+<span id="cb23-2"><a href="ciclo-while-.html#cb23-2"></a>beneficios&lt;-<span class="kw">c</span>()</span>
+<span id="cb23-3"><a href="ciclo-while-.html#cb23-3"></a></span>
+<span id="cb23-4"><a href="ciclo-while-.html#cb23-4"></a><span class="cf">while</span> (produccion<span class="op">&lt;=</span><span class="dv">110</span>) {</span>
+<span id="cb23-5"><a href="ciclo-while-.html#cb23-5"></a>  IMg&lt;-<span class="dv">600-8</span><span class="op">*</span>produccion</span>
+<span id="cb23-6"><a href="ciclo-while-.html#cb23-6"></a>  CMg&lt;-<span class="dv">2</span><span class="op">*</span>produccion</span>
+<span id="cb23-7"><a href="ciclo-while-.html#cb23-7"></a>  IT&lt;-<span class="dv">600</span><span class="op">*</span>produccion<span class="dv">-4</span><span class="op">*</span>produccion<span class="op">^</span><span class="dv">2</span></span>
+<span id="cb23-8"><a href="ciclo-while-.html#cb23-8"></a>  CT&lt;-produccion<span class="op">^</span><span class="dv">2</span><span class="op">+</span><span class="dv">8000</span></span>
+<span id="cb23-9"><a href="ciclo-while-.html#cb23-9"></a>  beneficios&lt;-<span class="kw">c</span>(beneficios,IT<span class="op">-</span>CT)</span>
+<span id="cb23-10"><a href="ciclo-while-.html#cb23-10"></a>  <span class="cf">if</span>(IMg<span class="op">-</span>CMg<span class="op">==</span><span class="dv">0</span>){</span>
+<span id="cb23-11"><a href="ciclo-while-.html#cb23-11"></a>    <span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;La producción máxima se alcanza cuando se produce: &quot;</span>,</span>
+<span id="cb23-12"><a href="ciclo-while-.html#cb23-12"></a>                 produccion,<span class="st">&quot; unidades&quot;</span>))</span>
+<span id="cb23-13"><a href="ciclo-while-.html#cb23-13"></a>    <span class="cf">break</span></span>
+<span id="cb23-14"><a href="ciclo-while-.html#cb23-14"></a>  }</span>
+<span id="cb23-15"><a href="ciclo-while-.html#cb23-15"></a>  produccion&lt;-produccion<span class="op">+</span><span class="dv">1</span></span>
+<span id="cb23-16"><a href="ciclo-while-.html#cb23-16"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;La producción máxima se alcanza cuando se produce: 60 unidades&quot;</code></pre>
+<p>Lo que nos resulta en los montos de ingresos y costos totales cuando se alcanza la maximización de beneficios.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="ciclo-while-.html#cb25-1"></a><span class="co"># Ingresos totales. </span></span>
+<span id="cb25-2"><a href="ciclo-while-.html#cb25-2"></a>IT</span></code></pre></div>
+<pre><code>## [1] 21600</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="ciclo-while-.html#cb27-1"></a><span class="co"># Costos Totales.</span></span>
+<span id="cb27-2"><a href="ciclo-while-.html#cb27-2"></a>CT</span></code></pre></div>
+<pre><code>## [1] 11600</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="ciclo-while-.html#cb29-1"></a><span class="co"># Beneficio total.</span></span>
+<span id="cb29-2"><a href="ciclo-while-.html#cb29-2"></a>beneficios[<span class="kw">length</span>(beneficios)]</span></code></pre></div>
+<pre><code>## [1] 10000</code></pre>
+<p>Por último, solo como un aperitivo para lo que vendrá en los siguientes capítulos. Es posible que usted haya olvidado derivar o su función de costo o ingresos es muy complicada de derivar. No se preocupe que el software R también deriva e integra.</p>
+<p>Para el ejercicio, si no sabriamos derivar, no sabríamos como se calcula el ingreso marginal y el costo marginal, entonces se lo dejaríamos al software.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="ciclo-while-.html#cb31-1"></a><span class="co"># Para calcular el ingreso marginal.</span></span>
+<span id="cb31-2"><a href="ciclo-while-.html#cb31-2"></a>IT&lt;-<span class="kw">expression</span>(<span class="dv">600</span><span class="op">*</span>Q<span class="dv">-4</span><span class="op">*</span>Q<span class="op">^</span><span class="dv">2</span>)</span>
+<span id="cb31-3"><a href="ciclo-while-.html#cb31-3"></a></span>
+<span id="cb31-4"><a href="ciclo-while-.html#cb31-4"></a><span class="co"># Derivando.</span></span>
+<span id="cb31-5"><a href="ciclo-while-.html#cb31-5"></a><span class="kw">D</span>(IT,<span class="st">&quot;Q&quot;</span>)</span></code></pre></div>
+<pre><code>## 600 - 4 * (2 * Q)</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="ciclo-while-.html#cb33-1"></a><span class="co"># Para calcular el costo marginal.</span></span>
+<span id="cb33-2"><a href="ciclo-while-.html#cb33-2"></a>CT&lt;-<span class="kw">expression</span>(Q<span class="op">^</span><span class="dv">2</span><span class="op">+</span><span class="dv">8000</span>)</span>
+<span id="cb33-3"><a href="ciclo-while-.html#cb33-3"></a></span>
+<span id="cb33-4"><a href="ciclo-while-.html#cb33-4"></a><span class="co"># Derivando.</span></span>
+<span id="cb33-5"><a href="ciclo-while-.html#cb33-5"></a><span class="kw">D</span>(CT,<span class="st">&quot;Q&quot;</span>)</span></code></pre></div>
+<pre><code>## 2 * Q</code></pre>
+<p>Si usted regresa líneas atrás podrá darse cuenta que esos son los valores que se usaron para el ingreso y costo marginal. Igualmente, por el momento es suficiente con que quede claro el uso del ciclo <code>while()</code> en capítulos posteriores se mostrará como derivar e integrar para hacer los procesos más automáticos.</p>
+<p>En el siguiente capítulo veremos el tema de data frame. Uno de los objetos primordiales cuando se desea trabajar con datos.</p>
+
+</div>
+</div>
+
+
+
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Si usted no comprende esta sintaxis, le recomendamos revisar el capítulo de vectores aleatorios o buscar cuales son los argumentos de la función <code>sample()</code>.<a href="ciclo-while-.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="loop-for-e-if-else-para-más-de-un-elemento-.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/CesarAHN/R_para_economistas/edit/master/11-Ciclo-while-en-R.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/CesarAHN/R_para_economistas/blob/master/11-Ciclo-while-en-R.Rmd",
+"text": null
+},
+"download": ["bookdownproj.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
