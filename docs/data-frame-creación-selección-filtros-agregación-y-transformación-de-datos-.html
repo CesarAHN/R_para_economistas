@@ -24,7 +24,7 @@
 <meta name="author" content="César Anderson Huamaní Ninahuanca" />
 
 
-<meta name="date" content="2021-07-13" />
+<meta name="date" content="2021-07-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -243,7 +243,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="12.3" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html#filtro-de-filas."><i class="fa fa-check"></i><b>12.3</b> Filtro de filas.</a><ul>
 <li class="chapter" data-level="12.3.1" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html#usando-r-base."><i class="fa fa-check"></i><b>12.3.1</b> Usando R base.</a></li>
+<li class="chapter" data-level="12.3.2" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html#dplyr---usando-la-función-filter."><i class="fa fa-check"></i><b>12.3.2</b> Dplyr - Usando la función filter.</a></li>
+<li class="chapter" data-level="12.3.3" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html#filtrando-usando-la-función-subset-de-r-base."><i class="fa fa-check"></i><b>12.3.3</b> Filtrando usando la función subset de R base.</a></li>
 </ul></li>
+<li class="chapter" data-level="12.4" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html#filtrando-y-seleccionado-columnas."><i class="fa fa-check"></i><b>12.4</b> filtrando y seleccionado columnas.</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -819,10 +822,180 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Al igual que anteriormente, el filtro de filas puede hacerse por medio de R base o usando el paquete <code>dplyr</code><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>.</p>
 <div id="usando-r-base." class="section level3">
 <h3><span class="header-section-number">12.3.1</span> Usando R base.</h3>
+<p>En R base, si deseamos llamar a una columna en específico, entonces usaremos el operador <code>$</code><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>, es así que para llamar a una columna primero se llamará al data frame y con el <code>$</code> se llamará a la columna. Posteriormente se indicará la condición lógica para filtrar las filas y por último todo esto se asignará al data frame para que nos arroje los resultados.</p>
+<p>Por ejemplo, si solo deseamos quedarnos con los individuos de género masculino, entonces usaremos la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html#cb58-1"></a><span class="co"># Quedándonos solo con los individuos de género masculino.</span></span>
+<span id="cb58-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html#cb58-2"></a>df[df<span class="op">$</span>GENERO<span class="op">==</span><span class="st">&quot;Masculino&quot;</span>,]</span></code></pre></div>
+<pre><code>##    EDAD    GENERO ingresos   raza material_casa EXPERIENCIA num_hijos
+## 2    15 Masculino     2144 blanco         noble           6         4
+## 3    23 Masculino     2822  negro       rustica          10         4
+## 8    15 Masculino     3202 blanco         noble           0         4
+## 9    15 Masculino     2527 blanco         noble          12         4
+## 11   14 Masculino     4440 blanco         noble          13         4
+## 13   16 Masculino     3981 blanco         noble          13         4
+## 16   28 Masculino     2486  negro         noble          13         2
+## 17   27 Masculino     2745  negro         noble          12         0
+## 19   23 Masculino     4602  negro       rustica          15         2
+## 21   13 Masculino     4051 blanco         noble          10         3
+## 26   13 Masculino     1509 blanco         noble           1         4
+## 27   30 Masculino     4829  negro         noble           2         0
+## 29   18 Masculino     1789 blanco         noble           6         1</code></pre>
+<p>En efecto, hemos filtrado a las filas que son del género “Masculino”. Pero ¿Cómo lo hemos hecho? Primero llamamos a la columna <code>GENERO</code> con la sintaxis <code>df$GENERO</code> luego indicamos la condición lógica que nos filtre solo los de genero “Masculino”, esto se logra con <code>df$GENERO=="Masculino"</code>, posteriormente colocamos esta sintaxis dentro de data frame <code>df</code> y al final colocamos la <code>,</code> a lo que nos queda <code>df[df$GENERO=="Masculino",]</code>. ¿Por qué colocamos la coma <code>,</code> al final? Porque estamos filtrando por filas, recuerde que sintaxis antes de la como significa filtrar filas y sintaxis luego de la como significa selección columnas.</p>
+<p>Veamos un ejemplo adicional para que quede un poco más claro. Ahora vamos a filtrar a los individuos que tienen una experiencia mayor a 5 años.</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html#cb60-1"></a><span class="co"># Filtrando individuos que tienen una experiencia mayor a 5 años.</span></span>
+<span id="cb60-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html#cb60-2"></a>df[df<span class="op">$</span>EXPERIENCIA<span class="op">&gt;</span><span class="dv">5</span>,]</span></code></pre></div>
+<pre><code>##    EDAD    GENERO ingresos   raza material_casa EXPERIENCIA num_hijos
+## 1    16  Femenino     1680  negro         noble          15         1
+## 2    15 Masculino     2144 blanco         noble           6         4
+## 3    23 Masculino     2822  negro       rustica          10         4
+## 4    16  Femenino     3558 blanco       rustica          12         4
+## 9    15 Masculino     2527 blanco         noble          12         4
+## 11   14 Masculino     4440 blanco         noble          13         4
+## 13   16 Masculino     3981 blanco         noble          13         4
+## 14   18  Femenino     1621 blanco       rustica           6         4
+## 15   21  Femenino     4197 blanco       rustica          15         2
+## 16   28 Masculino     2486  negro         noble          13         2
+## 17   27 Masculino     2745  negro         noble          12         0
+## 19   23 Masculino     4602  negro       rustica          15         2
+## 20   17  Femenino     2551  negro         noble           9         0
+## 21   13 Masculino     4051 blanco         noble          10         3
+## 24   11  Femenino     3686 blanco       rustica          13         3
+## 25   28  Femenino     1361 blanco       rustica           7         4
+## 29   18 Masculino     1789 blanco         noble           6         1</code></pre>
+<p>Si usted se da cuenta solo hemos obtenido las filas en donde la experiencia es mayor a 5 años.</p>
+<p>Por último, vamos a filtrar usando más de un operador lógico, por ejemplo vamos a filtrar a los individuos que son de raza negra y que el material de su casa sea de material noble.</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html#cb62-1"></a><span class="co"># Quedándonos con los individuos que son de raza negra y que el </span></span>
+<span id="cb62-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html#cb62-2"></a><span class="co"># material de su casa es de material noble.</span></span>
+<span id="cb62-3"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html#cb62-3"></a>df[df<span class="op">$</span>raza<span class="op">==</span><span class="st">&quot;negro&quot;</span> <span class="op">&amp;</span><span class="st"> </span>df<span class="op">$</span>material_casa<span class="op">==</span><span class="st">&quot;noble&quot;</span>,]</span></code></pre></div>
+<pre><code>##    EDAD    GENERO ingresos  raza material_casa EXPERIENCIA num_hijos
+## 1    16  Femenino     1680 negro         noble          15         1
+## 6    29  Femenino     4784 negro         noble           2         4
+## 16   28 Masculino     2486 negro         noble          13         2
+## 17   27 Masculino     2745 negro         noble          12         0
+## 20   17  Femenino     2551 negro         noble           9         0
+## 27   30 Masculino     4829 negro         noble           2         0
+## 28   14  Femenino     3347 negro         noble           2         4</code></pre>
+<p>Y en efecto, hemos obtenido el resultado deseado.</p>
+<p>Con R base la sintaxis no es tan limpia, pero es muy intuitiva. Pero si queremos tener una sintaxis más limpia y a la vez intuitiva, entonces tendremos que usar el paquete <code>dplyr</code>. Pero más adelante, veremos que usando la función <code>subset()</code> de R base se logra lo mismo, pero con una sintaxis más sencilla aún, pero no tan escalable como la que se obtendría con el paquete <code>dplyr</code>.</p>
+</div>
+<div id="dplyr---usando-la-función-filter." class="section level3">
+<h3><span class="header-section-number">12.3.2</span> Dplyr - Usando la función filter.</h3>
+<p>Para filtrar por filas usando el paquete <code>dplyr</code> usaremos la función <code>filter()</code>. La sintaxis es similar al que se usó con R base, pero no es necesario usar el operador <code>$</code> ya que este paquete nos permite trabajar por etapas, es así que si primero llamamos al data frame, en las siguientes sintaxis no será necesario volver a llamarlo.</p>
+<p>Para ver las diferencias, realizaremos los mismos ejemplos que se hicieron con R base. Entonces, primero filtraremos los que son de género “Masculino”.</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html#cb64-1"></a><span class="co"># Filtrando los que son de género masculino.</span></span>
+<span id="cb64-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html#cb64-2"></a>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(GENERO<span class="op">==</span><span class="st">&quot;Masculino&quot;</span>)</span></code></pre></div>
+<pre><code>##    EDAD    GENERO ingresos   raza material_casa EXPERIENCIA num_hijos
+## 1    15 Masculino     2144 blanco         noble           6         4
+## 2    23 Masculino     2822  negro       rustica          10         4
+## 3    15 Masculino     3202 blanco         noble           0         4
+## 4    15 Masculino     2527 blanco         noble          12         4
+## 5    14 Masculino     4440 blanco         noble          13         4
+## 6    16 Masculino     3981 blanco         noble          13         4
+## 7    28 Masculino     2486  negro         noble          13         2
+## 8    27 Masculino     2745  negro         noble          12         0
+## 9    23 Masculino     4602  negro       rustica          15         2
+## 10   13 Masculino     4051 blanco         noble          10         3
+## 11   13 Masculino     1509 blanco         noble           1         4
+## 12   30 Masculino     4829  negro         noble           2         0
+## 13   18 Masculino     1789 blanco         noble           6         1</code></pre>
+<p>Y en efecto, obtenemos el mismo resultado. A continuación realizaremos los mismos filtros que se hicieron con R base.</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html#cb66-1"></a><span class="co"># filtrando los que tienen experiencia mayor a 5.</span></span>
+<span id="cb66-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html#cb66-2"></a>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(EXPERIENCIA<span class="op">&gt;</span><span class="dv">5</span>)</span></code></pre></div>
+<pre><code>##    EDAD    GENERO ingresos   raza material_casa EXPERIENCIA num_hijos
+## 1    16  Femenino     1680  negro         noble          15         1
+## 2    15 Masculino     2144 blanco         noble           6         4
+## 3    23 Masculino     2822  negro       rustica          10         4
+## 4    16  Femenino     3558 blanco       rustica          12         4
+## 5    15 Masculino     2527 blanco         noble          12         4
+## 6    14 Masculino     4440 blanco         noble          13         4
+## 7    16 Masculino     3981 blanco         noble          13         4
+## 8    18  Femenino     1621 blanco       rustica           6         4
+## 9    21  Femenino     4197 blanco       rustica          15         2
+## 10   28 Masculino     2486  negro         noble          13         2
+## 11   27 Masculino     2745  negro         noble          12         0
+## 12   23 Masculino     4602  negro       rustica          15         2
+## 13   17  Femenino     2551  negro         noble           9         0
+## 14   13 Masculino     4051 blanco         noble          10         3
+## 15   11  Femenino     3686 blanco       rustica          13         3
+## 16   28  Femenino     1361 blanco       rustica           7         4
+## 17   18 Masculino     1789 blanco         noble           6         1</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html#cb68-1"></a><span class="co"># Filtrando los que son de raza negra y material de casa noble.</span></span>
+<span id="cb68-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html#cb68-2"></a>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(raza<span class="op">==</span><span class="st">&quot;negro&quot;</span> <span class="op">&amp;</span><span class="st"> </span>material_casa<span class="op">==</span><span class="st">&quot;noble&quot;</span>)</span></code></pre></div>
+<pre><code>##   EDAD    GENERO ingresos  raza material_casa EXPERIENCIA num_hijos
+## 1   16  Femenino     1680 negro         noble          15         1
+## 2   29  Femenino     4784 negro         noble           2         4
+## 3   28 Masculino     2486 negro         noble          13         2
+## 4   27 Masculino     2745 negro         noble          12         0
+## 5   17  Femenino     2551 negro         noble           9         0
+## 6   30 Masculino     4829 negro         noble           2         0
+## 7   14  Femenino     3347 negro         noble           2         4</code></pre>
+<p>Como se mencionó hemos usado una sintaxis similar, pero más limpia y a la vez igual de intuitiva.</p>
+</div>
+<div id="filtrando-usando-la-función-subset-de-r-base." class="section level3">
+<h3><span class="header-section-number">12.3.3</span> Filtrando usando la función subset de R base.</h3>
+<p>Pero R base no se queda atrás y tiene la función <code>subset()</code> que es igual al <code>filter()</code> del paquete <code>dplyr</code>. Veamos lo fácil de usarla.</p>
+<p>Vamos a desarrollar el último ejemplo que hemos visto tanto con el paquete <code>dplyr</code> y R base.</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html#cb70-1"></a><span class="co"># Filtrando los que son de raza negra y material de casa noble.</span></span>
+<span id="cb70-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html#cb70-2"></a><span class="kw">subset</span>(df, raza<span class="op">==</span><span class="st">&quot;negro&quot;</span> <span class="op">&amp;</span><span class="st"> </span>material_casa<span class="op">==</span><span class="st">&quot;noble&quot;</span>)</span></code></pre></div>
+<pre><code>##    EDAD    GENERO ingresos  raza material_casa EXPERIENCIA num_hijos
+## 1    16  Femenino     1680 negro         noble          15         1
+## 6    29  Femenino     4784 negro         noble           2         4
+## 16   28 Masculino     2486 negro         noble          13         2
+## 17   27 Masculino     2745 negro         noble          12         0
+## 20   17  Femenino     2551 negro         noble           9         0
+## 27   30 Masculino     4829 negro         noble           2         0
+## 28   14  Femenino     3347 negro         noble           2         4</code></pre>
+<p>En efecto, hemos obtenido el mismo resultado. Es un calco de la función filter, incluso es más integral, ya que la función <code>subset()</code> permite seleccionar columnas en la misma sintaxis. Vamos a ver esto en el siguiente apartado y usted elegirá cuál es la forma que más se adapta a su forma de pensar.</p>
+</div>
+</div>
+<div id="filtrando-y-seleccionado-columnas." class="section level2">
+<h2><span class="header-section-number">12.4</span> filtrando y seleccionado columnas.</h2>
+<p>En este sección desarrollaremos ejemplos de filtrar filas y seleccionar columnas a la vez. Es así que usaremos todo lo aprendido en este capítulo y uniremos sintaxis.</p>
+<p>Para ver las diferencias, vamos a desarrollar un único ejemplo en donde filtraremos las filas que tienen ingresos mayores a 2000, que sean de raza negra y seleccionaremos solo las columnas ingresos, raza y edad.</p>
+<p>Empezaremos con R base, luego con el paquete <code>dplyr</code> y por último con la función <code>subset()</code>.</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html#cb72-1"></a><span class="co"># Usando R base.</span></span>
+<span id="cb72-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html#cb72-2"></a>df[df<span class="op">$</span>ingresos<span class="op">&gt;</span><span class="dv">2000</span> <span class="op">&amp;</span><span class="st"> </span>df<span class="op">$</span>raza<span class="op">==</span><span class="st">&quot;negro&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;ingresos&quot;</span>,<span class="st">&quot;raza&quot;</span>,<span class="st">&quot;EDAD&quot;</span>)]</span></code></pre></div>
+<pre><code>##    ingresos  raza EDAD
+## 3      2822 negro   23
+## 6      4784 negro   29
+## 16     2486 negro   28
+## 17     2745 negro   27
+## 18     4656 negro   12
+## 19     4602 negro   23
+## 20     2551 negro   17
+## 27     4829 negro   30
+## 28     3347 negro   14</code></pre>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html#cb74-1"></a><span class="co"># Usando el paquete dplyr.</span></span>
+<span id="cb74-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html#cb74-2"></a>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(ingresos<span class="op">&gt;</span><span class="dv">2000</span> <span class="op">&amp;</span><span class="st"> </span>raza<span class="op">==</span><span class="st">&quot;negro&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(ingresos,raza,EDAD)</span></code></pre></div>
+<pre><code>##   ingresos  raza EDAD
+## 1     2822 negro   23
+## 2     4784 negro   29
+## 3     2486 negro   28
+## 4     2745 negro   27
+## 5     4656 negro   12
+## 6     4602 negro   23
+## 7     2551 negro   17
+## 8     4829 negro   30
+## 9     3347 negro   14</code></pre>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html#cb76-1"></a><span class="co"># Usando la función subset.</span></span>
+<span id="cb76-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html#cb76-2"></a><span class="kw">subset</span>(df, ingresos<span class="op">&gt;</span><span class="dv">2000</span> <span class="op">&amp;</span><span class="st"> </span>raza<span class="op">==</span><span class="st">&quot;negro&quot;</span>, <span class="dt">select=</span><span class="kw">c</span>(<span class="st">&quot;ingresos&quot;</span>,<span class="st">&quot;raza&quot;</span>,<span class="st">&quot;EDAD&quot;</span>))</span></code></pre></div>
+<pre><code>##    ingresos  raza EDAD
+## 3      2822 negro   23
+## 6      4784 negro   29
+## 16     2486 negro   28
+## 17     2745 negro   27
+## 18     4656 negro   12
+## 19     4602 negro   23
+## 20     2551 negro   17
+## 27     4829 negro   30
+## 28     3347 negro   14</code></pre>
+<p>En efecto, hemos obtenido los mismos resultados con las 3 sintaxis, de usted dependerá cual usar. cada una tiene sus ventajas y desventajas y dependerá del proceso que estemos haciendo y del resultado que deseamos obtener. Se recomienda usar R base a la hora de crear funciones; <code>dplyr</code>, si vamos a desarrollar más operaciones luego de filtrar y seleccionar por ejemplo, agrupar por filas, graficar, generar tablas, entre otras. Y <code>subset()</code> si y solo si lo único que haremos es filtrar y seleccionar.</p>
+<p>Como se mencionó, esta no es la única forma de filtrar y seleccionar, estas tres formas es probable que a usted le resulten insuficientes, ya que si usted trabaja con grandes datos, lo mejor sería que usted use el paquete <code>data.table</code> o <code>sparklyr</code> u otros<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>. R al ser un software libre y abierto tiene una gran variedad de opciones, eso es lo que lo convierte en un excepcional software ya que para cada situación usted podrá realizar una sintaxis adecuada y óptima.</p>
 
 </div>
 </div>
-</div>
+
+
 
 
 
@@ -833,8 +1006,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="footnotes">
 <hr />
 <ol start="1">
-<li id="fn1"><p>Este paquete es uno de los más usados por los usuarios de R, ya que su sintaxis es muy intuitiva. Es uno de los paquetes del entorno tidyverse que contiene a otros paquetes como ggplot, stringr, purrr, entre otros.<a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn1"><p>Este paquete es uno de los más usados por los usuarios de R, ya que su sintaxis es muy intuitiva. Es uno de los paquetes del entorno tidyverse que contiene a otros paquetes como ggplot2, stringr, purrr, entre otros.<a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html#fnref1" class="footnote-back">↩︎</a></p></li>
 <li id="fn2"><p>Estos no son los únicos medios, en R se tiene una gran variedad, por ejemplo podemos usar el paquete <code>data.table</code> para filtrar o seleccionar columnas. Este paquete es muy bueno para grandes cantidades de datos, pero en este libro no lo veremos a profundidad.<a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>El mismo que se usa para los objetos listas.<a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>Este es un libro introducctorio al software R en donde se muestran las sintaxis básicas y quizá hasta intermedias, por lo que escapa del tema del bigdata, que es un tema especializado, y por ende, no visto en este libro.<a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos-.html#fnref4" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

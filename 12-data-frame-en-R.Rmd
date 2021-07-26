@@ -166,7 +166,7 @@ Entonces, si deseamos seleccionar la segunda columna del data frame, entonces la
 df[,2] 
 ```
 
-[^1]: Este paquete es uno de los más usados por los usuarios de R, ya que su sintaxis es muy intuitiva. Es uno de los paquetes del entorno tidyverse que contiene a otros paquetes como ggplot, stringr, purrr, entre otros. 
+[^1]: Este paquete es uno de los más usados por los usuarios de R, ya que su sintaxis es muy intuitiva. Es uno de los paquetes del entorno tidyverse que contiene a otros paquetes como ggplot2, stringr, purrr, entre otros. 
 
 Para seleccionar la columna 1, 3 y 6.
 
@@ -292,4 +292,102 @@ Al igual que anteriormente, el filtro de filas puede hacerse por medio de R base
 [^2]: Estos no son los únicos medios, en R se tiene una gran variedad, por ejemplo podemos usar el paquete `data.table` para filtrar o seleccionar columnas. Este paquete es muy bueno para grandes cantidades de datos, pero en este libro no lo veremos a profundidad.
 
 ### Usando R base. 
+
+En R base, si deseamos llamar a una columna en específico, entonces usaremos el operador `$`[^3], es así que para llamar a una columna primero se llamará al data frame y con el `$` se llamará a la columna. Posteriormente se indicará la condición lógica para filtrar las filas y por último todo esto se asignará al data frame para que nos arroje los resultados.
+
+[^3]: El mismo que se usa para los objetos listas.
+
+Por ejemplo, si solo deseamos quedarnos con los individuos de género masculino, entonces usaremos la siguiente sintaxis. 
+
+```{r}
+# Quedándonos solo con los individuos de género masculino.
+df[df$GENERO=="Masculino",]
+```
+
+En efecto, hemos filtrado a las filas que son del género "Masculino". Pero ¿Cómo lo hemos hecho? Primero llamamos a la columna `GENERO` con la sintaxis `df$GENERO` luego indicamos la condición lógica que nos filtre solo los de genero "Masculino", esto se logra con `df$GENERO=="Masculino"`, posteriormente colocamos esta sintaxis dentro de data frame `df` y al final colocamos la `,` a lo que nos queda `df[df$GENERO=="Masculino",]`. ¿Por qué colocamos la coma `,` al final? Porque estamos filtrando por filas, recuerde que sintaxis antes de la como significa filtrar filas y sintaxis luego de la como significa selección columnas. 
+
+Veamos un ejemplo adicional para que quede un poco más claro. Ahora vamos a filtrar a los individuos que tienen una experiencia mayor a 5 años. 
+
+```{r}
+# Filtrando individuos que tienen una experiencia mayor a 5 años.
+df[df$EXPERIENCIA>5,]
+```
+
+Si usted se da cuenta solo hemos obtenido las filas en donde la experiencia es mayor a 5 años. 
+
+Por último, vamos a filtrar usando más de un operador lógico, por ejemplo vamos a filtrar a los individuos que son de raza negra y que el material de su casa sea de material noble.
+
+```{r}
+# Quedándonos con los individuos que son de raza negra y que el 
+# material de su casa es de material noble.
+df[df$raza=="negro" & df$material_casa=="noble",]
+```
+
+Y en efecto, hemos obtenido el resultado deseado. 
+
+Con R base la sintaxis no es tan limpia, pero es muy intuitiva. Pero si queremos tener una sintaxis más limpia y a la vez intuitiva, entonces tendremos que usar el paquete `dplyr`. Pero más adelante, veremos que usando la función `subset()` de R base se logra lo mismo, pero con una sintaxis más sencilla aún, pero no tan escalable como la que se obtendría con el paquete `dplyr`.
+
+### Dplyr - Usando la función filter.
+
+Para filtrar por filas usando el paquete `dplyr` usaremos la función `filter()`. La sintaxis es similar al que se usó con R base, pero no es necesario usar el operador `$` ya que este paquete nos permite trabajar por etapas, es así que si primero llamamos al data frame, en las siguientes sintaxis no será necesario volver a llamarlo.
+
+Para ver las diferencias, realizaremos los mismos ejemplos que se hicieron con R base. Entonces, primero filtraremos los que son de género "Masculino".
+
+```{r}
+# Filtrando los que son de género masculino.
+df %>% filter(GENERO=="Masculino")
+```
+
+Y en efecto, obtenemos el mismo resultado. A continuación realizaremos los mismos filtros que se hicieron con R base. 
+
+```{r}
+# filtrando los que tienen experiencia mayor a 5.
+df %>% filter(EXPERIENCIA>5)
+
+# Filtrando los que son de raza negra y material de casa noble.
+df %>% filter(raza=="negro" & material_casa=="noble")
+```
+
+Como se mencionó hemos usado una sintaxis similar, pero más limpia y a la vez igual de intuitiva. 
+
+### Filtrando usando la función subset de R base. 
+
+Pero R base no se queda atrás y tiene la función `subset()` que es igual al `filter()` del paquete `dplyr`. Veamos lo fácil de usarla. 
+
+Vamos a desarrollar el último ejemplo que hemos visto tanto con el paquete `dplyr` y R base.
+
+```{r}
+# Filtrando los que son de raza negra y material de casa noble.
+subset(df, raza=="negro" & material_casa=="noble")
+```
+
+En efecto, hemos obtenido el mismo resultado. Es un calco de la función filter, incluso es más integral, ya que la función `subset()` permite seleccionar columnas en la misma sintaxis. Vamos a ver esto en el siguiente apartado y usted elegirá cuál es la forma que más se adapta a su forma de pensar. 
+
+## filtrando y seleccionado columnas. 
+
+En este sección desarrollaremos ejemplos de filtrar filas y seleccionar columnas a la vez. Es así que usaremos todo lo aprendido en este capítulo y uniremos sintaxis.
+
+Para ver las diferencias, vamos a desarrollar un único ejemplo en donde filtraremos las filas que tienen ingresos mayores a 2000, que sean de raza negra y seleccionaremos solo las columnas ingresos, raza y edad. 
+
+Empezaremos con R base, luego con el paquete `dplyr` y por último con la función `subset()`.
+
+```{r}
+# Usando R base.
+df[df$ingresos>2000 & df$raza=="negro", c("ingresos","raza","EDAD")]
+
+# Usando el paquete dplyr.
+df %>% filter(ingresos>2000 & raza=="negro") %>% select(ingresos,raza,EDAD)
+
+# Usando la función subset.
+subset(df, ingresos>2000 & raza=="negro", select=c("ingresos","raza","EDAD"))
+```
+
+En efecto, hemos obtenido los mismos resultados con las 3 sintaxis, de usted dependerá cual usar. cada una tiene sus ventajas y desventajas y dependerá del proceso que estemos haciendo y del resultado que deseamos obtener. Se recomienda usar R base a la hora de crear funciones; `dplyr`, si vamos a desarrollar más operaciones luego de filtrar y seleccionar por ejemplo, agrupar por filas, graficar, generar tablas, entre otras. Y `subset()` si y solo si lo único que haremos es filtrar y seleccionar.
+
+Como se mencionó, esta no es la única forma de filtrar y seleccionar, estas tres formas es probable que a usted le resulten insuficientes, ya que si usted trabaja con grandes datos, lo mejor sería que usted use el paquete `data.table` o `sparklyr` u otros[^4]. R al ser un software libre y abierto tiene una gran variedad de opciones, eso es lo que lo convierte en un excepcional software ya que para cada situación usted podrá realizar una sintaxis adecuada y óptima. 
+
+[^4]: Este es un libro introducctorio al software R en donde se muestran las sintaxis básicas y quizá hasta intermedias, por lo que escapa del tema del bigdata, que es un tema especializado, y por ende, no visto en este libro. 
+
+
+
 
