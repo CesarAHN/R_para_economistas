@@ -1,0 +1,67 @@
+# IMPORTAR DATOS: XLSX, XLS, SAV, DTA, CSV, TXT, ARCHIVOS WEB, ENTRE OTROS.
+
+En este capítulo se mostrará como importar datos desde distintas fuentes como xlsx, xls, sav, dta, csv, txt, archivos web, entre otros. Para esto se usará una variedad de paquetes que tendremos que instalar previamente. Asimismo, uno de los primeros pasos que haremos será de definir nuestro directorio de trabajo.
+
+En el siguiente capítulo veremos como se exportan los datos a las mismas fuentes, con lo cual podremos compartir lo trabajado en el software. 
+
+## DIRECTORIO DE TRABAJO.
+
+Nuestro directorio de trabajo es la ubicación de donde R podrá cargar y guardar los archivos que nosotros deseemos importar o exportar. Primero para saber en donde se encuentra nuestro directorio de trabajo tendremos que usar la función `getwd()` el cual nos indica la ruta de nuestro directorio de trabajo. 
+
+```{r}
+# Para saber en donde se encuentra nuestro directorio de trabajo. 
+getwd()
+```
+
+Observamos que nuestro directorio de trabajo se encuentra en `r getwd()`. Es decir, en esa ruta es donde se cargarán automáticamente nuestros archivos o se exportarán sin especificar ninguna ruta adicional. 
+
+Pero esa no es mi carpeta que contiene mis archivos que deseo importar, por lo cual me surge la necesidad de cambiar el directorio de trabajo[^1]. La ruta del directorio de trabajo se cambia con la función `setwd()`, al interior de los paréntesis se coloca la ruta, en mi caso la ruta está en `C:\RRRR\Archivos`, por lo que tendré que colocar aquello dentro de los paréntesis, pero cambiando los `\` por `/`, esto debido a que R usa los `\` para las extensiones web. 
+
+[^1]: Podría dejar el directorio de trabajo en esa ruta, pero si quisiera importar el archivo que deseo tendría que especificar la ruta del archivo y eso me demoraría más tiempo, ya que tendría que escribir la ruta completa cada vez que deseo cargar un archivo. 
+
+```{r}
+# Cambiando la ruta del directorio de trabajo. 
+setwd("C:/RRRR/Archivos")
+```
+
+Y en efecto, la ruta del directorio ha cambiado[^2].  
+
+[^2]: En ejemplos posteriores se mostrará como importar archivos desde otra ruta.
+
+## IMPORTAR ARCHIVOS TXT.
+
+Si nosotros deseamos importar archivos de texto ASCII (.txt, .dat, entre otros) usaremos la función `read.table()`, `read.fwf()`, `fread()`, entre otros. En este capítulo mostraremos se harán ejemplos de uso de la función `read.table()` y `fread()`. 
+
+### Usando la función read.table().
+
+Lo primero que deberíamos de hacer es conocer los argumentos de esta función. Esto lo conseguimos corriendo `?read.table`.
+
+El resultado que obtenemos es el siguiente:
+
+`read.table(file, header = FALSE, sep = "", quote = "\"'", dec = ".", numerals = c("allow.loss", "warn.loss", "no.loss"), row.names, col.names, as.is = !stringsAsFactors, na.strings = "NA", colClasses = NA, nrows = -1, skip = 0, check.names = TRUE, fill = !blank.lines.skip, strip.white = FALSE, blank.lines.skip = TRUE, comment.char = "#", allowEscapes = FALSE, flush = FALSE, stringsAsFactors = FALSE, fileEncoding = "", encoding = "unknown", text, skipNul = FALSE)`
+
+En la siguiente tabla se muestran para que sirve la mayoría de argumentos. 
+
+| ARGUMENTO | DESCRIPCIÓN |
+|:------------------:|:---------------:|
+|**file**| El nombre del archivo entre "", si está en otra carpeta se tendrá que  usar la dirección exacta, si la base de datos se encuentra  en la web, es decir, cuenta con una url use (http://...) |
+| **header**| Argumento lógico, en donde si es TRUE considera a la primera fila  como la que contiene el nombre de las variables.|
+| **sep**| Indica el separador usado en el archivo, algunos ejemplos  para usar: "" " " ";" "," "\t".|
+| **quote**| Indica los caracteres que se desean usar para los elementos  caracteres, algunos ejemplos para usar: "" '' \.|
+| **dec**| El caracter que se usa para indicar el separador decimal. Puede usar . o , u otro.|
+| **row.names**| El vector en el que se indican el nombre de las filas.|
+| **col.names**| El vector en el que se indican el nombre de las columnas.|
+| **as.is**| Argumento lógico, en donde si es FALSE convierte las variables caracteres en factor.|
+| **na.strings**| El valor con el que se codificará a los datos ausentes, por defecto "NA".|
+| **colClasses**| Un vector de caracteres que proporciona clases para las columnas.|
+| **nrows**| El número máximo de filas a leer de la base de datos.|
+| **skip**| El numero de filas ignoradas antes de leer la base de datos.|
+| **check.names**| Argumento lógico, en donde si es TRUE verifica que el nombre de las variables son válidos para R.|
+| **fill** | Argumento lógico, en donde si es TRUE y todas las filas no tienen el mismo numero de variables, agrega "blancos".|
+| **strip.white**| Argumento lógico, en donde si es TRUE borra los espacios en blanco antes y después de las variables de tipo caracter. Dependerá de los que se especifique en "sep".|
+| **blank.lines.skip** | Argumento lógico, en donde si es TRUE ignora las filas en blanco.|
+| **comment.char** | Caracter que indica comentario en la base de datos. Si una observación comienza con el caracter "#", R ignorará su lectura. Si se desea desactivar esta función usar comment.char ="" |
+
+
+
+
