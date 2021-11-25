@@ -311,14 +311,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="directorio-de-trabajo." class="section level2" number="13.1">
 <h2><span class="header-section-number">13.1</span> DIRECTORIO DE TRABAJO.</h2>
 <p>Nuestro directorio de trabajo es la ubicación de donde R podrá cargar y guardar los archivos que nosotros deseemos importar o exportar. Primero para saber en donde se encuentra nuestro directorio de trabajo tendremos que usar la función <code>getwd()</code> el cual nos indica la ruta de nuestro directorio de trabajo.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para saber en donde se encuentra nuestro directorio de trabajo. </span></span>
-<span id="cb1-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb757"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb757-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb757-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para saber en donde se encuentra nuestro directorio de trabajo. </span></span>
+<span id="cb757-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb757-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;C:/RRRR/R_para_economistas&quot;</code></pre>
 <p>Observamos que nuestro directorio de trabajo se encuentra en C:/RRRR/R_para_economistas. Es decir, en esa ruta es donde se cargarán automáticamente nuestros archivos o se exportarán sin especificar ninguna ruta adicional.</p>
-<p>Pero esa no es mi carpeta que contiene mis archivos que deseo importar, por lo cual me surge la necesidad de cambiar el directorio de trabajo<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. La ruta del directorio de trabajo se cambia con la función <code>setwd()</code>, al interior de los paréntesis se coloca la ruta, en mi caso la ruta está en <code>C:\RRRR\Archivos</code>, por lo que tendré que colocar aquello dentro de los paréntesis, pero cambiando los <code>\</code> por <code>/</code>, esto debido a que R usa los <code>\</code> para las extensiones web.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cambiando la ruta del directorio de trabajo. </span></span>
-<span id="cb3-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/RRRR/Archivos&quot;</span>)</span></code></pre></div>
-<p>Y en efecto, la ruta del directorio ha cambiado<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>.</p>
+<p>Pero esa no es mi carpeta que contiene mis archivos que deseo importar, por lo cual me surge la necesidad de cambiar el directorio de trabajo<a href="#fn23" class="footnote-ref" id="fnref23"><sup>23</sup></a>. La ruta del directorio de trabajo se cambia con la función <code>setwd()</code>, al interior de los paréntesis se coloca la ruta, en mi caso la ruta está en <code>C:\RRRR\Archivos</code>, por lo que tendré que colocar aquello dentro de los paréntesis, pero cambiando los <code>\</code> por <code>/</code>, esto debido a que R usa los <code>\</code> para las extensiones web.</p>
+<div class="sourceCode" id="cb759"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb759-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb759-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cambiando la ruta del directorio de trabajo. </span></span>
+<span id="cb759-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb759-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/RRRR/Archivos&quot;</span>)</span></code></pre></div>
+<p>Y en efecto, la ruta del directorio ha cambiado<a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a>.</p>
 </div>
 <div id="importar-archivos-txt." class="section level2" number="13.2">
 <h2><span class="header-section-number">13.2</span> IMPORTAR ARCHIVOS TXT.</h2>
@@ -422,11 +422,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="footnotes">
 <hr />
-<ol start="1">
-<li id="fn1"><p>Podría dejar el directorio de trabajo en esa ruta, pero si quisiera importar el archivo que deseo tendría que especificar la ruta del archivo y eso me demoraría más tiempo, ya que tendría que escribir la ruta completa cada vez que deseo cargar un archivo.<a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>En ejemplos posteriores se mostrará como importar archivos desde otra ruta.<a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#fnref2" class="footnote-back">↩︎</a></p></li>
+<ol start="23">
+<li id="fn23"><p>Podría dejar el directorio de trabajo en esa ruta, pero si quisiera importar el archivo que deseo tendría que especificar la ruta del archivo y eso me demoraría más tiempo, ya que tendría que escribir la ruta completa cada vez que deseo cargar un archivo.<a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#fnref23" class="footnote-back">↩︎</a></p></li>
+<li id="fn24"><p>En ejemplos posteriores se mostrará como importar archivos desde otra ruta.<a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#fnref24" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -489,6 +511,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

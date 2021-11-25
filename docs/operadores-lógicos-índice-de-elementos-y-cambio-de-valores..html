@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 OPERADORES LÓGICOS, ÍNDICE DE ELEMENTOS Y CAMBIO DE VALORES. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</title>
+  <meta name="description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 OPERADORES LÓGICOS, ÍNDICE DE ELEMENTOS Y CAMBIO DE VALORES. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  <meta name="github-repo" content="CesarAHN/bookdown_intro" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 OPERADORES LÓGICOS, ÍNDICE DE ELEMENTOS Y CAMBIO DE VALORES. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
+  
+  <meta name="twitter:description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  
+
+<meta name="author" content="César Anderson Huamaní Ninahuanca" />
+
+
+<meta name="date" content="2021-11-24" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="vectores-aleatorios-y-selección-de-elementos..html"/>
+<link rel="next" href="factores-y-listas..html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - PARA ECONOMISTAS</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prólogo</a></li>
+<li class="chapter" data-level="1" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html"><i class="fa fa-check"></i><b>1</b> R COMO CALCULADORA.</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html#principales-operaciones-matemáticas."><i class="fa fa-check"></i><b>1.1</b> Principales operaciones matemáticas.</a></li>
+<li class="chapter" data-level="1.2" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html#decimales-exactos-y-redondeo-de-cifras."><i class="fa fa-check"></i><b>1.2</b> Decimales exactos y redondeo de cifras.</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html#número-de-cifras."><i class="fa fa-check"></i><b>1.2.1</b> Número de cifras.</a></li>
+<li class="chapter" data-level="1.2.2" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html#redondeo."><i class="fa fa-check"></i><b>1.2.2</b> Redondeo.</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html#guardar-o-definir-objetos."><i class="fa fa-check"></i><b>1.3</b> Guardar o definir objetos.</a></li>
+<li class="chapter" data-level="1.4" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html#funciones."><i class="fa fa-check"></i><b>1.4</b> Funciones.</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="vectores..html"><a href="vectores..html"><i class="fa fa-check"></i><b>2</b> VECTORES.</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="vectores..html"><a href="vectores..html#definición-de-un-vector."><i class="fa fa-check"></i><b>2.1</b> Definición de un vector.</a></li>
+<li class="chapter" data-level="2.2" data-path="vectores..html"><a href="vectores..html#clases-de-vectores."><i class="fa fa-check"></i><b>2.2</b> Clases de vectores.</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="vectores..html"><a href="vectores..html#cómo-saber-si-un-objeto-es-un-vector"><i class="fa fa-check"></i><b>2.2.1</b> ¿Cómo saber si un objeto es un vector?</a></li>
+<li class="chapter" data-level="2.2.2" data-path="vectores..html"><a href="vectores..html#cómo-saber-de-que-clase-es-un-vector"><i class="fa fa-check"></i><b>2.2.2</b> ¿Cómo saber de que clase es un vector?</a></li>
+<li class="chapter" data-level="2.2.3" data-path="vectores..html"><a href="vectores..html#qué-pasa-si-defino-un-vector-con-distintas-clases-de-elementos"><i class="fa fa-check"></i><b>2.2.3</b> ¿Qué pasa si defino un vector con distintas clases de elementos?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="vectores..html"><a href="vectores..html#número-de-elementos-de-un-vector."><i class="fa fa-check"></i><b>2.3</b> Número de elementos de un vector.</a></li>
+<li class="chapter" data-level="2.4" data-path="vectores..html"><a href="vectores..html#funciones-para-construir-vectores-más-eficientemente."><i class="fa fa-check"></i><b>2.4</b> Funciones para construir vectores más eficientemente.</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="vectores..html"><a href="vectores..html#vectores-de-elementos-consecutivos"><i class="fa fa-check"></i><b>2.4.1</b> Vectores de elementos consecutivos:</a></li>
+<li class="chapter" data-level="2.4.2" data-path="vectores..html"><a href="vectores..html#vectores-con-patrones"><i class="fa fa-check"></i><b>2.4.2</b> Vectores con patrones:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="vectores..html"><a href="vectores..html#concatenar-elementos-y-vectores."><i class="fa fa-check"></i><b>2.5</b> Concatenar elementos y vectores.</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="operaciones-matemáticas-y-estadísticas-con-vectores..html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores..html"><i class="fa fa-check"></i><b>3</b> OPERACIONES MATEMÁTICAS Y ESTADÍSTICAS CON VECTORES.</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="operaciones-matemáticas-y-estadísticas-con-vectores..html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores..html#operaciones-matemáticas."><i class="fa fa-check"></i><b>3.1</b> Operaciones matemáticas.</a></li>
+<li class="chapter" data-level="3.2" data-path="operaciones-matemáticas-y-estadísticas-con-vectores..html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores..html#operaciones-estadísticas."><i class="fa fa-check"></i><b>3.2</b> Operaciones estadísticas.</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="operaciones-matemáticas-y-estadísticas-con-vectores..html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores..html#cómo-trabajar-con-missings-o-elementos-faltantes-na"><i class="fa fa-check"></i><b>3.2.1</b> ¿Cómo trabajar con missings o elementos faltantes (NA)?</a></li>
+<li class="chapter" data-level="3.2.2" data-path="operaciones-matemáticas-y-estadísticas-con-vectores..html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores..html#cómo-ordenar-elementos-de-los-vectores"><i class="fa fa-check"></i><b>3.2.2</b> ¿Cómo ordenar elementos de los vectores?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html"><i class="fa fa-check"></i><b>4</b> VECTORES ALEATORIOS y SELECCIÓN DE ELEMENTOS.</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html#creación-de-vectores-con-elementos-aleatorios."><i class="fa fa-check"></i><b>4.1</b> Creación de vectores con elementos aleatorios.</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html#aplicación-ley-de-grandes-números."><i class="fa fa-check"></i><b>4.1.1</b> Aplicación: Ley de grandes números.</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html#vectores-vacios-y-selección-de-elementos."><i class="fa fa-check"></i><b>4.2</b> Vectores vacios y selección de elementos.</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html#vectores-vacíos."><i class="fa fa-check"></i><b>4.2.1</b> Vectores vacíos.</a></li>
+<li class="chapter" data-level="4.2.2" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html#seleción-de-elementos-usando-."><i class="fa fa-check"></i><b>4.2.2</b> Seleción de elementos usando [].</a></li>
+<li class="chapter" data-level="4.2.3" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html#cómo-saber-cuántos-elementos-tiene-un-vector"><i class="fa fa-check"></i><b>4.2.3</b> ¿Cómo saber cuántos elementos tiene un vector?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><i class="fa fa-check"></i><b>5</b> OPERADORES LÓGICOS, ÍNDICE DE ELEMENTOS Y CAMBIO DE VALORES.</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#operadores-lógicos."><i class="fa fa-check"></i><b>5.1</b> Operadores lógicos.</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#igualdad."><i class="fa fa-check"></i><b>5.1.1</b> Igualdad.</a></li>
+<li class="chapter" data-level="5.1.2" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#mayor-que."><i class="fa fa-check"></i><b>5.1.2</b> Mayor que.</a></li>
+<li class="chapter" data-level="5.1.3" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#menor-que."><i class="fa fa-check"></i><b>5.1.3</b> Menor que.</a></li>
+<li class="chapter" data-level="5.1.4" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#diferente."><i class="fa fa-check"></i><b>5.1.4</b> Diferente.</a></li>
+<li class="chapter" data-level="5.1.5" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#negación."><i class="fa fa-check"></i><b>5.1.5</b> Negación.</a></li>
+<li class="chapter" data-level="5.1.6" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#y-condicional-conjunción."><i class="fa fa-check"></i><b>5.1.6</b> Y condicional (Conjunción).</a></li>
+<li class="chapter" data-level="5.1.7" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#o-condicional-disyunción."><i class="fa fa-check"></i><b>5.1.7</b> O condicional (disyunción).</a></li>
+<li class="chapter" data-level="5.1.8" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#mayor-y-menor-igual-que."><i class="fa fa-check"></i><b>5.1.8</b> Mayor y menor igual que.</a></li>
+<li class="chapter" data-level="5.1.9" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#operador-pertenece."><i class="fa fa-check"></i><b>5.1.9</b> Operador pertenece.</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#encontrar-el-índice-de-elementos-y-cambiar-valores."><i class="fa fa-check"></i><b>5.2</b> Encontrar el índice de elementos y cambiar valores.</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cambiar-valores-de-elementos."><i class="fa fa-check"></i><b>5.2.1</b> Cambiar valores de elementos.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="factores-y-listas..html"><a href="factores-y-listas..html"><i class="fa fa-check"></i><b>6</b> FACTORES Y LISTAS.</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="factores-y-listas..html"><a href="factores-y-listas..html#factores."><i class="fa fa-check"></i><b>6.1</b> Factores.</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="factores-y-listas..html"><a href="factores-y-listas..html#factores-con-niveles-desordenados."><i class="fa fa-check"></i><b>6.1.1</b> Factores con niveles desordenados.</a></li>
+<li class="chapter" data-level="6.1.2" data-path="factores-y-listas..html"><a href="factores-y-listas..html#factores-con-niveles-ordenados."><i class="fa fa-check"></i><b>6.1.2</b> Factores con niveles ordenados.</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="factores-y-listas..html"><a href="factores-y-listas..html#listas."><i class="fa fa-check"></i><b>6.2</b> Listas.</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="factores-y-listas..html"><a href="factores-y-listas..html#cómo-se-obtiene-cada-objeto-de-una-lista"><i class="fa fa-check"></i><b>6.2.1</b> ¿Cómo se obtiene cada objeto de una lista?</a></li>
+<li class="chapter" data-level="6.2.2" data-path="factores-y-listas..html"><a href="factores-y-listas..html#asignado-nombres-a-los-objetos-de-una-lista."><i class="fa fa-check"></i><b>6.2.2</b> Asignado nombres a los objetos de una lista.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="matrices..html"><a href="matrices..html"><i class="fa fa-check"></i><b>7</b> MATRICES.</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="matrices..html"><a href="matrices..html#creación-de-matrices."><i class="fa fa-check"></i><b>7.1</b> Creación de matrices.</a></li>
+<li class="chapter" data-level="7.2" data-path="matrices..html"><a href="matrices..html#concatenar-matrices-por-filas-o-columnas."><i class="fa fa-check"></i><b>7.2</b> Concatenar matrices por filas o columnas.</a></li>
+<li class="chapter" data-level="7.3" data-path="matrices..html"><a href="matrices..html#selecionar-elementos-de-una-matriz."><i class="fa fa-check"></i><b>7.3</b> Selecionar elementos de una matriz.</a></li>
+<li class="chapter" data-level="7.4" data-path="matrices..html"><a href="matrices..html#dimensiones-de-la-matriz."><i class="fa fa-check"></i><b>7.4</b> Dimensiones de la matriz.</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="álgebra-matricial..html"><a href="álgebra-matricial..html"><i class="fa fa-check"></i><b>8</b> ÁLGEBRA MATRICIAL.</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="álgebra-matricial..html"><a href="álgebra-matricial..html#operaciones-básicas."><i class="fa fa-check"></i><b>8.1</b> Operaciones básicas.</a></li>
+<li class="chapter" data-level="8.2" data-path="álgebra-matricial..html"><a href="álgebra-matricial..html#principales-operaciones-con-matrices."><i class="fa fa-check"></i><b>8.2</b> Principales operaciones con matrices.</a></li>
+<li class="chapter" data-level="8.3" data-path="álgebra-matricial..html"><a href="álgebra-matricial..html#solución-a-sistemas-de-ecuación."><i class="fa fa-check"></i><b>8.3</b> Solución a sistemas de ecuación.</a></li>
+<li class="chapter" data-level="8.4" data-path="álgebra-matricial..html"><a href="álgebra-matricial..html#valores-y-vectores-propios."><i class="fa fa-check"></i><b>8.4</b> Valores y vectores propios.</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="condicional-if-else..html"><a href="condicional-if-else..html"><i class="fa fa-check"></i><b>9</b> CONDICIONAL IF ELSE.</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="condicional-if-else..html"><a href="condicional-if-else..html#condicional-if."><i class="fa fa-check"></i><b>9.1</b> Condicional if.</a></li>
+<li class="chapter" data-level="9.2" data-path="condicional-if-else..html"><a href="condicional-if-else..html#condicional-if-else.-1"><i class="fa fa-check"></i><b>9.2</b> Condicional if else.</a></li>
+<li class="chapter" data-level="9.3" data-path="condicional-if-else..html"><a href="condicional-if-else..html#condicional-if-else-anidado."><i class="fa fa-check"></i><b>9.3</b> Condicional if else anidado.</a></li>
+<li class="chapter" data-level="9.4" data-path="condicional-if-else..html"><a href="condicional-if-else..html#unicidad-de-la-condicional-if."><i class="fa fa-check"></i><b>9.4</b> Unicidad de la condicional if.</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html"><i class="fa fa-check"></i><b>10</b> LOOP FOR E IF ELSE PARA MÁS DE UN ELEMENTO.</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#loop-for."><i class="fa fa-check"></i><b>10.1</b> Loop for.</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#el-iterador-como-objeto."><i class="fa fa-check"></i><b>10.1.1</b> El iterador como objeto.</a></li>
+<li class="chapter" data-level="10.1.2" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#el-iterador-como-un-subobjeto."><i class="fa fa-check"></i><b>10.1.2</b> El iterador como un subobjeto.</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#el-loop-for-con-las-condicionales-if-else."><i class="fa fa-check"></i><b>10.2</b> El loop for con las condicionales if else.</a></li>
+<li class="chapter" data-level="10.3" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#función-ifelse."><i class="fa fa-check"></i><b>10.3</b> Función ifelse().</a></li>
+<li class="chapter" data-level="10.4" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#declaración-break-y-next."><i class="fa fa-check"></i><b>10.4</b> Declaración Break y Next.</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="ciclo-while..html"><a href="ciclo-while..html"><i class="fa fa-check"></i><b>11</b> CICLO WHILE.</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="ciclo-while..html"><a href="ciclo-while..html#sintaxis-del-ciclo-while."><i class="fa fa-check"></i><b>11.1</b> Sintaxis del ciclo while.</a></li>
+<li class="chapter" data-level="11.2" data-path="ciclo-while..html"><a href="ciclo-while..html#ejemplos-de-uso-del-ciclo-while."><i class="fa fa-check"></i><b>11.2</b> Ejemplos de uso del ciclo while.</a></li>
+<li class="chapter" data-level="11.3" data-path="ciclo-while..html"><a href="ciclo-while..html#aplicaciones-con-las-declaraciones-break-y-next."><i class="fa fa-check"></i><b>11.3</b> Aplicaciones con las declaraciones Break y Next.</a></li>
+<li class="chapter" data-level="11.4" data-path="ciclo-while..html"><a href="ciclo-while..html#aplicación-en-la-maximización-de-beneficios-del-productor."><i class="fa fa-check"></i><b>11.4</b> Aplicación en la maximización de beneficios del productor.</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><i class="fa fa-check"></i><b>12</b> DATA FRAME: CREACIÓN, SELECCIÓN, FILTROS, AGREGACIÓN Y TRANSFORMACIÓN DE DATOS.</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#creación-de-data-frames."><i class="fa fa-check"></i><b>12.1</b> Creación de data frames.</a></li>
+<li class="chapter" data-level="12.2" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#selección-de-columnas."><i class="fa fa-check"></i><b>12.2</b> Selección de columnas.</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#r-base---por-índice."><i class="fa fa-check"></i><b>12.2.1</b> R base - por índice.</a></li>
+<li class="chapter" data-level="12.2.2" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#r-base---por-el-nombre-de-la-variable."><i class="fa fa-check"></i><b>12.2.2</b> R base - por el nombre de la variable.</a></li>
+<li class="chapter" data-level="12.2.3" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#r-base---usando-expresiones-regulares."><i class="fa fa-check"></i><b>12.2.3</b> R base - usando expresiones regulares.</a></li>
+<li class="chapter" data-level="12.2.4" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#dplyr---usando-la-función-select."><i class="fa fa-check"></i><b>12.2.4</b> Dplyr - Usando la función select.</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#filtro-de-filas."><i class="fa fa-check"></i><b>12.3</b> Filtro de filas.</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#usando-r-base."><i class="fa fa-check"></i><b>12.3.1</b> Usando R base.</a></li>
+<li class="chapter" data-level="12.3.2" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#dplyr---usando-la-función-filter."><i class="fa fa-check"></i><b>12.3.2</b> Dplyr - Usando la función filter.</a></li>
+<li class="chapter" data-level="12.3.3" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#filtrando-usando-la-función-subset-de-r-base."><i class="fa fa-check"></i><b>12.3.3</b> Filtrando usando la función subset de R base.</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#filtrando-y-seleccionado-columnas."><i class="fa fa-check"></i><b>12.4</b> filtrando y seleccionado columnas.</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html"><i class="fa fa-check"></i><b>13</b> IMPORTAR DATOS: XLSX, XLS, SAV, DTA, CSV, TXT, ARCHIVOS WEB, ENTRE OTROS.</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#directorio-de-trabajo."><i class="fa fa-check"></i><b>13.1</b> DIRECTORIO DE TRABAJO.</a></li>
+<li class="chapter" data-level="13.2" data-path="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#importar-archivos-txt."><i class="fa fa-check"></i><b>13.2</b> IMPORTAR ARCHIVOS TXT.</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#usando-la-función-read.table."><i class="fa fa-check"></i><b>13.2.1</b> Usando la función read.table().</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="operadores-lógicos-índice-de-elementos-y-cambio-de-valores." class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> OPERADORES LÓGICOS, ÍNDICE DE ELEMENTOS Y CAMBIO DE VALORES.</h1>
+<p>En este capítulo se tratará de cómo usar operados lógicos como: <code>y</code>, <code>o</code>, <code>igualdad</code>, <code>mayor que</code>, <code>menor que</code>, <code>diferente</code>, <code>negación</code>, entre otros. Gracias a estos operadores lógicos podremos filtrar y seleccionar elementos y variables de bases de datos. Además se aprenderá como encontrar el índice de elementos y cambiar valores de estos elementos siempre y cuando cumplan una condición.</p>
+<div id="operadores-lógicos." class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Operadores lógicos.</h2>
+<p>Al igual que las operaciones aritméticas, las operaciones lógicas tienen una importancia primordial ya que a través de ellas se pueden formar condicionales que nos simplificarán el procesamiento de datos.</p>
+<p>Al usar un operador lógico en R, es como si le preguntaramos al software y él se limitara a responder sólo con un <code>TRUE</code> o <code>FALSE</code>. El programa no te arrojará otras respuestas a menos que hayas especificado mal la sintaxis para el uso de operadores lógicos. Asimismo, para R el valor numérico de <code>TRUE</code> es 1 y para <code>FALSE</code> es 0, esto nos permitirá, por ejemplo, saber cuántos elementos de un vector cumplen lo especificado en la operación lógica y cuántos no.</p>
+<p>En la siguiente tabla se muestra los operadores lógicos más importantes:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">OPERADOR LÓGICO</th>
+<th align="center">SINTAXIS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Igualdad</td>
+<td align="center"><strong>==</strong></td>
+</tr>
+<tr class="even">
+<td align="center">Mayor que</td>
+<td align="center"><strong>&gt;</strong></td>
+</tr>
+<tr class="odd">
+<td align="center">Menor que</td>
+<td align="center"><strong>&lt;</strong></td>
+</tr>
+<tr class="even">
+<td align="center">Mayor igual que</td>
+<td align="center"><strong>&gt;=</strong></td>
+</tr>
+<tr class="odd">
+<td align="center">Menor igual que</td>
+<td align="center"><strong>&lt;=</strong></td>
+</tr>
+<tr class="even">
+<td align="center">Diferente</td>
+<td align="center"><strong>!=</strong></td>
+</tr>
+<tr class="odd">
+<td align="center">Negación</td>
+<td align="center"><strong>!</strong></td>
+</tr>
+<tr class="even">
+<td align="center">y</td>
+<td align="center"><strong>&amp;</strong></td>
+</tr>
+<tr class="odd">
+<td align="center">o</td>
+<td align="center"><strong>|</strong></td>
+</tr>
+<tr class="even">
+<td align="center">Pertenece</td>
+<td align="center"><strong>%in%</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Primero definiremos un vector del cual podremos desarollar ejemplos usando los operadores lógicos.</p>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb307-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definiendo el vector x.</span></span>
+<span id="cb307-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb307-2" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">8</span>,<span class="dv">6</span>,<span class="dv">4</span>,<span class="dv">0</span>,<span class="dv">8</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">7</span>,<span class="dv">3</span>,<span class="dv">11</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">7</span>,<span class="dv">7</span>,<span class="dv">10</span>)</span>
+<span id="cb307-3"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb307-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb307-4"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb307-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrando el vector x.</span></span>
+<span id="cb307-5"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb307-5" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##  [1]  5  2  4  8  6  4  0  8  1  4  7  3 11  5  1  1  2  3  4  3  3  7  7 10</code></pre>
+<div id="igualdad." class="section level3" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Igualdad.</h3>
+<p>Si nosotros queremos comprobar si dos objetos son iguales, entonces usaremos el operador de igualdad <code>==</code>. Es así que si deseamos saber si dos o más elementos son iguales o si uno o más vectores son iguales o otras operaciones tendremos que usar este operador. Veamos un ejemplo muy sencillo para comprenderlo.</p>
+<p>Para esto vamos a consultar a <strong>R</strong> si 5 es igual a 7.</p>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb309-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿El número 5 es igual al número 7?</span></span>
+<span id="cb309-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb309-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb309-3"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb309-3" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="sc">==</span><span class="dv">7</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>Como se muestra <strong>R</strong> nos arroja el booleano FALSE. El cual nos indica que <code>5</code> no es igual a <code>7</code>. Ahora veamos un ejemplo en donde dos elementos son iguales.</p>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb311-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿El número 2.4 es igual a 2.4?</span></span>
+<span id="cb311-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb311-2" aria-hidden="true" tabindex="-1"></a><span class="fl">2.4</span><span class="sc">==</span><span class="fl">2.4</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Como era obvio, nos arroja el booleano TRUE.</p>
+<p>Hasta ahora hemos visto como saber si un elemento es igual a otro. Pero esta operción se puede proyectar a vectores. Por ejemplo, vamos a consultar a <strong>R</strong> que elementos del vector <code>x</code> son iguales a <code>3</code>.</p>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb313-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Qué elementos del vector x son iguales a 3?</span></span>
+<span id="cb313-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb313-2" aria-hidden="true" tabindex="-1"></a>x<span class="sc">==</span><span class="dv">3</span></span></code></pre></div>
+<pre><code>##  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE
+## [13] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE  TRUE  TRUE FALSE FALSE FALSE</code></pre>
+<p>Podemos ver que nos arroja <code>TRUE</code> o <code>FALSE</code> por cada elemento del vector <code>x</code>. Nos arroja <code>TRUE</code> en el elemento de posición 12, lo que nos indica que el elemento de posición 12 es igual a <code>3</code>. Asimismo, también encontramos otros <code>TRUE</code> en los elementos de posición 18, 20, 21, lo que nos indica también que en esos elementos del vector <code>x</code> son iguales a <code>3</code>.</p>
+<p>Veamos que sucede si preguntamos a <strong>R</strong> que elementos del vector <code>x</code> son iguales a <code>33</code>.</p>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb315-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Qué elementos del vector x son iguales a 33?</span></span>
+<span id="cb315-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb315-2" aria-hidden="true" tabindex="-1"></a>x<span class="sc">==</span><span class="dv">33</span></span></code></pre></div>
+<pre><code>##  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+<p>El resultado que obtenemos son todos <code>FALSE</code>, lo que nos indica que no hay un elemento en el vector <code>x</code> que sea igual a <code>33</code>.</p>
+<p>Hagamos una comprobación que nos arroje un similar resultado. Para esto vamos a decirle a R que sume cuantos elementos del vector <code>x</code> son iguales a <code>33</code>. Entonces, con la siguiente sintaxis sé que el total de elementos de <code>x</code> no son iguales a <code>33</code>.</p>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb317-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Método que nos permite comprobar los resultados.</span></span>
+<span id="cb317-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb317-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(x<span class="sc">==</span><span class="dv">33</span>)<span class="sc">==</span><span class="dv">0</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Lo que hemos hecho es sumar (numéricamente los <code>TRUE</code> y <code>FALSE</code>), recordar que para R <code>TRUE</code> significa 1 y <code>FALSE</code> signfica 0. Entonces, si sumamos 33 <code>FALSE</code> nos resultará <code>0</code> que es igual al <code>0</code> que colocamos en la parte derecha del operador lógico.</p>
+<p>Y en efecto, el resultado es TRUE, lo que nos indica que no hay ningún elemento en el vector <code>x</code> que sea igual a <code>33</code>.</p>
+</div>
+<div id="mayor-que." class="section level3" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Mayor que.</h3>
+<p>Si queremos saber si un elemento es “mayor que” otro elemento, entonces, se tiene que usar el operador lògico <code>&gt;</code>. Este operador lógico también se puede proyectar a más objetos. Veamos un ejemplo, vamos a consultar a R si, 5 es mayor que 3.</p>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb319-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿El número 5 es mayor que 3?</span></span>
+<span id="cb319-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb319-2" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="sc">&gt;</span><span class="dv">3</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Como era obvio, nos arroja el valor de TRUE, ya que, 5 es mayor que 3. Ahora veamos un ejemplo usando vectores. Vamos a consultarle a R, qué números son mayores que 8.</p>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb321-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Qué elementos del vector x son mayores que 8?</span></span>
+<span id="cb321-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb321-2" aria-hidden="true" tabindex="-1"></a>x<span class="sc">&gt;</span><span class="dv">8</span></span></code></pre></div>
+<pre><code>##  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [13]  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE</code></pre>
+<p>Podemos observar que los elementos de posición son el 13, 24.</p>
+</div>
+<div id="menor-que." class="section level3" number="5.1.3">
+<h3><span class="header-section-number">5.1.3</span> Menor que.</h3>
+<p>Si queremos saber si un elemento es “menor que” otro elemento, entonces, se tiene que usar el operador lògico <code>&lt;</code>. Este operador lógico también se puede proyectar a más objetos como: vectores, matrices, listas, etc. Veamos un ejemplo, vamos a consultar a R si, 7 es menor que 10.</p>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb323-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿El número 7 es menor que 10?</span></span>
+<span id="cb323-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb323-2" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span><span class="sc">&lt;</span><span class="dv">10</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>En efecto, el resultado es verdadero <code>TRUE</code>, ya que, 7 es menor que 10. Ahora veamos un ejemplo en donde se le consunlta a R que elementos del vector <code>x</code> son menores que 3.</p>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb325-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Qué elementos del vector x son menores que 3?</span></span>
+<span id="cb325-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb325-2" aria-hidden="true" tabindex="-1"></a>x<span class="sc">&lt;</span><span class="dv">3</span></span></code></pre></div>
+<pre><code>##  [1] FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE
+## [13] FALSE FALSE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+<p>Nos muestra que la posición de los elementos menores que 3 son: 2, 7, 9, 15, 16, 17.</p>
+</div>
+<div id="diferente." class="section level3" number="5.1.4">
+<h3><span class="header-section-number">5.1.4</span> Diferente.</h3>
+<p>Otro de los operadores lógicos de mucha relevancia es el operador “diferente” que en R se representa con <code>!=</code>. Este operador servirá cuando queremos saber si un número es diferente a otro o cuando deseamos filtrar observaciones que son distintas al valor evaluado. Veamos un ejemplo en donde consultamos a R, si el 8 es diferente del 9.</p>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb327-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿El número 8 es diferente del 9?</span></span>
+<span id="cb327-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb327-2" aria-hidden="true" tabindex="-1"></a><span class="dv">8</span><span class="sc">!=</span><span class="dv">9</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Como es obvio nos arroja TRUE, ya que, el 8 es diferente del 9. Veamos un ejemplo usando vectores. Vamos a consultarle a R que nos arroje los elementos que son distintos de 7.</p>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb329-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Qué elementos del vector x que son diferentes de 7?</span></span>
+<span id="cb329-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb329-2" aria-hidden="true" tabindex="-1"></a>x<span class="sc">!=</span><span class="dv">7</span></span></code></pre></div>
+<pre><code>##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE
+## [13]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE</code></pre>
+<p>Nos arroja muchos <code>TRUE</code>, por lo que la gran mayoría de elementos son distintos de 7. Veamos cuántos elementos son diferentes de 7.</p>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb331-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Cúantos números cumplen la condición?</span></span>
+<span id="cb331-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb331-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(x<span class="sc">!=</span><span class="dv">7</span>)</span></code></pre></div>
+<pre><code>## [1] 21</code></pre>
+<p>R nos dice que hay 21 elementos que son diferentes de 7.</p>
+</div>
+<div id="negación." class="section level3" number="5.1.5">
+<h3><span class="header-section-number">5.1.5</span> Negación.</h3>
+<p>La negación sirve para mutar el booleano de <code>TRUE</code> a <code>FALSE</code> o de <code>FALSE</code> a <code>TRUE</code>. Es así que si deseo consultar a R por una cuestión, puedo negar esta cuestión y obtener el resultado contrario. Veamos un ejemplo, en donde consultamos a R si 10 es igual a 8. Obviamente, nos dirá que es <code>FALSE</code>, pero si usamos la negación el booleano mutará a <code>TRUE</code>.</p>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb333-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿El número 10 es igual 8?</span></span>
+<span id="cb333-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb333-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span><span class="sc">==</span><span class="dv">8</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb335-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Usando la negación.</span></span>
+<span id="cb335-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb335-2" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>(<span class="dv">10</span><span class="sc">==</span><span class="dv">8</span>) <span class="co"># ¿El número 10 es diferente del número 8?</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>En efecto, al negar la consulta hemos obtenido el resultado contrario. Ahora veamos un ejemplo usando vectores. Vamos a consultarle a R cuales son los elementos que son iguales a 5, pero lo negaremos, por lo cual nos arrojará los que son distintos de 5.</p>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb337-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Qué elementos del vector x son iguales a 5?</span></span>
+<span id="cb337-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb337-2" aria-hidden="true" tabindex="-1"></a>x<span class="sc">==</span><span class="dv">5</span></span></code></pre></div>
+<pre><code>##  [1]  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [13] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb339-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Usando la negación. </span></span>
+<span id="cb339-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb339-2" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>(x<span class="sc">==</span><span class="dv">5</span>)  <span class="co"># Elementos distintos de 5.</span></span></code></pre></div>
+<pre><code>##  [1] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [13]  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE</code></pre>
+<p>El resultado es muy intuitivo y reulta ser el complemento del primero. Este tipo de operadores lógicos se usará con mayor frecuencia cuando se haga operaciones lógicas usando caracteres.</p>
+</div>
+<div id="y-condicional-conjunción." class="section level3" number="5.1.6">
+<h3><span class="header-section-number">5.1.6</span> Y condicional (Conjunción).</h3>
+<p>El <code>Y</code> condicional es un operador lógico que representa la intersección entre dos o más operaciones lógicas. Es así que si deseamos obtener el resultado cuando si o si se cumplan dos o más operaciones lógicas, entonces, usaremos la condicional “y” que se representa como <code>&amp;</code>.</p>
+<p>veamos un ejemplo, en donde se le consulta a R si el número 3 es menor que 8 y que el caracter “azul” es diferente del caracter “rojo”.</p>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb341-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿El número 3 es menor que 8 y el caracter azul </span></span>
+<span id="cb341-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb341-2" aria-hidden="true" tabindex="-1"></a><span class="co"># es diferente del caracter rojo?</span></span>
+<span id="cb341-3"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb341-3" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="sc">&lt;</span><span class="dv">8</span> <span class="sc">&amp;</span> <span class="st">&quot;azul&quot;</span><span class="sc">!=</span><span class="st">&quot;rojo&quot;</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Como era de esperarse el resultado es TRUE, ya que 3 es menor que 8 <code>y</code> además azul es distito de rojo.</p>
+<p>Ahora veamos un ejemplo en donde se usará más de dos operaciones lógicas.</p>
+<p>Se el consultará a R si el 5 es mayor que 4 y si el 10 es menor que 6 y si 8 es igual a 8.0.</p>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb343-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿el 5 es mayor que 4 y si el 10 es menor que 6 </span></span>
+<span id="cb343-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb343-2" aria-hidden="true" tabindex="-1"></a><span class="co"># y si 8 es igual a 8.0?</span></span>
+<span id="cb343-3"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb343-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb343-4"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb343-4" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="sc">&gt;</span><span class="dv">4</span> <span class="sc">&amp;</span> <span class="dv">10</span><span class="sc">&lt;</span><span class="dv">6</span> <span class="sc">&amp;</span> <span class="dv">8</span><span class="sc">==</span><span class="fl">8.0</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>El resultado que obtenemos es FALSE, ya que la primera operación es verdadera, la segunda falsa y la tercera verdadera. Lo que en conjunto resulta ser FALSE.</p>
+<p>Pero usted, puede estar preguntandose por qué un verdadero, un falso y otro verdadero da falso. Esto se puede entender de dos formas. La primera, intuitivamente; y la segunda, con la tabla de verdades de los cursos de lógica proposicional que se imparten en la educación básica. Veamos a detalle cada una de estas formas.</p>
+<p>La forma intuitiva, si nosotros queremos saber el resultado de un conjunto de operaciones lógicas, nosotros sabemos que el resultado podría ser <code>TRUE</code> o `<code>FALSE</code>. El operador <code>y (&amp;)</code> representa a la conjunción, ésta une dos o más proposiciones con el fin de poder construir a un proposición mayor y si esta intersección de proposiciones es verdadera entonces el resultado será verdadero, ya que estas dos proposiciones se podrán intercambiar. Entonces, será verdadero cuando el conjunto de operaciones lógicas resultan verdadero, ya que una verdad y otra verdad y otra verdad y otra verdad serán <code>VERDAD</code>. Si una de ellas es falsa, entonces el conjunto de operaciones lógicas resultará falso, ya que se rompe la relación de igualdad entre las operaciones lógicas.</p>
+<p>La segunda forma, usando la tabla de verdades de los cursos de lógica proposicional, estoy seguro que usted recordará de sus cursos de lógica la siguiente tabla.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">P</th>
+<th align="center">Q</th>
+<th align="center">P ^ Q</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">V</td>
+<td align="center">V</td>
+<td align="center"><strong>V</strong></td>
+</tr>
+<tr class="even">
+<td align="center">V</td>
+<td align="center">F</td>
+<td align="center"><strong>F</strong></td>
+</tr>
+<tr class="odd">
+<td align="center">F</td>
+<td align="center">V</td>
+<td align="center"><strong>F</strong></td>
+</tr>
+<tr class="even">
+<td align="center">F</td>
+<td align="center">F</td>
+<td align="center"><strong>F</strong></td>
+</tr>
+</tbody>
+</table>
+<p>En este cuadro podemos ver dos proposiciones la proposición <strong>P</strong> y la proposición <strong>Q</strong>, cada una de estas proposiciones puede tomar el valor de <code>V (verdad)</code> o <code>F (falso)</code>, esto se representa en las dos primeras columnas de la tabla anterior. En la última columna tenemos el resultado de la intersección de <strong>P</strong> y <strong>Q</strong>, en donde observamos que sólo dos verdades resultan en verdad, en los otros casos resulta falso. Es así que si nosotros deseamos ejecutar un proceso y si o si el conjunto de proposiciones que evaluamos tienen que ser verdaderas entonces usaremos el operador <code>&amp;</code>.</p>
+</div>
+<div id="o-condicional-disyunción." class="section level3" number="5.1.7">
+<h3><span class="header-section-number">5.1.7</span> O condicional (disyunción).</h3>
+<p>La <code>O</code> condicional representa la unión entre una y más operaciones lógicas, en R se representa con <code>|</code>.
+Veamos un pequeño ejemplo, en donde consultamos a R si el 8 es igual a 9 o el 10 es igual 10.0.</p>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb345-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿El número 8 es igual al número 9 o el </span></span>
+<span id="cb345-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb345-2" aria-hidden="true" tabindex="-1"></a><span class="co"># número 10 es igual al número 10.0?</span></span>
+<span id="cb345-3"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb345-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb345-4"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb345-4" aria-hidden="true" tabindex="-1"></a><span class="dv">8</span><span class="sc">==</span><span class="dv">9</span> <span class="sc">|</span> <span class="dv">10</span><span class="sc">==</span><span class="fl">10.0</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>El resultado que obtenemos es TRUE, ya que la condicional <code>o</code> arroja la unión de las dos proposiciones. Es así que si la primera es <code>FALSE</code> y la segunda <code>TRUE</code>, entonces, el resultado es <code>TRUE</code>, ya que una de las proposiciones resultó ser <code>TRUE</code>.</p>
+<p>A continuación mostramos la tabla de verdades para un mejor entendimiento.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">P</th>
+<th align="center">Q</th>
+<th align="center">P v Q</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">V</td>
+<td align="center">V</td>
+<td align="center"><strong>V</strong></td>
+</tr>
+<tr class="even">
+<td align="center">V</td>
+<td align="center">F</td>
+<td align="center"><strong>V</strong></td>
+</tr>
+<tr class="odd">
+<td align="center">F</td>
+<td align="center">V</td>
+<td align="center"><strong>V</strong></td>
+</tr>
+<tr class="even">
+<td align="center">F</td>
+<td align="center">F</td>
+<td align="center"><strong>F</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Sólo si el resultado en las dos proposiciones es falso entonces el resultado será falso, en los otros casos el resultado será verdadero. Es así que si nosotros queremos ejecutar un proceso y sólo queremos que una se las proposiciones sea verdadera para poder ejecutarlo, entonces usaremos el operador <code>|</code>.</p>
+</div>
+<div id="mayor-y-menor-igual-que." class="section level3" number="5.1.8">
+<h3><span class="header-section-number">5.1.8</span> Mayor y menor igual que.</h3>
+<p>La diferencia con los operadores anteriores (mayor que y menor que) es que ahora se considerarán como límites los valores iguales al número evaluado. Veamos dos ejemplos, en el primero se consultará a R si el 4 es mayor igual a 18 y el 9 es menor igual que 9,</p>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb347-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿El número 4 es mayor igual que 18?</span></span>
+<span id="cb347-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb347-2" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span><span class="sc">&gt;=</span><span class="dv">18</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb349-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿El número 9 es menor igual que 9?</span></span>
+<span id="cb349-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb349-2" aria-hidden="true" tabindex="-1"></a><span class="dv">9</span><span class="sc">&lt;=</span><span class="dv">9</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>En el primer caso, el 4 no es mayor igual que 18; y en el segundo, el 8 si es menor igual que 9.</p>
+<p>Proyectándolo a vectores. Vamos a er el ejemplo en donde se le consulta a R la posición de elementos que son mayores igual a 5 y menores iguales que 8.</p>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb351-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Qué elementos del vector x son mayores iguales que 5</span></span>
+<span id="cb351-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb351-2" aria-hidden="true" tabindex="-1"></a><span class="co"># y menores iguales que 8?</span></span>
+<span id="cb351-3"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb351-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb351-4"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb351-4" aria-hidden="true" tabindex="-1"></a>x<span class="sc">&gt;=</span><span class="dv">5</span> <span class="sc">&amp;</span> x<span class="sc">&lt;=</span><span class="dv">8</span> </span></code></pre></div>
+<pre><code>##  [1]  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE
+## [13] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE</code></pre>
+<p>Los elementos de posición 1, 4, 5, 8, 11, 14, 22, 23 son mayores iguales que 5 y menores iguales que 7. Adicionalmete, si queremos saber cuántos números son, usamos la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb353-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para saber cuántos números cumplen la condición.</span></span>
+<span id="cb353-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb353-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(x<span class="sc">&gt;=</span><span class="dv">5</span> <span class="sc">&amp;</span> x<span class="sc">&lt;=</span><span class="dv">8</span>)</span></code></pre></div>
+<pre><code>## [1] 8</code></pre>
+<p>R nos indica que hay un total de 8 números que cumplen la condición. Es probable que usted piense que esto es en vano, ya que podría contar el número de <code>TRUE</code> sin la necesidad de correr <code>sum(x&gt;=5 &amp; x&lt;=8)</code>. Esto sucede porque nuestro ejemplo es pequeño, pero si trabaja con datos reales, el tamaño de observaciones es mucho mayor. Así que esta última parte del codigo servirá mucho.</p>
+</div>
+<div id="operador-pertenece." class="section level3" number="5.1.9">
+<h3><span class="header-section-number">5.1.9</span> Operador pertenece.</h3>
+<p>El operador pertenece juega el mismo papel que en teoría de conjutos. Es así que si queremos saber si uno o varios elementos pertenecen a un objeto usaremos este operador. En R este operador se representa como <code>%in%</code>. El operador pertenece se usa mucho cuando se trabaja con caracteres.</p>
+<p>Veamos un ejemplo en donde vamos a consultarle a R si el elemento 8 pertence al vector x.</p>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb355-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definimos el vector x.</span></span>
+<span id="cb355-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb355-2" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">3</span>)</span>
+<span id="cb355-3"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb355-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb355-4"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb355-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿El número 8 pertence al vector x?</span></span>
+<span id="cb355-5"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb355-5" aria-hidden="true" tabindex="-1"></a><span class="dv">8</span> <span class="sc">%in%</span> x</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Como era de esperarse nos arroja el valor de TRUE. Ahora veamos un ejemplo usando caracteres.</p>
+<p>Vamos a consultarle a R si los elementos “Lunes” y “Martes” pertenecen al vector x.</p>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb357-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definimos el vector x.</span></span>
+<span id="cb357-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb357-2" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Lunes&quot;</span>,<span class="st">&quot;Martes&quot;</span>,<span class="st">&quot;Miércoles&quot;</span>,<span class="st">&quot;Jueves&quot;</span>,<span class="st">&quot;Viernes&quot;</span>,<span class="st">&quot;Sábado&quot;</span>,<span class="st">&quot;Domingo&quot;</span>)</span>
+<span id="cb357-3"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb357-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb357-4"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb357-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Los elementos &quot;Lunes&quot; y &quot;Martes&quot; pertenecen al vector x?</span></span>
+<span id="cb357-5"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb357-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb357-6"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb357-6" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">&quot;Lunes&quot;</span>,<span class="st">&quot;Martes&quot;</span>) <span class="sc">%in%</span> x</span></code></pre></div>
+<pre><code>## [1] TRUE TRUE</code></pre>
+<p>En efecto, nos arroja como resultado TRUE, TRUE.</p>
+<p>¿Pero que sucede si invierto el orden de los objetos?</p>
+<p>El resultado que obtenemos será como si preguntaramos lo siguiente: los elementos del vector x pertenecen al objeto <code>c("Lunes","Martes")</code>.</p>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb359-1" aria-hidden="true" tabindex="-1"></a>x <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Lunes&quot;</span>,<span class="st">&quot;Martes&quot;</span>)</span></code></pre></div>
+<pre><code>## [1]  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE</code></pre>
+<p>Nos arroja <code>TRUE</code>, <code>TRUE</code> y luego sólo <code>FALSE</code>. Esto es porque el primer elemento del vector x está en el objeto, lo mismo para el segundo elemento del vector x. Pero el tercer elemento del vector x (“Miércoles”) no está en el objeto.</p>
+<p>El operador pertenece sirve muchísimo porque nos ayuda a simplificar mucho la sintaxis de grandes operaciones lógicas. Veamos un ejemplo.</p>
+<p>Le preguntamos a R que elementos del vector x son iguales a “A” o “B” o “C”.</p>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb361-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definimos el vector x.</span></span>
+<span id="cb361-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb361-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">20</span>)</span>
+<span id="cb361-3"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb361-3" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;D&quot;</span>),<span class="dv">20</span>,T)</span>
+<span id="cb361-4"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb361-4" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##  [1] &quot;B&quot; &quot;C&quot; &quot;C&quot; &quot;D&quot; &quot;B&quot; &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;B&quot; &quot;B&quot; &quot;A&quot; &quot;C&quot; &quot;C&quot; &quot;A&quot; &quot;C&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;B&quot;
+## [20] &quot;D&quot;</code></pre>
+<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb363-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Qué elementos del vector x son iguales a &quot;A&quot; o &quot;B&quot; o &quot;C&quot;?</span></span>
+<span id="cb363-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb363-2" aria-hidden="true" tabindex="-1"></a>x<span class="sc">==</span><span class="st">&quot;A&quot;</span> <span class="sc">|</span> x<span class="sc">==</span><span class="st">&quot;B&quot;</span> <span class="sc">|</span> x<span class="sc">==</span><span class="st">&quot;C&quot;</span></span></code></pre></div>
+<pre><code>##  [1]  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [13]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE</code></pre>
+<p>Pero si usamos el operador pertenece (<code>%in%</code>) la sintaxis sería más limpia y más corta.</p>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb365-1" aria-hidden="true" tabindex="-1"></a><span class="co"># La misma solución pero usando el operador pertenece. </span></span>
+<span id="cb365-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb365-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb365-3"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb365-3" aria-hidden="true" tabindex="-1"></a>x <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>)</span></code></pre></div>
+<pre><code>##  [1]  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [13]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE</code></pre>
+</div>
+</div>
+<div id="encontrar-el-índice-de-elementos-y-cambiar-valores." class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Encontrar el índice de elementos y cambiar valores.</h2>
+<p>En este capítulo hemos visto hasta el momento que se puede determinar que elemento(s) pertenecen al vector (siempre y cuando se cumplan determinada operación lógica), pero si uno desea saber la posición de este(os) elemento(s). Se tendrá que usar la función <code>which()</code>. Esta función permite encontrar la posición de los elementos siempre y cuando se cumpla una determinada operación lógica.</p>
+<p>Veamos los argumentos de la función <code>which()</code>.</p>
+<p><code>which(x, arr.ind = FALSE, useNames = TRUE)</code></p>
+<p>Donde:</p>
+<p><code>x</code> = Es un vector lógico o un array.
+<code>arr.ind</code> = Argumento lógico que se usa cuando <code>x</code> es un array. Si es TRUE, entonces, devuelve los índices en una matriz cuando x es una matriz.
+<code>ùseNames</code> = Argumento lógico que se usa cuando <code>x</code> es una array. Si es TRUE, entonces, los nombres del array se deben de mostrar.</p>
+<p>Para este capítulo solo usaremos la función <code>which()</code> cuando el argumento <code>x</code> es lógico, así que no se tendrá en cuenta los dos últimos argumentos, ya que estos se usan cuando <code>x</code> es una array.</p>
+<p>Entonces, vamos a ver un ejemplo. Pero primero vamos a crear el vector <code>x</code> que tiene los sigientes elementos.</p>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb367-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creando el vector x.</span></span>
+<span id="cb367-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb367-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2021</span>)</span>
+<span id="cb367-3"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb367-3" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>,<span class="dv">50</span>,T)</span></code></pre></div>
+<p>Se crea un vector aleatorio de 50 elementos los cuales pueden ser entre el 1 al 100 y pueden repetirse.</p>
+<p>Veamos los elementos del vector <code>x</code> que acabamos de crear.</p>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb368-1" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##  [1]  7 38 46 58 12 70 64 38 69 23 76 51 60 18 60  3 46 26 36 86 31 98 19 68 86
+## [26]  5 73 63 38 18 43 59 70 86 70 63 79 34 22 16 79 88 17 20 68 94 72 83 67  2</code></pre>
+<p>Nosotros queremos saber las posiciones de los elementos del vector <code>x</code> son mayores que 50. Para esto realizamos la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb370-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para encontrar la posición de los elementos que son </span></span>
+<span id="cb370-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb370-2" aria-hidden="true" tabindex="-1"></a><span class="co"># mayores a 50 del vector x.</span></span>
+<span id="cb370-3"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb370-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb370-4"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb370-4" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(x<span class="sc">&gt;</span><span class="dv">50</span>)</span></code></pre></div>
+<pre><code>##  [1]  4  6  7  9 11 12 13 15 20 22 24 25 27 28 32 33 34 35 36 37 41 42 45 46 47
+## [26] 48 49</code></pre>
+<p>Lo que nos ha arrojado R son las posiciones de los elementos que son mayores a 50 del vector <code>x</code>. Es así que el elemento de posición 4 es mayor a 50. Si nos fijamos en el vector x, el elemento de posición 4 es el elemento de valor 58 que es mayor a 50.</p>
+<div id="cambiar-valores-de-elementos." class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Cambiar valores de elementos.</h3>
+<p>Una práctica común es cambiar el valor de los elementos de una variable siempre y cuando cumpla una condición o si queremos cambiar el valor de un elemento determinado.</p>
+<p>Veamos un ejemplo, para esto vamos a crear el vector aleatorio z.</p>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb372-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creando el vector aleatorio z.</span></span>
+<span id="cb372-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb372-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2021</span>)</span>
+<span id="cb372-3"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb372-3" aria-hidden="true" tabindex="-1"></a>z<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">30</span>, T)</span></code></pre></div>
+<p>El vector <code>z</code> es un vector aleatorio de 30 elementos que pueden ser entre el 1 y 10 donde los elementos se repiten. El vector <code>z</code> tiene los siguientes elementos.</p>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb373-1" aria-hidden="true" tabindex="-1"></a>z</span></code></pre></div>
+<pre><code>##  [1]  7  6 10  7  4  6  6  6  5  7  9  7  3  2  3  8 10  4  5  6  2  3  4  5  6
+## [26]  5  9  6  2  2</code></pre>
+<p>Por ejemplo. Si se desea cambiar el elemento de posición 9 por el 20, tendríamos que realizar la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb375-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cambiando el valor del elemento de índice 9</span></span>
+<span id="cb375-2"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb375-2" aria-hidden="true" tabindex="-1"></a><span class="co"># por el valor de 20 en el vector z.</span></span>
+<span id="cb375-3"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb375-3" aria-hidden="true" tabindex="-1"></a>z[<span class="dv">9</span>]<span class="ot">&lt;-</span><span class="dv">20</span></span></code></pre></div>
+<p>Veamos como ha quedado el vector <code>z</code>.</p>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb376-1" aria-hidden="true" tabindex="-1"></a>z</span></code></pre></div>
+<pre><code>##  [1]  7  6 10  7  4  6  6  6 20  7  9  7  3  2  3  8 10  4  5  6  2  3  4  5  6
+## [26]  5  9  6  2  2</code></pre>
+<p>En efecto, lo que hemos hecho es cambiar el valor del elemento de índice 9 por el valor de 20.</p>
+<p>Ahora veamos un ejemplo en donde se desea cambiar por 100 todos los elementos que son iguales a 3. La sintaxis sería la siguiente.</p>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb378-1" aria-hidden="true" tabindex="-1"></a>z[z<span class="sc">==</span><span class="dv">3</span>]<span class="ot">&lt;-</span><span class="dv">100</span></span></code></pre></div>
+<p>Veamos como nos ha quedado el vector <code>z</code>.</p>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb379-1" aria-hidden="true" tabindex="-1"></a>z</span></code></pre></div>
+<pre><code>##  [1]   7   6  10   7   4   6   6   6  20   7   9   7 100   2 100   8  10   4   5
+## [20]   6   2 100   4   5   6   5   9   6   2   2</code></pre>
+<p>En efecto, todos los elementos que valián 3 ahora valen 100.</p>
+<p>Veamos un último ejemplo en donde los elementos de valor 5 se le sume 1000 con lo cual se convertirán en 1005. Para desarrollar lo siguiente usaremos la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb381-1" aria-hidden="true" tabindex="-1"></a>z[z<span class="sc">==</span><span class="dv">5</span>]<span class="ot">&lt;-</span>z[z<span class="sc">==</span><span class="dv">5</span>]<span class="sc">+</span><span class="dv">1000</span></span></code></pre></div>
+<p>Y en efecto, los elementos de valor 5 ahora valen 1005.</p>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cb382-1" aria-hidden="true" tabindex="-1"></a>z</span></code></pre></div>
+<pre><code>##  [1]    7    6   10    7    4    6    6    6   20    7    9    7  100    2  100
+## [16]    8   10    4 1005    6    2  100    4 1005    6 1005    9    6    2    2</code></pre>
+<p>En el siguiente capítulo se verán los temas de factores y listas, objetos muy importantes en la programación en el software R.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="vectores-aleatorios-y-selección-de-elementos..html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="factores-y-listas..html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/CesarAHN/R_para_economistas/edit/master/05-Operaciones-logicas-y-encontrar-posicion-de-elementos.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/CesarAHN/R_para_economistas/blob/master/05-Operaciones-logicas-y-encontrar-posicion-de-elementos.Rmd",
+"text": null
+},
+"download": ["bookdownproj.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

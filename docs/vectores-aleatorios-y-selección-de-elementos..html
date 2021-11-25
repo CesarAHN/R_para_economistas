@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 VECTORES ALEATORIOS y SELECCIÓN DE ELEMENTOS. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</title>
+  <meta name="description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 VECTORES ALEATORIOS y SELECCIÓN DE ELEMENTOS. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  <meta name="github-repo" content="CesarAHN/bookdown_intro" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 VECTORES ALEATORIOS y SELECCIÓN DE ELEMENTOS. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
+  
+  <meta name="twitter:description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  
+
+<meta name="author" content="César Anderson Huamaní Ninahuanca" />
+
+
+<meta name="date" content="2021-11-24" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="operaciones-matemáticas-y-estadísticas-con-vectores..html"/>
+<link rel="next" href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - PARA ECONOMISTAS</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prólogo</a></li>
+<li class="chapter" data-level="1" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html"><i class="fa fa-check"></i><b>1</b> R COMO CALCULADORA.</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html#principales-operaciones-matemáticas."><i class="fa fa-check"></i><b>1.1</b> Principales operaciones matemáticas.</a></li>
+<li class="chapter" data-level="1.2" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html#decimales-exactos-y-redondeo-de-cifras."><i class="fa fa-check"></i><b>1.2</b> Decimales exactos y redondeo de cifras.</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html#número-de-cifras."><i class="fa fa-check"></i><b>1.2.1</b> Número de cifras.</a></li>
+<li class="chapter" data-level="1.2.2" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html#redondeo."><i class="fa fa-check"></i><b>1.2.2</b> Redondeo.</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html#guardar-o-definir-objetos."><i class="fa fa-check"></i><b>1.3</b> Guardar o definir objetos.</a></li>
+<li class="chapter" data-level="1.4" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html#funciones."><i class="fa fa-check"></i><b>1.4</b> Funciones.</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="vectores..html"><a href="vectores..html"><i class="fa fa-check"></i><b>2</b> VECTORES.</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="vectores..html"><a href="vectores..html#definición-de-un-vector."><i class="fa fa-check"></i><b>2.1</b> Definición de un vector.</a></li>
+<li class="chapter" data-level="2.2" data-path="vectores..html"><a href="vectores..html#clases-de-vectores."><i class="fa fa-check"></i><b>2.2</b> Clases de vectores.</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="vectores..html"><a href="vectores..html#cómo-saber-si-un-objeto-es-un-vector"><i class="fa fa-check"></i><b>2.2.1</b> ¿Cómo saber si un objeto es un vector?</a></li>
+<li class="chapter" data-level="2.2.2" data-path="vectores..html"><a href="vectores..html#cómo-saber-de-que-clase-es-un-vector"><i class="fa fa-check"></i><b>2.2.2</b> ¿Cómo saber de que clase es un vector?</a></li>
+<li class="chapter" data-level="2.2.3" data-path="vectores..html"><a href="vectores..html#qué-pasa-si-defino-un-vector-con-distintas-clases-de-elementos"><i class="fa fa-check"></i><b>2.2.3</b> ¿Qué pasa si defino un vector con distintas clases de elementos?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="vectores..html"><a href="vectores..html#número-de-elementos-de-un-vector."><i class="fa fa-check"></i><b>2.3</b> Número de elementos de un vector.</a></li>
+<li class="chapter" data-level="2.4" data-path="vectores..html"><a href="vectores..html#funciones-para-construir-vectores-más-eficientemente."><i class="fa fa-check"></i><b>2.4</b> Funciones para construir vectores más eficientemente.</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="vectores..html"><a href="vectores..html#vectores-de-elementos-consecutivos"><i class="fa fa-check"></i><b>2.4.1</b> Vectores de elementos consecutivos:</a></li>
+<li class="chapter" data-level="2.4.2" data-path="vectores..html"><a href="vectores..html#vectores-con-patrones"><i class="fa fa-check"></i><b>2.4.2</b> Vectores con patrones:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="vectores..html"><a href="vectores..html#concatenar-elementos-y-vectores."><i class="fa fa-check"></i><b>2.5</b> Concatenar elementos y vectores.</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="operaciones-matemáticas-y-estadísticas-con-vectores..html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores..html"><i class="fa fa-check"></i><b>3</b> OPERACIONES MATEMÁTICAS Y ESTADÍSTICAS CON VECTORES.</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="operaciones-matemáticas-y-estadísticas-con-vectores..html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores..html#operaciones-matemáticas."><i class="fa fa-check"></i><b>3.1</b> Operaciones matemáticas.</a></li>
+<li class="chapter" data-level="3.2" data-path="operaciones-matemáticas-y-estadísticas-con-vectores..html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores..html#operaciones-estadísticas."><i class="fa fa-check"></i><b>3.2</b> Operaciones estadísticas.</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="operaciones-matemáticas-y-estadísticas-con-vectores..html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores..html#cómo-trabajar-con-missings-o-elementos-faltantes-na"><i class="fa fa-check"></i><b>3.2.1</b> ¿Cómo trabajar con missings o elementos faltantes (NA)?</a></li>
+<li class="chapter" data-level="3.2.2" data-path="operaciones-matemáticas-y-estadísticas-con-vectores..html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores..html#cómo-ordenar-elementos-de-los-vectores"><i class="fa fa-check"></i><b>3.2.2</b> ¿Cómo ordenar elementos de los vectores?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html"><i class="fa fa-check"></i><b>4</b> VECTORES ALEATORIOS y SELECCIÓN DE ELEMENTOS.</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html#creación-de-vectores-con-elementos-aleatorios."><i class="fa fa-check"></i><b>4.1</b> Creación de vectores con elementos aleatorios.</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html#aplicación-ley-de-grandes-números."><i class="fa fa-check"></i><b>4.1.1</b> Aplicación: Ley de grandes números.</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html#vectores-vacios-y-selección-de-elementos."><i class="fa fa-check"></i><b>4.2</b> Vectores vacios y selección de elementos.</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html#vectores-vacíos."><i class="fa fa-check"></i><b>4.2.1</b> Vectores vacíos.</a></li>
+<li class="chapter" data-level="4.2.2" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html#seleción-de-elementos-usando-."><i class="fa fa-check"></i><b>4.2.2</b> Seleción de elementos usando [].</a></li>
+<li class="chapter" data-level="4.2.3" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html#cómo-saber-cuántos-elementos-tiene-un-vector"><i class="fa fa-check"></i><b>4.2.3</b> ¿Cómo saber cuántos elementos tiene un vector?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><i class="fa fa-check"></i><b>5</b> OPERADORES LÓGICOS, ÍNDICE DE ELEMENTOS Y CAMBIO DE VALORES.</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#operadores-lógicos."><i class="fa fa-check"></i><b>5.1</b> Operadores lógicos.</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#igualdad."><i class="fa fa-check"></i><b>5.1.1</b> Igualdad.</a></li>
+<li class="chapter" data-level="5.1.2" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#mayor-que."><i class="fa fa-check"></i><b>5.1.2</b> Mayor que.</a></li>
+<li class="chapter" data-level="5.1.3" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#menor-que."><i class="fa fa-check"></i><b>5.1.3</b> Menor que.</a></li>
+<li class="chapter" data-level="5.1.4" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#diferente."><i class="fa fa-check"></i><b>5.1.4</b> Diferente.</a></li>
+<li class="chapter" data-level="5.1.5" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#negación."><i class="fa fa-check"></i><b>5.1.5</b> Negación.</a></li>
+<li class="chapter" data-level="5.1.6" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#y-condicional-conjunción."><i class="fa fa-check"></i><b>5.1.6</b> Y condicional (Conjunción).</a></li>
+<li class="chapter" data-level="5.1.7" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#o-condicional-disyunción."><i class="fa fa-check"></i><b>5.1.7</b> O condicional (disyunción).</a></li>
+<li class="chapter" data-level="5.1.8" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#mayor-y-menor-igual-que."><i class="fa fa-check"></i><b>5.1.8</b> Mayor y menor igual que.</a></li>
+<li class="chapter" data-level="5.1.9" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#operador-pertenece."><i class="fa fa-check"></i><b>5.1.9</b> Operador pertenece.</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#encontrar-el-índice-de-elementos-y-cambiar-valores."><i class="fa fa-check"></i><b>5.2</b> Encontrar el índice de elementos y cambiar valores.</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cambiar-valores-de-elementos."><i class="fa fa-check"></i><b>5.2.1</b> Cambiar valores de elementos.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="factores-y-listas..html"><a href="factores-y-listas..html"><i class="fa fa-check"></i><b>6</b> FACTORES Y LISTAS.</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="factores-y-listas..html"><a href="factores-y-listas..html#factores."><i class="fa fa-check"></i><b>6.1</b> Factores.</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="factores-y-listas..html"><a href="factores-y-listas..html#factores-con-niveles-desordenados."><i class="fa fa-check"></i><b>6.1.1</b> Factores con niveles desordenados.</a></li>
+<li class="chapter" data-level="6.1.2" data-path="factores-y-listas..html"><a href="factores-y-listas..html#factores-con-niveles-ordenados."><i class="fa fa-check"></i><b>6.1.2</b> Factores con niveles ordenados.</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="factores-y-listas..html"><a href="factores-y-listas..html#listas."><i class="fa fa-check"></i><b>6.2</b> Listas.</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="factores-y-listas..html"><a href="factores-y-listas..html#cómo-se-obtiene-cada-objeto-de-una-lista"><i class="fa fa-check"></i><b>6.2.1</b> ¿Cómo se obtiene cada objeto de una lista?</a></li>
+<li class="chapter" data-level="6.2.2" data-path="factores-y-listas..html"><a href="factores-y-listas..html#asignado-nombres-a-los-objetos-de-una-lista."><i class="fa fa-check"></i><b>6.2.2</b> Asignado nombres a los objetos de una lista.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="matrices..html"><a href="matrices..html"><i class="fa fa-check"></i><b>7</b> MATRICES.</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="matrices..html"><a href="matrices..html#creación-de-matrices."><i class="fa fa-check"></i><b>7.1</b> Creación de matrices.</a></li>
+<li class="chapter" data-level="7.2" data-path="matrices..html"><a href="matrices..html#concatenar-matrices-por-filas-o-columnas."><i class="fa fa-check"></i><b>7.2</b> Concatenar matrices por filas o columnas.</a></li>
+<li class="chapter" data-level="7.3" data-path="matrices..html"><a href="matrices..html#selecionar-elementos-de-una-matriz."><i class="fa fa-check"></i><b>7.3</b> Selecionar elementos de una matriz.</a></li>
+<li class="chapter" data-level="7.4" data-path="matrices..html"><a href="matrices..html#dimensiones-de-la-matriz."><i class="fa fa-check"></i><b>7.4</b> Dimensiones de la matriz.</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="álgebra-matricial..html"><a href="álgebra-matricial..html"><i class="fa fa-check"></i><b>8</b> ÁLGEBRA MATRICIAL.</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="álgebra-matricial..html"><a href="álgebra-matricial..html#operaciones-básicas."><i class="fa fa-check"></i><b>8.1</b> Operaciones básicas.</a></li>
+<li class="chapter" data-level="8.2" data-path="álgebra-matricial..html"><a href="álgebra-matricial..html#principales-operaciones-con-matrices."><i class="fa fa-check"></i><b>8.2</b> Principales operaciones con matrices.</a></li>
+<li class="chapter" data-level="8.3" data-path="álgebra-matricial..html"><a href="álgebra-matricial..html#solución-a-sistemas-de-ecuación."><i class="fa fa-check"></i><b>8.3</b> Solución a sistemas de ecuación.</a></li>
+<li class="chapter" data-level="8.4" data-path="álgebra-matricial..html"><a href="álgebra-matricial..html#valores-y-vectores-propios."><i class="fa fa-check"></i><b>8.4</b> Valores y vectores propios.</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="condicional-if-else..html"><a href="condicional-if-else..html"><i class="fa fa-check"></i><b>9</b> CONDICIONAL IF ELSE.</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="condicional-if-else..html"><a href="condicional-if-else..html#condicional-if."><i class="fa fa-check"></i><b>9.1</b> Condicional if.</a></li>
+<li class="chapter" data-level="9.2" data-path="condicional-if-else..html"><a href="condicional-if-else..html#condicional-if-else.-1"><i class="fa fa-check"></i><b>9.2</b> Condicional if else.</a></li>
+<li class="chapter" data-level="9.3" data-path="condicional-if-else..html"><a href="condicional-if-else..html#condicional-if-else-anidado."><i class="fa fa-check"></i><b>9.3</b> Condicional if else anidado.</a></li>
+<li class="chapter" data-level="9.4" data-path="condicional-if-else..html"><a href="condicional-if-else..html#unicidad-de-la-condicional-if."><i class="fa fa-check"></i><b>9.4</b> Unicidad de la condicional if.</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html"><i class="fa fa-check"></i><b>10</b> LOOP FOR E IF ELSE PARA MÁS DE UN ELEMENTO.</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#loop-for."><i class="fa fa-check"></i><b>10.1</b> Loop for.</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#el-iterador-como-objeto."><i class="fa fa-check"></i><b>10.1.1</b> El iterador como objeto.</a></li>
+<li class="chapter" data-level="10.1.2" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#el-iterador-como-un-subobjeto."><i class="fa fa-check"></i><b>10.1.2</b> El iterador como un subobjeto.</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#el-loop-for-con-las-condicionales-if-else."><i class="fa fa-check"></i><b>10.2</b> El loop for con las condicionales if else.</a></li>
+<li class="chapter" data-level="10.3" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#función-ifelse."><i class="fa fa-check"></i><b>10.3</b> Función ifelse().</a></li>
+<li class="chapter" data-level="10.4" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#declaración-break-y-next."><i class="fa fa-check"></i><b>10.4</b> Declaración Break y Next.</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="ciclo-while..html"><a href="ciclo-while..html"><i class="fa fa-check"></i><b>11</b> CICLO WHILE.</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="ciclo-while..html"><a href="ciclo-while..html#sintaxis-del-ciclo-while."><i class="fa fa-check"></i><b>11.1</b> Sintaxis del ciclo while.</a></li>
+<li class="chapter" data-level="11.2" data-path="ciclo-while..html"><a href="ciclo-while..html#ejemplos-de-uso-del-ciclo-while."><i class="fa fa-check"></i><b>11.2</b> Ejemplos de uso del ciclo while.</a></li>
+<li class="chapter" data-level="11.3" data-path="ciclo-while..html"><a href="ciclo-while..html#aplicaciones-con-las-declaraciones-break-y-next."><i class="fa fa-check"></i><b>11.3</b> Aplicaciones con las declaraciones Break y Next.</a></li>
+<li class="chapter" data-level="11.4" data-path="ciclo-while..html"><a href="ciclo-while..html#aplicación-en-la-maximización-de-beneficios-del-productor."><i class="fa fa-check"></i><b>11.4</b> Aplicación en la maximización de beneficios del productor.</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><i class="fa fa-check"></i><b>12</b> DATA FRAME: CREACIÓN, SELECCIÓN, FILTROS, AGREGACIÓN Y TRANSFORMACIÓN DE DATOS.</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#creación-de-data-frames."><i class="fa fa-check"></i><b>12.1</b> Creación de data frames.</a></li>
+<li class="chapter" data-level="12.2" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#selección-de-columnas."><i class="fa fa-check"></i><b>12.2</b> Selección de columnas.</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#r-base---por-índice."><i class="fa fa-check"></i><b>12.2.1</b> R base - por índice.</a></li>
+<li class="chapter" data-level="12.2.2" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#r-base---por-el-nombre-de-la-variable."><i class="fa fa-check"></i><b>12.2.2</b> R base - por el nombre de la variable.</a></li>
+<li class="chapter" data-level="12.2.3" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#r-base---usando-expresiones-regulares."><i class="fa fa-check"></i><b>12.2.3</b> R base - usando expresiones regulares.</a></li>
+<li class="chapter" data-level="12.2.4" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#dplyr---usando-la-función-select."><i class="fa fa-check"></i><b>12.2.4</b> Dplyr - Usando la función select.</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#filtro-de-filas."><i class="fa fa-check"></i><b>12.3</b> Filtro de filas.</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#usando-r-base."><i class="fa fa-check"></i><b>12.3.1</b> Usando R base.</a></li>
+<li class="chapter" data-level="12.3.2" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#dplyr---usando-la-función-filter."><i class="fa fa-check"></i><b>12.3.2</b> Dplyr - Usando la función filter.</a></li>
+<li class="chapter" data-level="12.3.3" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#filtrando-usando-la-función-subset-de-r-base."><i class="fa fa-check"></i><b>12.3.3</b> Filtrando usando la función subset de R base.</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#filtrando-y-seleccionado-columnas."><i class="fa fa-check"></i><b>12.4</b> filtrando y seleccionado columnas.</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html"><i class="fa fa-check"></i><b>13</b> IMPORTAR DATOS: XLSX, XLS, SAV, DTA, CSV, TXT, ARCHIVOS WEB, ENTRE OTROS.</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#directorio-de-trabajo."><i class="fa fa-check"></i><b>13.1</b> DIRECTORIO DE TRABAJO.</a></li>
+<li class="chapter" data-level="13.2" data-path="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#importar-archivos-txt."><i class="fa fa-check"></i><b>13.2</b> IMPORTAR ARCHIVOS TXT.</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#usando-la-función-read.table."><i class="fa fa-check"></i><b>13.2.1</b> Usando la función read.table().</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="vectores-aleatorios-y-selección-de-elementos." class="section level1" number="4">
+<h1><span class="header-section-number">Chapter 4</span> VECTORES ALEATORIOS y SELECCIÓN DE ELEMENTOS.</h1>
+<p>En este capítulo usted aprenderá a crear vectores de elementos aleatorios, así también, cómo seleccionar uno o varios elementos de un vector, a crear vectores vacíos y conocer el tamaño de los vectores.</p>
+<p>Quizá le parezca muy abstracto lo que se desarrollará en este capítulo, quizá usted se pregunte, ¿en el dia a día cómo voy a trabajar con vectores? o ¿para qué me servirá seleccionar elementos?. Déjeme decirle que en capítulos posteriores, los vectores se convertirán en columnas y las columnas en variables y las variables juntas generarán un dataframe o base de datos. Así que comprender cómo seleccionar elementos o saber el tamaño de vectores le permitirán filtrar observaciones en un futuro.</p>
+<p>En este y en el siguiente capítulo está lo más fundamental, si uno desea conocer el funcionamiento y en un futuro empezar a programar en el software R. Es asi que se recomienda leer, estos dos capítulos, las veces que sea posible hasta que quede asimilado por completo.</p>
+<div id="creación-de-vectores-con-elementos-aleatorios." class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Creación de vectores con elementos aleatorios.</h2>
+<p>Para poder crear vectores con elementos aleatorios tendremos que usar la función <code>sample()</code>. Veamos a continuación su sintaxis.</p>
+<p><code>sample(x, size, replace = FALSE, prob = NULL)</code></p>
+<p>Donde:<br />
+<code>x</code>: Elemento o vector que contiene el universo de elementos.<br />
+<code>size</code>: Es el tamaño del vector resultante. Es decir, el número de elementos de nuestro vector generado.<br />
+<code>replace</code>: Argumento lógico que indica si se escogeran los elementos con reemplazo o no. Su valor por defecto es <code>FALSE</code>, lo que implica que la elección de elementos sea sin reemplazos.<br />
+<code>prob</code>: Vector de probabilidades que indica la ocurrencia de los elementos del elemento o vector <code>x</code>.</p>
+<p>Para comprender su funcionamiento, veamos un ejemplo. Si queremos escoger aleatorimente 5 elementos de un vector con elementos del 1 al 10.</p>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb254-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Escogiendo aleatoriamente 5 elementos. </span></span>
+<span id="cb254-2"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb254-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb254-3"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb254-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">size =</span> <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] 5 9 3 4 2</code></pre>
+<p>El vector que contiene el universo de donde se escogeran los 5 números aleatoriamente es <code>1:10</code>. Asimismo, con el argumento <code>size=5</code> le estamos indicando que escoga 5 elementos. Está escogiendo 5 números distintos, ya que el argumento <code>replace</code> se está dejando con su valor por defecto que es <code>FALSE</code>, es decir, sin reemplazos.</p>
+<p>Es preciso aclarar que usted obtendrá resultados distintos cada vez que ejecute el ejemplo, ya que en cada ejecución el software utiliza un algoritmo distinto para seleccionar elementos. Es decir, está escogiendo aleatoriamente los elementos en cada ejecución.</p>
+<p>Veamos como con la misma sintaxis, el software, a escogido distintos elementos.</p>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb256-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Escogiendo aleatoriamente 5 elementos. </span></span>
+<span id="cb256-2"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb256-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb256-3"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb256-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">size =</span> <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1]  9 10  5  3  4</code></pre>
+<p>Entonces si queremos corregir esto y queremos guardar los resultados y que al volver a correr toda la sintaxis arroje los mismos resultados, tendremos que usar una semilla. En R, colocar una semilla a un proceso aleatorio se realiza usando la función <code>set.seed()</code>, que toma como argumento cualquier número (semilla).</p>
+<p>Veamos un ejemplo. Vamos a ejecutar la misma sintaxis del ejemplo anterior pero usando una semilla.</p>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb258-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
+<span id="cb258-2"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb258-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">size =</span> <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] 9 7 8 6 3</code></pre>
+<p>Cuando usamos la semilla con valor de 10. Nos arroja como resultado los números: <code>9 8 7 6 y 3</code><a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a>.</p>
+<p>Veamos como sale el mismo resultado cuando volvemos a ejecutar la misma sintaxis.</p>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb260-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
+<span id="cb260-2"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb260-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">size =</span> <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] 9 7 8 6 3</code></pre>
+<p>En efecto, los resultados son los mismos. Con lo cual queda demostrado que si deseamos obtener los mismos resultados de un proceso aleatorio tendremos que usar una semilla.</p>
+<p>Ahora veamos un ejemplo un poco más atractivo.</p>
+<p>Vamos a seleccionar aleatoriamente 2 personas de un conjunto de 6 personas.</p>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb262-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12</span>)</span>
+<span id="cb262-2"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb262-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="st">&quot;LUIS&quot;</span>,<span class="st">&quot;MARÍA&quot;</span>,<span class="st">&quot;JUAN&quot;</span>,<span class="st">&quot;ROBERTH&quot;</span>,<span class="st">&quot;CARLOS&quot;</span>,<span class="st">&quot;FLOR&quot;</span>), <span class="at">size =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;MARÍA&quot; &quot;FLOR&quot;</code></pre>
+<p>El software escogió a <code>MARÍA Y FLOR</code>. Este ejemplo se desarrollo con el fin de poder ver un ejemplo en donde el vector universal es un vector de elementos caracter. Ahora veamos un ejemplo usando el argumento <code>replace</code>.</p>
+<p>Vamos a generar un vector de 20 elementos en donde se escoga entre 1 y 0.</p>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb264-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">20</span>)</span>
+<span id="cb264-2"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb264-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">size =</span> <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##  [1] 1 0 0 1 1 0 1 0 1 1 0 0 0 0 0 0 0 0 1 1</code></pre>
+<p>Se ha escogido aleatoriamente 20 elementos que son <code>1 o 0</code>. Esto se pudo dar gracias al uso del argumento <code>replace=TRUE</code>. Ya que si no se hubiera especificado que haya reemplazos, nos arojaría error ya que no se puede toma una muestra más grande que el vector universal cuandi replace toma el valor de <code>FALSE</code>. Veamos este caso a continuación:</p>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb266-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">20</span>)</span>
+<span id="cb266-2"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb266-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">size =</span> <span class="dv">20</span>)</span></code></pre></div>
+<pre><code>## Error in sample.int(length(x), size, replace, prob): cannot take a sample larger than the population when &#39;replace = FALSE&#39;</code></pre>
+<p>En efecto nos arroja un error, al correr el código.</p>
+<p>Ahora veamos un ejemplo en donde se usa el argumento <code>prob</code>. Vamos a escoger un vector que tenga 100 elementos entre hombres y mujeres, pero queremos que la proporción de hombres sea del 30% y de mujeres del 70%, aproximadamente.</p>
+<p>Primero ejecutemos el problema sin especificar la proporción de hombres y mujeres.</p>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb268-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1805</span>)</span>
+<span id="cb268-2"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb268-2" aria-hidden="true" tabindex="-1"></a>sexo<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="st">&quot;HOMBRE&quot;</span>, <span class="st">&quot;MUJER&quot;</span>), <span class="at">size =</span> <span class="dv">100</span>, <span class="at">replace =</span> T)</span>
+<span id="cb268-3"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb268-3" aria-hidden="true" tabindex="-1"></a>sexo</span></code></pre></div>
+<pre><code>##   [1] &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;HOMBRE&quot;
+##   [9] &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;HOMBRE&quot;
+##  [17] &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot;
+##  [25] &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot;
+##  [33] &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot;
+##  [41] &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot; 
+##  [49] &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot; 
+##  [57] &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot; 
+##  [65] &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot; 
+##  [73] &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot; 
+##  [81] &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot; 
+##  [89] &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;MUJER&quot; 
+##  [97] &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;HOMBRE&quot;</code></pre>
+<p>Estamos guardando los resultados en el vector <code>sexo</code>. Si queremos saber cuántos son hombres y cuántos son mujeres usted podría contar uno por uno, pero esto resultaría muy tedioso, la forma más eficiente es ver los resultados en una tabla de valores absolutos. Para esto usamos la función <code>table()</code>. Veamos el resultado a continuación.</p>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb270-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(sexo)</span></code></pre></div>
+<pre><code>## sexo
+## HOMBRE  MUJER 
+##     45     55</code></pre>
+<p>El software escogió aleatoriamente 45 hombres y 55 mujeres. Para poder obtener estos resultados en valores relativos usamos la función <code>prop.table()</code>.</p>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb272-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(sexo))</span></code></pre></div>
+<pre><code>## sexo
+## HOMBRE  MUJER 
+##   0.45   0.55</code></pre>
+<p>El 45% son hombres y el 55% son mujeres.</p>
+<p>El problema en un inicio nos decia generar un vector de hombres y mujeres en donde el 30% sea hombres y el 70% mujeres. Entonces, para poder generar el vector deseado usaremos el argumento <code>prob</code>.</p>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb274-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1805</span>)</span>
+<span id="cb274-2"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb274-2" aria-hidden="true" tabindex="-1"></a>sexo<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="st">&quot;HOMBRE&quot;</span>, <span class="st">&quot;MUJER&quot;</span>), <span class="at">size =</span> <span class="dv">100</span>, <span class="at">replace =</span> T, <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.3</span>,<span class="fl">0.7</span>))</span>
+<span id="cb274-3"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb274-3" aria-hidden="true" tabindex="-1"></a>sexo</span></code></pre></div>
+<pre><code>##   [1] &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;HOMBRE&quot;
+##   [9] &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;MUJER&quot; 
+##  [17] &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot; 
+##  [25] &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot; 
+##  [33] &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot; 
+##  [41] &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;HOMBRE&quot;
+##  [49] &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;HOMBRE&quot;
+##  [57] &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot;
+##  [65] &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot;
+##  [73] &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot; 
+##  [81] &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot;
+##  [89] &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;HOMBRE&quot; &quot;HOMBRE&quot;
+##  [97] &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;  &quot;MUJER&quot;</code></pre>
+<p>Estamos usando la misma semilla, pero estamos especificando las probabilidades<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>, además, estamos guardando los resultados en el mismo vector <code>sexo</code> (el vector se está reescribiendo). Veamos defrente en valores relativos la proporción de hombres y mujeres.</p>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb276-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(sexo))</span></code></pre></div>
+<pre><code>## sexo
+## HOMBRE  MUJER 
+##   0.29   0.71</code></pre>
+<p>El 29% son hombres y el 71% son mujeres. En efecto, gracias a especificar el vector de probabilidades de suceso de cada elemento del vector universal se ha podido obtener la proporción del 30% y 70% entre hombres y mujeres, aproximadamente.</p>
+<div id="aplicación-ley-de-grandes-números." class="section level3" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Aplicación: Ley de grandes números.</h3>
+<p>Una de las leyes más importantes en la teoría de la probabilidad es la “<strong>ley de grandes números</strong>”. La cual nos dice que al aumentar el número de ensayos de un experimento, este tiende a la esperanza matemática de la variable aleatoria que se ha generado en el experimento.</p>
+<p>Por ejemplo, vamos a definir a un experimento como el lanzamiento de una moneda. Asimismo, definiremos a la variable aleatoria como el número de caras que resulte del experimento. Es así que sí sale cara la variable aleatoria tomará el valor de 1 y si sale sello la variable aleatoria tomará el valor de 0.</p>
+<p>Si sacamos la esperanza matemática de este experimento. Nos resultaría 1/2.</p>
+<p><span class="math display">\[\text{Probabilidad de que salga cara} =1/2 \]</span>
+<span class="math display">\[\text{Probabilidad de que salga sello} =1/2 \]</span></p>
+<p><span class="math display">\[\text{Esperanza matemática} =\frac{1}{2}*1+\frac{1}{2}*0 =\frac{1}{2}\]</span></p>
+<p>Lo que implica que el porcentaje de caras será el 50% y el porcentaje de sellos el otro 50%.</p>
+<p>Entonces, si nosotros desarrollamos el experimento un número pequeño de veces no nos saldrá necesariamente la mitad de veces cara y la otra mitad sello. Vamos hacer el experimento con 200 ensayos.</p>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb278-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2020</span>)</span>
+<span id="cb278-2"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb278-2" aria-hidden="true" tabindex="-1"></a>experimento<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;CARA&quot;</span>,<span class="st">&quot;SELLO&quot;</span>), <span class="dv">200</span>, T)</span>
+<span id="cb278-3"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb278-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb278-4"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb278-4" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(experimento))<span class="sc">*</span><span class="dv">100</span>,<span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## experimento
+##  CARA SELLO 
+##  46.5  53.5</code></pre>
+<p>Vemos que el porcentaje de caras es del 46.5% y el de sellos es de 53.5%. Pero por la ley de grandes números nosotros sabemos que al aumentar el número de ensayos el experimento tenderá a la esperanza matemática, es decir, 50% de caras y 50% de sellos.</p>
+<p>Veamos el resultado cuando el número de ensayos es de 1000.</p>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb280-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2020</span>)</span>
+<span id="cb280-2"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb280-2" aria-hidden="true" tabindex="-1"></a>experimento<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;CARA&quot;</span>,<span class="st">&quot;SELLO&quot;</span>), <span class="dv">1000</span>, T)</span>
+<span id="cb280-3"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb280-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb280-4"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb280-4" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(experimento))<span class="sc">*</span><span class="dv">100</span>,<span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## experimento
+##  CARA SELLO 
+##  48.4  51.6</code></pre>
+<p>Con 1000 ensayos el porcentaje de caras es del 48.4% y el de sellos es de 51.6%. Se va acercando a la esperanza matemática. Veamos que resulta con 100000 de ensayos.</p>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb282-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2020</span>)</span>
+<span id="cb282-2"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb282-2" aria-hidden="true" tabindex="-1"></a>experimento<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;CARA&quot;</span>,<span class="st">&quot;SELLO&quot;</span>), <span class="dv">100000</span>, T)</span>
+<span id="cb282-3"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb282-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb282-4"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb282-4" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(experimento))<span class="sc">*</span><span class="dv">100</span>,<span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## experimento
+##   CARA  SELLO 
+## 50.136 49.864</code></pre>
+<p>Con 100000 ensayos el porcentaje de caras es del 50.14% y el de sellos es de 49.86%. Ya casi es igual al valor de la esperanza matemática.</p>
+<p>Por último, veamos que pasa si consideramos 1000000 ensayos.</p>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb284-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2020</span>)</span>
+<span id="cb284-2"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb284-2" aria-hidden="true" tabindex="-1"></a>experimento<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;CARA&quot;</span>,<span class="st">&quot;SELLO&quot;</span>), <span class="dv">1000000</span>, T)</span>
+<span id="cb284-3"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb284-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb284-4"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb284-4" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(experimento))<span class="sc">*</span><span class="dv">100</span>,<span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## experimento
+##    CARA   SELLO 
+## 50.0036 49.9964</code></pre>
+<p>Con 1000000 ensayos el porcentaje de caras es del 50% y el de sellos es de 50%. Es así como hemos podido demostrar la ley de grandes números.</p>
+</div>
+</div>
+<div id="vectores-vacios-y-selección-de-elementos." class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Vectores vacios y selección de elementos.</h2>
+<div id="vectores-vacíos." class="section level3" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Vectores vacíos.</h3>
+<p>Hasta el momento hemos visto que un vector puede tener uno o más elementos. Pero también están los vectores que no tienen elementos y que son vacíos. A continuación veamos un ejemplo de un vector vacío.</p>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb286-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vector vacio.</span></span>
+<span id="cb286-2"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb286-2" aria-hidden="true" tabindex="-1"></a>v1<span class="ot">&lt;-</span><span class="fu">c</span>()</span></code></pre></div>
+Hemos creado el vector vacío, en el environment podemos ver que el vector <code>v1</code> está vacío, pero que existe en memoría.
+<center>
+<img src="F:/R_para_economistas/vacio_vector.jpg" title="fig:" alt="vector vacio en el enviorenment" />
+</center>
+<p>Estos vectores nos serán útiles cuando veamos el tema de ciclos y el tema de funciones. Por el momento es suficiente con saber de su existencia.</p>
+</div>
+<div id="seleción-de-elementos-usando-." class="section level3" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Seleción de elementos usando [].</h3>
+<p>Si nosotros necesitamos selecionar un elemento o un conjunto de elementos de un vector, tendremos que usar el operador <code>[]</code>. Veamos unos ejemplos.</p>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb287-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creando un vector. </span></span>
+<span id="cb287-2"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb287-2" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">3</span>,<span class="dv">65</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">9</span>,<span class="dv">99</span>,<span class="dv">100</span>,<span class="dv">102</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">87</span>,<span class="dv">12</span>,<span class="dv">12</span>,<span class="dv">13</span>)</span>
+<span id="cb287-3"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb287-3" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##  [1]  10   3  65   3   2   5   7   6   5   9  99 100 102   1   2   2   3   6  87
+## [20]  12  12  13</code></pre>
+<p>Hemos creado el vector <code>x</code>. Si usted quiere seleccionar el elemento de posición 8, usted debería de hacer lo siguiente.</p>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb289-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionado el elemento de posición 8.</span></span>
+<span id="cb289-2"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb289-2" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">8</span>]</span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<p>En efecto, nos ha selecionado el elemento 6 que corresponde al elemento de posición 8 contando de izquierda a derecha. Entonces, si queremos seleccionar o extraer elementos de un vector, primero se tiene que indicar el vector del cual se desea extraer el elemento o elementos luego abrir corchetes y colocar la posición del elementos y cerrar los corchetes.</p>
+<p>Veamos otro ejemplo en donde se selecciona el elemento de posición 5.</p>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb291-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionado el elemento de posición 5.</span></span>
+<span id="cb291-2"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb291-2" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">5</span>]</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>Nos resulta el 2, si usted cuenta de izquierda a derecha el elemento de posición 5 es el elemento 2.</p>
+<p>Hasta ahora hemos visto como extraer sólo un elemento, pero podemos seleccionar varios elementos, para esto usaremos vectores en vez de elementos dentro de los corchetes. A continuación un ejemplo.</p>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb293-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionado los elementos de posición 3 al 5.</span></span>
+<span id="cb293-2"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb293-2" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">3</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<pre><code>## [1] 65  3  2</code></pre>
+<p>En efecto, hemos seleccionado los elementos de posición 3, 4 y 5 que son 65, 3, 2. Entonces, si deseamos seleccionar varios elementos, usaremos la posición de estos, pero definido como un vector. Veamos un ejemplo adicional en donde se selecciona los elementos de posición 7, 12 y 4.</p>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb295-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionado los elementos de posición 7, 12 y 4. </span></span>
+<span id="cb295-2"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb295-2" aria-hidden="true" tabindex="-1"></a>x[<span class="fu">c</span>(<span class="dv">7</span>,<span class="dv">12</span>,<span class="dv">4</span>)]</span></code></pre></div>
+<pre><code>## [1]   7 100   3</code></pre>
+<p>Hemos definido el vector de posiciones deseadas con <code>c(7,12,4)</code>. Y nos ha resultado los elementos 7, 100, 3. Con esta especificación se espera que se haya comprendido claramente el uso de vectores dentro de los corchetes.</p>
+<p>Pero si nosotros queremos seleccionar un conjunto de elementos pero indicando exclusión, es decir, indicando que no seleccione a uno o varios elementos, entonces usaremos el operador <code>-</code>. Con esto le indicaremos que nos seleccione todo el vector a excepción de (<code>-</code>). Veamos un ejemplo, en donde se desea seleccionar a todo el vector <code>x</code>, pero a excepción del primer elemento.</p>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb297-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionado todo el vector x, a excepción, del elemento de posición 1.</span></span>
+<span id="cb297-2"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb297-2" aria-hidden="true" tabindex="-1"></a>x[<span class="sc">-</span><span class="dv">1</span>]</span></code></pre></div>
+<pre><code>##  [1]   3  65   3   2   5   7   6   5   9  99 100 102   1   2   2   3   6  87  12
+## [20]  12  13</code></pre>
+<p>En efecto, se ha selecionado todos los elemento del vector <code>x</code>, pero sin considerar el primer elemento. Esta especifiación lo podemos proyectar para excluir a varios elementos. Veamos un ejemplo en donde se quiere excluir a los elementos de posición 6, 10 y 3.</p>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb299-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionar el vector x, a excepción, de los elementos de </span></span>
+<span id="cb299-2"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb299-2" aria-hidden="true" tabindex="-1"></a><span class="co"># posición 6, 10 y 3.</span></span>
+<span id="cb299-3"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb299-3" aria-hidden="true" tabindex="-1"></a>x[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">10</span>,<span class="dv">3</span>)]</span></code></pre></div>
+<pre><code>##  [1]  10   3   3   2   7   6   5  99 100 102   1   2   2   3   6  87  12  12  13</code></pre>
+<p>El resultado es el deseado.</p>
+</div>
+<div id="cómo-saber-cuántos-elementos-tiene-un-vector" class="section level3" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> ¿Cómo saber cuántos elementos tiene un vector?</h3>
+<p>A veces, el vector a estudiar es un vector muy grande y no conocemos su dimensión (total de elementos). Entonces, para conocer el número de elementos de un vector usaremos la función <code>length()</code>, que tiene sólo un argumento que es el objeto del cual se desea saber su dimensión. Veamos un ejemplo y conozcamos cuántos elementos tiene el vector <code>x</code>.</p>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb301-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para saber el número de elementos del vector x.</span></span>
+<span id="cb301-2"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb301-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(x)</span></code></pre></div>
+<pre><code>## [1] 22</code></pre>
+<p>El software nos indica que el número de elementos del vector <code>x</code> es de 22.</p>
+<p>Asimismo, podemos usar esta función para seleccionar elementos (uniendo con lo visto anteriormente). Es así que si deseamos seleccionar el último elemento del vector <code>x</code>, podemos usar la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb303-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionado el último elemento del vector x.</span></span>
+<span id="cb303-2"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb303-2" aria-hidden="true" tabindex="-1"></a>x[<span class="fu">length</span>(x)]</span></code></pre></div>
+<pre><code>## [1] 13</code></pre>
+<p>En efecto, hemos seleccionado el último elemento del vector <code>x</code>. Por último, si queremos seleccionar los últimos 4 elementos.</p>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb305-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionado los últimos 4 elementos. </span></span>
+<span id="cb305-2"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb305-2" aria-hidden="true" tabindex="-1"></a>x[(<span class="fu">length</span>(x)<span class="sc">-</span><span class="dv">3</span>)<span class="sc">:</span><span class="fu">length</span>(x)]</span></code></pre></div>
+<pre><code>## [1] 87 12 12 13</code></pre>
+<p>Recordar que si deseamos seleccionar varios elementos, lo que tiene que estar dentro de los corchetes tiene que ser un vector, por eso colocamos <code>(length(x)-3):length(x)</code>. La primera parte <code>(length(x)-3)</code> hace referencia a inicio, es decir, desde que posición se desea seleccionar (22-3 = 19); la segunda parte <code>length(x)</code> indica el final (22). Es así que seleccionará desde el elemento 19 al 22 (los 4 últimos elementos).</p>
+<p>Usted puede pensar que es tedioso y podría ser más eficiente definir la sintaxis con los números, de esta manera <code>x[19:22]</code>. Déjeme decirle, que tiene cierta razón, pero su opción sólo sería viable cuando conozca el número total de elementos y tenga un sólo vector. Cuando usted desee automatizar procesos y trabaje con muchos vectores y de una dimensión colosal (que es lo que día a día se encuentra en un centro de trabajo). Usted verá la importancia y le parecerá más factible la sintaxis que hemos usado. Por el momento, estamos realizando ejemplos muy básicos, en capítulos posteriores verá la importancia de este tipo de sintaxis.</p>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="10">
+<li id="fn10"><p>Podría dejar el directorio de trabajo en esa ruta, pero si quisiera importar el archivo que deseo tendría que especificar la ruta del archivo y eso me demoraría más tiempo, ya que tendría que escribir la ruta completa cada vez que deseo cargar un archivo.<a href="vectores-aleatorios-y-selección-de-elementos..html#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p>En ejemplos posteriores se mostrará como importar archivos desde otra ruta.<a href="vectores-aleatorios-y-selección-de-elementos..html#fnref11" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="operaciones-matemáticas-y-estadísticas-con-vectores..html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/CesarAHN/R_para_economistas/edit/master/04-Vectores-aleatorios-seleccion-de-elementos.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/CesarAHN/R_para_economistas/blob/master/04-Vectores-aleatorios-seleccion-de-elementos.Rmd",
+"text": null
+},
+"download": ["bookdownproj.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

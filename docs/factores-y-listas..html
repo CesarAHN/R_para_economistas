@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 FACTORES Y LISTAS. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</title>
+  <meta name="description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 FACTORES Y LISTAS. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  <meta name="github-repo" content="CesarAHN/bookdown_intro" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 FACTORES Y LISTAS. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
+  
+  <meta name="twitter:description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  
+
+<meta name="author" content="César Anderson Huamaní Ninahuanca" />
+
+
+<meta name="date" content="2021-11-24" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"/>
+<link rel="next" href="matrices..html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - PARA ECONOMISTAS</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prólogo</a></li>
+<li class="chapter" data-level="1" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html"><i class="fa fa-check"></i><b>1</b> R COMO CALCULADORA.</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html#principales-operaciones-matemáticas."><i class="fa fa-check"></i><b>1.1</b> Principales operaciones matemáticas.</a></li>
+<li class="chapter" data-level="1.2" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html#decimales-exactos-y-redondeo-de-cifras."><i class="fa fa-check"></i><b>1.2</b> Decimales exactos y redondeo de cifras.</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html#número-de-cifras."><i class="fa fa-check"></i><b>1.2.1</b> Número de cifras.</a></li>
+<li class="chapter" data-level="1.2.2" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html#redondeo."><i class="fa fa-check"></i><b>1.2.2</b> Redondeo.</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html#guardar-o-definir-objetos."><i class="fa fa-check"></i><b>1.3</b> Guardar o definir objetos.</a></li>
+<li class="chapter" data-level="1.4" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html#funciones."><i class="fa fa-check"></i><b>1.4</b> Funciones.</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="vectores..html"><a href="vectores..html"><i class="fa fa-check"></i><b>2</b> VECTORES.</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="vectores..html"><a href="vectores..html#definición-de-un-vector."><i class="fa fa-check"></i><b>2.1</b> Definición de un vector.</a></li>
+<li class="chapter" data-level="2.2" data-path="vectores..html"><a href="vectores..html#clases-de-vectores."><i class="fa fa-check"></i><b>2.2</b> Clases de vectores.</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="vectores..html"><a href="vectores..html#cómo-saber-si-un-objeto-es-un-vector"><i class="fa fa-check"></i><b>2.2.1</b> ¿Cómo saber si un objeto es un vector?</a></li>
+<li class="chapter" data-level="2.2.2" data-path="vectores..html"><a href="vectores..html#cómo-saber-de-que-clase-es-un-vector"><i class="fa fa-check"></i><b>2.2.2</b> ¿Cómo saber de que clase es un vector?</a></li>
+<li class="chapter" data-level="2.2.3" data-path="vectores..html"><a href="vectores..html#qué-pasa-si-defino-un-vector-con-distintas-clases-de-elementos"><i class="fa fa-check"></i><b>2.2.3</b> ¿Qué pasa si defino un vector con distintas clases de elementos?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="vectores..html"><a href="vectores..html#número-de-elementos-de-un-vector."><i class="fa fa-check"></i><b>2.3</b> Número de elementos de un vector.</a></li>
+<li class="chapter" data-level="2.4" data-path="vectores..html"><a href="vectores..html#funciones-para-construir-vectores-más-eficientemente."><i class="fa fa-check"></i><b>2.4</b> Funciones para construir vectores más eficientemente.</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="vectores..html"><a href="vectores..html#vectores-de-elementos-consecutivos"><i class="fa fa-check"></i><b>2.4.1</b> Vectores de elementos consecutivos:</a></li>
+<li class="chapter" data-level="2.4.2" data-path="vectores..html"><a href="vectores..html#vectores-con-patrones"><i class="fa fa-check"></i><b>2.4.2</b> Vectores con patrones:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="vectores..html"><a href="vectores..html#concatenar-elementos-y-vectores."><i class="fa fa-check"></i><b>2.5</b> Concatenar elementos y vectores.</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="operaciones-matemáticas-y-estadísticas-con-vectores..html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores..html"><i class="fa fa-check"></i><b>3</b> OPERACIONES MATEMÁTICAS Y ESTADÍSTICAS CON VECTORES.</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="operaciones-matemáticas-y-estadísticas-con-vectores..html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores..html#operaciones-matemáticas."><i class="fa fa-check"></i><b>3.1</b> Operaciones matemáticas.</a></li>
+<li class="chapter" data-level="3.2" data-path="operaciones-matemáticas-y-estadísticas-con-vectores..html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores..html#operaciones-estadísticas."><i class="fa fa-check"></i><b>3.2</b> Operaciones estadísticas.</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="operaciones-matemáticas-y-estadísticas-con-vectores..html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores..html#cómo-trabajar-con-missings-o-elementos-faltantes-na"><i class="fa fa-check"></i><b>3.2.1</b> ¿Cómo trabajar con missings o elementos faltantes (NA)?</a></li>
+<li class="chapter" data-level="3.2.2" data-path="operaciones-matemáticas-y-estadísticas-con-vectores..html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores..html#cómo-ordenar-elementos-de-los-vectores"><i class="fa fa-check"></i><b>3.2.2</b> ¿Cómo ordenar elementos de los vectores?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html"><i class="fa fa-check"></i><b>4</b> VECTORES ALEATORIOS y SELECCIÓN DE ELEMENTOS.</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html#creación-de-vectores-con-elementos-aleatorios."><i class="fa fa-check"></i><b>4.1</b> Creación de vectores con elementos aleatorios.</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html#aplicación-ley-de-grandes-números."><i class="fa fa-check"></i><b>4.1.1</b> Aplicación: Ley de grandes números.</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html#vectores-vacios-y-selección-de-elementos."><i class="fa fa-check"></i><b>4.2</b> Vectores vacios y selección de elementos.</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html#vectores-vacíos."><i class="fa fa-check"></i><b>4.2.1</b> Vectores vacíos.</a></li>
+<li class="chapter" data-level="4.2.2" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html#seleción-de-elementos-usando-."><i class="fa fa-check"></i><b>4.2.2</b> Seleción de elementos usando [].</a></li>
+<li class="chapter" data-level="4.2.3" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html#cómo-saber-cuántos-elementos-tiene-un-vector"><i class="fa fa-check"></i><b>4.2.3</b> ¿Cómo saber cuántos elementos tiene un vector?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><i class="fa fa-check"></i><b>5</b> OPERADORES LÓGICOS, ÍNDICE DE ELEMENTOS Y CAMBIO DE VALORES.</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#operadores-lógicos."><i class="fa fa-check"></i><b>5.1</b> Operadores lógicos.</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#igualdad."><i class="fa fa-check"></i><b>5.1.1</b> Igualdad.</a></li>
+<li class="chapter" data-level="5.1.2" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#mayor-que."><i class="fa fa-check"></i><b>5.1.2</b> Mayor que.</a></li>
+<li class="chapter" data-level="5.1.3" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#menor-que."><i class="fa fa-check"></i><b>5.1.3</b> Menor que.</a></li>
+<li class="chapter" data-level="5.1.4" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#diferente."><i class="fa fa-check"></i><b>5.1.4</b> Diferente.</a></li>
+<li class="chapter" data-level="5.1.5" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#negación."><i class="fa fa-check"></i><b>5.1.5</b> Negación.</a></li>
+<li class="chapter" data-level="5.1.6" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#y-condicional-conjunción."><i class="fa fa-check"></i><b>5.1.6</b> Y condicional (Conjunción).</a></li>
+<li class="chapter" data-level="5.1.7" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#o-condicional-disyunción."><i class="fa fa-check"></i><b>5.1.7</b> O condicional (disyunción).</a></li>
+<li class="chapter" data-level="5.1.8" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#mayor-y-menor-igual-que."><i class="fa fa-check"></i><b>5.1.8</b> Mayor y menor igual que.</a></li>
+<li class="chapter" data-level="5.1.9" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#operador-pertenece."><i class="fa fa-check"></i><b>5.1.9</b> Operador pertenece.</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#encontrar-el-índice-de-elementos-y-cambiar-valores."><i class="fa fa-check"></i><b>5.2</b> Encontrar el índice de elementos y cambiar valores.</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cambiar-valores-de-elementos."><i class="fa fa-check"></i><b>5.2.1</b> Cambiar valores de elementos.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="factores-y-listas..html"><a href="factores-y-listas..html"><i class="fa fa-check"></i><b>6</b> FACTORES Y LISTAS.</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="factores-y-listas..html"><a href="factores-y-listas..html#factores."><i class="fa fa-check"></i><b>6.1</b> Factores.</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="factores-y-listas..html"><a href="factores-y-listas..html#factores-con-niveles-desordenados."><i class="fa fa-check"></i><b>6.1.1</b> Factores con niveles desordenados.</a></li>
+<li class="chapter" data-level="6.1.2" data-path="factores-y-listas..html"><a href="factores-y-listas..html#factores-con-niveles-ordenados."><i class="fa fa-check"></i><b>6.1.2</b> Factores con niveles ordenados.</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="factores-y-listas..html"><a href="factores-y-listas..html#listas."><i class="fa fa-check"></i><b>6.2</b> Listas.</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="factores-y-listas..html"><a href="factores-y-listas..html#cómo-se-obtiene-cada-objeto-de-una-lista"><i class="fa fa-check"></i><b>6.2.1</b> ¿Cómo se obtiene cada objeto de una lista?</a></li>
+<li class="chapter" data-level="6.2.2" data-path="factores-y-listas..html"><a href="factores-y-listas..html#asignado-nombres-a-los-objetos-de-una-lista."><i class="fa fa-check"></i><b>6.2.2</b> Asignado nombres a los objetos de una lista.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="matrices..html"><a href="matrices..html"><i class="fa fa-check"></i><b>7</b> MATRICES.</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="matrices..html"><a href="matrices..html#creación-de-matrices."><i class="fa fa-check"></i><b>7.1</b> Creación de matrices.</a></li>
+<li class="chapter" data-level="7.2" data-path="matrices..html"><a href="matrices..html#concatenar-matrices-por-filas-o-columnas."><i class="fa fa-check"></i><b>7.2</b> Concatenar matrices por filas o columnas.</a></li>
+<li class="chapter" data-level="7.3" data-path="matrices..html"><a href="matrices..html#selecionar-elementos-de-una-matriz."><i class="fa fa-check"></i><b>7.3</b> Selecionar elementos de una matriz.</a></li>
+<li class="chapter" data-level="7.4" data-path="matrices..html"><a href="matrices..html#dimensiones-de-la-matriz."><i class="fa fa-check"></i><b>7.4</b> Dimensiones de la matriz.</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="álgebra-matricial..html"><a href="álgebra-matricial..html"><i class="fa fa-check"></i><b>8</b> ÁLGEBRA MATRICIAL.</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="álgebra-matricial..html"><a href="álgebra-matricial..html#operaciones-básicas."><i class="fa fa-check"></i><b>8.1</b> Operaciones básicas.</a></li>
+<li class="chapter" data-level="8.2" data-path="álgebra-matricial..html"><a href="álgebra-matricial..html#principales-operaciones-con-matrices."><i class="fa fa-check"></i><b>8.2</b> Principales operaciones con matrices.</a></li>
+<li class="chapter" data-level="8.3" data-path="álgebra-matricial..html"><a href="álgebra-matricial..html#solución-a-sistemas-de-ecuación."><i class="fa fa-check"></i><b>8.3</b> Solución a sistemas de ecuación.</a></li>
+<li class="chapter" data-level="8.4" data-path="álgebra-matricial..html"><a href="álgebra-matricial..html#valores-y-vectores-propios."><i class="fa fa-check"></i><b>8.4</b> Valores y vectores propios.</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="condicional-if-else..html"><a href="condicional-if-else..html"><i class="fa fa-check"></i><b>9</b> CONDICIONAL IF ELSE.</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="condicional-if-else..html"><a href="condicional-if-else..html#condicional-if."><i class="fa fa-check"></i><b>9.1</b> Condicional if.</a></li>
+<li class="chapter" data-level="9.2" data-path="condicional-if-else..html"><a href="condicional-if-else..html#condicional-if-else.-1"><i class="fa fa-check"></i><b>9.2</b> Condicional if else.</a></li>
+<li class="chapter" data-level="9.3" data-path="condicional-if-else..html"><a href="condicional-if-else..html#condicional-if-else-anidado."><i class="fa fa-check"></i><b>9.3</b> Condicional if else anidado.</a></li>
+<li class="chapter" data-level="9.4" data-path="condicional-if-else..html"><a href="condicional-if-else..html#unicidad-de-la-condicional-if."><i class="fa fa-check"></i><b>9.4</b> Unicidad de la condicional if.</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html"><i class="fa fa-check"></i><b>10</b> LOOP FOR E IF ELSE PARA MÁS DE UN ELEMENTO.</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#loop-for."><i class="fa fa-check"></i><b>10.1</b> Loop for.</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#el-iterador-como-objeto."><i class="fa fa-check"></i><b>10.1.1</b> El iterador como objeto.</a></li>
+<li class="chapter" data-level="10.1.2" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#el-iterador-como-un-subobjeto."><i class="fa fa-check"></i><b>10.1.2</b> El iterador como un subobjeto.</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#el-loop-for-con-las-condicionales-if-else."><i class="fa fa-check"></i><b>10.2</b> El loop for con las condicionales if else.</a></li>
+<li class="chapter" data-level="10.3" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#función-ifelse."><i class="fa fa-check"></i><b>10.3</b> Función ifelse().</a></li>
+<li class="chapter" data-level="10.4" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#declaración-break-y-next."><i class="fa fa-check"></i><b>10.4</b> Declaración Break y Next.</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="ciclo-while..html"><a href="ciclo-while..html"><i class="fa fa-check"></i><b>11</b> CICLO WHILE.</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="ciclo-while..html"><a href="ciclo-while..html#sintaxis-del-ciclo-while."><i class="fa fa-check"></i><b>11.1</b> Sintaxis del ciclo while.</a></li>
+<li class="chapter" data-level="11.2" data-path="ciclo-while..html"><a href="ciclo-while..html#ejemplos-de-uso-del-ciclo-while."><i class="fa fa-check"></i><b>11.2</b> Ejemplos de uso del ciclo while.</a></li>
+<li class="chapter" data-level="11.3" data-path="ciclo-while..html"><a href="ciclo-while..html#aplicaciones-con-las-declaraciones-break-y-next."><i class="fa fa-check"></i><b>11.3</b> Aplicaciones con las declaraciones Break y Next.</a></li>
+<li class="chapter" data-level="11.4" data-path="ciclo-while..html"><a href="ciclo-while..html#aplicación-en-la-maximización-de-beneficios-del-productor."><i class="fa fa-check"></i><b>11.4</b> Aplicación en la maximización de beneficios del productor.</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><i class="fa fa-check"></i><b>12</b> DATA FRAME: CREACIÓN, SELECCIÓN, FILTROS, AGREGACIÓN Y TRANSFORMACIÓN DE DATOS.</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#creación-de-data-frames."><i class="fa fa-check"></i><b>12.1</b> Creación de data frames.</a></li>
+<li class="chapter" data-level="12.2" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#selección-de-columnas."><i class="fa fa-check"></i><b>12.2</b> Selección de columnas.</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#r-base---por-índice."><i class="fa fa-check"></i><b>12.2.1</b> R base - por índice.</a></li>
+<li class="chapter" data-level="12.2.2" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#r-base---por-el-nombre-de-la-variable."><i class="fa fa-check"></i><b>12.2.2</b> R base - por el nombre de la variable.</a></li>
+<li class="chapter" data-level="12.2.3" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#r-base---usando-expresiones-regulares."><i class="fa fa-check"></i><b>12.2.3</b> R base - usando expresiones regulares.</a></li>
+<li class="chapter" data-level="12.2.4" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#dplyr---usando-la-función-select."><i class="fa fa-check"></i><b>12.2.4</b> Dplyr - Usando la función select.</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#filtro-de-filas."><i class="fa fa-check"></i><b>12.3</b> Filtro de filas.</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#usando-r-base."><i class="fa fa-check"></i><b>12.3.1</b> Usando R base.</a></li>
+<li class="chapter" data-level="12.3.2" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#dplyr---usando-la-función-filter."><i class="fa fa-check"></i><b>12.3.2</b> Dplyr - Usando la función filter.</a></li>
+<li class="chapter" data-level="12.3.3" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#filtrando-usando-la-función-subset-de-r-base."><i class="fa fa-check"></i><b>12.3.3</b> Filtrando usando la función subset de R base.</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#filtrando-y-seleccionado-columnas."><i class="fa fa-check"></i><b>12.4</b> filtrando y seleccionado columnas.</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html"><i class="fa fa-check"></i><b>13</b> IMPORTAR DATOS: XLSX, XLS, SAV, DTA, CSV, TXT, ARCHIVOS WEB, ENTRE OTROS.</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#directorio-de-trabajo."><i class="fa fa-check"></i><b>13.1</b> DIRECTORIO DE TRABAJO.</a></li>
+<li class="chapter" data-level="13.2" data-path="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#importar-archivos-txt."><i class="fa fa-check"></i><b>13.2</b> IMPORTAR ARCHIVOS TXT.</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#usando-la-función-read.table."><i class="fa fa-check"></i><b>13.2.1</b> Usando la función read.table().</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="factores-y-listas." class="section level1" number="6">
+<h1><span class="header-section-number">Chapter 6</span> FACTORES Y LISTAS.</h1>
+<p>En este capítulo se desarrollará el tema de factores donde los niveles no tienen un orden y otro en donde los niveles si están ordenados, para esto se usará las funciones: <code>factor()</code> y <code>ordered()</code>. Asimismo, se crearán listas y explicaremos para que sirven y cuando usarlas.</p>
+<div id="factores." class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Factores.</h2>
+<p>En <strong>R</strong> un objeto factor es una variable que asigna índices a las categorías de las variable. Esto permite una mayor facilidad de procesamiento que si se mantendría la variable en string. Por otro lado, también sirve para asignar categorías a números, este uso es característico de softwares como STATA y SPSS. Hay dos tipos de variables factor en <strong>R</strong>: los que tienen los niveles desordenados (porque no es necesario que haya un orden) y los que tienen niveles ordenados. En el primero caso usaremos la función <code>factor()</code> o su variante <code>as.factor()</code>, y para el segundo caso, usaremos la función <code>ordered()</code>.</p>
+<div id="factores-con-niveles-desordenados." class="section level3" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Factores con niveles desordenados.</h3>
+<p>Los niveles no necesitarán un orden cuando las categorías de las variables no tienen un orden jerárquico. Por ejemplo, la variable sexo que tiene dos categorías: masculino y femenino. En esta variable el género másculino no vale más que el género femenino ni viceversa. Otro ejemplo, es el estado civil, en esta variable las categorías no tienen un orden jerarquico, ya que, ser soltero no es más o menos que estar casado o estar viudo.</p>
+<p>Una vez que se ha comprendido cuando las categorías no tienen un orden jerarquico, podemos ver unos ejemplos para ver como funciona en el software la función <code>factor()</code>.</p>
+<p>Primero vamos a crear un vector aleatorio llamado <code>sexo</code> en donde se tienen las dos categorías: masculino y femenino.</p>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="factores-y-listas..html#cb384-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generando el vector sexo.</span></span>
+<span id="cb384-2"><a href="factores-y-listas..html#cb384-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2021</span>)</span>
+<span id="cb384-3"><a href="factores-y-listas..html#cb384-3" aria-hidden="true" tabindex="-1"></a>sexo<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;MASCULINO&quot;</span>, <span class="st">&quot;FEMENINO&quot;</span>), <span class="dv">33</span>, T)</span>
+<span id="cb384-4"><a href="factores-y-listas..html#cb384-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb384-5"><a href="factores-y-listas..html#cb384-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Hemos creado al vector sexo con 33 elementos.</span></span>
+<span id="cb384-6"><a href="factores-y-listas..html#cb384-6" aria-hidden="true" tabindex="-1"></a>sexo</span></code></pre></div>
+<pre><code>##  [1] &quot;MASCULINO&quot; &quot;FEMENINO&quot;  &quot;FEMENINO&quot;  &quot;FEMENINO&quot;  &quot;MASCULINO&quot; &quot;FEMENINO&quot; 
+##  [7] &quot;FEMENINO&quot;  &quot;FEMENINO&quot;  &quot;FEMENINO&quot;  &quot;FEMENINO&quot;  &quot;MASCULINO&quot; &quot;FEMENINO&quot; 
+## [13] &quot;FEMENINO&quot;  &quot;MASCULINO&quot; &quot;MASCULINO&quot; &quot;MASCULINO&quot; &quot;MASCULINO&quot; &quot;MASCULINO&quot;
+## [19] &quot;FEMENINO&quot;  &quot;MASCULINO&quot; &quot;FEMENINO&quot;  &quot;FEMENINO&quot;  &quot;MASCULINO&quot; &quot;FEMENINO&quot; 
+## [25] &quot;MASCULINO&quot; &quot;MASCULINO&quot; &quot;FEMENINO&quot;  &quot;FEMENINO&quot;  &quot;FEMENINO&quot;  &quot;FEMENINO&quot; 
+## [31] &quot;MASCULINO&quot; &quot;FEMENINO&quot;  &quot;MASCULINO&quot;</code></pre>
+<p>Podemos darnos cuenta que todos los elementos del vector <code>sexo</code> son character. Entonces, si nosotros queremos colocar un índice a cada variable y así mejorar el procesamiento, entonces necesitamos convertir a factor la variable sexo.</p>
+<p>La forma más sencilla es usando la función <code>as.factor()</code>. Veamos como:</p>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="factores-y-listas..html#cb386-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convirtiendo a factor la variable sexo. </span></span>
+<span id="cb386-2"><a href="factores-y-listas..html#cb386-2" aria-hidden="true" tabindex="-1"></a>sexo1<span class="ot">&lt;-</span><span class="fu">as.factor</span>(sexo)</span></code></pre></div>
+<p>Estamos guardando el resultado en la variable <code>sexo1</code>.</p>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="factores-y-listas..html#cb387-1" aria-hidden="true" tabindex="-1"></a>sexo1</span></code></pre></div>
+<pre><code>##  [1] MASCULINO FEMENINO  FEMENINO  FEMENINO  MASCULINO FEMENINO  FEMENINO 
+##  [8] FEMENINO  FEMENINO  FEMENINO  MASCULINO FEMENINO  FEMENINO  MASCULINO
+## [15] MASCULINO MASCULINO MASCULINO MASCULINO FEMENINO  MASCULINO FEMENINO 
+## [22] FEMENINO  MASCULINO FEMENINO  MASCULINO MASCULINO FEMENINO  FEMENINO 
+## [29] FEMENINO  FEMENINO  MASCULINO FEMENINO  MASCULINO
+## Levels: FEMENINO MASCULINO</code></pre>
+<p>Ahora los elementos del vector no son character, además, en la parte inferior se observa que se tiene dos niveles: <code>FEMENINO Y MASCULINO</code>. Lo que ha hecho el software es asignar un índice a cada categoría de la variable <code>sexo</code>, en este caso ha asignado el índice 1 a la categoría femenino y 2 a la categoría masculino.
+Para observar esto usamos la función <code>str()</code> que nos arroja la estructura de cada vector.</p>
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="factores-y-listas..html#cb389-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Viendo la estructura de la variable sexo1.</span></span>
+<span id="cb389-2"><a href="factores-y-listas..html#cb389-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(sexo1)</span></code></pre></div>
+<pre><code>##  Factor w/ 2 levels &quot;FEMENINO&quot;,&quot;MASCULINO&quot;: 2 1 1 1 2 1 1 1 1 1 ...</code></pre>
+<p>En efecto, nos arroja que la variable <code>sexo1</code> tiene dos niveles: femenino y masculino y que el índice del primero es 1 y del segundo es 2. Esto es lo que se observa en la parte sombreada de amarillo de la siguiente imagen.</p>
+<center>
+<img src="F:/R_para_economistas/img/Factor1.jpg" title="fig:" alt="Índices del vector sexo1" />
+</center>
+<p>Primero observamos un <code>2</code>, luego un <code>1</code>, luego otro <code>1</code> y otro <code>1</code> y luego un <code>2</code> y así sicesivamente. estos son los índices que considera el software para cada categoría. Pero usted se preguntará cómo sé que el 2 corresponde a la categoría femenino y el 1 a masculino. El orden es el mismo que la posición de cada elemento.</p>
+<center>
+<img src="F:/R_para_economistas/img/Factor2.jpg" title="fig:" alt="Posición de los elementos del vector sexo1" />
+</center>
+<p>Otra forma para saber cual vale 1 y cual vale dos es el orden en el cual aparecen los niveles de la variable. Para saber cuales son los niveles podemos llamar al vector y ver en la última fila.</p>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="factores-y-listas..html#cb391-1" aria-hidden="true" tabindex="-1"></a>sexo1</span></code></pre></div>
+<pre><code>##  [1] MASCULINO FEMENINO  FEMENINO  FEMENINO  MASCULINO FEMENINO  FEMENINO 
+##  [8] FEMENINO  FEMENINO  FEMENINO  MASCULINO FEMENINO  FEMENINO  MASCULINO
+## [15] MASCULINO MASCULINO MASCULINO MASCULINO FEMENINO  MASCULINO FEMENINO 
+## [22] FEMENINO  MASCULINO FEMENINO  MASCULINO MASCULINO FEMENINO  FEMENINO 
+## [29] FEMENINO  FEMENINO  MASCULINO FEMENINO  MASCULINO
+## Levels: FEMENINO MASCULINO</code></pre>
+<p>O podemos usar la función <code>levels()</code>, para conocer los niveles del vector.<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a></p>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="factores-y-listas..html#cb393-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(sexo1)</span></code></pre></div>
+<pre><code>## [1] &quot;FEMENINO&quot;  &quot;MASCULINO&quot;</code></pre>
+<p>Por las dos formas podemos ver que el primer nivel es <code>FEMENINO</code> y el segundo es <code>MASCULINO</code>. Es así que el software le asignará el valor de 1 a femenino y 2 a masculino. Aquí surge una pregunta muy interesante ¿Por qué el software R empieza los índices con 1 y no con 0, como lo hacen otros softwares como python, java, stata, entre otros?</p>
+<p>La respuesta no es clara al 100%, sólo lo saben los que programaron <strong>R</strong>, pero es una ventaja de R, ya que, si empezaría en 0 el índice al llamar elementos de los vectores. Por ejemplo, si queremos llamar al primer elemento de un vector x usamos <code>x[1]</code>, en cambio, en python si queremos llamar al primer elemento tendremos que usar el índice 0, así <code>x[0]</code>. A mi parecer, el índice 0 para llamar al primer elemento me resulta extraño y confuso. Para mayor conocimiento y detalle del tema puede ingresar al siguiente enlace <a href="https://stackoverflow.com/questions/3135325/why-do-vector-indices-in-r-start-with-1-instead-of-0">stackoverflow</a></p>
+<p>Entonces, la cuestión es ¿se puede modificar el valor de los índices, es decir, que femenino tome 0 y masculino 1, manteniendo el nombre de las categorías? La respuesta es <strong>NO</strong>. Esto no es posible, pero no se observa la utilidad de colocar los índices con 0 y 1. Quizá piense que es necesario cuando desarrollará modelos de regresión o clasificación. En realidad, no, el software R sólo necesita que la variable sea factor o en su defecto que las variables sean convertidas en dummies. Esta cuestión se verá más a detalle en capítulos finales.</p>
+<p>Otra cuestión podría ser que a usted le interesa que femenino valga 2 y masculino valga 1. Esto sí es posible, para esto usaremos la función <code>factor()</code>.</p>
+<p>Primero veamos los argumentos de la función <code>factor()</code>.</p>
+<p><code>factor(x = character(), levels, labels = levels, exclude = NA, ordered = is.ordered(x), nmax = NA)</code></p>
+<p>Donde:</p>
+<p><code>x</code> = Es un vector.<br />
+<code>levels</code> = Son los niveles del vector x.<br />
+<code>labels</code> = Son las etiquetas que tomarán los niveles del vector x.<br />
+<code>exclude</code> = Son los niveles que se excluirán a la hora de convertir en factor al vector x.<br />
+<code>ordered</code> = Si deseamos que los niveles del vector x tengan un orden.<br />
+<code>nmax</code> = El número máximo de niveles que se desea tener.</p>
+<p>Para verlo a detalle vamos a usar la variable sexo que teníamos creado.</p>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="factores-y-listas..html#cb395-1" aria-hidden="true" tabindex="-1"></a>sexo</span></code></pre></div>
+<pre><code>##  [1] &quot;MASCULINO&quot; &quot;FEMENINO&quot;  &quot;FEMENINO&quot;  &quot;FEMENINO&quot;  &quot;MASCULINO&quot; &quot;FEMENINO&quot; 
+##  [7] &quot;FEMENINO&quot;  &quot;FEMENINO&quot;  &quot;FEMENINO&quot;  &quot;FEMENINO&quot;  &quot;MASCULINO&quot; &quot;FEMENINO&quot; 
+## [13] &quot;FEMENINO&quot;  &quot;MASCULINO&quot; &quot;MASCULINO&quot; &quot;MASCULINO&quot; &quot;MASCULINO&quot; &quot;MASCULINO&quot;
+## [19] &quot;FEMENINO&quot;  &quot;MASCULINO&quot; &quot;FEMENINO&quot;  &quot;FEMENINO&quot;  &quot;MASCULINO&quot; &quot;FEMENINO&quot; 
+## [25] &quot;MASCULINO&quot; &quot;MASCULINO&quot; &quot;FEMENINO&quot;  &quot;FEMENINO&quot;  &quot;FEMENINO&quot;  &quot;FEMENINO&quot; 
+## [31] &quot;MASCULINO&quot; &quot;FEMENINO&quot;  &quot;MASCULINO&quot;</code></pre>
+<p>Por defecto, el software coloca los índices por orden alfabético. Por tal motivo, en los resultados anteriores colocaba a femenino el índice 1 y a masculino el índice 2. Pero si queremos cambiar el orden del indice, es decir, que el índice 2 sea para femenino y el índice 1 para masculino.</p>
+<p>Para obtener estos resultados ejecutaríamos la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="factores-y-listas..html#cb397-1" aria-hidden="true" tabindex="-1"></a>sexo2<span class="ot">&lt;-</span><span class="fu">factor</span>(sexo, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;MASCULINO&quot;</span>,<span class="st">&quot;FEMENINO&quot;</span>))</span></code></pre></div>
+<p>Lo que hemos realizado es colocar los niveles con el argumento <code>levels</code>, es así que como primer nivel hemos considerado a <code>MASCULINO</code> y como segundo nivel a <code>FEMENINO</code>. Al colocar los niveles en ese orden, el software asignará los indices en ese orden.</p>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="factores-y-listas..html#cb398-1" aria-hidden="true" tabindex="-1"></a>sexo2</span></code></pre></div>
+<pre><code>##  [1] MASCULINO FEMENINO  FEMENINO  FEMENINO  MASCULINO FEMENINO  FEMENINO 
+##  [8] FEMENINO  FEMENINO  FEMENINO  MASCULINO FEMENINO  FEMENINO  MASCULINO
+## [15] MASCULINO MASCULINO MASCULINO MASCULINO FEMENINO  MASCULINO FEMENINO 
+## [22] FEMENINO  MASCULINO FEMENINO  MASCULINO MASCULINO FEMENINO  FEMENINO 
+## [29] FEMENINO  FEMENINO  MASCULINO FEMENINO  MASCULINO
+## Levels: MASCULINO FEMENINO</code></pre>
+<p>En efecto, ahora el primer nivel es <code>MASCULINO</code> y el segundo es <code>FEMENINO</code>. También podemos observar con la función <code>str()</code>.</p>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="factores-y-listas..html#cb400-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(sexo2)</span></code></pre></div>
+<pre><code>##  Factor w/ 2 levels &quot;MASCULINO&quot;,&quot;FEMENINO&quot;: 1 2 2 2 1 2 2 2 2 2 ...</code></pre>
+<p>Detalle importante a considerar en este punto es que no podemos cometer errores al escribir los niveles, si nosotros escribimos un nivel distinto al que está en nuestra variable, entonces, cometeremos un error y no estaremos considerando a esa categoría en el nivel esperado. Veamos un ejemplo, y observemos lo que sucede.</p>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="factores-y-listas..html#cb402-1" aria-hidden="true" tabindex="-1"></a>sexo3<span class="ot">&lt;-</span><span class="fu">factor</span>(sexo, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;masculino&quot;</span>,<span class="st">&quot;FEMENINO&quot;</span>))</span></code></pre></div>
+<p>Aquí podemos observar que en vez de colocar el nivel <code>MASCULINO</code> se ha colocado en minusculas <code>masculino</code>. Lo cual nos genera un error ya que al no encontrar el nivel <code>masculino</code> no podrá colocar el índice, y por ende, asiganará el valor de <code>NA</code> a cada observación que no tiene el nivel correcto. Observemos.</p>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="factores-y-listas..html#cb403-1" aria-hidden="true" tabindex="-1"></a>sexo3</span></code></pre></div>
+<pre><code>##  [1] &lt;NA&gt;     FEMENINO FEMENINO FEMENINO &lt;NA&gt;     FEMENINO FEMENINO FEMENINO
+##  [9] FEMENINO FEMENINO &lt;NA&gt;     FEMENINO FEMENINO &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;    
+## [17] &lt;NA&gt;     &lt;NA&gt;     FEMENINO &lt;NA&gt;     FEMENINO FEMENINO &lt;NA&gt;     FEMENINO
+## [25] &lt;NA&gt;     &lt;NA&gt;     FEMENINO FEMENINO FEMENINO FEMENINO &lt;NA&gt;     FEMENINO
+## [33] &lt;NA&gt;    
+## Levels: masculino FEMENINO</code></pre>
+<p>En efecto, le asignó el valor de <code>NA</code> a todos los elementos que no encontró un nivel que se le asigno, en este caso, a todos los que son <code>MASCULINO</code>.</p>
+<p>Entonces, aquí surge un cuestión ¿podemos cambiar los nombres de los niveles?, la respuesta es sí. Para realizar esto tenemos que usar el argumento <code>labels</code>. Veamos un ejemplo, en donde nuestros niveles estén en minúsculas.</p>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="factores-y-listas..html#cb405-1" aria-hidden="true" tabindex="-1"></a>sexo4<span class="ot">&lt;-</span><span class="fu">factor</span>(sexo, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;MASCULINO&quot;</span>, <span class="st">&quot;FEMENINO&quot;</span>),</span>
+<span id="cb405-2"><a href="factores-y-listas..html#cb405-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;masculino&quot;</span>, <span class="st">&quot;femenino&quot;</span>))</span></code></pre></div>
+<p>Hemos hecho el mismo procedimiento que anteriormente, pero ahora estamos utilizando el argumento <code>labels</code> que son las etiquetas que se asignarán a cada nivel. Veamos el resultado.</p>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="factores-y-listas..html#cb406-1" aria-hidden="true" tabindex="-1"></a>sexo4</span></code></pre></div>
+<pre><code>##  [1] masculino femenino  femenino  femenino  masculino femenino  femenino 
+##  [8] femenino  femenino  femenino  masculino femenino  femenino  masculino
+## [15] masculino masculino masculino masculino femenino  masculino femenino 
+## [22] femenino  masculino femenino  masculino masculino femenino  femenino 
+## [29] femenino  femenino  masculino femenino  masculino
+## Levels: masculino femenino</code></pre>
+<p>Aquí lo fundamental, es el orden. Si nosotros consideramos primero a <code>MASCULINO</code> entonces su etiqueta debe de ser <code>masculino</code>, si nosotros hubiesemos considerado primero la etiqueta <code>femenino</code> en vez de <code>masculino</code>, se habría cambiado a todos los <code>MASCULINOS</code> por <code>femenino</code>. Por tal motivo, es fundamental el orden en el que se coloca los niveles y las etiquetas.</p>
+<p>Otra cuestión que puede surgir es el no considerar a uno o más categorías. Para realizar esto vamos a usar el argumento <code>exclude</code>. Vamos a crear el vector <code>x</code> para desarrollar un nuevo ejemplo.</p>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="factores-y-listas..html#cb408-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creando el vector x.</span></span>
+<span id="cb408-2"><a href="factores-y-listas..html#cb408-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2021</span>)</span>
+<span id="cb408-3"><a href="factores-y-listas..html#cb408-3" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;D&quot;</span>), <span class="dv">30</span>, T)</span>
+<span id="cb408-4"><a href="factores-y-listas..html#cb408-4" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##  [1] &quot;C&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;D&quot; &quot;B&quot; &quot;D&quot; &quot;B&quot; &quot;C&quot; &quot;B&quot; &quot;B&quot; &quot;A&quot; &quot;C&quot; &quot;C&quot; &quot;A&quot; &quot;C&quot; &quot;D&quot;
+## [20] &quot;C&quot; &quot;D&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;A&quot; &quot;C&quot; &quot;B&quot; &quot;D&quot; &quot;B&quot; &quot;D&quot;</code></pre>
+<p>Hemos creado el vector <code>x</code> que tiene 30 elementos, los cuales son las letras: A, B, C y D.</p>
+<p>Entonces, si nosotros queremos convertir en factor a la variable <code>x</code> y no nos interesa el orden de los índices, entonces podemos correr la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="factores-y-listas..html#cb410-1" aria-hidden="true" tabindex="-1"></a><span class="fu">factor</span>(x)</span></code></pre></div>
+<pre><code>##  [1] C B B B C D D B D B C B B A C C A C D C D B C D A C B D B D
+## Levels: A B C D</code></pre>
+<p>Al no interesarnos el orden de los índices suficiente con colocar el vector <code>x</code> dentro de la función <code>factor()</code>. Como sabemos el software, asignará los índices en orden alfabético<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a>.</p>
+<p>El resultado que hemos obtenido es el esperado a asignado los niveles en orden alfabético es así que el primer índice es para <code>A</code> y el segundo para <code>B</code>, y así sucesivamente.</p>
+<p>Pero si nosotros quisíeramos excluir al nivel <code>B</code> entonces usaríamos la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="factores-y-listas..html#cb412-1" aria-hidden="true" tabindex="-1"></a><span class="fu">factor</span>(x, <span class="at">exclude =</span> <span class="st">&quot;B&quot;</span>)</span></code></pre></div>
+<pre><code>##  [1] C    &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; C    D    D    &lt;NA&gt; D    &lt;NA&gt; C    &lt;NA&gt; &lt;NA&gt; A    C   
+## [16] C    A    C    D    C    D    &lt;NA&gt; C    D    A    C    &lt;NA&gt; D    &lt;NA&gt; D   
+## Levels: A C D</code></pre>
+<p>Y en efecto, ya no estamos considerando al nivel <code>B</code> y asigna el valor de <code>NA</code> a todas los elementos que son <code>B</code>. Hasta ahora hemos visto ejemplos con factores en donde no es importante el orden de los niveles. Pero en la siguiente sección veremos a detalle como trabajar con niveles ordenados.</p>
+</div>
+<div id="factores-con-niveles-ordenados." class="section level3" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> Factores con niveles ordenados.</h3>
+<p>En encuestas se suele preguntas sobre satisfacción, nivel de recomendación o percepción. En este tipo de preguntas el orden de los niveles tiene suma importancia, ya que no es lo mismo sentirse muy satisfecho con sentirse satisfecho. Entonces, si nosotros sabemos que los niveles de una variable se tienen que ordenar jerarqueicamente, tendremos que convertirlo a una variable factor ordenado. En R para conseguir esto, se puede usar la función <code>ordered()</code>.</p>
+<p>La función <code>ordered()</code> tiene los mismos argumentos que la función <code>factor()</code>, así que será sencillo su aplicación. Veamos un ejemplo en donde se tiene la satisfacción sobre el servicio de alcantarillado de un barrio.</p>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="factores-y-listas..html#cb414-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creando la variable que representa la satisfacción </span></span>
+<span id="cb414-2"><a href="factores-y-listas..html#cb414-2" aria-hidden="true" tabindex="-1"></a><span class="co"># sobre el servicio de alcantarillado.</span></span>
+<span id="cb414-3"><a href="factores-y-listas..html#cb414-3" aria-hidden="true" tabindex="-1"></a>satis<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;MUY SATISFECHO&quot;</span>,<span class="st">&quot;SATISFECHO&quot;</span>,<span class="st">&quot;NEUTRAL&quot;</span>,</span>
+<span id="cb414-4"><a href="factores-y-listas..html#cb414-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;INSATISFECHO&quot;</span>,<span class="st">&quot;MUY SATISFECHO&quot;</span>), <span class="dv">30</span>, T)</span>
+<span id="cb414-5"><a href="factores-y-listas..html#cb414-5" aria-hidden="true" tabindex="-1"></a>satis</span></code></pre></div>
+<pre><code>##  [1] &quot;MUY SATISFECHO&quot; &quot;SATISFECHO&quot;     &quot;NEUTRAL&quot;        &quot;INSATISFECHO&quot;  
+##  [5] &quot;MUY SATISFECHO&quot; &quot;MUY SATISFECHO&quot; &quot;MUY SATISFECHO&quot; &quot;SATISFECHO&quot;    
+##  [9] &quot;NEUTRAL&quot;        &quot;NEUTRAL&quot;        &quot;SATISFECHO&quot;     &quot;SATISFECHO&quot;    
+## [13] &quot;MUY SATISFECHO&quot; &quot;NEUTRAL&quot;        &quot;SATISFECHO&quot;     &quot;MUY SATISFECHO&quot;
+## [17] &quot;MUY SATISFECHO&quot; &quot;MUY SATISFECHO&quot; &quot;INSATISFECHO&quot;   &quot;INSATISFECHO&quot;  
+## [21] &quot;NEUTRAL&quot;        &quot;NEUTRAL&quot;        &quot;SATISFECHO&quot;     &quot;MUY SATISFECHO&quot;
+## [25] &quot;SATISFECHO&quot;     &quot;MUY SATISFECHO&quot; &quot;MUY SATISFECHO&quot; &quot;MUY SATISFECHO&quot;
+## [29] &quot;MUY SATISFECHO&quot; &quot;MUY SATISFECHO&quot;</code></pre>
+<p>Hemos creado el vector <code>satis</code> que contiene la satisfacción de 30 individuos sobre el servicio de alcantarillado de un barrio. La satisfacción tiene 5 niveles: muy satisfecho, satisfecho, neutral, insatisfecho, muy insatisfecho.</p>
+<p>Nosotros tenemos que asignarle valores númericos a cada nivel, ya que en un futuro realizaremos análisis factorial con estas variable y otras. Entonces, si queremos asignarle valores y sabemos que tienen que tener un orden donde muy insatisfecho es el nivel más bajo y muy satisfecho el valor más alto. Tendremos que realizar la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="factores-y-listas..html#cb416-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convirtiendo en factor ordenado. </span></span>
+<span id="cb416-2"><a href="factores-y-listas..html#cb416-2" aria-hidden="true" tabindex="-1"></a>satis1<span class="ot">&lt;-</span><span class="fu">ordered</span>(satis, <span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;MUY INSATISFECHO&quot;</span>,<span class="st">&quot;INSATISFECHO&quot;</span>,</span>
+<span id="cb416-3"><a href="factores-y-listas..html#cb416-3" aria-hidden="true" tabindex="-1"></a>                                <span class="st">&quot;NEUTRAL&quot;</span>,<span class="st">&quot;SATISFECHO&quot;</span>,<span class="st">&quot;MUY SATISFECHO&quot;</span>))</span>
+<span id="cb416-4"><a href="factores-y-listas..html#cb416-4" aria-hidden="true" tabindex="-1"></a>satis1</span></code></pre></div>
+<pre><code>##  [1] MUY SATISFECHO SATISFECHO     NEUTRAL        INSATISFECHO   MUY SATISFECHO
+##  [6] MUY SATISFECHO MUY SATISFECHO SATISFECHO     NEUTRAL        NEUTRAL       
+## [11] SATISFECHO     SATISFECHO     MUY SATISFECHO NEUTRAL        SATISFECHO    
+## [16] MUY SATISFECHO MUY SATISFECHO MUY SATISFECHO INSATISFECHO   INSATISFECHO  
+## [21] NEUTRAL        NEUTRAL        SATISFECHO     MUY SATISFECHO SATISFECHO    
+## [26] MUY SATISFECHO MUY SATISFECHO MUY SATISFECHO MUY SATISFECHO MUY SATISFECHO
+## 5 Levels: MUY INSATISFECHO &lt; INSATISFECHO &lt; NEUTRAL &lt; ... &lt; MUY SATISFECHO</code></pre>
+<p>En efecto, hemos obtenido un factor donde los niveles están ordenados de menor a mayor. ¿Cómo se ha hecho? Al usar la función <code>ordered()</code> el primer argumento que se tiene que considerar es el vector que queremos ordenar (<code>satis</code>) y el segundo argumento son los niveles, pero los niveles tienen que estar en el orden que se desea, es decir, desde el que tendrá el valor más pequeño hasta el que tendrá el valor más grande, por eso los niveles empezó desde muy insatisfecho.</p>
+<p>Este resultado también podemos obtenerlo con la función <code>factor()</code> siempre y cuando consideremos un argumento adicional, el cual es <code>ordered = TRUE</code>. Veamos como se haría lo mismo con la función <code>factor()</code>.</p>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="factores-y-listas..html#cb418-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Obteniendo el mismo resultado con la función factor().</span></span>
+<span id="cb418-2"><a href="factores-y-listas..html#cb418-2" aria-hidden="true" tabindex="-1"></a>satis2<span class="ot">&lt;-</span><span class="fu">factor</span>(satis, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;MUY INSATISFECHO&quot;</span>,<span class="st">&quot;INSATISFECHO&quot;</span>,</span>
+<span id="cb418-3"><a href="factores-y-listas..html#cb418-3" aria-hidden="true" tabindex="-1"></a>                                <span class="st">&quot;NEUTRAL&quot;</span>,<span class="st">&quot;SATISFECHO&quot;</span>,<span class="st">&quot;MUY SATISFECHO&quot;</span>),</span>
+<span id="cb418-4"><a href="factores-y-listas..html#cb418-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">ordered =</span> T)</span>
+<span id="cb418-5"><a href="factores-y-listas..html#cb418-5" aria-hidden="true" tabindex="-1"></a>satis2</span></code></pre></div>
+<pre><code>##  [1] MUY SATISFECHO SATISFECHO     NEUTRAL        INSATISFECHO   MUY SATISFECHO
+##  [6] MUY SATISFECHO MUY SATISFECHO SATISFECHO     NEUTRAL        NEUTRAL       
+## [11] SATISFECHO     SATISFECHO     MUY SATISFECHO NEUTRAL        SATISFECHO    
+## [16] MUY SATISFECHO MUY SATISFECHO MUY SATISFECHO INSATISFECHO   INSATISFECHO  
+## [21] NEUTRAL        NEUTRAL        SATISFECHO     MUY SATISFECHO SATISFECHO    
+## [26] MUY SATISFECHO MUY SATISFECHO MUY SATISFECHO MUY SATISFECHO MUY SATISFECHO
+## 5 Levels: MUY INSATISFECHO &lt; INSATISFECHO &lt; NEUTRAL &lt; ... &lt; MUY SATISFECHO</code></pre>
+<p>Como sabemos al asignarle un orden, los valores tendrán un orden. Lo que nos permitirá hacer futuros cálculos. Es asíq ue si lo queremos ver en números sólo tendríamos que aplicarle la función <code>as.numeric()</code> que convierte al factor en un vector numérico.</p>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="factores-y-listas..html#cb420-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convirtiendo a numérico el factor ordenado. </span></span>
+<span id="cb420-2"><a href="factores-y-listas..html#cb420-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(satis1)</span></code></pre></div>
+<pre><code>##  [1] 5 4 3 2 5 5 5 4 3 3 4 4 5 3 4 5 5 5 2 2 3 3 4 5 4 5 5 5 5 5</code></pre>
+<p>En efecto, hemos obtenido los valores numéricos de cada categoría en donde se le asigna el valor de 1 al nivel más pequeño que es <code>MUY INSATISFECHO</code> y el valor de 5 al nivel <code>MUY SATISFECHO</code>.</p>
+</div>
+</div>
+<div id="listas." class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Listas.</h2>
+<p>Uno de los objetos más importantes en R son las listas, las listas son capaces de almacenar a otros objetos, por ejemplo: vectores, matrices, factores, entre otros. La particularidad de las listas es que no permite que los objetos que contiene pierdan sus características. Es así que si yo tengo una lista de vectores y matrices, los vectores no perderán sus características y seguirán siendo vectores, lo mismo para las matrices.</p>
+<p>Veamos un ejemplo en donde vamos a crear una lista que contenga 5 vectores.</p>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="factores-y-listas..html#cb422-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creando los 5 vectores. </span></span>
+<span id="cb422-2"><a href="factores-y-listas..html#cb422-2" aria-hidden="true" tabindex="-1"></a>x1<span class="ot">&lt;-</span><span class="fu">c</span>(1L,2L,5L,7L)</span>
+<span id="cb422-3"><a href="factores-y-listas..html#cb422-3" aria-hidden="true" tabindex="-1"></a>x2<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;LUZ&quot;</span>,<span class="st">&quot;OSCURIDAD&quot;</span>,<span class="st">&quot;NIEBLA&quot;</span>)</span>
+<span id="cb422-4"><a href="factores-y-listas..html#cb422-4" aria-hidden="true" tabindex="-1"></a>x3<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">1.1</span>,<span class="fl">4.3</span>,<span class="fl">6.6</span>,<span class="fl">7.6</span>)</span>
+<span id="cb422-5"><a href="factores-y-listas..html#cb422-5" aria-hidden="true" tabindex="-1"></a>x4<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">+</span>4i,6i)</span>
+<span id="cb422-6"><a href="factores-y-listas..html#cb422-6" aria-hidden="true" tabindex="-1"></a>x5<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>,<span class="cn">FALSE</span>, <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Hemos creado 5 vectores: vector de enteros, de caracteres, númerico, complejo y lógico.</p>
+<p>Si nosotros queremos tener todo en un mismo objeto, podríamos concatenarlo, pero al hacer eso se perdería la característica de cada vector, ya que lo convertiría en un vector character como se vio en el segundo capítulo.</p>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="factores-y-listas..html#cb423-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">c</span>(x1,x2,x3,x4,x5)</span>
+<span id="cb423-2"><a href="factores-y-listas..html#cb423-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb423-3"><a href="factores-y-listas..html#cb423-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>Entonces, si no queremos que pierda sus características tendremos que integrarlo en una lista. Para crear una lista se usa la función <code>list()</code>.</p>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="factores-y-listas..html#cb425-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creando una lista que contenga a los 5 vectores. </span></span>
+<span id="cb425-2"><a href="factores-y-listas..html#cb425-2" aria-hidden="true" tabindex="-1"></a>lista<span class="ot">&lt;-</span><span class="fu">list</span>(x1,x2,x3,x4,x5)</span>
+<span id="cb425-3"><a href="factores-y-listas..html#cb425-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb425-4"><a href="factores-y-listas..html#cb425-4" aria-hidden="true" tabindex="-1"></a>lista</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] 1 2 5 7
+## 
+## [[2]]
+## [1] &quot;LUZ&quot;       &quot;OSCURIDAD&quot; &quot;NIEBLA&quot;   
+## 
+## [[3]]
+## [1] 1.1 4.3 6.6 7.6
+## 
+## [[4]]
+## [1] 1+4i 0+6i
+## 
+## [[5]]
+## [1]  TRUE FALSE FALSE  TRUE</code></pre>
+<p>La lista que acabamos de crear nos muestra los 5 vectores y cada uno no ha perdido sus características.</p>
+<div id="cómo-se-obtiene-cada-objeto-de-una-lista" class="section level3" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> ¿Cómo se obtiene cada objeto de una lista?</h3>
+<p>Una vez que se ha creado la lista usted, puede tener la necesidad de usar uno o varios de los objetos, entonces, usted tiene que llamar a los objetos que contiene sus lista.</p>
+<p>El procedimiento es similar al que se usa para llamar elementos de un vector, en esos casos se usaba los corchetes <code>[]</code>, para el caso de listas se usa los doble corchetes <code>[[]]</code>. Por ejemplo si nosotros queremos llamar al primer vector de nuestra lista, entonces aplicaríamos la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="factores-y-listas..html#cb427-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Llamando al primer objeto de nuestra lista. </span></span>
+<span id="cb427-2"><a href="factores-y-listas..html#cb427-2" aria-hidden="true" tabindex="-1"></a>lista[[<span class="dv">1</span>]]</span></code></pre></div>
+<pre><code>## [1] 1 2 5 7</code></pre>
+<p>en efecto al aplicar doble corchete a la lista y colocar dentro de ella el número 1, estamos llamando al primer objeto.</p>
+<p>Como se mencionó anteriormente, al guardarlo en una lista no pierde sus características el vector, por lo cual el primero objeto de la lista es un vector integer.</p>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="factores-y-listas..html#cb429-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Viendo si se mantiene las características de los objetos. </span></span>
+<span id="cb429-2"><a href="factores-y-listas..html#cb429-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(lista[[<span class="dv">1</span>]])</span></code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<p>En efecto, es de la clase integer.</p>
+<p>Ahora, si queremos llamar al cuarto objeto, entonces, usaríamos la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="factores-y-listas..html#cb431-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Llamando al cuarto objeto de la lista.</span></span>
+<span id="cb431-2"><a href="factores-y-listas..html#cb431-2" aria-hidden="true" tabindex="-1"></a>lista[[<span class="dv">4</span>]]</span></code></pre></div>
+<pre><code>## [1] 1+4i 0+6i</code></pre>
+</div>
+<div id="asignado-nombres-a-los-objetos-de-una-lista." class="section level3" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> Asignado nombres a los objetos de una lista.</h3>
+<p>Los objetos de una lista admiten nombres, por lo que se les puede asignar nombres y luego llamarlos por esos nombres. Con la función <code>names()</code> se obtiene o se les asigna nombres. Primero apliquemos la función <code>names()</code> a la lista que hemos creado con el fin de obtener los nombres de la lista, como sabemos que no tienen nombres nuestros objetos nos arrojará el valor de NULL.</p>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="factores-y-listas..html#cb433-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Obteniendo los nombres de nuestra lista. </span></span>
+<span id="cb433-2"><a href="factores-y-listas..html#cb433-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(lista)</span></code></pre></div>
+<pre><code>## NULL</code></pre>
+<p>En efecto, no arroja NULL. Lo que vamos hacer ahora es asignarle nombres. Los nombres serán las clases de cada vector.</p>
+<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="factores-y-listas..html#cb435-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Asignando nombres a nuestra lista.</span></span>
+<span id="cb435-2"><a href="factores-y-listas..html#cb435-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(lista)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;entero&quot;</span>,<span class="st">&quot;caracter&quot;</span>,<span class="st">&quot;numerico&quot;</span>,<span class="st">&quot;complejo&quot;</span>,<span class="st">&quot;logico&quot;</span>)</span></code></pre></div>
+<p>Veamos si nuestra lista ya tiene nombres.</p>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="factores-y-listas..html#cb436-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(lista)</span></code></pre></div>
+<pre><code>## [1] &quot;entero&quot;   &quot;caracter&quot; &quot;numerico&quot; &quot;complejo&quot; &quot;logico&quot;</code></pre>
+<p>En efecto, ya tienen nombres, por lo cual ya podremos llamarlos por sus nombres. Por ejemplo, vamos a llamar al objeto llamado <code>caracter</code>, pero para llamarlo por sus nombres, ya no se necesitará usar el doble corchete <code>[[]]</code>, sino el símbolo de dólar <code>$</code>.</p>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="factores-y-listas..html#cb438-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Llamando al objeto llamado caracter.</span></span>
+<span id="cb438-2"><a href="factores-y-listas..html#cb438-2" aria-hidden="true" tabindex="-1"></a>lista<span class="sc">$</span>caracter</span></code></pre></div>
+<pre><code>## [1] &quot;LUZ&quot;       &quot;OSCURIDAD&quot; &quot;NIEBLA&quot;</code></pre>
+<p>El resultado, es el objeto que contiene elementos caracter. Entonces podemos llamar a los objetos de una lista de dos formas con el doble corchete <code>[[]]</code> cuando tenga o no tenga nombres nuestros objetos o con el <code>$</code> siempre y cuando los objetos tengan nombres.</p>
+<p>Como último ejemplo, veremos como llamar al segundo elemento del vector llamado entero de nuestra lista.</p>
+<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="factores-y-listas..html#cb440-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Llamando al segundo elemento del vector entero de la lista.</span></span>
+<span id="cb440-2"><a href="factores-y-listas..html#cb440-2" aria-hidden="true" tabindex="-1"></a>lista<span class="sc">$</span>entero[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="factores-y-listas..html#cb442-1" aria-hidden="true" tabindex="-1"></a><span class="co"># O también podemos llamarlo con:</span></span>
+<span id="cb442-2"><a href="factores-y-listas..html#cb442-2" aria-hidden="true" tabindex="-1"></a>lista[[<span class="dv">1</span>]][<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>Al final obtenemos el mismo resultado.</p>
+<p>En el siguiente capítulo se verá el tema de matrices, desde como crearlas hasta llamar elementos.</p>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="12">
+<li id="fn12"><p>Podría dejar el directorio de trabajo en esa ruta, pero si quisiera importar el archivo que deseo tendría que especificar la ruta del archivo y eso me demoraría más tiempo, ya que tendría que escribir la ruta completa cada vez que deseo cargar un archivo.<a href="factores-y-listas..html#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>En ejemplos posteriores se mostrará como importar archivos desde otra ruta.<a href="factores-y-listas..html#fnref13" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="matrices..html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/CesarAHN/R_para_economistas/edit/master/06-Factores-y-listas.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/CesarAHN/R_para_economistas/blob/master/06-Factores-y-listas.Rmd",
+"text": null
+},
+"download": ["bookdownproj.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

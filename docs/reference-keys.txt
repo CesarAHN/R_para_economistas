@@ -89,8 +89,7 @@ usando-r-base.
 dplyr---usando-la-función-filter.
 filtrando-usando-la-función-subset-de-r-base.
 filtrando-y-seleccionado-columnas.
-importar-datos-xlsx-xls-sav-dta-csv-txt-entre-otros.
-directorio-de-trabajo.
 importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros.
+directorio-de-trabajo.
 importar-archivos-txt.
 usando-la-función-read.table.

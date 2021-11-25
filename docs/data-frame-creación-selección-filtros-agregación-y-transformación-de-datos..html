@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 12 DATA FRAME: CREACIÓN, SELECCIÓN, FILTROS, AGREGACIÓN Y TRANSFORMACIÓN DE DATOS. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</title>
+  <meta name="description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 12 DATA FRAME: CREACIÓN, SELECCIÓN, FILTROS, AGREGACIÓN Y TRANSFORMACIÓN DE DATOS. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  <meta name="github-repo" content="CesarAHN/bookdown_intro" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 12 DATA FRAME: CREACIÓN, SELECCIÓN, FILTROS, AGREGACIÓN Y TRANSFORMACIÓN DE DATOS. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
+  
+  <meta name="twitter:description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  
+
+<meta name="author" content="César Anderson Huamaní Ninahuanca" />
+
+
+<meta name="date" content="2021-11-24" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ciclo-while..html"/>
+<link rel="next" href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - PARA ECONOMISTAS</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prólogo</a></li>
+<li class="chapter" data-level="1" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html"><i class="fa fa-check"></i><b>1</b> R COMO CALCULADORA.</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html#principales-operaciones-matemáticas."><i class="fa fa-check"></i><b>1.1</b> Principales operaciones matemáticas.</a></li>
+<li class="chapter" data-level="1.2" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html#decimales-exactos-y-redondeo-de-cifras."><i class="fa fa-check"></i><b>1.2</b> Decimales exactos y redondeo de cifras.</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html#número-de-cifras."><i class="fa fa-check"></i><b>1.2.1</b> Número de cifras.</a></li>
+<li class="chapter" data-level="1.2.2" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html#redondeo."><i class="fa fa-check"></i><b>1.2.2</b> Redondeo.</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html#guardar-o-definir-objetos."><i class="fa fa-check"></i><b>1.3</b> Guardar o definir objetos.</a></li>
+<li class="chapter" data-level="1.4" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html#funciones."><i class="fa fa-check"></i><b>1.4</b> Funciones.</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="vectores..html"><a href="vectores..html"><i class="fa fa-check"></i><b>2</b> VECTORES.</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="vectores..html"><a href="vectores..html#definición-de-un-vector."><i class="fa fa-check"></i><b>2.1</b> Definición de un vector.</a></li>
+<li class="chapter" data-level="2.2" data-path="vectores..html"><a href="vectores..html#clases-de-vectores."><i class="fa fa-check"></i><b>2.2</b> Clases de vectores.</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="vectores..html"><a href="vectores..html#cómo-saber-si-un-objeto-es-un-vector"><i class="fa fa-check"></i><b>2.2.1</b> ¿Cómo saber si un objeto es un vector?</a></li>
+<li class="chapter" data-level="2.2.2" data-path="vectores..html"><a href="vectores..html#cómo-saber-de-que-clase-es-un-vector"><i class="fa fa-check"></i><b>2.2.2</b> ¿Cómo saber de que clase es un vector?</a></li>
+<li class="chapter" data-level="2.2.3" data-path="vectores..html"><a href="vectores..html#qué-pasa-si-defino-un-vector-con-distintas-clases-de-elementos"><i class="fa fa-check"></i><b>2.2.3</b> ¿Qué pasa si defino un vector con distintas clases de elementos?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="vectores..html"><a href="vectores..html#número-de-elementos-de-un-vector."><i class="fa fa-check"></i><b>2.3</b> Número de elementos de un vector.</a></li>
+<li class="chapter" data-level="2.4" data-path="vectores..html"><a href="vectores..html#funciones-para-construir-vectores-más-eficientemente."><i class="fa fa-check"></i><b>2.4</b> Funciones para construir vectores más eficientemente.</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="vectores..html"><a href="vectores..html#vectores-de-elementos-consecutivos"><i class="fa fa-check"></i><b>2.4.1</b> Vectores de elementos consecutivos:</a></li>
+<li class="chapter" data-level="2.4.2" data-path="vectores..html"><a href="vectores..html#vectores-con-patrones"><i class="fa fa-check"></i><b>2.4.2</b> Vectores con patrones:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="vectores..html"><a href="vectores..html#concatenar-elementos-y-vectores."><i class="fa fa-check"></i><b>2.5</b> Concatenar elementos y vectores.</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="operaciones-matemáticas-y-estadísticas-con-vectores..html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores..html"><i class="fa fa-check"></i><b>3</b> OPERACIONES MATEMÁTICAS Y ESTADÍSTICAS CON VECTORES.</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="operaciones-matemáticas-y-estadísticas-con-vectores..html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores..html#operaciones-matemáticas."><i class="fa fa-check"></i><b>3.1</b> Operaciones matemáticas.</a></li>
+<li class="chapter" data-level="3.2" data-path="operaciones-matemáticas-y-estadísticas-con-vectores..html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores..html#operaciones-estadísticas."><i class="fa fa-check"></i><b>3.2</b> Operaciones estadísticas.</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="operaciones-matemáticas-y-estadísticas-con-vectores..html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores..html#cómo-trabajar-con-missings-o-elementos-faltantes-na"><i class="fa fa-check"></i><b>3.2.1</b> ¿Cómo trabajar con missings o elementos faltantes (NA)?</a></li>
+<li class="chapter" data-level="3.2.2" data-path="operaciones-matemáticas-y-estadísticas-con-vectores..html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores..html#cómo-ordenar-elementos-de-los-vectores"><i class="fa fa-check"></i><b>3.2.2</b> ¿Cómo ordenar elementos de los vectores?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html"><i class="fa fa-check"></i><b>4</b> VECTORES ALEATORIOS y SELECCIÓN DE ELEMENTOS.</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html#creación-de-vectores-con-elementos-aleatorios."><i class="fa fa-check"></i><b>4.1</b> Creación de vectores con elementos aleatorios.</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html#aplicación-ley-de-grandes-números."><i class="fa fa-check"></i><b>4.1.1</b> Aplicación: Ley de grandes números.</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html#vectores-vacios-y-selección-de-elementos."><i class="fa fa-check"></i><b>4.2</b> Vectores vacios y selección de elementos.</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html#vectores-vacíos."><i class="fa fa-check"></i><b>4.2.1</b> Vectores vacíos.</a></li>
+<li class="chapter" data-level="4.2.2" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html#seleción-de-elementos-usando-."><i class="fa fa-check"></i><b>4.2.2</b> Seleción de elementos usando [].</a></li>
+<li class="chapter" data-level="4.2.3" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html#cómo-saber-cuántos-elementos-tiene-un-vector"><i class="fa fa-check"></i><b>4.2.3</b> ¿Cómo saber cuántos elementos tiene un vector?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><i class="fa fa-check"></i><b>5</b> OPERADORES LÓGICOS, ÍNDICE DE ELEMENTOS Y CAMBIO DE VALORES.</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#operadores-lógicos."><i class="fa fa-check"></i><b>5.1</b> Operadores lógicos.</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#igualdad."><i class="fa fa-check"></i><b>5.1.1</b> Igualdad.</a></li>
+<li class="chapter" data-level="5.1.2" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#mayor-que."><i class="fa fa-check"></i><b>5.1.2</b> Mayor que.</a></li>
+<li class="chapter" data-level="5.1.3" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#menor-que."><i class="fa fa-check"></i><b>5.1.3</b> Menor que.</a></li>
+<li class="chapter" data-level="5.1.4" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#diferente."><i class="fa fa-check"></i><b>5.1.4</b> Diferente.</a></li>
+<li class="chapter" data-level="5.1.5" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#negación."><i class="fa fa-check"></i><b>5.1.5</b> Negación.</a></li>
+<li class="chapter" data-level="5.1.6" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#y-condicional-conjunción."><i class="fa fa-check"></i><b>5.1.6</b> Y condicional (Conjunción).</a></li>
+<li class="chapter" data-level="5.1.7" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#o-condicional-disyunción."><i class="fa fa-check"></i><b>5.1.7</b> O condicional (disyunción).</a></li>
+<li class="chapter" data-level="5.1.8" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#mayor-y-menor-igual-que."><i class="fa fa-check"></i><b>5.1.8</b> Mayor y menor igual que.</a></li>
+<li class="chapter" data-level="5.1.9" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#operador-pertenece."><i class="fa fa-check"></i><b>5.1.9</b> Operador pertenece.</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#encontrar-el-índice-de-elementos-y-cambiar-valores."><i class="fa fa-check"></i><b>5.2</b> Encontrar el índice de elementos y cambiar valores.</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cambiar-valores-de-elementos."><i class="fa fa-check"></i><b>5.2.1</b> Cambiar valores de elementos.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="factores-y-listas..html"><a href="factores-y-listas..html"><i class="fa fa-check"></i><b>6</b> FACTORES Y LISTAS.</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="factores-y-listas..html"><a href="factores-y-listas..html#factores."><i class="fa fa-check"></i><b>6.1</b> Factores.</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="factores-y-listas..html"><a href="factores-y-listas..html#factores-con-niveles-desordenados."><i class="fa fa-check"></i><b>6.1.1</b> Factores con niveles desordenados.</a></li>
+<li class="chapter" data-level="6.1.2" data-path="factores-y-listas..html"><a href="factores-y-listas..html#factores-con-niveles-ordenados."><i class="fa fa-check"></i><b>6.1.2</b> Factores con niveles ordenados.</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="factores-y-listas..html"><a href="factores-y-listas..html#listas."><i class="fa fa-check"></i><b>6.2</b> Listas.</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="factores-y-listas..html"><a href="factores-y-listas..html#cómo-se-obtiene-cada-objeto-de-una-lista"><i class="fa fa-check"></i><b>6.2.1</b> ¿Cómo se obtiene cada objeto de una lista?</a></li>
+<li class="chapter" data-level="6.2.2" data-path="factores-y-listas..html"><a href="factores-y-listas..html#asignado-nombres-a-los-objetos-de-una-lista."><i class="fa fa-check"></i><b>6.2.2</b> Asignado nombres a los objetos de una lista.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="matrices..html"><a href="matrices..html"><i class="fa fa-check"></i><b>7</b> MATRICES.</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="matrices..html"><a href="matrices..html#creación-de-matrices."><i class="fa fa-check"></i><b>7.1</b> Creación de matrices.</a></li>
+<li class="chapter" data-level="7.2" data-path="matrices..html"><a href="matrices..html#concatenar-matrices-por-filas-o-columnas."><i class="fa fa-check"></i><b>7.2</b> Concatenar matrices por filas o columnas.</a></li>
+<li class="chapter" data-level="7.3" data-path="matrices..html"><a href="matrices..html#selecionar-elementos-de-una-matriz."><i class="fa fa-check"></i><b>7.3</b> Selecionar elementos de una matriz.</a></li>
+<li class="chapter" data-level="7.4" data-path="matrices..html"><a href="matrices..html#dimensiones-de-la-matriz."><i class="fa fa-check"></i><b>7.4</b> Dimensiones de la matriz.</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="álgebra-matricial..html"><a href="álgebra-matricial..html"><i class="fa fa-check"></i><b>8</b> ÁLGEBRA MATRICIAL.</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="álgebra-matricial..html"><a href="álgebra-matricial..html#operaciones-básicas."><i class="fa fa-check"></i><b>8.1</b> Operaciones básicas.</a></li>
+<li class="chapter" data-level="8.2" data-path="álgebra-matricial..html"><a href="álgebra-matricial..html#principales-operaciones-con-matrices."><i class="fa fa-check"></i><b>8.2</b> Principales operaciones con matrices.</a></li>
+<li class="chapter" data-level="8.3" data-path="álgebra-matricial..html"><a href="álgebra-matricial..html#solución-a-sistemas-de-ecuación."><i class="fa fa-check"></i><b>8.3</b> Solución a sistemas de ecuación.</a></li>
+<li class="chapter" data-level="8.4" data-path="álgebra-matricial..html"><a href="álgebra-matricial..html#valores-y-vectores-propios."><i class="fa fa-check"></i><b>8.4</b> Valores y vectores propios.</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="condicional-if-else..html"><a href="condicional-if-else..html"><i class="fa fa-check"></i><b>9</b> CONDICIONAL IF ELSE.</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="condicional-if-else..html"><a href="condicional-if-else..html#condicional-if."><i class="fa fa-check"></i><b>9.1</b> Condicional if.</a></li>
+<li class="chapter" data-level="9.2" data-path="condicional-if-else..html"><a href="condicional-if-else..html#condicional-if-else.-1"><i class="fa fa-check"></i><b>9.2</b> Condicional if else.</a></li>
+<li class="chapter" data-level="9.3" data-path="condicional-if-else..html"><a href="condicional-if-else..html#condicional-if-else-anidado."><i class="fa fa-check"></i><b>9.3</b> Condicional if else anidado.</a></li>
+<li class="chapter" data-level="9.4" data-path="condicional-if-else..html"><a href="condicional-if-else..html#unicidad-de-la-condicional-if."><i class="fa fa-check"></i><b>9.4</b> Unicidad de la condicional if.</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html"><i class="fa fa-check"></i><b>10</b> LOOP FOR E IF ELSE PARA MÁS DE UN ELEMENTO.</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#loop-for."><i class="fa fa-check"></i><b>10.1</b> Loop for.</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#el-iterador-como-objeto."><i class="fa fa-check"></i><b>10.1.1</b> El iterador como objeto.</a></li>
+<li class="chapter" data-level="10.1.2" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#el-iterador-como-un-subobjeto."><i class="fa fa-check"></i><b>10.1.2</b> El iterador como un subobjeto.</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#el-loop-for-con-las-condicionales-if-else."><i class="fa fa-check"></i><b>10.2</b> El loop for con las condicionales if else.</a></li>
+<li class="chapter" data-level="10.3" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#función-ifelse."><i class="fa fa-check"></i><b>10.3</b> Función ifelse().</a></li>
+<li class="chapter" data-level="10.4" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#declaración-break-y-next."><i class="fa fa-check"></i><b>10.4</b> Declaración Break y Next.</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="ciclo-while..html"><a href="ciclo-while..html"><i class="fa fa-check"></i><b>11</b> CICLO WHILE.</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="ciclo-while..html"><a href="ciclo-while..html#sintaxis-del-ciclo-while."><i class="fa fa-check"></i><b>11.1</b> Sintaxis del ciclo while.</a></li>
+<li class="chapter" data-level="11.2" data-path="ciclo-while..html"><a href="ciclo-while..html#ejemplos-de-uso-del-ciclo-while."><i class="fa fa-check"></i><b>11.2</b> Ejemplos de uso del ciclo while.</a></li>
+<li class="chapter" data-level="11.3" data-path="ciclo-while..html"><a href="ciclo-while..html#aplicaciones-con-las-declaraciones-break-y-next."><i class="fa fa-check"></i><b>11.3</b> Aplicaciones con las declaraciones Break y Next.</a></li>
+<li class="chapter" data-level="11.4" data-path="ciclo-while..html"><a href="ciclo-while..html#aplicación-en-la-maximización-de-beneficios-del-productor."><i class="fa fa-check"></i><b>11.4</b> Aplicación en la maximización de beneficios del productor.</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><i class="fa fa-check"></i><b>12</b> DATA FRAME: CREACIÓN, SELECCIÓN, FILTROS, AGREGACIÓN Y TRANSFORMACIÓN DE DATOS.</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#creación-de-data-frames."><i class="fa fa-check"></i><b>12.1</b> Creación de data frames.</a></li>
+<li class="chapter" data-level="12.2" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#selección-de-columnas."><i class="fa fa-check"></i><b>12.2</b> Selección de columnas.</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#r-base---por-índice."><i class="fa fa-check"></i><b>12.2.1</b> R base - por índice.</a></li>
+<li class="chapter" data-level="12.2.2" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#r-base---por-el-nombre-de-la-variable."><i class="fa fa-check"></i><b>12.2.2</b> R base - por el nombre de la variable.</a></li>
+<li class="chapter" data-level="12.2.3" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#r-base---usando-expresiones-regulares."><i class="fa fa-check"></i><b>12.2.3</b> R base - usando expresiones regulares.</a></li>
+<li class="chapter" data-level="12.2.4" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#dplyr---usando-la-función-select."><i class="fa fa-check"></i><b>12.2.4</b> Dplyr - Usando la función select.</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#filtro-de-filas."><i class="fa fa-check"></i><b>12.3</b> Filtro de filas.</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#usando-r-base."><i class="fa fa-check"></i><b>12.3.1</b> Usando R base.</a></li>
+<li class="chapter" data-level="12.3.2" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#dplyr---usando-la-función-filter."><i class="fa fa-check"></i><b>12.3.2</b> Dplyr - Usando la función filter.</a></li>
+<li class="chapter" data-level="12.3.3" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#filtrando-usando-la-función-subset-de-r-base."><i class="fa fa-check"></i><b>12.3.3</b> Filtrando usando la función subset de R base.</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#filtrando-y-seleccionado-columnas."><i class="fa fa-check"></i><b>12.4</b> filtrando y seleccionado columnas.</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html"><i class="fa fa-check"></i><b>13</b> IMPORTAR DATOS: XLSX, XLS, SAV, DTA, CSV, TXT, ARCHIVOS WEB, ENTRE OTROS.</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#directorio-de-trabajo."><i class="fa fa-check"></i><b>13.1</b> DIRECTORIO DE TRABAJO.</a></li>
+<li class="chapter" data-level="13.2" data-path="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#importar-archivos-txt."><i class="fa fa-check"></i><b>13.2</b> IMPORTAR ARCHIVOS TXT.</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#usando-la-función-read.table."><i class="fa fa-check"></i><b>13.2.1</b> Usando la función read.table().</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos." class="section level1" number="12">
+<h1><span class="header-section-number">Chapter 12</span> DATA FRAME: CREACIÓN, SELECCIÓN, FILTROS, AGREGACIÓN Y TRANSFORMACIÓN DE DATOS.</h1>
+<p>En este capítulo se tratará sobre la creación de uno de los objetos más importantes en R, los data frames. Asimismo, se mostrará cómo crearlos a través de vectores, cómo seleccionar entre columnas, cómo filtrar entre filas, agregar columnas y filas al data frame; y por último, transformar datos con R base. Esto nos servirá como introducción fundamental para el siguiente capítulo en donde se trabajará con distintos tipos de archivos como: xlsx, xls, sav, dta, txt, csv, entre otros.</p>
+<div id="creación-de-data-frames." class="section level2" number="12.1">
+<h2><span class="header-section-number">12.1</span> Creación de data frames.</h2>
+<p>Un data frame es un objeto que compila uno o más vectores con el fin de tener una estructura compacta y ordenada. En palabras sencillas, será tu tabla de datos en donde tendrás agrupado tus variables que te permitirán desarrollar modelos, gráficos, etc.</p>
+<p>La sintaxis del data frame es la siguiente:</p>
+<p><code>data.frame(..., row.names = NULL, stringsAsFactors = FALSE, ...)</code></p>
+<p>Donde:</p>
+<p><code>...</code> = En este argumento se asignarán las columnas o variables que tendrá el data frame.<br />
+<code>row.names</code> = Este argumento permite asignar los nombres de las filas, por defecto es <code>NULL</code> lo cual implica que las filas no tendrán nombres, sino una numeración consecutiva.<br />
+<code>stringsAsFactors</code> = Argumento lógico que si toma el valor de <code>TRUE</code> convertirá en factores a las variables que son caracter. Su valor por defecto es <code>FALSE</code>, por lo que las variables caracter seguirán siendo caracter.<br />
+<code>...</code> = Los tres puntos al final de la función nos permite asignar otros argumentos que puede encontrar en la documentación <code>?data.frame</code>.</p>
+<p>Como primer ejemplo vamos a crear un data frame de 4 columnas.</p>
+<div class="sourceCode" id="cb680"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb680-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb680-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un data frame.</span></span>
+<span id="cb680-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb680-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2021</span>)</span>
+<span id="cb680-3"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb680-3" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">edad=</span><span class="fu">sample</span>(<span class="dv">10</span><span class="sc">:</span><span class="dv">30</span>, <span class="dv">10</span>, T), </span>
+<span id="cb680-4"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb680-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">sexo=</span><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;Masculino&quot;</span>,<span class="st">&quot;Femenino&quot;</span>), <span class="dv">10</span>, T),</span>
+<span id="cb680-5"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb680-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">ingresos=</span><span class="fu">sample</span>(<span class="dv">1000</span><span class="sc">:</span><span class="dv">5000</span>, <span class="dv">10</span>, T),</span>
+<span id="cb680-6"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb680-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">raza=</span><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;blanco&quot;</span>,<span class="st">&quot;negro&quot;</span>), <span class="dv">10</span>, T))</span></code></pre></div>
+<p>Y veamos como queda un data frame.</p>
+<div class="sourceCode" id="cb681"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb681-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb681-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Viendo el data frame.</span></span>
+<span id="cb681-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb681-2" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div>
+<pre><code>##    edad      sexo ingresos   raza
+## 1    16 Masculino     2211  negro
+## 2    15 Masculino     1636  negro
+## 3    23 Masculino     3434 blanco
+## 4    16 Masculino     4885  negro
+## 5    21 Masculino     1359 blanco
+## 6    29  Femenino     1537  negro
+## 7    15 Masculino     1163 blanco
+## 8    15  Femenino     3148 blanco
+## 9    15  Femenino     1341 blanco
+## 10   23 Masculino     1670  negro</code></pre>
+<p>El resultado que obtenemos es un data frame de 4 columnas y 10 filas. Pero ¿Cómo se hizo? Primero, hemos asignado una semilla <code>set.seed(2021)</code> porque vamos a crear vectores con elementos aleatorios. Luego, creamos el objeto <code>df</code> que tiene 4 columnas: <code>edad</code>, <code>sexo</code>, <code>ingresos</code> y <code>raza</code> todos tienen elementos aleatorios.</p>
+<p>Es importante darse cuenta que para asignar objetos usamos <code>&lt;-</code> pero para asignar columnas dentro de la función <code>data.frame()</code> estamos usando <code>=</code>. Aquí un ejemplo de cuando usar <code>&lt;-</code> y cuando <code>=</code>.</p>
+<p>Si usted desea ver los resultados en una pestaña y no en la consola, entonces, usted corre:</p>
+<div class="sourceCode" id="cb683"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb683-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb683-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para ver el data frame en una pestaña.</span></span>
+<span id="cb683-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb683-2" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(df)</span></code></pre></div>
+<center>
+<img src="F:/R_para_economistas/img/dataframe.jpg" title="fig:" alt="Vista del data frame" />
+</center>
+<p>Para ver la estructura de las columnas o variables, se usa la función <code>str()</code>.</p>
+<div class="sourceCode" id="cb684"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb684-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb684-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    10 obs. of  4 variables:
+##  $ edad    : int  16 15 23 16 21 29 15 15 15 23
+##  $ sexo    : chr  &quot;Masculino&quot; &quot;Masculino&quot; &quot;Masculino&quot; &quot;Masculino&quot; ...
+##  $ ingresos: int  2211 1636 3434 4885 1359 1537 1163 3148 1341 1670
+##  $ raza    : chr  &quot;negro&quot; &quot;negro&quot; &quot;blanco&quot; &quot;negro&quot; ...</code></pre>
+<p>Nos dice que las variables <code>edad</code> e <code>ingresos</code> son variables de tipo entero y las variables <code>sexo</code> y <code>raza</code> son variables de tipo caracter. Recuerde que el valor por defecto de <code>stringsAsFactors</code> es <code>FALSE</code>, por lo que las variables caracater se mantienen como caracter, si cambiamos el valor del argumento por <code>TRUE</code> entonces las variables caracter se convertirían en factor.</p>
+<p>Ahora vamos a crear un data frame similar que nos servirá como ejemplo para los siguientes ejemplos.</p>
+<div class="sourceCode" id="cb686"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb686-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb686-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2021</span>)</span>
+<span id="cb686-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb686-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">edad=</span><span class="fu">sample</span>(<span class="dv">10</span><span class="sc">:</span><span class="dv">30</span>, <span class="dv">30</span>, T), </span>
+<span id="cb686-3"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb686-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">sexo=</span><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;Masculino&quot;</span>,<span class="st">&quot;Femenino&quot;</span>), <span class="dv">30</span>, T),</span>
+<span id="cb686-4"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb686-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">ingresos=</span><span class="fu">sample</span>(<span class="dv">1000</span><span class="sc">:</span><span class="dv">5000</span>, <span class="dv">30</span>, T),</span>
+<span id="cb686-5"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb686-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">raza=</span><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;blanco&quot;</span>,<span class="st">&quot;negro&quot;</span>), <span class="dv">30</span>, T),</span>
+<span id="cb686-6"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb686-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">material_casa=</span><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;noble&quot;</span>,<span class="st">&quot;rustica&quot;</span>), <span class="dv">30</span>, T),</span>
+<span id="cb686-7"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb686-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">experiencia=</span><span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">15</span>,<span class="dv">30</span>,T),</span>
+<span id="cb686-8"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb686-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">num_hijos=</span><span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">4</span>, <span class="dv">30</span>, T))</span></code></pre></div>
+<p>Viendo el data frame que hemos creado.</p>
+<div class="sourceCode" id="cb687"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb687-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb687-1" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div>
+<pre><code>##    edad      sexo ingresos   raza material_casa experiencia num_hijos
+## 1    16  Femenino     1680  negro         noble          15         1
+## 2    15 Masculino     2144 blanco         noble           6         4
+## 3    23 Masculino     2822  negro       rustica          10         4
+## 4    16  Femenino     3558 blanco       rustica          12         4
+## 5    21  Femenino     1368 blanco         noble           0         2
+## 6    29  Femenino     4784  negro         noble           2         4
+## 7    15  Femenino     4036 blanco         noble           3         4
+## 8    15 Masculino     3202 blanco         noble           0         4
+## 9    15 Masculino     2527 blanco         noble          12         4
+## 10   23  Femenino     3442 blanco       rustica           5         3
+## 11   14 Masculino     4440 blanco         noble          13         4
+## 12   24  Femenino     2955 blanco         noble           4         2
+## 13   16 Masculino     3981 blanco         noble          13         4
+## 14   18  Femenino     1621 blanco       rustica           6         4
+## 15   21  Femenino     4197 blanco       rustica          15         2
+## 16   28 Masculino     2486  negro         noble          13         2
+## 17   27 Masculino     2745  negro         noble          12         0
+## 18   12  Femenino     4656  negro       rustica           4         4
+## 19   23 Masculino     4602  negro       rustica          15         2
+## 20   17  Femenino     2551  negro         noble           9         0
+## 21   13 Masculino     4051 blanco         noble          10         3
+## 22   14  Femenino     2505 blanco         noble           4         2
+## 23   25  Femenino     4940 blanco         noble           5         4
+## 24   11  Femenino     3686 blanco       rustica          13         3
+## 25   28  Femenino     1361 blanco       rustica           7         4
+## 26   13 Masculino     1509 blanco         noble           1         4
+## 27   30 Masculino     4829  negro         noble           2         0
+## 28   14  Femenino     3347  negro         noble           2         4
+## 29   18 Masculino     1789 blanco         noble           6         1
+## 30   15  Femenino     1549 blanco         noble           0         2</code></pre>
+<p>En este caso nuestro data frame tiene 7 columnas y 30 filas. Imagínese un data frame con más filas y con más columnas, al querer verlo se mostrará una gran cantidad de datos, lo que no es recomendable, solo nos bastaría con ver un pequeño subconjunto del data frame. Entonces si queremos ver las primeras 6 filas de un data frame, se usará la función <code>head()</code>.</p>
+<div class="sourceCode" id="cb689"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb689-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb689-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Viendo las 6 primeras filas. </span></span>
+<span id="cb689-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb689-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
+<pre><code>##   edad      sexo ingresos   raza material_casa experiencia num_hijos
+## 1   16  Femenino     1680  negro         noble          15         1
+## 2   15 Masculino     2144 blanco         noble           6         4
+## 3   23 Masculino     2822  negro       rustica          10         4
+## 4   16  Femenino     3558 blanco       rustica          12         4
+## 5   21  Femenino     1368 blanco         noble           0         2
+## 6   29  Femenino     4784  negro         noble           2         4</code></pre>
+<p>Pero quizá desee ver una cantidad mayor o menor de filas. Para esto se usa la misma función pero especificando el número de filas en el argumento <code>n</code> de la función <code>head()</code>.</p>
+<div class="sourceCode" id="cb691"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb691-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb691-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Viendo las 3 primeras filas.</span></span>
+<span id="cb691-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb691-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df, <span class="at">n=</span><span class="dv">3</span>)</span></code></pre></div>
+<pre><code>##   edad      sexo ingresos   raza material_casa experiencia num_hijos
+## 1   16  Femenino     1680  negro         noble          15         1
+## 2   15 Masculino     2144 blanco         noble           6         4
+## 3   23 Masculino     2822  negro       rustica          10         4</code></pre>
+<div class="sourceCode" id="cb693"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb693-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb693-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Viendo las 10 primeras filas.</span></span>
+<span id="cb693-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb693-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df, <span class="at">n=</span><span class="dv">10</span>)</span></code></pre></div>
+<pre><code>##    edad      sexo ingresos   raza material_casa experiencia num_hijos
+## 1    16  Femenino     1680  negro         noble          15         1
+## 2    15 Masculino     2144 blanco         noble           6         4
+## 3    23 Masculino     2822  negro       rustica          10         4
+## 4    16  Femenino     3558 blanco       rustica          12         4
+## 5    21  Femenino     1368 blanco         noble           0         2
+## 6    29  Femenino     4784  negro         noble           2         4
+## 7    15  Femenino     4036 blanco         noble           3         4
+## 8    15 Masculino     3202 blanco         noble           0         4
+## 9    15 Masculino     2527 blanco         noble          12         4
+## 10   23  Femenino     3442 blanco       rustica           5         3</code></pre>
+<p>Quizá usted desee ver las 6 últimas filas, entonces, se usará la función <code>tail()</code>.</p>
+<div class="sourceCode" id="cb695"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb695-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb695-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Viendo las últimas 6 filas.</span></span>
+<span id="cb695-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb695-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(df)</span></code></pre></div>
+<pre><code>##    edad      sexo ingresos   raza material_casa experiencia num_hijos
+## 25   28  Femenino     1361 blanco       rustica           7         4
+## 26   13 Masculino     1509 blanco         noble           1         4
+## 27   30 Masculino     4829  negro         noble           2         0
+## 28   14  Femenino     3347  negro         noble           2         4
+## 29   18 Masculino     1789 blanco         noble           6         1
+## 30   15  Femenino     1549 blanco         noble           0         2</code></pre>
+<p>Esta función es similar a <code>head()</code> así que también acepta el argumento <code>n</code> pero ahora mostrará las últimas columnas.</p>
+<p>Si usted desea ver los nombres de las columnas, entonces, tiene que usar la función <code>names()</code>.</p>
+<div class="sourceCode" id="cb697"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb697-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb697-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df)</span></code></pre></div>
+<pre><code>## [1] &quot;edad&quot;          &quot;sexo&quot;          &quot;ingresos&quot;      &quot;raza&quot;         
+## [5] &quot;material_casa&quot; &quot;experiencia&quot;   &quot;num_hijos&quot;</code></pre>
+<p>Esta función también nos sirve para poder cambiar los nombres de las columnas o variables. Por ejemplo, vamos a cambiar el nombre de la variable <code>sexo</code> por <code>genero</code>.</p>
+<div class="sourceCode" id="cb699"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb699-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb699-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df)[<span class="dv">2</span>]<span class="ot">&lt;-</span><span class="st">&quot;genero&quot;</span></span></code></pre></div>
+<p>Usamos <code>names(df)</code> para llamar a los nombres y luego colocamos el <code>[2]</code> porque con aquello llamamos al elemento 2 del vector de nombres, el elemento 2 es <code>sexo</code>, entonces, ahora le asignamos el valor de <code>genero</code>.</p>
+<p>Veamos ahora como ha quedado con el cambio de nombre.</p>
+<div class="sourceCode" id="cb700"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb700-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb700-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df)</span></code></pre></div>
+<pre><code>## [1] &quot;edad&quot;          &quot;genero&quot;        &quot;ingresos&quot;      &quot;raza&quot;         
+## [5] &quot;material_casa&quot; &quot;experiencia&quot;   &quot;num_hijos&quot;</code></pre>
+<p>Y en efecto, ahora la segunda variable que se llamaba <code>sexo</code> ahora se llama <code>genero</code>. Usted puede cambiar uno o más o todos los nombres de las variables. Veamos un ejemplo adicional para que usted pueda generalizar este conocimiento.</p>
+<div class="sourceCode" id="cb702"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb702-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb702-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df)[<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,<span class="dv">6</span>)]<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;EDAD&quot;</span>,<span class="st">&quot;GENERO&quot;</span>,<span class="st">&quot;EXPERIENCIA&quot;</span>)</span></code></pre></div>
+<p>Lo que hemos hecho es cambiar el nombre de las variables de posición 1, 2 y 6.</p>
+<div class="sourceCode" id="cb703"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb703-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb703-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df)</span></code></pre></div>
+<pre><code>## [1] &quot;EDAD&quot;          &quot;GENERO&quot;        &quot;ingresos&quot;      &quot;raza&quot;         
+## [5] &quot;material_casa&quot; &quot;EXPERIENCIA&quot;   &quot;num_hijos&quot;</code></pre>
+<p>Ahora, si queremos saber la dimensión de nuestro data frame, es decir, el número de filas y columnas. Para obtener esta información se usa la función <code>dim()</code>.</p>
+<div class="sourceCode" id="cb705"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb705-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb705-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para saber el número de filas y columnas del data frame.</span></span>
+<span id="cb705-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb705-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(df)</span></code></pre></div>
+<pre><code>## [1] 30  7</code></pre>
+<p>El resultado de posición 1 es el número de filas y el resultado de posición 2 es el número de columnas. Entonces, si deseamos saber solo el número de filas o solo el número de columnas escribiremos.</p>
+<div class="sourceCode" id="cb707"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb707-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb707-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para saber el número de filas.</span></span>
+<span id="cb707-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb707-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(df)[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] 30</code></pre>
+<div class="sourceCode" id="cb709"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb709-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb709-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para saber el número de columnas. </span></span>
+<span id="cb709-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb709-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(df)[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] 7</code></pre>
+</div>
+<div id="selección-de-columnas." class="section level2" number="12.2">
+<h2><span class="header-section-number">12.2</span> Selección de columnas.</h2>
+<p>Para seleccionar columnas o variables vamos a usar R base y el paquete <code>dplyr</code><a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a>, por cada uno veremos distintas maneras.</p>
+<div id="r-base---por-índice." class="section level3" number="12.2.1">
+<h3><span class="header-section-number">12.2.1</span> R base - por índice.</h3>
+<p>La sintaxis es similar a la que se usó para seleccionar columnas de las matrices. Recordar que una matriz tiene la siguiente estructura: <code>matriz[i,j]</code>. Donde la <code>i</code> hace referencia a las filas y la <code>j</code> hace referencia a las columnas. Lo mismo es para los data frames.</p>
+<p>Entonces, si deseamos seleccionar la segunda columna del data frame, entonces la sintaxis sería la siguiente:</p>
+<div class="sourceCode" id="cb711"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb711-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb711-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionando la segunda columna.</span></span>
+<span id="cb711-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb711-2" aria-hidden="true" tabindex="-1"></a>df[,<span class="dv">2</span>] </span></code></pre></div>
+<pre><code>##  [1] &quot;Femenino&quot;  &quot;Masculino&quot; &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Femenino&quot;  &quot;Femenino&quot; 
+##  [7] &quot;Femenino&quot;  &quot;Masculino&quot; &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Masculino&quot; &quot;Femenino&quot; 
+## [13] &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Femenino&quot;  &quot;Masculino&quot; &quot;Masculino&quot; &quot;Femenino&quot; 
+## [19] &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Femenino&quot;  &quot;Femenino&quot; 
+## [25] &quot;Femenino&quot;  &quot;Masculino&quot; &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Masculino&quot; &quot;Femenino&quot;</code></pre>
+<p>Para seleccionar la columna 1, 3 y 6.</p>
+<div class="sourceCode" id="cb713"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb713-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb713-1" aria-hidden="true" tabindex="-1"></a>df[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">6</span>)] <span class="co"># Selección de las columnas 1, 3 y 6.</span></span></code></pre></div>
+<pre><code>##    EDAD ingresos EXPERIENCIA
+## 1    16     1680          15
+## 2    15     2144           6
+## 3    23     2822          10
+## 4    16     3558          12
+## 5    21     1368           0
+## 6    29     4784           2
+## 7    15     4036           3
+## 8    15     3202           0
+## 9    15     2527          12
+## 10   23     3442           5
+## 11   14     4440          13
+## 12   24     2955           4
+## 13   16     3981          13
+## 14   18     1621           6
+## 15   21     4197          15
+## 16   28     2486          13
+## 17   27     2745          12
+## 18   12     4656           4
+## 19   23     4602          15
+## 20   17     2551           9
+## 21   13     4051          10
+## 22   14     2505           4
+## 23   25     4940           5
+## 24   11     3686          13
+## 25   28     1361           7
+## 26   13     1509           1
+## 27   30     4829           2
+## 28   14     3347           2
+## 29   18     1789           6
+## 30   15     1549           0</code></pre>
+</div>
+<div id="r-base---por-el-nombre-de-la-variable." class="section level3" number="12.2.2">
+<h3><span class="header-section-number">12.2.2</span> R base - por el nombre de la variable.</h3>
+<p>Se usará la misma sintaxis que anteriormente, pero en vez de índices se colocará los nombres de las columnas.</p>
+<p>Por ejemplo, si se quiere seleccionar la segunda columna.</p>
+<div class="sourceCode" id="cb715"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb715-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb715-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionado la segunda columna.</span></span>
+<span id="cb715-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb715-2" aria-hidden="true" tabindex="-1"></a>df[,<span class="st">&quot;GENERO&quot;</span>]</span></code></pre></div>
+<pre><code>##  [1] &quot;Femenino&quot;  &quot;Masculino&quot; &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Femenino&quot;  &quot;Femenino&quot; 
+##  [7] &quot;Femenino&quot;  &quot;Masculino&quot; &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Masculino&quot; &quot;Femenino&quot; 
+## [13] &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Femenino&quot;  &quot;Masculino&quot; &quot;Masculino&quot; &quot;Femenino&quot; 
+## [19] &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Femenino&quot;  &quot;Femenino&quot; 
+## [25] &quot;Femenino&quot;  &quot;Masculino&quot; &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Masculino&quot; &quot;Femenino&quot;</code></pre>
+<p>Para seleccionar las columnas 3 y 4.</p>
+<div class="sourceCode" id="cb717"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb717-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb717-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionado la columna 3 y 4.</span></span>
+<span id="cb717-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb717-2" aria-hidden="true" tabindex="-1"></a>df[,<span class="fu">c</span>(<span class="st">&quot;ingresos&quot;</span>,<span class="st">&quot;raza&quot;</span>)]</span></code></pre></div>
+<pre><code>##    ingresos   raza
+## 1      1680  negro
+## 2      2144 blanco
+## 3      2822  negro
+## 4      3558 blanco
+## 5      1368 blanco
+## 6      4784  negro
+## 7      4036 blanco
+## 8      3202 blanco
+## 9      2527 blanco
+## 10     3442 blanco
+## 11     4440 blanco
+## 12     2955 blanco
+## 13     3981 blanco
+## 14     1621 blanco
+## 15     4197 blanco
+## 16     2486  negro
+## 17     2745  negro
+## 18     4656  negro
+## 19     4602  negro
+## 20     2551  negro
+## 21     4051 blanco
+## 22     2505 blanco
+## 23     4940 blanco
+## 24     3686 blanco
+## 25     1361 blanco
+## 26     1509 blanco
+## 27     4829  negro
+## 28     3347  negro
+## 29     1789 blanco
+## 30     1549 blanco</code></pre>
+</div>
+<div id="r-base---usando-expresiones-regulares." class="section level3" number="12.2.3">
+<h3><span class="header-section-number">12.2.3</span> R base - usando expresiones regulares.</h3>
+<p>Podemos usar expresiones regulares, pero aún veremos ese tema en capítulos posteriores. Por el momento solo dejaremos la sintaxis y después de revisar el tema de expresiones regulares usted podrá entender al 100% la sintaxis.</p>
+<p>Por ejemplo, vamos a seleccionar las columnas que terminan en “a” o en “O”.</p>
+<div class="sourceCode" id="cb719"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb719-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb719-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccioando las columnas que terminan en &quot;a&quot; o en &quot;o&quot;.</span></span>
+<span id="cb719-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb719-2" aria-hidden="true" tabindex="-1"></a>df[,<span class="fu">grepl</span>(<span class="st">&quot;a$|O$&quot;</span>,<span class="fu">names</span>(df))]</span></code></pre></div>
+<pre><code>##       GENERO   raza material_casa
+## 1   Femenino  negro         noble
+## 2  Masculino blanco         noble
+## 3  Masculino  negro       rustica
+## 4   Femenino blanco       rustica
+## 5   Femenino blanco         noble
+## 6   Femenino  negro         noble
+## 7   Femenino blanco         noble
+## 8  Masculino blanco         noble
+## 9  Masculino blanco         noble
+## 10  Femenino blanco       rustica
+## 11 Masculino blanco         noble
+## 12  Femenino blanco         noble
+## 13 Masculino blanco         noble
+## 14  Femenino blanco       rustica
+## 15  Femenino blanco       rustica
+## 16 Masculino  negro         noble
+## 17 Masculino  negro         noble
+## 18  Femenino  negro       rustica
+## 19 Masculino  negro       rustica
+## 20  Femenino  negro         noble
+## 21 Masculino blanco         noble
+## 22  Femenino blanco         noble
+## 23  Femenino blanco         noble
+## 24  Femenino blanco       rustica
+## 25  Femenino blanco       rustica
+## 26 Masculino blanco         noble
+## 27 Masculino  negro         noble
+## 28  Femenino  negro         noble
+## 29 Masculino blanco         noble
+## 30  Femenino blanco         noble</code></pre>
+</div>
+<div id="dplyr---usando-la-función-select." class="section level3" number="12.2.4">
+<h3><span class="header-section-number">12.2.4</span> Dplyr - Usando la función select.</h3>
+<p>Para usar el paquete <code>dplyr</code> primero tenemos que instalar el paquete y luego cargarlo. Para instalar el paquete usamos la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb721"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb721-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb721-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Instalando el paquete.</span></span>
+<span id="cb721-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb721-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
+<p>Y para cargar el paquete.</p>
+<div class="sourceCode" id="cb722"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb722-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb722-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<p>Una vez hecho estos pasos podemos usar las funciones de este paquete y poder seleccionar columnas con la función <code>select()</code>.</p>
+<p>Por ejemplo, vamos a seleccionar la columna <code>num_hijos</code>.</p>
+<div class="sourceCode" id="cb723"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb723-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb723-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionando la columna num_hijos.</span></span>
+<span id="cb723-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb723-2" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">&quot;num_hijos&quot;</span>)</span></code></pre></div>
+<pre><code>##    num_hijos
+## 1          1
+## 2          4
+## 3          4
+## 4          4
+## 5          2
+## 6          4
+## 7          4
+## 8          4
+## 9          4
+## 10         3
+## 11         4
+## 12         2
+## 13         4
+## 14         4
+## 15         2
+## 16         2
+## 17         0
+## 18         4
+## 19         2
+## 20         0
+## 21         3
+## 22         2
+## 23         4
+## 24         3
+## 25         4
+## 26         4
+## 27         0
+## 28         4
+## 29         1
+## 30         2</code></pre>
+<p>Para seleccionar las columnas <code>material_casa</code> y <code>EXPERIENCIA</code>.</p>
+<div class="sourceCode" id="cb725"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb725-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb725-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionando las columnas material_casa y EXPERIENCIA.</span></span>
+<span id="cb725-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb725-2" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">&quot;material_casa&quot;</span>,<span class="st">&quot;EXPERIENCIA&quot;</span>)</span></code></pre></div>
+<pre><code>##    material_casa EXPERIENCIA
+## 1          noble          15
+## 2          noble           6
+## 3        rustica          10
+## 4        rustica          12
+## 5          noble           0
+## 6          noble           2
+## 7          noble           3
+## 8          noble           0
+## 9          noble          12
+## 10       rustica           5
+## 11         noble          13
+## 12         noble           4
+## 13         noble          13
+## 14       rustica           6
+## 15       rustica          15
+## 16         noble          13
+## 17         noble          12
+## 18       rustica           4
+## 19       rustica          15
+## 20         noble           9
+## 21         noble          10
+## 22         noble           4
+## 23         noble           5
+## 24       rustica          13
+## 25       rustica           7
+## 26         noble           1
+## 27         noble           2
+## 28         noble           2
+## 29         noble           6
+## 30         noble           0</code></pre>
+<p>En los dos ejemplos se ha usado el operador <code>%&gt;%</code>, este operador es llamado <code>pipe</code>, que juega el rol de enlace entre sintaxis. Por ejemplo, en el primer ejemplo está enlazando <code>df</code> con <code>select("num_hijos")</code>, es decir, lo que se le está indicando al software es vas a seleccionar la variable <code>num_hijos</code> del data frame <code>df</code>.</p>
+<p>Para que usted se de cuenta, la sintaxis sin el uso del <code>pipe</code> sería el siguiente.</p>
+<div class="sourceCode" id="cb727"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb727-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb727-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionando la columna num_hijos.</span></span>
+<span id="cb727-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb727-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(df, <span class="st">&quot;num_hijos&quot;</span>)</span></code></pre></div>
+<pre><code>##    num_hijos
+## 1          1
+## 2          4
+## 3          4
+## 4          4
+## 5          2
+## 6          4
+## 7          4
+## 8          4
+## 9          4
+## 10         3
+## 11         4
+## 12         2
+## 13         4
+## 14         4
+## 15         2
+## 16         2
+## 17         0
+## 18         4
+## 19         2
+## 20         0
+## 21         3
+## 22         2
+## 23         4
+## 24         3
+## 25         4
+## 26         4
+## 27         0
+## 28         4
+## 29         1
+## 30         2</code></pre>
+<p>El <code>pipe</code> sirve mucho para sintaxis largas ya que el código se va acortando gracias a este operador. En capítulos posteriores verá más a detalle su potencial.</p>
+<p>Ahora, la función <code>select()</code> también acepta otras funciones como argumentos que lo hacen más versátil. Por ejemplo, podemos usar las funciones <code>starts_with()</code> o <code>ends_with()</code> o <code>contains()</code> o <code>matches()</code>.</p>
+<p>Veamos ejemplos de cada uno a continuación.</p>
+<p>Si deseamos seleccionar columnas que empiezan con un determinado caracter o caracteres tendremos que usar la función <code>starts_with()</code>. Por ejemplo, queremos seleccionar las columnas que empiezan con la letra “E”.</p>
+<div class="sourceCode" id="cb729"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb729-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb729-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionando las columnas que empiezan con la letra &quot;E&quot;.</span></span>
+<span id="cb729-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb729-2" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;E&quot;</span>))</span></code></pre></div>
+<pre><code>##    EDAD EXPERIENCIA
+## 1    16          15
+## 2    15           6
+## 3    23          10
+## 4    16          12
+## 5    21           0
+## 6    29           2
+## 7    15           3
+## 8    15           0
+## 9    15          12
+## 10   23           5
+## 11   14          13
+## 12   24           4
+## 13   16          13
+## 14   18           6
+## 15   21          15
+## 16   28          13
+## 17   27          12
+## 18   12           4
+## 19   23          15
+## 20   17           9
+## 21   13          10
+## 22   14           4
+## 23   25           5
+## 24   11          13
+## 25   28           7
+## 26   13           1
+## 27   30           2
+## 28   14           2
+## 29   18           6
+## 30   15           0</code></pre>
+<p>Y en efecto se han seleccionado las columnas <code>EDAD</code> y <code>EXPERIENCIA</code>, porque las dos variables empiezan con la letra “E”.</p>
+<p>Ahora si se desea seleccionar las columnas que terminan en uno o más caracteres entonces, tendremos que usar la función <code>ends_with()</code>. Por ejemplo, vamos a seleccionar las columnas que terminan en “a”.</p>
+<div class="sourceCode" id="cb731"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb731-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb731-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionando las columnas que terminan en &quot;a&quot;.</span></span>
+<span id="cb731-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb731-2" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">ends_with</span>(<span class="st">&quot;a&quot;</span>))</span></code></pre></div>
+<pre><code>##      raza material_casa EXPERIENCIA
+## 1   negro         noble          15
+## 2  blanco         noble           6
+## 3   negro       rustica          10
+## 4  blanco       rustica          12
+## 5  blanco         noble           0
+## 6   negro         noble           2
+## 7  blanco         noble           3
+## 8  blanco         noble           0
+## 9  blanco         noble          12
+## 10 blanco       rustica           5
+## 11 blanco         noble          13
+## 12 blanco         noble           4
+## 13 blanco         noble          13
+## 14 blanco       rustica           6
+## 15 blanco       rustica          15
+## 16  negro         noble          13
+## 17  negro         noble          12
+## 18  negro       rustica           4
+## 19  negro       rustica          15
+## 20  negro         noble           9
+## 21 blanco         noble          10
+## 22 blanco         noble           4
+## 23 blanco         noble           5
+## 24 blanco       rustica          13
+## 25 blanco       rustica           7
+## 26 blanco         noble           1
+## 27  negro         noble           2
+## 28  negro         noble           2
+## 29 blanco         noble           6
+## 30 blanco         noble           0</code></pre>
+<p>Y nos selecciona las columnas <code>material_casa</code>, <code>raza</code> y <code>EXPERIENCIA</code>, ya que estas variables terminan en “a”.</p>
+<p>Si deseamos seleccionar columnas que contengan uno o más caracteres, se usará la función <code>contains()</code>. Por ejemplo queremos seleccionar las columnas que contengan los caracteres “er”.</p>
+<div class="sourceCode" id="cb733"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb733-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb733-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionando las columnas que contengan &quot;er&quot;.</span></span>
+<span id="cb733-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb733-2" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">&quot;er&quot;</span>))</span></code></pre></div>
+<pre><code>##       GENERO material_casa EXPERIENCIA
+## 1   Femenino         noble          15
+## 2  Masculino         noble           6
+## 3  Masculino       rustica          10
+## 4   Femenino       rustica          12
+## 5   Femenino         noble           0
+## 6   Femenino         noble           2
+## 7   Femenino         noble           3
+## 8  Masculino         noble           0
+## 9  Masculino         noble          12
+## 10  Femenino       rustica           5
+## 11 Masculino         noble          13
+## 12  Femenino         noble           4
+## 13 Masculino         noble          13
+## 14  Femenino       rustica           6
+## 15  Femenino       rustica          15
+## 16 Masculino         noble          13
+## 17 Masculino         noble          12
+## 18  Femenino       rustica           4
+## 19 Masculino       rustica          15
+## 20  Femenino         noble           9
+## 21 Masculino         noble          10
+## 22  Femenino         noble           4
+## 23  Femenino         noble           5
+## 24  Femenino       rustica          13
+## 25  Femenino       rustica           7
+## 26 Masculino         noble           1
+## 27 Masculino         noble           2
+## 28  Femenino         noble           2
+## 29 Masculino         noble           6
+## 30  Femenino         noble           0</code></pre>
+<p>Y en efecto, nos selecciona las columnas <code>GENERO</code>, <code>material_casa</code> y <code>EXPERIENCIA</code>.</p>
+<p>Por último, la función <code>matches()</code> sirve para seleccionar columnas usando expresiones regulares. Usaremos la misma expresión regular que en el ejemplo de R base, con lo cual seleccionaremos las columnas que terminan en “a” o en “O”.</p>
+<div class="sourceCode" id="cb735"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb735-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb735-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionando las columnas que terminan en &quot;a&quot; o en &quot;O&quot;.</span></span>
+<span id="cb735-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb735-2" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">matches</span>(<span class="st">&quot;a$|O$&quot;</span>))</span></code></pre></div>
+<pre><code>##       GENERO   raza material_casa EXPERIENCIA
+## 1   Femenino  negro         noble          15
+## 2  Masculino blanco         noble           6
+## 3  Masculino  negro       rustica          10
+## 4   Femenino blanco       rustica          12
+## 5   Femenino blanco         noble           0
+## 6   Femenino  negro         noble           2
+## 7   Femenino blanco         noble           3
+## 8  Masculino blanco         noble           0
+## 9  Masculino blanco         noble          12
+## 10  Femenino blanco       rustica           5
+## 11 Masculino blanco         noble          13
+## 12  Femenino blanco         noble           4
+## 13 Masculino blanco         noble          13
+## 14  Femenino blanco       rustica           6
+## 15  Femenino blanco       rustica          15
+## 16 Masculino  negro         noble          13
+## 17 Masculino  negro         noble          12
+## 18  Femenino  negro       rustica           4
+## 19 Masculino  negro       rustica          15
+## 20  Femenino  negro         noble           9
+## 21 Masculino blanco         noble          10
+## 22  Femenino blanco         noble           4
+## 23  Femenino blanco         noble           5
+## 24  Femenino blanco       rustica          13
+## 25  Femenino blanco       rustica           7
+## 26 Masculino blanco         noble           1
+## 27 Masculino  negro         noble           2
+## 28  Femenino  negro         noble           2
+## 29 Masculino blanco         noble           6
+## 30  Femenino blanco         noble           0</code></pre>
+<p>Y en efecto, selecciona las columnas <code>GENERO</code>, <code>raza</code>, <code>material_casa</code> y <code>EXPERIENCIA</code>. Para el caso de la función select las mayúsculas y minúsculas no se diferencian a menos que se cambie uno de los argumentos el cual es <code>ignore.case</code>. Pero esto ya se verá en el tema de expresiones regulares.</p>
+</div>
+</div>
+<div id="filtro-de-filas." class="section level2" number="12.3">
+<h2><span class="header-section-number">12.3</span> Filtro de filas.</h2>
+<p>Al igual que anteriormente, el filtro de filas puede hacerse por medio de R base o usando el paquete <code>dplyr</code><a href="#fn20" class="footnote-ref" id="fnref20"><sup>20</sup></a>.</p>
+<div id="usando-r-base." class="section level3" number="12.3.1">
+<h3><span class="header-section-number">12.3.1</span> Usando R base.</h3>
+<p>En R base, si deseamos llamar a una columna en específico, entonces usaremos el operador <code>$</code><a href="#fn21" class="footnote-ref" id="fnref21"><sup>21</sup></a>, es así que para llamar a una columna primero se llamará al data frame y con el <code>$</code> se llamará a la columna. Posteriormente se indicará la condición lógica para filtrar las filas y por último todo esto se asignará al data frame para que nos arroje los resultados.</p>
+<p>Por ejemplo, si solo deseamos quedarnos con los individuos de género masculino, entonces usaremos la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb737"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb737-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb737-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Quedándonos solo con los individuos de género masculino.</span></span>
+<span id="cb737-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb737-2" aria-hidden="true" tabindex="-1"></a>df[df<span class="sc">$</span>GENERO<span class="sc">==</span><span class="st">&quot;Masculino&quot;</span>,]</span></code></pre></div>
+<pre><code>##    EDAD    GENERO ingresos   raza material_casa EXPERIENCIA num_hijos
+## 2    15 Masculino     2144 blanco         noble           6         4
+## 3    23 Masculino     2822  negro       rustica          10         4
+## 8    15 Masculino     3202 blanco         noble           0         4
+## 9    15 Masculino     2527 blanco         noble          12         4
+## 11   14 Masculino     4440 blanco         noble          13         4
+## 13   16 Masculino     3981 blanco         noble          13         4
+## 16   28 Masculino     2486  negro         noble          13         2
+## 17   27 Masculino     2745  negro         noble          12         0
+## 19   23 Masculino     4602  negro       rustica          15         2
+## 21   13 Masculino     4051 blanco         noble          10         3
+## 26   13 Masculino     1509 blanco         noble           1         4
+## 27   30 Masculino     4829  negro         noble           2         0
+## 29   18 Masculino     1789 blanco         noble           6         1</code></pre>
+<p>En efecto, hemos filtrado a las filas que son del género “Masculino”. Pero ¿Cómo lo hemos hecho? Primero llamamos a la columna <code>GENERO</code> con la sintaxis <code>df$GENERO</code> luego indicamos la condición lógica que nos filtre solo los de genero “Masculino”, esto se logra con <code>df$GENERO=="Masculino"</code>, posteriormente colocamos esta sintaxis dentro de data frame <code>df</code> y al final colocamos la <code>,</code> a lo que nos queda <code>df[df$GENERO=="Masculino",]</code>. ¿Por qué colocamos la coma <code>,</code> al final? Porque estamos filtrando por filas, recuerde que sintaxis antes de la como significa filtrar filas y sintaxis luego de la como significa selección columnas.</p>
+<p>Veamos un ejemplo adicional para que quede un poco más claro. Ahora vamos a filtrar a los individuos que tienen una experiencia mayor a 5 años.</p>
+<div class="sourceCode" id="cb739"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb739-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb739-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrando individuos que tienen una experiencia mayor a 5 años.</span></span>
+<span id="cb739-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb739-2" aria-hidden="true" tabindex="-1"></a>df[df<span class="sc">$</span>EXPERIENCIA<span class="sc">&gt;</span><span class="dv">5</span>,]</span></code></pre></div>
+<pre><code>##    EDAD    GENERO ingresos   raza material_casa EXPERIENCIA num_hijos
+## 1    16  Femenino     1680  negro         noble          15         1
+## 2    15 Masculino     2144 blanco         noble           6         4
+## 3    23 Masculino     2822  negro       rustica          10         4
+## 4    16  Femenino     3558 blanco       rustica          12         4
+## 9    15 Masculino     2527 blanco         noble          12         4
+## 11   14 Masculino     4440 blanco         noble          13         4
+## 13   16 Masculino     3981 blanco         noble          13         4
+## 14   18  Femenino     1621 blanco       rustica           6         4
+## 15   21  Femenino     4197 blanco       rustica          15         2
+## 16   28 Masculino     2486  negro         noble          13         2
+## 17   27 Masculino     2745  negro         noble          12         0
+## 19   23 Masculino     4602  negro       rustica          15         2
+## 20   17  Femenino     2551  negro         noble           9         0
+## 21   13 Masculino     4051 blanco         noble          10         3
+## 24   11  Femenino     3686 blanco       rustica          13         3
+## 25   28  Femenino     1361 blanco       rustica           7         4
+## 29   18 Masculino     1789 blanco         noble           6         1</code></pre>
+<p>Si usted se da cuenta solo hemos obtenido las filas en donde la experiencia es mayor a 5 años.</p>
+<p>Por último, vamos a filtrar usando más de un operador lógico, por ejemplo vamos a filtrar a los individuos que son de raza negra y que el material de su casa sea de material noble.</p>
+<div class="sourceCode" id="cb741"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb741-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb741-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Quedándonos con los individuos que son de raza negra y que el </span></span>
+<span id="cb741-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb741-2" aria-hidden="true" tabindex="-1"></a><span class="co"># material de su casa es de material noble.</span></span>
+<span id="cb741-3"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb741-3" aria-hidden="true" tabindex="-1"></a>df[df<span class="sc">$</span>raza<span class="sc">==</span><span class="st">&quot;negro&quot;</span> <span class="sc">&amp;</span> df<span class="sc">$</span>material_casa<span class="sc">==</span><span class="st">&quot;noble&quot;</span>,]</span></code></pre></div>
+<pre><code>##    EDAD    GENERO ingresos  raza material_casa EXPERIENCIA num_hijos
+## 1    16  Femenino     1680 negro         noble          15         1
+## 6    29  Femenino     4784 negro         noble           2         4
+## 16   28 Masculino     2486 negro         noble          13         2
+## 17   27 Masculino     2745 negro         noble          12         0
+## 20   17  Femenino     2551 negro         noble           9         0
+## 27   30 Masculino     4829 negro         noble           2         0
+## 28   14  Femenino     3347 negro         noble           2         4</code></pre>
+<p>Y en efecto, hemos obtenido el resultado deseado.</p>
+<p>Con R base la sintaxis no es tan limpia, pero es muy intuitiva. Pero si queremos tener una sintaxis más limpia y a la vez intuitiva, entonces tendremos que usar el paquete <code>dplyr</code>. Pero más adelante, veremos que usando la función <code>subset()</code> de R base se logra lo mismo, pero con una sintaxis más sencilla aún, pero no tan escalable como la que se obtendría con el paquete <code>dplyr</code>.</p>
+</div>
+<div id="dplyr---usando-la-función-filter." class="section level3" number="12.3.2">
+<h3><span class="header-section-number">12.3.2</span> Dplyr - Usando la función filter.</h3>
+<p>Para filtrar por filas usando el paquete <code>dplyr</code> usaremos la función <code>filter()</code>. La sintaxis es similar al que se usó con R base, pero no es necesario usar el operador <code>$</code> ya que este paquete nos permite trabajar por etapas, es así que si primero llamamos al data frame, en las siguientes sintaxis no será necesario volver a llamarlo.</p>
+<p>Para ver las diferencias, realizaremos los mismos ejemplos que se hicieron con R base. Entonces, primero filtraremos los que son de género “Masculino”.</p>
+<div class="sourceCode" id="cb743"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb743-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb743-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrando los que son de género masculino.</span></span>
+<span id="cb743-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb743-2" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(GENERO<span class="sc">==</span><span class="st">&quot;Masculino&quot;</span>)</span></code></pre></div>
+<pre><code>##    EDAD    GENERO ingresos   raza material_casa EXPERIENCIA num_hijos
+## 1    15 Masculino     2144 blanco         noble           6         4
+## 2    23 Masculino     2822  negro       rustica          10         4
+## 3    15 Masculino     3202 blanco         noble           0         4
+## 4    15 Masculino     2527 blanco         noble          12         4
+## 5    14 Masculino     4440 blanco         noble          13         4
+## 6    16 Masculino     3981 blanco         noble          13         4
+## 7    28 Masculino     2486  negro         noble          13         2
+## 8    27 Masculino     2745  negro         noble          12         0
+## 9    23 Masculino     4602  negro       rustica          15         2
+## 10   13 Masculino     4051 blanco         noble          10         3
+## 11   13 Masculino     1509 blanco         noble           1         4
+## 12   30 Masculino     4829  negro         noble           2         0
+## 13   18 Masculino     1789 blanco         noble           6         1</code></pre>
+<p>Y en efecto, obtenemos el mismo resultado. A continuación realizaremos los mismos filtros que se hicieron con R base.</p>
+<div class="sourceCode" id="cb745"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb745-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb745-1" aria-hidden="true" tabindex="-1"></a><span class="co"># filtrando los que tienen experiencia mayor a 5.</span></span>
+<span id="cb745-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb745-2" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(EXPERIENCIA<span class="sc">&gt;</span><span class="dv">5</span>)</span></code></pre></div>
+<pre><code>##    EDAD    GENERO ingresos   raza material_casa EXPERIENCIA num_hijos
+## 1    16  Femenino     1680  negro         noble          15         1
+## 2    15 Masculino     2144 blanco         noble           6         4
+## 3    23 Masculino     2822  negro       rustica          10         4
+## 4    16  Femenino     3558 blanco       rustica          12         4
+## 5    15 Masculino     2527 blanco         noble          12         4
+## 6    14 Masculino     4440 blanco         noble          13         4
+## 7    16 Masculino     3981 blanco         noble          13         4
+## 8    18  Femenino     1621 blanco       rustica           6         4
+## 9    21  Femenino     4197 blanco       rustica          15         2
+## 10   28 Masculino     2486  negro         noble          13         2
+## 11   27 Masculino     2745  negro         noble          12         0
+## 12   23 Masculino     4602  negro       rustica          15         2
+## 13   17  Femenino     2551  negro         noble           9         0
+## 14   13 Masculino     4051 blanco         noble          10         3
+## 15   11  Femenino     3686 blanco       rustica          13         3
+## 16   28  Femenino     1361 blanco       rustica           7         4
+## 17   18 Masculino     1789 blanco         noble           6         1</code></pre>
+<div class="sourceCode" id="cb747"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb747-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb747-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrando los que son de raza negra y material de casa noble.</span></span>
+<span id="cb747-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb747-2" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(raza<span class="sc">==</span><span class="st">&quot;negro&quot;</span> <span class="sc">&amp;</span> material_casa<span class="sc">==</span><span class="st">&quot;noble&quot;</span>)</span></code></pre></div>
+<pre><code>##   EDAD    GENERO ingresos  raza material_casa EXPERIENCIA num_hijos
+## 1   16  Femenino     1680 negro         noble          15         1
+## 2   29  Femenino     4784 negro         noble           2         4
+## 3   28 Masculino     2486 negro         noble          13         2
+## 4   27 Masculino     2745 negro         noble          12         0
+## 5   17  Femenino     2551 negro         noble           9         0
+## 6   30 Masculino     4829 negro         noble           2         0
+## 7   14  Femenino     3347 negro         noble           2         4</code></pre>
+<p>Como se mencionó hemos usado una sintaxis similar, pero más limpia y a la vez igual de intuitiva.</p>
+</div>
+<div id="filtrando-usando-la-función-subset-de-r-base." class="section level3" number="12.3.3">
+<h3><span class="header-section-number">12.3.3</span> Filtrando usando la función subset de R base.</h3>
+<p>Pero R base no se queda atrás y tiene la función <code>subset()</code> que es igual al <code>filter()</code> del paquete <code>dplyr</code>. Veamos lo fácil de usarla.</p>
+<p>Vamos a desarrollar el último ejemplo que hemos visto tanto con el paquete <code>dplyr</code> y R base.</p>
+<div class="sourceCode" id="cb749"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb749-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb749-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrando los que son de raza negra y material de casa noble.</span></span>
+<span id="cb749-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb749-2" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(df, raza<span class="sc">==</span><span class="st">&quot;negro&quot;</span> <span class="sc">&amp;</span> material_casa<span class="sc">==</span><span class="st">&quot;noble&quot;</span>)</span></code></pre></div>
+<pre><code>##    EDAD    GENERO ingresos  raza material_casa EXPERIENCIA num_hijos
+## 1    16  Femenino     1680 negro         noble          15         1
+## 6    29  Femenino     4784 negro         noble           2         4
+## 16   28 Masculino     2486 negro         noble          13         2
+## 17   27 Masculino     2745 negro         noble          12         0
+## 20   17  Femenino     2551 negro         noble           9         0
+## 27   30 Masculino     4829 negro         noble           2         0
+## 28   14  Femenino     3347 negro         noble           2         4</code></pre>
+<p>En efecto, hemos obtenido el mismo resultado. Es un calco de la función filter, incluso es más integral, ya que la función <code>subset()</code> permite seleccionar columnas en la misma sintaxis. Vamos a ver esto en el siguiente apartado y usted elegirá cuál es la forma que más se adapta a su forma de pensar.</p>
+</div>
+</div>
+<div id="filtrando-y-seleccionado-columnas." class="section level2" number="12.4">
+<h2><span class="header-section-number">12.4</span> filtrando y seleccionado columnas.</h2>
+<p>En este sección desarrollaremos ejemplos de filtrar filas y seleccionar columnas a la vez. Es así que usaremos todo lo aprendido en este capítulo y uniremos sintaxis.</p>
+<p>Para ver las diferencias, vamos a desarrollar un único ejemplo en donde filtraremos las filas que tienen ingresos mayores a 2000, que sean de raza negra y seleccionaremos solo las columnas ingresos, raza y edad.</p>
+<p>Empezaremos con R base, luego con el paquete <code>dplyr</code> y por último con la función <code>subset()</code>.</p>
+<div class="sourceCode" id="cb751"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb751-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb751-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Usando R base.</span></span>
+<span id="cb751-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb751-2" aria-hidden="true" tabindex="-1"></a>df[df<span class="sc">$</span>ingresos<span class="sc">&gt;</span><span class="dv">2000</span> <span class="sc">&amp;</span> df<span class="sc">$</span>raza<span class="sc">==</span><span class="st">&quot;negro&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;ingresos&quot;</span>,<span class="st">&quot;raza&quot;</span>,<span class="st">&quot;EDAD&quot;</span>)]</span></code></pre></div>
+<pre><code>##    ingresos  raza EDAD
+## 3      2822 negro   23
+## 6      4784 negro   29
+## 16     2486 negro   28
+## 17     2745 negro   27
+## 18     4656 negro   12
+## 19     4602 negro   23
+## 20     2551 negro   17
+## 27     4829 negro   30
+## 28     3347 negro   14</code></pre>
+<div class="sourceCode" id="cb753"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb753-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb753-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Usando el paquete dplyr.</span></span>
+<span id="cb753-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb753-2" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(ingresos<span class="sc">&gt;</span><span class="dv">2000</span> <span class="sc">&amp;</span> raza<span class="sc">==</span><span class="st">&quot;negro&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(ingresos,raza,EDAD)</span></code></pre></div>
+<pre><code>##   ingresos  raza EDAD
+## 1     2822 negro   23
+## 2     4784 negro   29
+## 3     2486 negro   28
+## 4     2745 negro   27
+## 5     4656 negro   12
+## 6     4602 negro   23
+## 7     2551 negro   17
+## 8     4829 negro   30
+## 9     3347 negro   14</code></pre>
+<div class="sourceCode" id="cb755"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb755-1"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb755-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Usando la función subset.</span></span>
+<span id="cb755-2"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#cb755-2" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(df, ingresos<span class="sc">&gt;</span><span class="dv">2000</span> <span class="sc">&amp;</span> raza<span class="sc">==</span><span class="st">&quot;negro&quot;</span>, <span class="at">select=</span><span class="fu">c</span>(<span class="st">&quot;ingresos&quot;</span>,<span class="st">&quot;raza&quot;</span>,<span class="st">&quot;EDAD&quot;</span>))</span></code></pre></div>
+<pre><code>##    ingresos  raza EDAD
+## 3      2822 negro   23
+## 6      4784 negro   29
+## 16     2486 negro   28
+## 17     2745 negro   27
+## 18     4656 negro   12
+## 19     4602 negro   23
+## 20     2551 negro   17
+## 27     4829 negro   30
+## 28     3347 negro   14</code></pre>
+<p>En efecto, hemos obtenido los mismos resultados con las 3 sintaxis, de usted dependerá cual usar. cada una tiene sus ventajas y desventajas y dependerá del proceso que estemos haciendo y del resultado que deseamos obtener. Se recomienda usar R base a la hora de crear funciones; <code>dplyr</code>, si vamos a desarrollar más operaciones luego de filtrar y seleccionar por ejemplo, agrupar por filas, graficar, generar tablas, entre otras. Y <code>subset()</code> si y solo si lo único que haremos es filtrar y seleccionar.</p>
+<p>Como se mencionó, esta no es la única forma de filtrar y seleccionar, estas tres formas es probable que a usted le resulten insuficientes, ya que si usted trabaja con grandes datos, lo mejor sería que usted use el paquete <code>data.table</code> o <code>sparklyr</code> u otros<a href="#fn22" class="footnote-ref" id="fnref22"><sup>22</sup></a>. R al ser un software libre y abierto tiene una gran variedad de opciones, eso es lo que lo convierte en un excepcional software ya que para cada situación usted podrá realizar una sintaxis adecuada y óptima.</p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="19">
+<li id="fn19"><p>Podría dejar el directorio de trabajo en esa ruta, pero si quisiera importar el archivo que deseo tendría que especificar la ruta del archivo y eso me demoraría más tiempo, ya que tendría que escribir la ruta completa cada vez que deseo cargar un archivo.<a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#fnref19" class="footnote-back">↩︎</a></p></li>
+<li id="fn20"><p>En ejemplos posteriores se mostrará como importar archivos desde otra ruta.<a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#fnref20" class="footnote-back">↩︎</a></p></li>
+<li id="fn21"><p>El mismo que se usa para los objetos listas.<a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#fnref21" class="footnote-back">↩︎</a></p></li>
+<li id="fn22"><p>Este es un libro introducctorio al software R en donde se muestran las sintaxis básicas y quizá hasta intermedias, por lo que escapa del tema del bigdata, que es un tema especializado, y por ende, no visto en este libro.<a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#fnref22" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ciclo-while..html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/CesarAHN/R_para_economistas/edit/master/12-data-frame-en-R.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/CesarAHN/R_para_economistas/blob/master/12-data-frame-en-R.Rmd",
+"text": null
+},
+"download": ["bookdownproj.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 1 R COMO CALCULADORA. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</title>
+  <meta name="description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 1 R COMO CALCULADORA. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  <meta name="github-repo" content="CesarAHN/bookdown_intro" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 1 R COMO CALCULADORA. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
+  
+  <meta name="twitter:description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
+  
+
+<meta name="author" content="César Anderson Huamaní Ninahuanca" />
+
+
+<meta name="date" content="2021-11-24" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="vectores..html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - PARA ECONOMISTAS</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prólogo</a></li>
+<li class="chapter" data-level="1" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html"><i class="fa fa-check"></i><b>1</b> R COMO CALCULADORA.</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html#principales-operaciones-matemáticas."><i class="fa fa-check"></i><b>1.1</b> Principales operaciones matemáticas.</a></li>
+<li class="chapter" data-level="1.2" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html#decimales-exactos-y-redondeo-de-cifras."><i class="fa fa-check"></i><b>1.2</b> Decimales exactos y redondeo de cifras.</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html#número-de-cifras."><i class="fa fa-check"></i><b>1.2.1</b> Número de cifras.</a></li>
+<li class="chapter" data-level="1.2.2" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html#redondeo."><i class="fa fa-check"></i><b>1.2.2</b> Redondeo.</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html#guardar-o-definir-objetos."><i class="fa fa-check"></i><b>1.3</b> Guardar o definir objetos.</a></li>
+<li class="chapter" data-level="1.4" data-path="r-como-calculadora..html"><a href="r-como-calculadora..html#funciones."><i class="fa fa-check"></i><b>1.4</b> Funciones.</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="vectores..html"><a href="vectores..html"><i class="fa fa-check"></i><b>2</b> VECTORES.</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="vectores..html"><a href="vectores..html#definición-de-un-vector."><i class="fa fa-check"></i><b>2.1</b> Definición de un vector.</a></li>
+<li class="chapter" data-level="2.2" data-path="vectores..html"><a href="vectores..html#clases-de-vectores."><i class="fa fa-check"></i><b>2.2</b> Clases de vectores.</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="vectores..html"><a href="vectores..html#cómo-saber-si-un-objeto-es-un-vector"><i class="fa fa-check"></i><b>2.2.1</b> ¿Cómo saber si un objeto es un vector?</a></li>
+<li class="chapter" data-level="2.2.2" data-path="vectores..html"><a href="vectores..html#cómo-saber-de-que-clase-es-un-vector"><i class="fa fa-check"></i><b>2.2.2</b> ¿Cómo saber de que clase es un vector?</a></li>
+<li class="chapter" data-level="2.2.3" data-path="vectores..html"><a href="vectores..html#qué-pasa-si-defino-un-vector-con-distintas-clases-de-elementos"><i class="fa fa-check"></i><b>2.2.3</b> ¿Qué pasa si defino un vector con distintas clases de elementos?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="vectores..html"><a href="vectores..html#número-de-elementos-de-un-vector."><i class="fa fa-check"></i><b>2.3</b> Número de elementos de un vector.</a></li>
+<li class="chapter" data-level="2.4" data-path="vectores..html"><a href="vectores..html#funciones-para-construir-vectores-más-eficientemente."><i class="fa fa-check"></i><b>2.4</b> Funciones para construir vectores más eficientemente.</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="vectores..html"><a href="vectores..html#vectores-de-elementos-consecutivos"><i class="fa fa-check"></i><b>2.4.1</b> Vectores de elementos consecutivos:</a></li>
+<li class="chapter" data-level="2.4.2" data-path="vectores..html"><a href="vectores..html#vectores-con-patrones"><i class="fa fa-check"></i><b>2.4.2</b> Vectores con patrones:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="vectores..html"><a href="vectores..html#concatenar-elementos-y-vectores."><i class="fa fa-check"></i><b>2.5</b> Concatenar elementos y vectores.</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="operaciones-matemáticas-y-estadísticas-con-vectores..html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores..html"><i class="fa fa-check"></i><b>3</b> OPERACIONES MATEMÁTICAS Y ESTADÍSTICAS CON VECTORES.</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="operaciones-matemáticas-y-estadísticas-con-vectores..html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores..html#operaciones-matemáticas."><i class="fa fa-check"></i><b>3.1</b> Operaciones matemáticas.</a></li>
+<li class="chapter" data-level="3.2" data-path="operaciones-matemáticas-y-estadísticas-con-vectores..html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores..html#operaciones-estadísticas."><i class="fa fa-check"></i><b>3.2</b> Operaciones estadísticas.</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="operaciones-matemáticas-y-estadísticas-con-vectores..html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores..html#cómo-trabajar-con-missings-o-elementos-faltantes-na"><i class="fa fa-check"></i><b>3.2.1</b> ¿Cómo trabajar con missings o elementos faltantes (NA)?</a></li>
+<li class="chapter" data-level="3.2.2" data-path="operaciones-matemáticas-y-estadísticas-con-vectores..html"><a href="operaciones-matemáticas-y-estadísticas-con-vectores..html#cómo-ordenar-elementos-de-los-vectores"><i class="fa fa-check"></i><b>3.2.2</b> ¿Cómo ordenar elementos de los vectores?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html"><i class="fa fa-check"></i><b>4</b> VECTORES ALEATORIOS y SELECCIÓN DE ELEMENTOS.</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html#creación-de-vectores-con-elementos-aleatorios."><i class="fa fa-check"></i><b>4.1</b> Creación de vectores con elementos aleatorios.</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html#aplicación-ley-de-grandes-números."><i class="fa fa-check"></i><b>4.1.1</b> Aplicación: Ley de grandes números.</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html#vectores-vacios-y-selección-de-elementos."><i class="fa fa-check"></i><b>4.2</b> Vectores vacios y selección de elementos.</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html#vectores-vacíos."><i class="fa fa-check"></i><b>4.2.1</b> Vectores vacíos.</a></li>
+<li class="chapter" data-level="4.2.2" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html#seleción-de-elementos-usando-."><i class="fa fa-check"></i><b>4.2.2</b> Seleción de elementos usando [].</a></li>
+<li class="chapter" data-level="4.2.3" data-path="vectores-aleatorios-y-selección-de-elementos..html"><a href="vectores-aleatorios-y-selección-de-elementos..html#cómo-saber-cuántos-elementos-tiene-un-vector"><i class="fa fa-check"></i><b>4.2.3</b> ¿Cómo saber cuántos elementos tiene un vector?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><i class="fa fa-check"></i><b>5</b> OPERADORES LÓGICOS, ÍNDICE DE ELEMENTOS Y CAMBIO DE VALORES.</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#operadores-lógicos."><i class="fa fa-check"></i><b>5.1</b> Operadores lógicos.</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#igualdad."><i class="fa fa-check"></i><b>5.1.1</b> Igualdad.</a></li>
+<li class="chapter" data-level="5.1.2" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#mayor-que."><i class="fa fa-check"></i><b>5.1.2</b> Mayor que.</a></li>
+<li class="chapter" data-level="5.1.3" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#menor-que."><i class="fa fa-check"></i><b>5.1.3</b> Menor que.</a></li>
+<li class="chapter" data-level="5.1.4" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#diferente."><i class="fa fa-check"></i><b>5.1.4</b> Diferente.</a></li>
+<li class="chapter" data-level="5.1.5" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#negación."><i class="fa fa-check"></i><b>5.1.5</b> Negación.</a></li>
+<li class="chapter" data-level="5.1.6" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#y-condicional-conjunción."><i class="fa fa-check"></i><b>5.1.6</b> Y condicional (Conjunción).</a></li>
+<li class="chapter" data-level="5.1.7" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#o-condicional-disyunción."><i class="fa fa-check"></i><b>5.1.7</b> O condicional (disyunción).</a></li>
+<li class="chapter" data-level="5.1.8" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#mayor-y-menor-igual-que."><i class="fa fa-check"></i><b>5.1.8</b> Mayor y menor igual que.</a></li>
+<li class="chapter" data-level="5.1.9" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#operador-pertenece."><i class="fa fa-check"></i><b>5.1.9</b> Operador pertenece.</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#encontrar-el-índice-de-elementos-y-cambiar-valores."><i class="fa fa-check"></i><b>5.2</b> Encontrar el índice de elementos y cambiar valores.</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"><a href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html#cambiar-valores-de-elementos."><i class="fa fa-check"></i><b>5.2.1</b> Cambiar valores de elementos.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="factores-y-listas..html"><a href="factores-y-listas..html"><i class="fa fa-check"></i><b>6</b> FACTORES Y LISTAS.</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="factores-y-listas..html"><a href="factores-y-listas..html#factores."><i class="fa fa-check"></i><b>6.1</b> Factores.</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="factores-y-listas..html"><a href="factores-y-listas..html#factores-con-niveles-desordenados."><i class="fa fa-check"></i><b>6.1.1</b> Factores con niveles desordenados.</a></li>
+<li class="chapter" data-level="6.1.2" data-path="factores-y-listas..html"><a href="factores-y-listas..html#factores-con-niveles-ordenados."><i class="fa fa-check"></i><b>6.1.2</b> Factores con niveles ordenados.</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="factores-y-listas..html"><a href="factores-y-listas..html#listas."><i class="fa fa-check"></i><b>6.2</b> Listas.</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="factores-y-listas..html"><a href="factores-y-listas..html#cómo-se-obtiene-cada-objeto-de-una-lista"><i class="fa fa-check"></i><b>6.2.1</b> ¿Cómo se obtiene cada objeto de una lista?</a></li>
+<li class="chapter" data-level="6.2.2" data-path="factores-y-listas..html"><a href="factores-y-listas..html#asignado-nombres-a-los-objetos-de-una-lista."><i class="fa fa-check"></i><b>6.2.2</b> Asignado nombres a los objetos de una lista.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="matrices..html"><a href="matrices..html"><i class="fa fa-check"></i><b>7</b> MATRICES.</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="matrices..html"><a href="matrices..html#creación-de-matrices."><i class="fa fa-check"></i><b>7.1</b> Creación de matrices.</a></li>
+<li class="chapter" data-level="7.2" data-path="matrices..html"><a href="matrices..html#concatenar-matrices-por-filas-o-columnas."><i class="fa fa-check"></i><b>7.2</b> Concatenar matrices por filas o columnas.</a></li>
+<li class="chapter" data-level="7.3" data-path="matrices..html"><a href="matrices..html#selecionar-elementos-de-una-matriz."><i class="fa fa-check"></i><b>7.3</b> Selecionar elementos de una matriz.</a></li>
+<li class="chapter" data-level="7.4" data-path="matrices..html"><a href="matrices..html#dimensiones-de-la-matriz."><i class="fa fa-check"></i><b>7.4</b> Dimensiones de la matriz.</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="álgebra-matricial..html"><a href="álgebra-matricial..html"><i class="fa fa-check"></i><b>8</b> ÁLGEBRA MATRICIAL.</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="álgebra-matricial..html"><a href="álgebra-matricial..html#operaciones-básicas."><i class="fa fa-check"></i><b>8.1</b> Operaciones básicas.</a></li>
+<li class="chapter" data-level="8.2" data-path="álgebra-matricial..html"><a href="álgebra-matricial..html#principales-operaciones-con-matrices."><i class="fa fa-check"></i><b>8.2</b> Principales operaciones con matrices.</a></li>
+<li class="chapter" data-level="8.3" data-path="álgebra-matricial..html"><a href="álgebra-matricial..html#solución-a-sistemas-de-ecuación."><i class="fa fa-check"></i><b>8.3</b> Solución a sistemas de ecuación.</a></li>
+<li class="chapter" data-level="8.4" data-path="álgebra-matricial..html"><a href="álgebra-matricial..html#valores-y-vectores-propios."><i class="fa fa-check"></i><b>8.4</b> Valores y vectores propios.</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="condicional-if-else..html"><a href="condicional-if-else..html"><i class="fa fa-check"></i><b>9</b> CONDICIONAL IF ELSE.</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="condicional-if-else..html"><a href="condicional-if-else..html#condicional-if."><i class="fa fa-check"></i><b>9.1</b> Condicional if.</a></li>
+<li class="chapter" data-level="9.2" data-path="condicional-if-else..html"><a href="condicional-if-else..html#condicional-if-else.-1"><i class="fa fa-check"></i><b>9.2</b> Condicional if else.</a></li>
+<li class="chapter" data-level="9.3" data-path="condicional-if-else..html"><a href="condicional-if-else..html#condicional-if-else-anidado."><i class="fa fa-check"></i><b>9.3</b> Condicional if else anidado.</a></li>
+<li class="chapter" data-level="9.4" data-path="condicional-if-else..html"><a href="condicional-if-else..html#unicidad-de-la-condicional-if."><i class="fa fa-check"></i><b>9.4</b> Unicidad de la condicional if.</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html"><i class="fa fa-check"></i><b>10</b> LOOP FOR E IF ELSE PARA MÁS DE UN ELEMENTO.</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#loop-for."><i class="fa fa-check"></i><b>10.1</b> Loop for.</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#el-iterador-como-objeto."><i class="fa fa-check"></i><b>10.1.1</b> El iterador como objeto.</a></li>
+<li class="chapter" data-level="10.1.2" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#el-iterador-como-un-subobjeto."><i class="fa fa-check"></i><b>10.1.2</b> El iterador como un subobjeto.</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#el-loop-for-con-las-condicionales-if-else."><i class="fa fa-check"></i><b>10.2</b> El loop for con las condicionales if else.</a></li>
+<li class="chapter" data-level="10.3" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#función-ifelse."><i class="fa fa-check"></i><b>10.3</b> Función ifelse().</a></li>
+<li class="chapter" data-level="10.4" data-path="loop-for-e-if-else-para-más-de-un-elemento..html"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#declaración-break-y-next."><i class="fa fa-check"></i><b>10.4</b> Declaración Break y Next.</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="ciclo-while..html"><a href="ciclo-while..html"><i class="fa fa-check"></i><b>11</b> CICLO WHILE.</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="ciclo-while..html"><a href="ciclo-while..html#sintaxis-del-ciclo-while."><i class="fa fa-check"></i><b>11.1</b> Sintaxis del ciclo while.</a></li>
+<li class="chapter" data-level="11.2" data-path="ciclo-while..html"><a href="ciclo-while..html#ejemplos-de-uso-del-ciclo-while."><i class="fa fa-check"></i><b>11.2</b> Ejemplos de uso del ciclo while.</a></li>
+<li class="chapter" data-level="11.3" data-path="ciclo-while..html"><a href="ciclo-while..html#aplicaciones-con-las-declaraciones-break-y-next."><i class="fa fa-check"></i><b>11.3</b> Aplicaciones con las declaraciones Break y Next.</a></li>
+<li class="chapter" data-level="11.4" data-path="ciclo-while..html"><a href="ciclo-while..html#aplicación-en-la-maximización-de-beneficios-del-productor."><i class="fa fa-check"></i><b>11.4</b> Aplicación en la maximización de beneficios del productor.</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><i class="fa fa-check"></i><b>12</b> DATA FRAME: CREACIÓN, SELECCIÓN, FILTROS, AGREGACIÓN Y TRANSFORMACIÓN DE DATOS.</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#creación-de-data-frames."><i class="fa fa-check"></i><b>12.1</b> Creación de data frames.</a></li>
+<li class="chapter" data-level="12.2" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#selección-de-columnas."><i class="fa fa-check"></i><b>12.2</b> Selección de columnas.</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#r-base---por-índice."><i class="fa fa-check"></i><b>12.2.1</b> R base - por índice.</a></li>
+<li class="chapter" data-level="12.2.2" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#r-base---por-el-nombre-de-la-variable."><i class="fa fa-check"></i><b>12.2.2</b> R base - por el nombre de la variable.</a></li>
+<li class="chapter" data-level="12.2.3" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#r-base---usando-expresiones-regulares."><i class="fa fa-check"></i><b>12.2.3</b> R base - usando expresiones regulares.</a></li>
+<li class="chapter" data-level="12.2.4" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#dplyr---usando-la-función-select."><i class="fa fa-check"></i><b>12.2.4</b> Dplyr - Usando la función select.</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#filtro-de-filas."><i class="fa fa-check"></i><b>12.3</b> Filtro de filas.</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#usando-r-base."><i class="fa fa-check"></i><b>12.3.1</b> Usando R base.</a></li>
+<li class="chapter" data-level="12.3.2" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#dplyr---usando-la-función-filter."><i class="fa fa-check"></i><b>12.3.2</b> Dplyr - Usando la función filter.</a></li>
+<li class="chapter" data-level="12.3.3" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#filtrando-usando-la-función-subset-de-r-base."><i class="fa fa-check"></i><b>12.3.3</b> Filtrando usando la función subset de R base.</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"><a href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html#filtrando-y-seleccionado-columnas."><i class="fa fa-check"></i><b>12.4</b> filtrando y seleccionado columnas.</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html"><i class="fa fa-check"></i><b>13</b> IMPORTAR DATOS: XLSX, XLS, SAV, DTA, CSV, TXT, ARCHIVOS WEB, ENTRE OTROS.</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#directorio-de-trabajo."><i class="fa fa-check"></i><b>13.1</b> DIRECTORIO DE TRABAJO.</a></li>
+<li class="chapter" data-level="13.2" data-path="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#importar-archivos-txt."><i class="fa fa-check"></i><b>13.2</b> IMPORTAR ARCHIVOS TXT.</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#usando-la-función-read.table."><i class="fa fa-check"></i><b>13.2.1</b> Usando la función read.table().</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="r-como-calculadora." class="section level1" number="1">
+<h1><span class="header-section-number">Chapter 1</span> R COMO CALCULADORA.</h1>
+<p>Uno de los primeros pasos para poder dominar <strong>R</strong> es comprender su uso como si fuera una calculadora. <strong>R</strong> realiza una variedad de operaciones matemáticas y lógicas de una manera muy sencilla. En las siguientes líneas se podrá observar algunas operaciones matemáticas<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> básicas.</p>
+<div id="principales-operaciones-matemáticas." class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Principales operaciones matemáticas.</h2>
+<p>Desarrollar calculos matemáticos en <strong>R</strong> es muy similar que usar una calculadora, a continuación mostramos los principales operadores aritméticos y su sintaxis en el entorno <strong>R</strong>.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">OPERACIÓN</th>
+<th align="center">SINTAXIS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Adición</td>
+<td align="center"><strong>+</strong></td>
+</tr>
+<tr class="even">
+<td align="center">Sustracción</td>
+<td align="center"><strong>-</strong></td>
+</tr>
+<tr class="odd">
+<td align="center">Producto</td>
+<td align="center"><strong>*</strong></td>
+</tr>
+<tr class="even">
+<td align="center">División</td>
+<td align="center"><strong>/</strong></td>
+</tr>
+<tr class="odd">
+<td align="center">División: Para Calcular el cociente</td>
+<td align="center"><strong>%/%</strong></td>
+</tr>
+<tr class="even">
+<td align="center">División: Para Calcular el residuo</td>
+<td align="center"><strong>%%</strong></td>
+</tr>
+<tr class="odd">
+<td align="center">Potencia</td>
+<td align="center"><strong>^</strong> <strong>**</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Veamos unos ejemplos de como usarlo.</p>
+<p>Si deseamos sumar 4 más 3 en R. Tenemos que digitar en la consola <code>4+3</code>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="r-como-calculadora..html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span><span class="sc">+</span><span class="dv">3</span>    <span class="co"># Adición.</span></span></code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<p>Como se puede dar cuenta el resultado es 7.
+Si deseamos realizar la sustracción de 5 en 7. Tenemos que digitar en la consola la operación <code>5-7</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="r-como-calculadora..html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5-7</span>    <span class="co"># Sustracción.</span></span></code></pre></div>
+<pre><code>## [1] -2</code></pre>
+<p>Para el caso de la multiplicación se usa el operador <code>*</code>, es así que si deseamos multiplicar 3 por 4, entonces, tendremos que digitar en la consola <code>3*4</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="r-como-calculadora..html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="sc">*</span><span class="dv">4</span>    <span class="co"># Producto.</span></span></code></pre></div>
+<pre><code>## [1] 12</code></pre>
+<p>Si se desea calcular la división usamos el operador <code>/</code>.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="r-como-calculadora..html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span><span class="sc">/</span><span class="dv">2</span>    <span class="co"># División.</span></span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>En efecto, al dividir 6 entre 2 nos resulta 3. Pero si se desea calcular sólo el cociente de una división inexacta usaremos el operador <code>%/%</code>.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="r-como-calculadora..html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span><span class="sc">%/%</span><span class="dv">3</span>   <span class="co"># División para encontrar el cociente.</span></span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>El cociente resultante es 3. Asimismo, si sólo desea obtener el residuo de una división inexacta tendrá que usar el operador <code>%%</code>.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="r-como-calculadora..html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span><span class="sc">%%</span><span class="dv">3</span>    <span class="co"># División para encontrar el residuo.</span></span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>En efecto, el residuo de dividir 10 entre 3 es 1.</p>
+<p>Otra operación fundamental es elevar un número a la potencia n. Veamos un ejemplo en elevar 4 al cubo.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="r-como-calculadora..html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span><span class="sc">^</span><span class="dv">3</span>    <span class="co"># Potencia.</span></span></code></pre></div>
+<pre><code>## [1] 64</code></pre>
+<p>Usted se puede dar cuenta que hemos usado el operador <code>^</code>, pero este no es el único operador que calcula la potencia de un número, también se puede calcular si se usa el operador <code>**</code>.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="r-como-calculadora..html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span><span class="sc">**</span><span class="dv">3</span>   <span class="co"># Potencia.</span></span></code></pre></div>
+<pre><code>## [1] 64</code></pre>
+<p>Entonces, puede usar <code>^</code> o <code>**</code> si desea calcular la potencia de un número.</p>
+<p>Ahora veremos algunas operaciones matemáticas un poco más avanzadas, que nos servirán en un futuro para poder hacer cálculo estadístico, matemático y poder transformar variables cuando especifiquemos modelos econométricos.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">OPERACIÓN</th>
+<th align="center">SINTAXIS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Factorial</td>
+<td align="center"><strong>factorial()</strong></td>
+</tr>
+<tr class="even">
+<td align="center">Combinatorio</td>
+<td align="center"><strong>choose()</strong></td>
+</tr>
+<tr class="odd">
+<td align="center">Raíz Cuadrada</td>
+<td align="center"><strong>sqrt()</strong></td>
+</tr>
+<tr class="even">
+<td align="center">Número de Euler-Exponente</td>
+<td align="center"><strong>exp()</strong></td>
+</tr>
+<tr class="odd">
+<td align="center">Logaritmo Natural</td>
+<td align="center"><strong>log()</strong></td>
+</tr>
+<tr class="even">
+<td align="center">Valor Absoluto</td>
+<td align="center"><strong>abs()</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Si deseamos calcular el factorial de un número usaremos la función <code>factorial()</code>. Veamos un ejemplo del factorial de 5.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="r-como-calculadora..html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">factorial</span>(<span class="dv">5</span>)     <span class="co"># Factorial.</span></span></code></pre></div>
+<pre><code>## [1] 120</code></pre>
+<p>Nos resulta 120, recordar que el factorial de un número es la multplicación de <span class="math inline">\(n(n-1)(n-2)...1\)</span>. En el caso del factorial del 5, se multiplicó <span class="math inline">\(5*4*3*2*1\)</span>.</p>
+<p>Asimismo, si deseamos calcular las combinaciones posibles de un número agrupado por otro, usaremos el combinatorio. En R se usa la función <code>choose()</code>.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="r-como-calculadora..html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">choose</span>(<span class="dv">5</span>,<span class="dv">3</span>)    <span class="co"># Combinatorio.</span></span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<p>R nos arroja el valor de 10, recordar que el cálculo que se usó fue el siguiente: <span class="math inline">\(\frac{5!}{2!*3!}\)</span>.</p>
+<p>Si tenemos la varianza de una variable, podremos calcular su desviación si le sacamos la raíz cuadrada. Entonces, si deseamos calcular la raíz cuadrada usaremos la función <code>sqrt()</code>.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="r-como-calculadora..html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">12</span>)     <span class="co"># Raíz cuadrada.</span></span></code></pre></div>
+<pre><code>## [1] 3.464102</code></pre>
+<p>Nos resulta 3.464102, es un número con 6 decimales y es posible que usted lo desee con más o menos decimales. En la siguiente sección veremos como mostrar los decimales que deseados.</p>
+<p>Otra posible situación a la que se podrá enfrentar en un futuro es si desea calcular los Odds ratios de los modelos logit, recordemos que estos se calculan si se les saca el exponencial. Entonces si usted desea calcular el exponencial de un número tendrá que usar la función <code>exp()</code>.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="r-como-calculadora..html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="dv">1</span>)      <span class="co"># Si se considera 1, dará el número de euler.</span></span></code></pre></div>
+<pre><code>## [1] 2.718282</code></pre>
+<p>En este ejemplo se ha calculado el exponencial de 1, lo que nos da el número de Euler que es 2.7182818.
+Asimismo, si deseamos especificar nuestro modelo econométrico en logaritmos naturales y así poder hacer una interpretación a nivel de elasticidades tendremos que transformar las variables aplicándoles el logaritmo natural, para lo cual tendremos que usar la función <code>log()</code>.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="r-como-calculadora..html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">3</span>)      <span class="co"># Logaritmo Natural.</span></span></code></pre></div>
+<pre><code>## [1] 1.098612</code></pre>
+<p>Por otro lado, si deseamos calcular el valor absoluto de un número usaremos la función <code>abs()</code>.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="r-como-calculadora..html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">abs</span>(<span class="sc">-</span><span class="dv">2</span>)    <span class="co"># Valor Absoluto.</span></span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>Ahora veremos como calcular las razones trigonométricas, para lo cual en la tabla siguiente se muestra la sintaxis de las razones trigonométricas.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">RAZÓN TRIGONOMÉTRICA</th>
+<th align="center">SINTAXIS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">seno</td>
+<td align="center"><strong>sin()</strong></td>
+</tr>
+<tr class="even">
+<td align="center">coseno</td>
+<td align="center"><strong>cos()</strong></td>
+</tr>
+<tr class="odd">
+<td align="center">tangente</td>
+<td align="center"><strong>tan()</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Para poder calcular las razones trigonométricas se tiene que considerar al <strong>ángulo en pi radianes</strong>. En <strong>R</strong> el valor de pi se puede obtener si digitamos en la consola <code>pi</code>, R comprende que al escribir <code>pi</code> se está llamando al número irracional <code>pi</code>.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="r-como-calculadora..html#cb29-1" aria-hidden="true" tabindex="-1"></a>pi</span></code></pre></div>
+<pre><code>## [1] 3.141593</code></pre>
+<p>En efecto, nos resulta 3.1416.</p>
+<p>Asimismo, como se puede dar cuenta para la cosecante, secante y cotangente no se tiene un función específica, ya que estan son las inversas del seno, coseno y tangente, respectivamente.</p>
+<p>Si deseamos calcular el seno de 30. Entonces tenemos que usar la función <code>sin()</code> y especificar el ángulo en <strong>pi radianes</strong>.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="r-como-calculadora..html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sin</span>(pi<span class="sc">/</span><span class="dv">6</span>)   <span class="co"># Seno de 30 grados sexagesimales.</span></span></code></pre></div>
+<pre><code>## [1] 0.5</code></pre>
+<p>A continuación veamos unos ejemplos para el coseno y la tangente.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="r-como-calculadora..html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cos</span>(pi<span class="sc">/</span><span class="dv">4</span>)   <span class="co"># Coseno de 45 grados sexagesimales.</span></span></code></pre></div>
+<pre><code>## [1] 0.7071068</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="r-como-calculadora..html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tan</span>(pi<span class="sc">/</span><span class="dv">4</span>)   <span class="co"># Tangente de 45 grados sexagesimales.</span></span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>Ahora si se desea trabajar omitiendo los pi radianes, se tendrá que usar las funciones <strong>sinpi()</strong>, <strong>cospi()</strong>, <strong>tanpi()</strong>.</p>
+<p>A continuación se muestran algunos ejemplos:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="r-como-calculadora..html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sinpi</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)   <span class="co"># Seno de 30 grados sexagesimales.</span></span></code></pre></div>
+<pre><code>## [1] 0.5</code></pre>
+<p>En efecto, es el mismo resultado que se obtuvo con la función <code>sin()</code>, solo que aquí se está omitiendo los pi radianes.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="r-como-calculadora..html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cospi</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">4</span>)   <span class="co"># Coseno de 45 grados sexagesimales.</span></span></code></pre></div>
+<pre><code>## [1] 0.7071068</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="r-como-calculadora..html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tanpi</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">4</span>)   <span class="co"># Tangente de 45 grados sexagesimales.</span></span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+</div>
+<div id="decimales-exactos-y-redondeo-de-cifras." class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Decimales exactos y redondeo de cifras.</h2>
+<div id="número-de-cifras." class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Número de cifras.</h3>
+<p>Si al realizar los cálculos usted desea obtener los resultados con un número determinado de cifras se tendrá que usar la función <code>print()</code><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> en donde se tendrá que especificar el número de dígitos que se desea.</p>
+<p>Por ejemplo deseamos obtener la raíz cuadrada de 12 pero queremos que el resultado se muestre 10 cifras. Entonces, usaríamos la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="r-como-calculadora..html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># La raíz cuadrada de 12, pero que nos muestre 10 cifras, </span></span>
+<span id="cb43-2"><a href="r-como-calculadora..html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">sqrt</span>(<span class="dv">12</span>), <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## [1] 3.464101615</code></pre>
+<p>En efecto, nos muestra 10 cifras. A continuación se muestra un ejemplo adicional en donde le indicamos a <strong>R</strong> que nos muestre el mismo resultado pero ahora sólo con 3 cifras.</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="r-como-calculadora..html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># La raíz cuadrada de 12, pero que nos muestre 3 cifras, </span></span>
+<span id="cb45-2"><a href="r-como-calculadora..html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">sqrt</span>(<span class="dv">12</span>), <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## [1] 3.464101615</code></pre>
+<p>En efecto, tenemos la raíz cuadrada de 12 en 3 cifras.</p>
+<p>Es importante saber que el número máximo de cifras que reporta <strong>R</strong> usando la función <code>print()</code> es de 17. Veamos un ejemplo, sabemos que pi es un número irracional por lo que tiene infinitos decimales. Entonces, si queremos mostrar 16 decimales, usaríamos la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="r-como-calculadora..html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(pi, <span class="dv">17</span>)</span></code></pre></div>
+<pre><code>## [1] 3.1415926535897931</code></pre>
+<p>En efecto, nos arroja 16 decimales. ¿Por qué usamos 17 y no 16 en la función? ya que <code>pi</code> tiene un entero y queremos 16 decimales, se tiene que especificar 17. Pero si por ahí se le ocurriera mostrar <code>pi</code> con 20 decimales, usted usaría la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="r-como-calculadora..html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(pi, <span class="dv">21</span>)</span></code></pre></div>
+<pre><code>## [1] 3.1415926535897931</code></pre>
+<p>Pero lamentablemente, sólo obtiene el mismo número de decimales que si hubiera usado <code>print(pi, 17)</code>. Con lo cual queda demostrado que la función <code>print()</code> sólo puede mostrar hasta 17 cifras.</p>
+<p>Pero no se frustre, en R hay otras funciones que permiten obtener los resultados con más decimales. Una de estas funciones es <code>sprintf()</code>, el cual puede mostrar más funciones pero los decimales después del 15 no serán tan exactos<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>.</p>
+<p>Veamos un ejemplo, en donde deseamos que se muestren 50 decimales</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="r-como-calculadora..html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">&quot;%.50f&quot;</span>,pi)</span></code></pre></div>
+<pre><code>## [1] &quot;3.14159265358979311599796346854418516159057617187500&quot;</code></pre>
+<p>Por otra parte, si quieres trabajar con muchos decimales puede resultar tedioso usar en cada cálculo la función <code>print()</code> o <code>sprintf()</code>. Para solucionar esto se usa la función <code>options()</code>, por ejemplo si deseas que los calculos que vas a desarrollar se trabajen con 10 decimales tienes que correr en la consola la siguiente sintaxis.</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="r-como-calculadora..html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">digits=</span><span class="dv">10</span>)</span></code></pre></div>
+<p>Y con eso todos los resultados que se calculen se mostraran con 10 cifras. Asimismo, es preciso aclarar que esta función puede arrojar como máximo de 22 dígitos.</p>
+</div>
+<div id="redondeo." class="section level3" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> Redondeo.</h3>
+<p>Si se desea redondear una operación se tendrá que usar la función <code>round()</code>, que al igual que el anterior se tendrá que especificar el número de dígitos, que en este caso será el número de decimales a los que se desea redondear.</p>
+<p>A continuación se muestra un ejemplo:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="r-como-calculadora..html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># La raíz cuadrada de 3 redondeada a cinco decimales.</span></span>
+<span id="cb54-2"><a href="r-como-calculadora..html#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">sqrt</span>(<span class="dv">3</span>), <span class="dv">5</span>)  </span></code></pre></div>
+<pre><code>## [1] 1.73205</code></pre>
+<p>Sí sólo se considera la función <code>round()</code> redondeará a la cifra entera:</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="r-como-calculadora..html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># La raíz cuadrada de 3 redondeada a la cifra entera.</span></span>
+<span id="cb56-2"><a href="r-como-calculadora..html#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">sqrt</span>(<span class="dv">3</span>))</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+</div>
+</div>
+<div id="guardar-o-definir-objetos." class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Guardar o definir objetos.</h2>
+<p>Hasta ahora sólo hemos hecho calculos y sólo los hemos mostrado en la consola. Pero puede surgir la necesidad de guardar estos cálculos para que en un futuro podamos generar cálculos más complejos o llamar a estos resultados. Entonces, surge la necesidad de guardar nuestros resultados.</p>
+<p>En <strong>R</strong> todo es un objeto, desde un número, un vector, una variable, una matriz, un data frame, una lista, un factor, un gráfico, etc. Así que lo primordial será guardar estos objetos. Para lo cual tendremos la opción de usar uno de estos tres operadores si deseamos guardar estos objetos en la memoría del software.</p>
+<p>Estos operadores son: <code>&lt;-</code>, <code>=</code>, <code>-&gt;</code>.</p>
+<p>Por ejemplo si deseamos guardar un objeto que se llame <code>a</code> y que tome el valor de <code>8</code>. Entonces, nosotros definiremos al objeto <code>a</code> de la siguiente manera.</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="r-como-calculadora..html#cb58-1" aria-hidden="true" tabindex="-1"></a>a<span class="ot">&lt;-</span><span class="dv">8</span></span></code></pre></div>
+<p>Hemos usado uno de los operadores (<code>&lt;-</code>) para definir objetos<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>. Ahora si deseamos llamar a este objeto, nosotros sólo digitamos el objeto en la consola y damos enter.</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="r-como-calculadora..html#cb59-1" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div>
+<pre><code>## [1] 8</code></pre>
+<p>En efecto, podemos ver que el objeto <code>a</code> toma el valor de 8. Podemos usar los otros operadores indiferentemente para poder definir objetos. Veamos un pequeño ejemplo.</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="r-como-calculadora..html#cb61-1" aria-hidden="true" tabindex="-1"></a>b<span class="ot">&lt;-</span><span class="dv">6</span></span>
+<span id="cb61-2"><a href="r-como-calculadora..html#cb61-2" aria-hidden="true" tabindex="-1"></a>d<span class="ot">=</span><span class="dv">6</span></span>
+<span id="cb61-3"><a href="r-como-calculadora..html#cb61-3" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span><span class="ot">-&gt;</span>f</span></code></pre></div>
+<p>En este caso hemos definido a los objetos <code>b</code>, <code>d</code> y <code>f</code> con el valor de 6 a cada uno.</p>
+<p>Veamos si los valores son los correctos.</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="r-como-calculadora..html#cb62-1" aria-hidden="true" tabindex="-1"></a>b</span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="r-como-calculadora..html#cb64-1" aria-hidden="true" tabindex="-1"></a>d</span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="r-como-calculadora..html#cb66-1" aria-hidden="true" tabindex="-1"></a>f</span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<p>En efecto, cada objeto toma el valor de 6.</p>
+<p>Como se ha podido dar cuenta se abre una amplia gama de nombres con los que usted podría guardar objetos. Por ejemplo, podemos usar la palabra <code>objeto</code> para guardar la suma de <code>5+12</code>.</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="r-como-calculadora..html#cb68-1" aria-hidden="true" tabindex="-1"></a>objeto<span class="ot">&lt;-</span><span class="dv">5</span><span class="sc">+</span><span class="dv">12</span></span></code></pre></div>
+<p>Llamando a nuestro objeto <code>objeto</code>.</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="r-como-calculadora..html#cb69-1" aria-hidden="true" tabindex="-1"></a>objeto</span></code></pre></div>
+<pre><code>## [1] 17</code></pre>
+<p>Como podemos ver, ahora <code>objeto</code> toma el valor de 17.</p>
+<p>Pero como en todo software, los objetos no pueden tomar cualquier nombre. Es así que hay una regla única, que se debe tener en cuenta a la hora de guardar objetos, estos <strong>“NO pueden empezar con números”</strong>.</p>
+<p>Veamos un ejemplo en donde intentamos definir un objeto en donde el nombre de este empiece con un número.</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="r-como-calculadora..html#cb71-1" aria-hidden="true" tabindex="-1"></a>1y<span class="ot">&lt;-</span><span class="dv">4</span></span></code></pre></div>
+<pre><code>## Error: &lt;text&gt;:1:2: unexpected symbol
+## 1: 1y
+##      ^</code></pre>
+<p>Vemos que nos sale un mensaje de error, que nos dice que hay un símbolo inesperado en <code>1y</code> el cual es el <code>1</code>. Entonces, para definir objetos, estos nunca tienen que empezar con un número.</p>
+</div>
+<div id="funciones." class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Funciones.</h2>
+<p>Entonces, una vez que ya sabemos definir objetos, veremos otro de los objetos fundamentales en R, estos son las funciones<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>. Una función realiza un proceso o algoritmo que ha sido programado con anterioriedad.</p>
+<p>Los creadores de R definieron funciones bases cuando crearon el software. Por ejemplo, una función base es <code>sqrt()</code>, el cual calcula la raíz cuadrada de un número. Nosotros también podemos definir nuestras propias funciones, al igual que lo han programado los creados de <strong>R</strong>. Esto es lo fundamental y maravilloso de los softwares de programación, ya que nos permite personalizar y adaptar a nuestras necesidades el software.</p>
+<p>Veamos a manera de introducción cómo definir una función en R. Para esto se tendrá que hacer uso de la función <code>function()</code> en donde se tendrá que especificar argumentos que definiran la función que desemos crear.</p>
+<p>Vamos empezar definiendo funciones como si fueran expresiones matemáticas. Por ejemplo, deseamos definir el objeto <code>y</code> que es función del argumento o variable <code>x</code>, es decir, <code>x</code> será el dominio y <code>y</code> será el rango.</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="r-como-calculadora..html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Se define la función &quot;y&quot; que tiene como argumento a  &quot;x&quot;</span></span>
+<span id="cb73-2"><a href="r-como-calculadora..html#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="co"># que tiene una forma cuadrática: x^2 +2</span></span>
+<span id="cb73-3"><a href="r-como-calculadora..html#cb73-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-4"><a href="r-como-calculadora..html#cb73-4" aria-hidden="true" tabindex="-1"></a>y<span class="ot">&lt;-</span><span class="cf">function</span>(x){</span>
+<span id="cb73-5"><a href="r-como-calculadora..html#cb73-5" aria-hidden="true" tabindex="-1"></a>  x<span class="sc">^</span><span class="dv">2</span><span class="sc">+</span><span class="dv">2</span></span>
+<span id="cb73-6"><a href="r-como-calculadora..html#cb73-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Hemos creado el objeto <code>y</code> que es una función que tiene como argumento o variable a <code>x</code>. Es decir, cada vez que cambiemos el valor de <code>x</code> cambiará el valor de <code>y</code>, ya que <code>x</code> define a <code>y</code>.</p>
+<p>Veamos como podemos usar esta función.</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="r-como-calculadora..html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para poder evaluar la función &quot;y&quot; en un determinado valor de &quot;x&quot;</span></span>
+<span id="cb74-2"><a href="r-como-calculadora..html#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="co"># En este caso x=0, la sintaxis sería la siguiente:</span></span>
+<span id="cb74-3"><a href="r-como-calculadora..html#cb74-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-4"><a href="r-como-calculadora..html#cb74-4" aria-hidden="true" tabindex="-1"></a><span class="fu">y</span>(<span class="at">x=</span><span class="dv">0</span>)</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>Como se puede observar si la función se evalua en cero, es decir, si <code>x</code> es igual a 0; la función tomará el valor de 2 (<span class="math inline">\(0^2+2=2\)</span>).</p>
+<p>Veamos otro ejemplo para que quede más claro. Ahora veremos que valor toma la función si <code>x</code> es igual a <code>8</code>.</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="r-como-calculadora..html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">y</span>(<span class="at">x=</span><span class="dv">8</span>)</span></code></pre></div>
+<pre><code>## [1] 66</code></pre>
+<p>Nos resulta el valor de 66 (<span class="math inline">\(8^2+2=66\)</span>).</p>
+<p>Si se tiene en consideración una función en <span class="math inline">\(R^3\)</span>. Se tendá que tomar en cuenta dos argumentos o variables dentro de la función <code>function()</code>. como se muestra a continuación:</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="r-como-calculadora..html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Se define la función Z que depende de la variable x e y.</span></span>
+<span id="cb78-2"><a href="r-como-calculadora..html#cb78-2" aria-hidden="true" tabindex="-1"></a>z<span class="ot">&lt;-</span><span class="cf">function</span>(x,y){</span>
+<span id="cb78-3"><a href="r-como-calculadora..html#cb78-3" aria-hidden="true" tabindex="-1"></a>  x<span class="sc">+</span><span class="dv">4</span><span class="sc">+</span><span class="dv">4</span><span class="sc">*</span>y</span>
+<span id="cb78-4"><a href="r-como-calculadora..html#cb78-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Se ha definido a la función <code>z</code> como una función de <code>x</code> y <code>y</code>. Usted puede estar pensando que el argumento <code>y</code> es la función que hemos definido anteriormente. Pero, déjeme decirle que no es así. Cuando se define funciones en R los argumentos de estás no toman las propiedades de los objetos guardados en la memoría del software. Es así que el nombre de los argumentos puede ser incluso el nombre de objetos que están guardados en la memoría, pero esto no implicará que el argumento juege el rol del objeto que está definido en la memoría del software. En palabras sencillas, el argumento <code>y</code> en la función <code>z</code> no tiene nada que ver con la función <code>y</code> que definimos anteriormente.</p>
+<p>Veamos que resulta en la función <code>z</code> si <code>x</code> toma el valor de 0 y <code>y</code> el valor de 2.</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="r-como-calculadora..html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Se evalua la función &quot;z&quot; cuando &quot;x&quot; e &quot;y&quot; toman el valor</span></span>
+<span id="cb79-2"><a href="r-como-calculadora..html#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="co"># de 0 y 2, respectivamente.</span></span>
+<span id="cb79-3"><a href="r-como-calculadora..html#cb79-3" aria-hidden="true" tabindex="-1"></a><span class="fu">z</span>(<span class="at">x=</span><span class="dv">0</span>,<span class="at">y=</span><span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 12</code></pre>
+<p>Podemos ver que el resultado es 12 (<span class="math inline">\(0+4+4*2=12\)</span>).</p>
+<p>Para que quede claro, a continuación se muestra un ejemplo pero considerando la densidad de la función de distribución normal.</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="r-como-calculadora..html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Se define la función &quot;N&quot; que es la densidad de la función</span></span>
+<span id="cb81-2"><a href="r-como-calculadora..html#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="co"># de distribución normal con media igual a 0.5 y </span></span>
+<span id="cb81-3"><a href="r-como-calculadora..html#cb81-3" aria-hidden="true" tabindex="-1"></a><span class="co"># desviación estándar de 0.1.</span></span>
+<span id="cb81-4"><a href="r-como-calculadora..html#cb81-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-5"><a href="r-como-calculadora..html#cb81-5" aria-hidden="true" tabindex="-1"></a>N<span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb81-6"><a href="r-como-calculadora..html#cb81-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dnorm</span>(x, <span class="at">mean =</span><span class="fl">0.5</span>, <span class="at">sd=</span><span class="fl">0.1</span>)</span>
+<span id="cb81-7"><a href="r-como-calculadora..html#cb81-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb81-8"><a href="r-como-calculadora..html#cb81-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-9"><a href="r-como-calculadora..html#cb81-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Se evaluará cuando la variable aleatoria toma el valor de 0.2.</span></span>
+<span id="cb81-10"><a href="r-como-calculadora..html#cb81-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-11"><a href="r-como-calculadora..html#cb81-11" aria-hidden="true" tabindex="-1"></a><span class="fu">N</span>(<span class="fl">0.2</span>)</span></code></pre></div>
+<pre><code>## [1] 0.04431848</code></pre>
+<p>Es preciso aclarar que para poder obtener la densidad de la distribución normal se uso la función <code>dnorm()</code>, para mejor detalle podría revisar la documentación si digita en la consola <code>?dnorm</code> y da enter a continuación.</p>
+<p>Hemos visto una pequeña introducción sobre funciones, hasta el momento. En el capítulo 9, veremos a más detalle cómo programar funciones, pero para esto es necesario aprender más cosas que nos permitan programar cualquier tipo de funciones. Es así que en los capítulos posteriores aprenderemos más objetos como: vectores, matrices, listas, etc.</p>
+<p>Por el momento como motivación y ver lo que se viene en los siguientes capítulos. Haremos un gráfico de la función de densidad <code>N</code> que hemos definido anteriormente. Y podrá ver con que facilidad se logra este objetivo.</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="r-como-calculadora..html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co"># La gráfica de la densidad de la FDN.</span></span>
+<span id="cb83-2"><a href="r-como-calculadora..html#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(N)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-39-1.png" width="576" style="display: block; margin: auto;" /></p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Podría dejar el directorio de trabajo en esa ruta, pero si quisiera importar el archivo que deseo tendría que especificar la ruta del archivo y eso me demoraría más tiempo, ya que tendría que escribir la ruta completa cada vez que deseo cargar un archivo.<a href="r-como-calculadora..html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>En ejemplos posteriores se mostrará como importar archivos desde otra ruta.<a href="r-como-calculadora..html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>El mismo que se usa para los objetos listas.<a href="r-como-calculadora..html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>Este es un libro introducctorio al software R en donde se muestran las sintaxis básicas y quizá hasta intermedias, por lo que escapa del tema del bigdata, que es un tema especializado, y por ende, no visto en este libro.<a href="r-como-calculadora..html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>En esta parte del libro, veremos sólo una parte introductoria de funciones, en el capítulo 9 veremos a más detalle y profundidad este tema.<a href="r-como-calculadora..html#fnref5" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="vectores..html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/CesarAHN/R_para_economistas/edit/master/01-R_como_calculadora.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/CesarAHN/R_para_economistas/blob/master/01-R_como_calculadora.Rmd",
+"text": null
+},
+"download": ["bookdownproj.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
