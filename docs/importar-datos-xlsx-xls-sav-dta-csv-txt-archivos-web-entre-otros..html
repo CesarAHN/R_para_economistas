@@ -24,7 +24,7 @@
 <meta name="author" content="César Anderson Huamaní Ninahuanca" />
 
 
-<meta name="date" content="2021-11-24" />
+<meta name="date" content="2021-11-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="data-frame-creación-selección-filtros-agregación-y-transformación-de-datos..html"/>
 
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -315,9 +315,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb757-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb757-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;C:/RRRR/R_para_economistas&quot;</code></pre>
 <p>Observamos que nuestro directorio de trabajo se encuentra en C:/RRRR/R_para_economistas. Es decir, en esa ruta es donde se cargarán automáticamente nuestros archivos o se exportarán sin especificar ninguna ruta adicional.</p>
-<p>Pero esa no es mi carpeta que contiene mis archivos que deseo importar, por lo cual me surge la necesidad de cambiar el directorio de trabajo<a href="#fn23" class="footnote-ref" id="fnref23"><sup>23</sup></a>. La ruta del directorio de trabajo se cambia con la función <code>setwd()</code>, al interior de los paréntesis se coloca la ruta, en mi caso la ruta está en <code>C:\RRRR\Archivos</code>, por lo que tendré que colocar aquello dentro de los paréntesis, pero cambiando los <code>\</code> por <code>/</code>, esto debido a que R usa los <code>\</code> para las extensiones web.</p>
+<p>Pero esa no es mi carpeta que contiene mis archivos que deseo importar, por lo cual me surge la necesidad de cambiar el directorio de trabajo<a href="#fn23" class="footnote-ref" id="fnref23"><sup>23</sup></a>. La ruta del directorio de trabajo se cambia con la función <code>setwd()</code>, al interior de los paréntesis se coloca la ruta, en mi caso la ruta está en <code>C:\RRRR\R_para_economistas\Archivos</code>, por lo que tendré que colocar aquello dentro de los paréntesis, pero cambiando los <code>\</code> por <code>/</code>, esto debido a que R usa los <code>\</code> para las extensiones web.</p>
 <div class="sourceCode" id="cb759"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb759-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb759-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cambiando la ruta del directorio de trabajo. </span></span>
-<span id="cb759-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb759-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/RRRR/Archivos&quot;</span>)</span></code></pre></div>
+<span id="cb759-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb759-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/RRRR/R_para_economistas/Archivos/&quot;</span>)</span></code></pre></div>
 <p>Y en efecto, la ruta del directorio ha cambiado<a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a>.</p>
 </div>
 <div id="importar-archivos-txt." class="section level2" number="13.2">
@@ -411,6 +411,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
+<p>Ahora veremos un ejemplo de como cargar un archivo txt el cual es sobre los votos emitidos en un región de Perú, el cual se llama “voto.txt”.</p>
+<div class="sourceCode" id="cb760"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb760-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb760-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Leyendo el archivo txt.</span></span>
+<span id="cb760-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb760-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;C:/RRRR/R_para_economistas&quot;</code></pre>
+<div class="sourceCode" id="cb762"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb762-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb762-1" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;Archivos/votos.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">header =</span> T)</span>
+<span id="cb762-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb762-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb762-3"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb762-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
+<pre><code>##   UBIGEO DEPARTAMENTO PROVINCIA DISTRITO          TIPO_ELECCION  MESA
+## 1 110101        JUNIN  HUANCAYO HUANCAYO REGIONAL-GOB Y VICEGOB 21751
+## 2 110101        JUNIN  HUANCAYO HUANCAYO REGIONAL-GOB Y VICEGOB 21751
+## 3 110101        JUNIN  HUANCAYO HUANCAYO REGIONAL-GOB Y VICEGOB 21751
+## 4 110101        JUNIN  HUANCAYO HUANCAYO REGIONAL-GOB Y VICEGOB 21751
+## 5 110101        JUNIN  HUANCAYO HUANCAYO REGIONAL-GOB Y VICEGOB 21751
+## 6 110101        JUNIN  HUANCAYO HUANCAYO REGIONAL-GOB Y VICEGOB 21751
+##   ESTADO_MESA UBICACION_EN_CEDULA TIPO_AGRUPACION CODIGO_AGRUPACION
+## 1 ACTA NORMAL                   6        NACIONAL               120
+## 2 ACTA NORMAL                  12        NACIONAL               121
+## 3 ACTA NORMAL                   5        NACIONAL               122
+## 4 ACTA NORMAL                  11        NACIONAL               123
+## 5 ACTA NORMAL                   7        NACIONAL               126
+## 6 ACTA NORMAL                  10        NACIONAL               128
+##                             AGRUPACION_POLITICA VOTOS_OBTENIDOS
+## 1                             TODOS POR EL PERU               2
+## 2                                ACCION POPULAR               4
+## 3                      ALIANZA PARA EL PROGRESO               1
+## 4   AVANZA PAIS - PARTIDO DE INTEGRACION SOCIAL               1
+## 5 FRENTE POPULAR AGRICOLA FIA DEL PERU - FREPAP               5
+## 6                            JUNTOS POR EL PERU               2
+##   ELECTORES_HABILES VOTOS_BLANCOS VOTOS_NULOS VOTOS_IMPUG
+## 1               254            11          31           0
+## 2               254            11          31           0
+## 3               254            11          31           0
+## 4               254            11          31           0
+## 5               254            11          31           0
+## 6               254            11          31           0</code></pre>
 
 </div>
 </div>

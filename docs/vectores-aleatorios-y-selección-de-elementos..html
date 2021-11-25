@@ -24,7 +24,7 @@
 <meta name="author" content="César Anderson Huamaní Ninahuanca" />
 
 
-<meta name="date" content="2021-11-24" />
+<meta name="date" content="2021-11-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="operaciones-matemáticas-y-estadísticas-con-vectores..html"/>
 <link rel="next" href="operadores-lógicos-índice-de-elementos-y-cambio-de-valores..html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -322,14 +322,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb254-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Escogiendo aleatoriamente 5 elementos. </span></span>
 <span id="cb254-2"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb254-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb254-3"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb254-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">size =</span> <span class="dv">5</span>)</span></code></pre></div>
-<pre><code>## [1] 5 9 3 4 2</code></pre>
+<pre><code>## [1]  1  2 10  4  3</code></pre>
 <p>El vector que contiene el universo de donde se escogeran los 5 números aleatoriamente es <code>1:10</code>. Asimismo, con el argumento <code>size=5</code> le estamos indicando que escoga 5 elementos. Está escogiendo 5 números distintos, ya que el argumento <code>replace</code> se está dejando con su valor por defecto que es <code>FALSE</code>, es decir, sin reemplazos.</p>
 <p>Es preciso aclarar que usted obtendrá resultados distintos cada vez que ejecute el ejemplo, ya que en cada ejecución el software utiliza un algoritmo distinto para seleccionar elementos. Es decir, está escogiendo aleatoriamente los elementos en cada ejecución.</p>
 <p>Veamos como con la misma sintaxis, el software, a escogido distintos elementos.</p>
 <div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb256-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Escogiendo aleatoriamente 5 elementos. </span></span>
 <span id="cb256-2"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb256-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb256-3"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb256-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">size =</span> <span class="dv">5</span>)</span></code></pre></div>
-<pre><code>## [1]  9 10  5  3  4</code></pre>
+<pre><code>## [1]  3  4  1 10  8</code></pre>
 <p>Entonces si queremos corregir esto y queremos guardar los resultados y que al volver a correr toda la sintaxis arroje los mismos resultados, tendremos que usar una semilla. En R, colocar una semilla a un proceso aleatorio se realiza usando la función <code>set.seed()</code>, que toma como argumento cualquier número (semilla).</p>
 <p>Veamos un ejemplo. Vamos a ejecutar la misma sintaxis del ejemplo anterior pero usando una semilla.</p>
 <div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb258-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
@@ -463,7 +463,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb286-2"><a href="vectores-aleatorios-y-selección-de-elementos..html#cb286-2" aria-hidden="true" tabindex="-1"></a>v1<span class="ot">&lt;-</span><span class="fu">c</span>()</span></code></pre></div>
 Hemos creado el vector vacío, en el environment podemos ver que el vector <code>v1</code> está vacío, pero que existe en memoría.
 <center>
-<img src="F:/R_para_economistas/vacio_vector.jpg" title="fig:" alt="vector vacio en el enviorenment" />
+<img src="vacio_vector.JPG" title="fig:" alt="vector vacio en el enviorenment" />
 </center>
 <p>Estos vectores nos serán útiles cuando veamos el tema de ciclos y el tema de funciones. Por el momento es suficiente con saber de su existencia.</p>
 </div>

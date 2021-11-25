@@ -85,7 +85,7 @@ m_g<-c()
 p_g<-c()
 
 # El ciclo while.
-while (m>=0 | p<=10) {
+while (m>=0 | p<=3) {
   m<-m+sample(c(1,-1), 1)
   p<-p+sample(c(1,-1), 1)
   m_g<-c(m_g,m)

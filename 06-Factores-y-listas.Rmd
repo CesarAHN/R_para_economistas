@@ -49,13 +49,13 @@ str(sexo1)
 En efecto, nos arroja que la variable `sexo1` tiene dos niveles: femenino y masculino y que el índice del primero es 1 y del segundo es 2. Esto es lo que se observa en la parte sombreada de amarillo de la siguiente imagen. 
 
 <center>
-![Índices del vector sexo1](F:/R_para_economistas/img/Factor1.jpg)
+![Índices del vector sexo1](C:/RRRR/R_para_economistas/img/Factor1.jpg)
 </center>
 
 Primero observamos un `2`, luego un `1`, luego otro `1` y otro `1` y luego un `2` y así sicesivamente. estos son los índices que considera el software para cada categoría. Pero usted se preguntará cómo sé que el 2 corresponde a la categoría femenino y el 1 a masculino. El orden es el mismo que la posición de cada elemento. 
 
 <center>
-![Posición de los elementos del vector sexo1](F:/R_para_economistas/img/Factor2.jpg)
+![Posición de los elementos del vector sexo1](C:/RRRR/R_para_economistas/img/Factor2.jpg)
 </center>
 
 Otra forma para saber cual vale 1 y cual vale dos es el orden en el cual aparecen los niveles de la variable. Para saber cuales son los niveles podemos llamar al vector y ver en la última fila. 

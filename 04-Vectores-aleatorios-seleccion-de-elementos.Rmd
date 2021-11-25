@@ -199,7 +199,7 @@ v1<-c()
 
 Hemos creado el vector vacío, en el environment podemos ver que el vector `v1` está vacío, pero que existe en memoría. 
 <center>
-![vector vacio en el enviorenment](F:/R_para_economistas/vacio_vector.jpg)
+![vector vacio en el enviorenment](C:/RRRR/R_para_economistas/vacio_vector.jpg)
 </center>
 
 Estos vectores nos serán útiles cuando veamos el tema de ciclos y el tema de funciones. Por el momento es suficiente con saber de su existencia.

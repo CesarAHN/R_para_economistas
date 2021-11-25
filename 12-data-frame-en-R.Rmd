@@ -46,7 +46,7 @@ Si usted desea ver los resultados en una pestaña y no en la consola, entonces, 
 View(df)
 ```
 <center>
-![Vista del data frame](F:/R_para_economistas/img/dataframe.jpg)
+![Vista del data frame](C:/RRRR/R_para_economistas/img/dataframe.jpg)
 </center>
 
 Para ver la estructura de las columnas o variables, se usa la función `str()`.

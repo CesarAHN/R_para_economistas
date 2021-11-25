@@ -15,13 +15,13 @@ getwd()
 
 Observamos que nuestro directorio de trabajo se encuentra en `r getwd()`. Es decir, en esa ruta es donde se cargarán automáticamente nuestros archivos o se exportarán sin especificar ninguna ruta adicional. 
 
-Pero esa no es mi carpeta que contiene mis archivos que deseo importar, por lo cual me surge la necesidad de cambiar el directorio de trabajo[^1]. La ruta del directorio de trabajo se cambia con la función `setwd()`, al interior de los paréntesis se coloca la ruta, en mi caso la ruta está en `C:\RRRR\Archivos`, por lo que tendré que colocar aquello dentro de los paréntesis, pero cambiando los `\` por `/`, esto debido a que R usa los `\` para las extensiones web. 
+Pero esa no es mi carpeta que contiene mis archivos que deseo importar, por lo cual me surge la necesidad de cambiar el directorio de trabajo[^1]. La ruta del directorio de trabajo se cambia con la función `setwd()`, al interior de los paréntesis se coloca la ruta, en mi caso la ruta está en `C:\RRRR\R_para_economistas\Archivos`, por lo que tendré que colocar aquello dentro de los paréntesis, pero cambiando los `\` por `/`, esto debido a que R usa los `\` para las extensiones web. 
 
 [^1]: Podría dejar el directorio de trabajo en esa ruta, pero si quisiera importar el archivo que deseo tendría que especificar la ruta del archivo y eso me demoraría más tiempo, ya que tendría que escribir la ruta completa cada vez que deseo cargar un archivo. 
 
-```{r}
+```{r, eval=FALSE}
 # Cambiando la ruta del directorio de trabajo. 
-setwd("C:/RRRR/Archivos")
+setwd("C:/RRRR/R_para_economistas/Archivos/")
 ```
 
 Y en efecto, la ruta del directorio ha cambiado[^2].  
@@ -62,6 +62,15 @@ En la siguiente tabla se muestran para que sirve la mayoría de argumentos.
 | **blank.lines.skip** | Argumento lógico, en donde si es TRUE ignora las filas en blanco.|
 | **comment.char** | Caracter que indica comentario en la base de datos. Si una observación comienza con el caracter "#", R ignorará su lectura. Si se desea desactivar esta función usar comment.char ="" |
 
+Ahora veremos un ejemplo de como cargar un archivo txt el cual es sobre los votos emitidos en un región de Perú, el cual se llama "voto.txt".
+
+```{r}
+# Leyendo el archivo txt.
+getwd()
+df<-read.table("Archivos/votos.txt", sep = "\t", header = T)
+
+head(df)
+```
 
 
 
