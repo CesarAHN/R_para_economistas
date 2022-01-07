@@ -326,14 +326,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="directorio-de-trabajo." class="section level2" number="13.1">
 <h2><span class="header-section-number">13.1</span> Directorio de trabajo.</h2>
 <p>Nuestro directorio de trabajo es la ubicación de donde R podrá cargar y guardar los archivos que nosotros deseemos importar o exportar. Primero para saber en donde se encuentra nuestro directorio de trabajo tendremos que usar la función <code>getwd()</code> el cual nos indica la ruta de nuestro directorio de trabajo.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para saber en donde se encuentra nuestro directorio de trabajo. </span></span>
-<span id="cb1-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb757"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb757-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb757-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para saber en donde se encuentra nuestro directorio de trabajo. </span></span>
+<span id="cb757-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb757-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;C:/RRRR/R_para_economistas&quot;</code></pre>
 <p>Observamos que nuestro directorio de trabajo se encuentra en C:/RRRR/R_para_economistas. Es decir, en esa ruta es donde se cargarán automáticamente nuestros archivos o se exportarán sin especificar ninguna ruta adicional.</p>
-<p>Pero esa no es mi carpeta que contiene mis archivos que deseo importar, por lo cual me surge la necesidad de cambiar el directorio de trabajo<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. La ruta del directorio de trabajo se cambia con la función <code>setwd()</code>, al interior de los paréntesis se coloca la ruta, en mi caso la ruta está en <code>C:\RRRR\R_para_economistas\Archivos</code>, por lo que tendré que colocar aquello dentro de los paréntesis, pero cambiando los <code>\</code> por <code>/</code>, esto debido a que R usa el sistema usado por <strong>GNU/linux</strong>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cambiando la ruta del directorio de trabajo. </span></span>
-<span id="cb3-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/RRRR/R_para_economistas/Archivos/&quot;</span>)</span></code></pre></div>
-<p>Y en efecto, la ruta del directorio ha cambiado<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>.</p>
+<p>Pero esa no es mi carpeta que contiene mis archivos que deseo importar, por lo cual me surge la necesidad de cambiar el directorio de trabajo<a href="#fn23" class="footnote-ref" id="fnref23"><sup>23</sup></a>. La ruta del directorio de trabajo se cambia con la función <code>setwd()</code>, al interior de los paréntesis se coloca la ruta, en mi caso la ruta está en <code>C:\RRRR\R_para_economistas\Archivos</code>, por lo que tendré que colocar aquello dentro de los paréntesis, pero cambiando los <code>\</code> por <code>/</code>, esto debido a que R usa el sistema usado por <strong>GNU/linux</strong>.</p>
+<div class="sourceCode" id="cb759"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb759-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb759-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cambiando la ruta del directorio de trabajo. </span></span>
+<span id="cb759-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb759-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/RRRR/R_para_economistas/Archivos/&quot;</span>)</span></code></pre></div>
+<p>Y en efecto, la ruta del directorio ha cambiado<a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a>.</p>
 </div>
 <div id="importar-archivos-txt." class="section level2" number="13.2">
 <h2><span class="header-section-number">13.2</span> Importar archivos txt.</h2>
@@ -427,10 +427,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>Ahora veremos un ejemplo de como cargar un archivo txt el cual es sobre los votos emitidos en un región de Perú, el cual se llama “voto.txt”.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Leyendo el archivo txt.</span></span>
-<span id="cb4-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb4-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;votos.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">header =</span> T)</span>
-<span id="cb4-3"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb760"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb760-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb760-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Leyendo el archivo txt.</span></span>
+<span id="cb760-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb760-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;votos.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">header =</span> T)</span>
+<span id="cb760-3"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb760-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb760-4"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb760-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
 <table class=" lightable-paper" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
@@ -794,16 +794,16 @@ JUNTOS POR EL PERU
 <div id="usando-la-función-fread." class="section level3" number="13.2.2">
 <h3><span class="header-section-number">13.2.2</span> Usando la función fread.</h3>
 <p>Para usar la función <code>fread()</code> se tiene que instalar y cargar el paquete <code>data.table</code>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Instalando el paquete. </span></span>
-<span id="cb5-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;data.table&quot;</span>)</span>
-<span id="cb5-3"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargando el paquete.</span></span>
-<span id="cb5-5"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span></code></pre></div>
+<div class="sourceCode" id="cb761"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb761-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb761-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Instalando el paquete. </span></span>
+<span id="cb761-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb761-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;data.table&quot;</span>)</span>
+<span id="cb761-3"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb761-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb761-4"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb761-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargando el paquete.</span></span>
+<span id="cb761-5"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb761-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span></code></pre></div>
 <p>Ahora usamos la función <code>fread()</code> de forma similar a <code>read.table()</code>.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargando el archivo &quot;votos.txt&quot;</span></span>
-<span id="cb6-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb6-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">fread</span>(<span class="st">&quot;votos.txt&quot;</span>, <span class="at">header=</span>T, <span class="at">verbose=</span>F)</span>
-<span id="cb6-3"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb762"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb762-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb762-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargando el archivo &quot;votos.txt&quot;</span></span>
+<span id="cb762-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb762-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">fread</span>(<span class="st">&quot;votos.txt&quot;</span>, <span class="at">header=</span>T, <span class="at">verbose=</span>F)</span>
+<span id="cb762-3"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb762-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb762-4"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb762-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
 <table class=" lightable-paper" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
@@ -1168,10 +1168,10 @@ JUNTOS POR EL PERU
 <div id="importar-archivos-csv." class="section level2" number="13.3">
 <h2><span class="header-section-number">13.3</span> Importar archivos csv.</h2>
 <p>Si se desea leer archivos con formato csv, entonces podemos usar las funciones <code>read.csv()</code> o <code>fread()</code>. Haremos lo mismo que cuando importamos archivos txt, lo único que cambiará será el nombre de nuestro archivo. En mi directorio de trabajo cuento con el archivo “votos.csv”, al cual importaré con el siguiente código.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Leyendo archivo csv.</span></span>
-<span id="cb7-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb7-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;votos.csv&quot;</span>, <span class="at">header =</span> T, <span class="at">sep =</span> <span class="st">&quot;;&quot;</span>)</span>
-<span id="cb7-3"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb763"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb763-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb763-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Leyendo archivo csv.</span></span>
+<span id="cb763-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb763-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;votos.csv&quot;</span>, <span class="at">header =</span> T, <span class="at">sep =</span> <span class="st">&quot;;&quot;</span>)</span>
+<span id="cb763-3"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb763-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb763-4"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb763-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
 <table class=" lightable-paper" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
@@ -1539,16 +1539,16 @@ JUNTOS POR EL PERU
 <div id="usando-el-paquete-openxlsx." class="section level3" number="13.4.1">
 <h3><span class="header-section-number">13.4.1</span> Usando el paquete openxlsx.</h3>
 <p>PRimero tenemos que instalar el paquete y luego cargarlo.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Instalando el paquete.</span></span>
-<span id="cb8-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;openxlsx&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb764"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb764-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb764-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Instalando el paquete.</span></span>
+<span id="cb764-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb764-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;openxlsx&quot;</span>)</span></code></pre></div>
 <p>Una vez instalado, procedemos a cargarlo.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargando el paquete.</span></span>
-<span id="cb9-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span></code></pre></div>
+<div class="sourceCode" id="cb765"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb765-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb765-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargando el paquete.</span></span>
+<span id="cb765-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb765-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span></code></pre></div>
 <p>Ahora importaremos nuestros datos que se encuentran en el archivo “votos.xlsx”. Para esto usaremos la función <code>read.xlsx()</code>.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Leyendo archivo xlsx.</span></span>
-<span id="cb10-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb10-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">read.xlsx</span>(<span class="st">&quot;votos.xlsx&quot;</span>)</span>
-<span id="cb10-3"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb766"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb766-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb766-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Leyendo archivo xlsx.</span></span>
+<span id="cb766-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb766-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">read.xlsx</span>(<span class="st">&quot;votos.xlsx&quot;</span>)</span>
+<span id="cb766-3"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb766-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb766-4"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb766-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
 <table class=" lightable-paper" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
@@ -1911,15 +1911,15 @@ JUNTOS POR EL PERU
 <div id="usando-el-paquete-readxl." class="section level3" number="13.4.2">
 <h3><span class="header-section-number">13.4.2</span> Usando el paquete readxl.</h3>
 <p>Igualmente tendremos que instalar y cargar el paquete.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Instalando el paquete. </span></span>
-<span id="cb11-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;readxl&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargando el paquete.</span></span>
-<span id="cb12-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code></pre></div>
+<div class="sourceCode" id="cb767"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb767-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb767-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Instalando el paquete. </span></span>
+<span id="cb767-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb767-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;readxl&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb768"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb768-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb768-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargando el paquete.</span></span>
+<span id="cb768-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb768-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code></pre></div>
 <p>Ahora procedemos a cargar el archivo, para lo cual usaremos el paquete <code>read_xlsx()</code>.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Leyendo archivo .xlsx</span></span>
-<span id="cb13-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb13-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">read_xlsx</span>(<span class="st">&quot;votos.xlsx&quot;</span>)</span>
-<span id="cb13-3"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb769"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb769-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb769-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Leyendo archivo .xlsx</span></span>
+<span id="cb769-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb769-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">read_xlsx</span>(<span class="st">&quot;votos.xlsx&quot;</span>)</span>
+<span id="cb769-3"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb769-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb769-4"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb769-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
 <table class=" lightable-paper" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
@@ -2285,14 +2285,14 @@ JUNTOS POR EL PERU
 <h2><span class="header-section-number">13.5</span> Importar archivos desde SPSS.</h2>
 <p>Si deseamos cargar archivos con extensión <em>“.sav”</em>, entonces usaremos el paquete <code>foreign</code>. Este paquete no solo nos permite leer archivos de SPSS, sino también de STATA y archivos con extensión <em>“.dbf”</em>, que veremos más adelante.</p>
 <p>Entonces, lo primero que tenemos que hacer es instalar el paquete.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;foreign&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb770"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb770-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb770-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;foreign&quot;</span>)</span></code></pre></div>
 <p>Una vez instalado, procedemos a cargar el paquete.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(foreign)</span></code></pre></div>
+<div class="sourceCode" id="cb771"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb771-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb771-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(foreign)</span></code></pre></div>
 <p>Ahora cargamos el archivo de extensión “.sav” con la función <code>read.spss()</code>.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Leyendo archivo .sav</span></span>
-<span id="cb16-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb16-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">read.spss</span>(<span class="st">&quot;votos.sav&quot;</span>, <span class="at">to.data.frame =</span> T)</span>
-<span id="cb16-3"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-4"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb772"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb772-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb772-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Leyendo archivo .sav</span></span>
+<span id="cb772-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb772-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">read.spss</span>(<span class="st">&quot;votos.sav&quot;</span>, <span class="at">to.data.frame =</span> T)</span>
+<span id="cb772-3"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb772-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb772-4"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb772-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
 <table class=" lightable-paper" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
@@ -2655,16 +2655,16 @@ JUNTOS POR EL PERU
 </div>
 <div id="importar-archivos-desde-stata." class="section level2" number="13.6">
 <h2><span class="header-section-number">13.6</span> Importar archivos desde STATA.</h2>
-<p>Para importar archivos con extensión <em>“.dta”</em> nosotros podemos usar dos paquetes: <code>foreign</code> o <code>haven</code>. Nosotros recomendamos usar el paquete <code>haven</code> ya que la función que lee archivos “.dta” lee archivos de versiones superiores<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>.</p>
+<p>Para importar archivos con extensión <em>“.dta”</em> nosotros podemos usar dos paquetes: <code>foreign</code> o <code>haven</code>. Nosotros recomendamos usar el paquete <code>haven</code> ya que la función que lee archivos “.dta” lee archivos de versiones superiores<a href="#fn25" class="footnote-ref" id="fnref25"><sup>25</sup></a>.</p>
 <p>Entonces, desarrollaremos el ejemplo de cargar archivos de extensión “.dta” usando el paquete <code>haven</code>. En ese sentido, lo primero que debemos de hacer es instalar el paquete <code>haven</code>.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;haven&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb773"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb773-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb773-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;haven&quot;</span>)</span></code></pre></div>
 <p>Procemdos a cargarlo.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span></code></pre></div>
+<div class="sourceCode" id="cb774"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb774-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb774-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span></code></pre></div>
 <p>Ahora para cargar el archivo “.dta” usaremos la función <code>read_dta()</code>.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Leyendo archivo .dta</span></span>
-<span id="cb19-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb19-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">read_dta</span>(<span class="st">&quot;votos.dta&quot;</span>)</span>
-<span id="cb19-3"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb775"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb775-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb775-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Leyendo archivo .dta</span></span>
+<span id="cb775-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb775-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">read_dta</span>(<span class="st">&quot;votos.dta&quot;</span>)</span>
+<span id="cb775-3"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb775-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb775-4"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb775-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
 <table class=" lightable-paper" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
@@ -3028,10 +3028,10 @@ JUNTOS POR EL PERU
 <h2><span class="header-section-number">13.7</span> Importar archivos dbf.</h2>
 <p>Para importar archivos con extensión <em>“.dbf”</em>, se usará el paquete <code>foreign</code>.</p>
 <p>Este paquete ya lo hemos instalado y cargado, por lo que solo tendremos que cargar el archivo haciendo uso de la función <code>read.dbf()</code>.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Leyendo archivo .dbf</span></span>
-<span id="cb20-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb20-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">read.dbf</span>(<span class="st">&quot;votos.dbf&quot;</span>)</span>
-<span id="cb20-3"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-4"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb776"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb776-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb776-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Leyendo archivo .dbf</span></span>
+<span id="cb776-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb776-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">read.dbf</span>(<span class="st">&quot;votos.dbf&quot;</span>)</span>
+<span id="cb776-3"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb776-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb776-4"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb776-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
 <table class=" lightable-paper" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
@@ -3395,10 +3395,10 @@ JUNTOS POR EL PERU
 <h2><span class="header-section-number">13.8</span> Importar archivos rds.</h2>
 <p>Los archivos con extensión <em>“.rds”</em> son archivos de formato propio de R, así que, si el archivo que cargarás proviene de una persona que usó R, entonces es recomendable decirle que te lo comparta con la extensión “.rds”, ya que el archivo no perderá ninguna característica, será similar al que trabajó ese objeto. Por otro lado, si te lo comparte en otra formato, es probable que las columnas que eran texto o integer ahora se conviertan en factor u otros casos.</p>
 <p>Como es un archivo de R, no es necesario instalar o cargar ningún paquete. En ese sentido procederemos a importar el archivo con la función <code>readRDS()</code>.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Leyendo archivo .rds</span></span>
-<span id="cb21-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb21-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;votos.rds&quot;</span>)</span>
-<span id="cb21-3"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-4"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb777"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb777-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb777-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Leyendo archivo .rds</span></span>
+<span id="cb777-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb777-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;votos.rds&quot;</span>)</span>
+<span id="cb777-3"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb777-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb777-4"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb777-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
 <table class=" lightable-paper" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
@@ -3762,10 +3762,10 @@ JUNTOS POR EL PERU
 <h2><span class="header-section-number">13.9</span> Importar archivos desde la web.</h2>
 <p>Para importar archivos desde la web, lo que debemos conocer primero es la extensión del archivo, por ejemplo si en la web encontramos un archivo con la extensión <code>.xlsx</code>, entonces nosotros usaremos la función <code>read.xlsx()</code> del paquete <code>openxlsx</code>.</p>
 <p>Veamos un ejemplo, en donde sabemos que el archivo web es de la extensión “.xlsx”. Entonces, lo único que haremos es usar la función <code>read.xlsx()</code> y colocar la url del archivo.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Leyendo archivo web</span></span>
-<span id="cb22-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb22-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">read.xlsx</span>(<span class="st">&quot;https://datametria.com/wp-content/uploads/2022/01/votos.xlsx&quot;</span>)</span>
-<span id="cb22-3"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-4"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb778"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb778-1"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb778-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Leyendo archivo web</span></span>
+<span id="cb778-2"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb778-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">read.xlsx</span>(<span class="st">&quot;https://datametria.com/wp-content/uploads/2022/01/votos.xlsx&quot;</span>)</span>
+<span id="cb778-3"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb778-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb778-4"><a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#cb778-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
 <table class=" lightable-paper" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
@@ -4143,12 +4143,34 @@ JUNTOS POR EL PERU
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="footnotes">
 <hr />
-<ol start="1">
-<li id="fn1"><p>Podría dejar el directorio de trabajo en esa ruta, pero si quisiera importar el archivo que deseo tendría que especificar la ruta del archivo y eso me demoraría más tiempo, ya que tendría que escribir la ruta completa cada vez que deseo cargar un archivo.<a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>En ejemplos posteriores se mostrará como importar archivos desde otra ruta.<a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>El paquete <code>foreign</code> solo lee archivos stata de la versión 5 a la 12, mientras que <code>haven</code> lee archivos hasta la versión 16 del stata.<a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#fnref3" class="footnote-back">↩︎</a></p></li>
+<ol start="23">
+<li id="fn23"><p>Podría dejar el directorio de trabajo en esa ruta, pero si quisiera importar el archivo que deseo tendría que especificar la ruta del archivo y eso me demoraría más tiempo, ya que tendría que escribir la ruta completa cada vez que deseo cargar un archivo.<a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#fnref23" class="footnote-back">↩︎</a></p></li>
+<li id="fn24"><p>En ejemplos posteriores se mostrará como importar archivos desde otra ruta.<a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#fnref24" class="footnote-back">↩︎</a></p></li>
+<li id="fn25"><p>El paquete <code>foreign</code> solo lee archivos stata de la versión 5 a la 12, mientras que <code>haven</code> lee archivos hasta la versión 16 del stata.<a href="importar-datos-xlsx-xls-sav-dta-csv-txt-archivos-web-entre-otros..html#fnref25" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -4211,6 +4233,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
