@@ -4,7 +4,7 @@ En este capítulo se mostrará como importar datos desde distintas fuentes como 
 
 En el siguiente capítulo veremos como se exportan los datos a las mismas fuentes, con lo cual podremos compartir lo trabajado en el software. 
 
-## DIRECTORIO DE TRABAJO.
+## Directorio de trabajo.
 
 Nuestro directorio de trabajo es la ubicación de donde R podrá cargar y guardar los archivos que nosotros deseemos importar o exportar. Primero para saber en donde se encuentra nuestro directorio de trabajo tendremos que usar la función `getwd()` el cual nos indica la ruta de nuestro directorio de trabajo. 
 
@@ -15,7 +15,7 @@ getwd()
 
 Observamos que nuestro directorio de trabajo se encuentra en `r getwd()`. Es decir, en esa ruta es donde se cargarán automáticamente nuestros archivos o se exportarán sin especificar ninguna ruta adicional. 
 
-Pero esa no es mi carpeta que contiene mis archivos que deseo importar, por lo cual me surge la necesidad de cambiar el directorio de trabajo[^1]. La ruta del directorio de trabajo se cambia con la función `setwd()`, al interior de los paréntesis se coloca la ruta, en mi caso la ruta está en `C:\RRRR\R_para_economistas\Archivos`, por lo que tendré que colocar aquello dentro de los paréntesis, pero cambiando los `\` por `/`, esto debido a que R usa los `\` para las extensiones web. 
+Pero esa no es mi carpeta que contiene mis archivos que deseo importar, por lo cual me surge la necesidad de cambiar el directorio de trabajo[^1]. La ruta del directorio de trabajo se cambia con la función `setwd()`, al interior de los paréntesis se coloca la ruta, en mi caso la ruta está en `C:\RRRR\R_para_economistas\Archivos`, por lo que tendré que colocar aquello dentro de los paréntesis, pero cambiando los `\` por `/`, esto debido a que R usa el sistema usado por **GNU/linux**. 
 
 [^1]: Podría dejar el directorio de trabajo en esa ruta, pero si quisiera importar el archivo que deseo tendría que especificar la ruta del archivo y eso me demoraría más tiempo, ya que tendría que escribir la ruta completa cada vez que deseo cargar un archivo. 
 
@@ -28,9 +28,9 @@ Y en efecto, la ruta del directorio ha cambiado[^2].
 
 [^2]: En ejemplos posteriores se mostrará como importar archivos desde otra ruta.
 
-## IMPORTAR ARCHIVOS TXT.
+## Importar archivos txt.
 
-Si nosotros deseamos importar archivos de texto ASCII (.txt, .dat, entre otros) usaremos la función `read.table()`, `read.fwf()`, `fread()`, entre otros. En este capítulo mostraremos se harán ejemplos de uso de la función `read.table()` y `fread()`. 
+Si nosotros deseamos importar archivos de texto ASCII (.txt, .dat, entre otros) usaremos la función `read.table()`, `read.fwf()`, `fread()`, entre otros. En este capítulo mostrarán ejemplos de uso de las funciones `read.table()` y `fread()`. 
 
 ### Usando la función read.table().
 
@@ -64,13 +64,313 @@ En la siguiente tabla se muestran para que sirve la mayoría de argumentos.
 
 Ahora veremos un ejemplo de como cargar un archivo txt el cual es sobre los votos emitidos en un región de Perú, el cual se llama "voto.txt".
 
-```{r}
+```{r, eval=FALSE}
 # Leyendo el archivo txt.
-getwd()
-df<-read.table("Archivos/votos.txt", sep = "\t", header = T)
+df<-read.table("votos.txt", sep = "\t", header = T)
 
 head(df)
 ```
 
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Leyendo el archivo txt.
+df<-read.table("Archivos/votos.txt", sep = "\t", header = T)
+ 
+library(knitr)
+library(dplyr)
+library(kableExtra)
+
+df[1:6,] %>% 
+kbl(align = "c") %>%
+   kable_paper() %>%
+  scroll_box(width = "100%", height = "400px")
+```
+
+Importamos el archivo y lo guardamos con el nombre de `df`. Posteriormente usamos la función `head()` para poder ver las primeras 6 filas. 
+
+### Usando la función fread.
+
+Para usar la función `fread()` se tiene que instalar y cargar el paquete `data.table`. 
+
+```{r, eval=FALSE}
+# Instalando el paquete. 
+install.packages("data.table")
+
+# Cargando el paquete.
+library(data.table)
+```
+
+Ahora usamos la función `fread()` de forma similar a `read.table()`.
+
+```{r, eval=FALSE}
+# Cargando el archivo "votos.txt"
+df<-fread("votos.txt", header=T, verbose=F)
+
+head(df)
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(data.table)
+df<-fread("Archivos/votos.txt", header=T, verbose=F)
+
+df[1:6,] %>% 
+kbl(align = "c") %>%
+   kable_paper() %>%
+  scroll_box(width = "100%", height = "400px")
+```
+
+La ventaja de usar la función `fread()` es que la función asigna el separador automáticamente. 
+
+## Importar archivos csv.
+
+Si se desea leer archivos con formato csv, entonces podemos usar las funciones `read.csv()` o `fread()`. Haremos lo mismo que cuando importamos archivos txt, lo único que cambiará será el nombre de nuestro archivo. En mi directorio de trabajo cuento con el archivo "votos.csv", al cual importaré con el siguiente código. 
+
+```{r, eval=FALSE}
+# Leyendo archivo csv.
+df<-read.csv("votos.csv", header = T, sep = ";")
+
+head(df)
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Leyendo archivo csv.
+df<-read.csv("Archivos/votos.csv", header = T, sep = ";")
+
+df[1:6,] %>% 
+kbl(align = "c") %>%
+   kable_paper() %>%
+  scroll_box(width = "100%", height = "400px")
+```
+
+La sintaxis fue similar a la que se usó con la función `read.table()`. En ese sentido, usando la función `fread()` obtendrá el mismo resultado. Ejercicio que estoy seguro podrá resolver el lector. 
+
+## Importar archivos desde excel (xlsx).
+
+Hay una gran variedad de paquetes que nos permiten importar archivos en formato *.xlsx*. En esta guía se usarán dos: `openxlsx` y `readxl`. Cada paquete tiene una ventaja respecto al otro y viceversa. Por un lado el paquete `openxlsx` solo sirve para archivos de formato ".xlsx", mientras que el paquete también puede leer archivos ".xls". Por otro lado, el paquete`readxl` tiene dificultades para leer caracteres extraños del archivo excel. Hay más diferencias que usted se podrá ir dando cuenta con el uso que le da y dependerá de lo que desea cargar. Particularmente, tengo una parcialidad hacia el paquete `openxlsx`, pero eso no significa que el paquete `readxl` sea innecesario. 
+
+En ese sentido, se mostrará ejemplos con cada uno de los paquetes. 
+
+### Usando el paquete openxlsx.
+
+PRimero tenemos que instalar el paquete y luego cargarlo. 
+
+```{r, eval=FALSE}
+# Instalando el paquete.
+install.packages("openxlsx")
+```
+
+Una vez instalado, procedemos a cargarlo.
+```{r}
+# Cargando el paquete.
+library(openxlsx)
+```
+
+Ahora importaremos nuestros datos que se encuentran en el archivo "votos.xlsx". Para esto usaremos la función `read.xlsx()`.
+
+```{r, eval=FALSE}
+# Leyendo archivo xlsx.
+df<-read.xlsx("votos.xlsx")
+
+head(df)
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Leyendo archivo xlsx.
+df<-read.xlsx("Archivos/votos.xlsx")
+
+df[1:6,] %>% 
+kbl(align = "c") %>%
+   kable_paper() %>%
+  scroll_box(width = "100%", height = "400px")
+```
+
+### Usando el paquete readxl.
+
+Igualmente tendremos que instalar y cargar el paquete.
+
+```{r, eval=FALSE}
+# Instalando el paquete. 
+install.packages("readxl")
+```
+
+```{r, message=FALSE, warning=FALSE}
+# Cargando el paquete.
+library(readxl)
+```
+
+Ahora procedemos a cargar el archivo, para lo cual usaremos el paquete `read_xlsx()`.
+
+```{r, eval=FALSE}
+# Leyendo archivo .xlsx
+df<-read_xlsx("votos.xlsx")
+
+head(df)
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Leyendo archivo .xlsx
+df<-read_xlsx("Archivos/votos.xlsx")
+
+df[1:6,] %>% 
+kbl(align = "c") %>%
+   kable_paper() %>%
+  scroll_box(width = "100%", height = "400px")
+```
+
+Como usted puede observar hemos obtenido el mismo resultado usando los dos paquetes. Como se mencionó líneas arriba dependerá de usted que paquete usar. Asimismo, para más detalles usted puede ver la documentación de cada una de las funciones lo cual le permitirá resolver dudas muy puntuales. 
+
+## Importar archivos desde SPSS.
+
+Si deseamos cargar archivos con extensión *".sav"*, entonces usaremos el paquete `foreign`. Este paquete no solo nos permite leer archivos de SPSS, sino también de STATA y archivos con extensión *".dbf"*, que veremos más adelante.
+
+Entonces, lo primero que tenemos que hacer es instalar el paquete. 
+
+```{r, eval=FALSE}
+install.packages("foreign")
+```
+
+Una vez instalado, procedemos a cargar el paquete.
+
+```{r, message=FALSE, warning=FALSE}
+library(foreign)
+```
+
+Ahora cargamos el archivo de extensión ".sav" con la función `read.spss()`.
+
+```{r, eval=FALSE}
+# Leyendo archivo .sav
+df<-read.spss("votos.sav", to.data.frame = T)
+
+head(df)
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Leyendo archivo .sav
+df<-read.spss("Archivos/votos.sav", to.data.frame = T)
+
+df[1:6,] %>% 
+kbl(align = "c") %>%
+   kable_paper() %>%
+  scroll_box(width = "100%", height = "400px")
+```
+
+En esta función se tiene que especificar el argumento `to.data.frame` igual a verdadero para que el resultado sea un objeto data frame, sino el resultado será un objeto lista.
+
+## Importar archivos desde STATA.
+
+Para importar archivos con extensión *".dta"* nosotros podemos usar dos paquetes: `foreign` o `haven`. Nosotros recomendamos usar el paquete `haven` ya que la función que lee archivos ".dta" lee archivos de versiones superiores[^3]. 
+
+[^3]: El paquete `foreign` solo lee archivos stata de la versión 5 a la 12, mientras que `haven` lee archivos hasta la versión 16 del stata.
+
+Entonces, desarrollaremos el ejemplo de cargar archivos de extensión ".dta" usando el paquete `haven`. En ese sentido, lo primero que debemos de hacer es instalar el paquete `haven`.
+
+```{r, eval=FALSE}
+install.packages("haven")
+```
+
+Procemdos a cargarlo.
+
+```{r, message=FALSE, warning=FALSE}
+library(haven)
+```
+
+Ahora para cargar el archivo ".dta" usaremos la función `read_dta()`.
+
+```{r, eval=FALSE}
+# Leyendo archivo .dta
+df<-read_dta("votos.dta")
+
+head(df)
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Leyendo archivo .dta
+df<-read_dta("Archivos/votos.dta")
+
+df[1:6,] %>% 
+kbl(align = "c") %>%
+   kable_paper() %>%
+  scroll_box(width = "100%", height = "400px")
+```
+
+## Importar archivos dbf.
+
+Para importar archivos con extensión *".dbf"*, se usará el paquete `foreign`.
+
+Este paquete ya lo hemos instalado y cargado, por lo que solo tendremos que cargar el archivo haciendo uso de la función `read.dbf()`.
+
+```{r, eval=FALSE}
+# Leyendo archivo .dbf
+df<-read.dbf("votos.dbf")
+
+head(df)
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Leyendo archivo .dbf
+df<-read.dbf("Archivos/votos.dbf")
+
+df[1:6,] %>% 
+kbl(align = "c") %>%
+   kable_paper() %>%
+  scroll_box(width = "100%", height = "400px")
+```
+
+## Importar archivos rds.
+
+Los archivos con extensión *".rds"* son archivos de formato propio de R, así que, si el archivo que cargarás proviene de una persona que usó R, entonces es recomendable decirle que te lo comparta con la extensión ".rds", ya que el archivo no perderá ninguna característica, será similar al que trabajó ese objeto. Por otro lado, si te lo comparte en otra formato, es probable que las columnas que eran texto o integer ahora se conviertan en factor u otros casos. 
+
+Como es un archivo de R, no es necesario instalar o cargar ningún paquete. En ese sentido procederemos a importar el archivo con la función `readRDS()`.
+
+```{r, eval=FALSE}
+# Leyendo archivo .rds
+df<-readRDS("votos.rds")
+
+head(df)
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Leyendo archivo .rds
+df<-readRDS("Archivos/votos.rds")
+
+df[1:6,] %>% 
+kbl(align = "c") %>%
+   kable_paper() %>%
+  scroll_box(width = "100%", height = "400px")
+```
+
+## Importar archivos desde la web.
+
+Para importar archivos desde la web, lo que debemos conocer primero es la extensión del archivo, por ejemplo si en la web encontramos un archivo con la extensión `.xlsx`, entonces nosotros usaremos la función `read.xlsx()` del paquete `openxlsx`. 
+
+Veamos un ejemplo, en donde sabemos que el archivo web es de la extensión ".xlsx". Entonces, lo único que haremos es usar la función `read.xlsx()` y colocar la url del archivo.
+
+```{r, eval=FALSE}
+# Leyendo archivo web
+df<-read.xlsx("https://datametria.com/wp-content/uploads/2022/01/votos.xlsx")
+
+head(df)
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Leyendo archivo web
+df<-read.xlsx("https://datametria.com/wp-content/uploads/2022/01/votos.xlsx")
+
+df[1:6,] %>% 
+kbl(align = "c") %>%
+   kable_paper() %>%
+  scroll_box(width = "100%", height = "400px")
+```
+
+Y en efecto, podemos ver que el archivo se ha cargado correctamente. Recuerde que debe saber la extensión del archivo que se desea cargar. Otro ejemplo, si es un archivo ".txt" entonces usted usa la función `read.table()` o `fread()`. 
+
+## Temas adicionales. 
+
+Para leer archivos hay una gran cantidad de paquetes, algunos son más eficientes que otros u otros tienen más argumentos que lo hacen más completo para cualquier eventualidad, como ejemplo, para cargar archivos: ".txt", ".csv", ".rds" usted puede usar el paquete `readr` que tiene funciones similares a la de R base como: `read_table()`,`read_csv`, `read_rds()`. Estas funciones son más eficientes que las funciones de R base y además el resultado es un objeto `tibble` que funciona más eficientemente que los data frames. Usted podrá maniobralos mejor si usted conoce el mundo `tidyverse`. Incluso, si usted realiza bigdata con el paquete `sparkly`. 
+
+R es muy amplio, y diverso para el uso de cualquier tipo de usuario. Así que mi recomendación es usar el paquete o la función que le es más conocida en un inicio. Si su problema no se resuelve con las funciones que conoce, lo más recomedable es buscar la solución en la web. Específicamente en la página *stackoverflow* que está disponible en varios idiomas. Si usted tiene una duda, es muy probable que otra persona la tuvo antes y en esa página está la solución a esa duda. La comunidad de *stackoverflow* en español aún es corta, y está en constante de crecimiento. Pero la comunidad en inglés sí es muy pero muy amplia. 
+
+Otro forma de obtener datos es usando el método de web scraping, método que estaba en boga hace unos años. Usted también podría usarlo, pero ese tema es ajeno a este manual. También podría usar APIs, pero igual, es ajeno a este manual. 
+
+Si quiere conocer sobre esos temas, indagando en la web podrá conseguir un montón de información. 
 
 
