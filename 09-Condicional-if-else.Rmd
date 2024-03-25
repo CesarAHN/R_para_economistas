@@ -246,7 +246,7 @@ Nos dice que si en la condicional el vector tiene una longitud mayor a 1, entonc
 
 Para ver esto realicemos un pequeño ejemplo. 
 
-```{r}
+```{r, eval=FALSE}
 # Creando el vector x.
 x<-1:5
 
@@ -254,6 +254,8 @@ x<-1:5
 if(x<3){
   print(x)
 }
+
+# Error in if (x < 3) { : the condition has length > 1
 ```
 
 Como era de esperarse nos arroja el mensaje de advertencia en donde nos dice que sólo usará el primer elemento del vector `x`.

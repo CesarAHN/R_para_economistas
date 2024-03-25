@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 10 LOOP FOR E IF ELSE PARA MÁS DE UN ELEMENTO. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</title>
   <meta name="description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 10 LOOP FOR E IF ELSE PARA MÁS DE UN ELEMENTO. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
   <meta name="github-repo" content="CesarAHN/bookdown_intro" />
@@ -24,7 +23,7 @@
 <meta name="author" content="César Anderson Huamaní Ninahuanca" />
 
 
-<meta name="date" content="2022-01-07" />
+<meta name="date" content="2024-03-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="condicional-if-else..html"/>
 <link rel="next" href="ciclo-while..html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,10 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -95,7 +92,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -108,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -122,6 +119,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -319,22 +320,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="loop-for-e-if-else-para-más-de-un-elemento." class="section level1" number="10">
-<h1><span class="header-section-number">Chapter 10</span> LOOP FOR E IF ELSE PARA MÁS DE UN ELEMENTO.</h1>
+<div id="loop-for-e-if-else-para-más-de-un-elemento." class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">Chapter 10</span> LOOP FOR E IF ELSE PARA MÁS DE UN ELEMENTO.<a href="loop-for-e-if-else-para-más-de-un-elemento..html#loop-for-e-if-else-para-más-de-un-elemento." class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>En este capítulo se se mostrará como usar el loop <code>for</code> que nos permitirá realizar múltiples procesos con una sencilla sintaxis. Asimismo, gracias al loop <code>for</code> podremos evaluar más de un elemento al usar las condicionales <code>if else</code>. Por último, veremos el uso de la función <code>ifelse()</code> que nos otorgará el mismo resultado que si usaramos el loop <code>for</code> con las condicionales <code>if else</code>.</p>
-<div id="loop-for." class="section level2" number="10.1">
-<h2><span class="header-section-number">10.1</span> Loop for.</h2>
+<div id="loop-for." class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> Loop for.<a href="loop-for-e-if-else-para-más-de-un-elemento..html#loop-for." class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Gracias al loop <code>for</code> podremos realizar tareas similares automáticamente. El loop permite hacer el recorrido de todos los elementos de un vector con el fin de asignar a la operación procedente cada uno de los elementos del recorrido. La sintaxis del loop <code>for</code> es la siguiente:</p>
 <p><code>for (var in seq) {expression}</code></p>
 <p>Donde se le asigna un iterador (<code>var</code>), que puede ser cualquier letra o palabra, que hará el recorrido por el vector (<code>seq</code>) para asignar cada elemento de este en la <code>expresión</code>.</p>
 <p>El iterador puede jugar el papel de objeto o de subobjeto, es decir, en el primer caso el iterador entra en la expresión como un objeto que será argumento de una función, en el segundo caso el iterador entra como un subobjeto de otro objeto y en conjunto servirán de argumento de una función.</p>
-<div id="el-iterador-como-objeto." class="section level3" number="10.1.1">
-<h3><span class="header-section-number">10.1.1</span> El iterador como objeto.</h3>
+<div id="el-iterador-como-objeto." class="section level3 hasAnchor" number="10.1.1">
+<h3><span class="header-section-number">10.1.1</span> El iterador como objeto.<a href="loop-for-e-if-else-para-más-de-un-elemento..html#el-iterador-como-objeto." class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Veamos un ejemplo para que quede más claro. Vamos a imprimir el siguiente texto “Este es el número: …”, en los tres puntos asignaremos los números desde el 1 al 10.</p>
-<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb609-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb609-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Usando el loop for.</span></span>
-<span id="cb609-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb609-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
-<span id="cb609-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb609-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;Este es el número: &quot;</span>,i))</span>
-<span id="cb609-4"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb609-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Usando el loop for.</span></span>
+<span id="cb1-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
+<span id="cb1-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;Este es el número: &quot;</span>,i))</span>
+<span id="cb1-4"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb1-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;Este es el número: 1&quot;
 ## [1] &quot;Este es el número: 2&quot;
 ## [1] &quot;Este es el número: 3&quot;
@@ -347,17 +348,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [1] &quot;Este es el número: 10&quot;</code></pre>
 <p>Primero, hemos asignado un iterador llamado <code>i</code> que hará el recorrido por todos los elementos del vector <code>1:10</code>, cada elemento lo usará en la ejecución de la expresión <code>print(paste0("Este es el número: ",i))</code>, es decir, el iterador <code>i</code> tomará cada uno de los elementos del vector <code>1:10</code> y los asignará en la expresión <code>print(paste0("Este es el número: ",i))</code>.</p>
 <p>Gracias a esto hemos obtenido el resultado esperado en donde se ha impreso el texto “Este es el número: 1”, “Este es el número: 2”, y así sucesivamente hasta “Este es el número: 10”.</p>
-<p>Como se habrá podida dar cuenta una de las características principales del loop <code>for</code> en R es su sencilles para su uso. Se le invita a realizar la misma operación en otros softwares<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a> y verá la diferencia.</p>
+<p>Como se habrá podida dar cuenta una de las características principales del loop <code>for</code> en R es su sencilles para su uso. Se le invita a realizar la misma operación en otros softwares<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> y verá la diferencia.</p>
 </div>
-<div id="el-iterador-como-un-subobjeto." class="section level3" number="10.1.2">
-<h3><span class="header-section-number">10.1.2</span> El iterador como un subobjeto.</h3>
+<div id="el-iterador-como-un-subobjeto." class="section level3 hasAnchor" number="10.1.2">
+<h3><span class="header-section-number">10.1.2</span> El iterador como un subobjeto.<a href="loop-for-e-if-else-para-más-de-un-elemento..html#el-iterador-como-un-subobjeto." class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Ahora veamos un ejemplo en donde el vector por donde se hará el recorrido es una vector caracter.</p>
-<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb611-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo usando un vector caracter.</span></span>
-<span id="cb611-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb611-2" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Azul&quot;</span>,<span class="st">&quot;Rojo&quot;</span>,<span class="st">&quot;Amarillo&quot;</span>,<span class="st">&quot;Rosado&quot;</span>,<span class="st">&quot;Marrón&quot;</span>)</span>
-<span id="cb611-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb611-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb611-4"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb611-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(x)) {</span>
-<span id="cb611-5"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb611-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;Este es el color: &quot;</span>,x[i]))</span>
-<span id="cb611-6"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb611-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo usando un vector caracter.</span></span>
+<span id="cb3-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb3-2" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Azul&quot;</span>,<span class="st">&quot;Rojo&quot;</span>,<span class="st">&quot;Amarillo&quot;</span>,<span class="st">&quot;Rosado&quot;</span>,<span class="st">&quot;Marrón&quot;</span>)</span>
+<span id="cb3-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(x)) {</span>
+<span id="cb3-5"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;Este es el color: &quot;</span>,x[i]))</span>
+<span id="cb3-6"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb3-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;Este es el color: Azul&quot;
 ## [1] &quot;Este es el color: Rojo&quot;
 ## [1] &quot;Este es el color: Amarillo&quot;
@@ -367,10 +368,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Primero, se ha definido el vector <code>x</code> con los nombres: “Azul”,“Rojo”,“Amarillo”,“Rosado”,“Marrón”. Posteriormente, en la sintaxis del loop <code>for</code> se ha asignado un iterador llamado <code>i</code> que hará el recorrido por el vector <code>1:length(x)</code>, es decir, desde el número 1 hasta el tamaño del vector <code>x</code> (desde 1 al 5). Cada uno de estos elementos se asignarán en la expresión <code>x[i]</code> (llamará a cada uno de los elementos del vector <code>x</code>, desde el primero al último, ya que se convertirá en <code>x[1]</code>, <code>x[2]</code>, <code>x[3]</code>, <code>x[4]</code> y <code>x[5]</code>).</p>
 <p>Lo principal de este ejemplo, es darse cuenta de la importancia que juega el iterador que ya no solo juega el papel de objeto, como en el primer ejemplo, sino como subobjeto de otro objeto.</p>
 <p>Quizá le parezca un poco complicado al inicio, pero como se comentó al inicio este loop puede ser escrito de una manera más sencilla, a continuación, se muestra la sintaxis.</p>
-<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb613-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb613-1" aria-hidden="true" tabindex="-1"></a><span class="co"># El ejemplo 2 con una sintaxis más sencilla.</span></span>
-<span id="cb613-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb613-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> x) {</span>
-<span id="cb613-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb613-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;Este es el color: &quot;</span>,  i))</span>
-<span id="cb613-4"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb613-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># El ejemplo 2 con una sintaxis más sencilla.</span></span>
+<span id="cb5-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> x) {</span>
+<span id="cb5-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;Este es el color: &quot;</span>,  i))</span>
+<span id="cb5-4"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb5-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;Este es el color: Azul&quot;
 ## [1] &quot;Este es el color: Rojo&quot;
 ## [1] &quot;Este es el color: Amarillo&quot;
@@ -380,65 +381,65 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Usted se puede estar preguntando ¿Cuál es el fin de colocar al iterador como subobjeto si la sintaxis es más sencilla considerando al iterador como objeto? En el ejemplo que hemos visto y por su sencilles es más fácil usar al iterador como objeto, pero cuando avancemos más y deseemos hacer loops más complicados en donde haya más de un iterador o dentro de funciones, tendremos que usar al iterador como subobjeto. Así que por el momento es preciso aprender las dos formas.</p>
 <p>Avancemos un poco más y realicemos un ejemplo un poquillo más complicado.</p>
 <p>Vamos a realizar un loop en el cual se guardan los resultados en un vector externo.</p>
-<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb615-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb615-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardando los resultados en un vector externo.</span></span>
-<span id="cb615-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb615-2" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">c</span>()</span>
-<span id="cb615-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb615-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
-<span id="cb615-4"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb615-4" aria-hidden="true" tabindex="-1"></a>  y<span class="ot">&lt;-</span>t<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb615-5"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb615-5" aria-hidden="true" tabindex="-1"></a>  x<span class="ot">&lt;-</span><span class="fu">c</span>(x,y)</span>
-<span id="cb615-6"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb615-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardando los resultados en un vector externo.</span></span>
+<span id="cb7-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb7-2" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">c</span>()</span>
+<span id="cb7-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb7-4"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb7-4" aria-hidden="true" tabindex="-1"></a>  y<span class="ot">&lt;-</span>t<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb7-5"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb7-5" aria-hidden="true" tabindex="-1"></a>  x<span class="ot">&lt;-</span><span class="fu">c</span>(x,y)</span>
+<span id="cb7-6"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb7-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Primero hemos creado un vector vacio <code>x</code> donde guardaremos los resultados del loop, posteriormente en el loop <code>for</code> se asigna el iterador <code>t</code> que hará el recorrido por el vector <code>1:5</code>, asignando cada elemento en la expresión <code>y&lt;-t^2; x&lt;-c(x,y)</code>. Lo que hará será elevar los elementos del vector <code>1:5</code> al cuadrado y guardarlo en el objeto <code>y</code>. En la expresión <code>x&lt;-c(x,y)</code> le decimos al software que guarde en el objeto <code>x</code> el vector que se genera al juntar el objeto <code>x</code> con el objeto <code>y</code>. Como el valor de <code>y</code> cambiará con cada elemento ya que el iterador tomará uno por uno los elementos del vector <code>1:5</code>, entonces, es preciso guardar cada resultado.</p>
 <p>Para observar que se ha guardado en el objeto <code>x</code> corramos este vector.</p>
-<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb616-1" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb8-1" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [1]  1  4  9 16 25</code></pre>
 <p>Como se puede dar cuenta el vector <code>x</code> tiene los elementos 1, 4, 9, 16, 25 que resultan al elevar cada elementos del vector <code>1:5</code> al cuadrado.</p>
 <p>Usted puede ser perpicaz y al haber leído todos los capítulos de este libro, usted puede decir que el resultado anterior saldría solo con ejecutar <code>(1:5)^2</code>. En efecto, sí, el resultado es el mismo, pero repito, por el momento estamos haciendo ejemplos muy sencillos para que se tenga una total comprensión de los usos del loop <code>for</code>.</p>
 </div>
 </div>
-<div id="el-loop-for-con-las-condicionales-if-else." class="section level2" number="10.2">
-<h2><span class="header-section-number">10.2</span> El loop for con las condicionales if else.</h2>
+<div id="el-loop-for-con-las-condicionales-if-else." class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> El loop for con las condicionales if else.<a href="loop-for-e-if-else-para-más-de-un-elemento..html#el-loop-for-con-las-condicionales-if-else." class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Usted recuerda del capítulo anterior la unicidad de las condicionales <code>if else</code>, el cual implicaba que solo se evaluara el primer elemento de un vector. Ahora gracias al loop <code>for</code> podremos evaluar todos los elementos del vector.</p>
 <p>Veamos un ejemplo en donde se da a conocer el problema y cómo podríamos solucionar esto usando el loop <code>for</code>.</p>
 <p>El ejemplo es el siguiente, queremos saber que elementos del vector <code>p</code> son menores a 30, y si es así que imprima los elementos. Es obvio que tenemos que usar la condicional <code>if</code>.</p>
-<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb618-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creando el vector p.</span></span>
-<span id="cb618-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb618-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">3000</span>)</span>
-<span id="cb618-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb618-3" aria-hidden="true" tabindex="-1"></a>p<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="dv">20</span><span class="sc">:</span><span class="dv">50</span>, <span class="dv">20</span>, T)</span>
-<span id="cb618-4"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb618-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb618-5"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb618-5" aria-hidden="true" tabindex="-1"></a><span class="co"># El vector p tiene los elementos.</span></span>
-<span id="cb618-6"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb618-6" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creando el vector p.</span></span>
+<span id="cb10-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">3000</span>)</span>
+<span id="cb10-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb10-3" aria-hidden="true" tabindex="-1"></a>p<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="dv">20</span><span class="sc">:</span><span class="dv">50</span>, <span class="dv">20</span>, T)</span>
+<span id="cb10-4"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># El vector p tiene los elementos.</span></span>
+<span id="cb10-6"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb10-6" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div>
 <pre><code>##  [1] 42 49 34 26 34 44 29 30 40 42 38 30 36 22 42 21 46 21 28 34</code></pre>
-<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb620-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb620-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Realizando la condicional if.</span></span>
-<span id="cb620-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb620-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(p<span class="sc">&lt;</span><span class="dv">30</span>){</span>
-<span id="cb620-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb620-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(p)</span>
-<span id="cb620-4"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb620-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<pre><code>## Warning in if (p &lt; 30) {: la condición tiene longitud &gt; 1 y sólo el primer
-## elemento será usado</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Realizando la condicional if.</span></span>
+<span id="cb12-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(p<span class="sc">&lt;</span><span class="dv">30</span>){</span>
+<span id="cb12-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(p)</span>
+<span id="cb12-4"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb12-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-5"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Error in if (p &lt; 30) { : the condition has length &gt; 1</span></span></code></pre></div>
 <p>¿Cómo es posible que no haya impreso ningún elemento? Como se mencionó, la condicional <code>if</code> sólo evaluó el primer elemento del vector <code>p</code> y este al no ser 42 menor que 30, nos resulta que la prueba lógica <code>p&lt;30</code> es <code>FALSE</code> por lo cual no ejecuta el proceso <code>print(p)</code>.</p>
 <p>Entonces, estamos atados de manos, pero usted puede observar una posible solución usando la siguiente sintaxis:</p>
-<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb622-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(p[<span class="dv">1</span>]<span class="sc">&lt;</span><span class="dv">30</span>){</span>
-<span id="cb622-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb622-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(p)</span>
-<span id="cb622-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb622-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb622-4"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb622-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb622-5"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb622-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(p[<span class="dv">2</span>]<span class="sc">&lt;</span><span class="dv">30</span>){</span>
-<span id="cb622-6"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb622-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(p)</span>
-<span id="cb622-7"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb622-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb622-8"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb622-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb622-9"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb622-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(p[<span class="dv">3</span>]<span class="sc">&lt;</span><span class="dv">30</span>){</span>
-<span id="cb622-10"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb622-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(p)</span>
-<span id="cb622-11"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb622-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb622-12"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb622-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb622-13"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb622-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Así sucesivamente hasta</span></span>
-<span id="cb622-14"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb622-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb622-15"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb622-15" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(p[<span class="dv">20</span>]<span class="sc">&lt;</span><span class="dv">30</span>){</span>
-<span id="cb622-16"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb622-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(p)</span>
-<span id="cb622-17"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb622-17" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(p[<span class="dv">1</span>]<span class="sc">&lt;</span><span class="dv">30</span>){</span>
+<span id="cb13-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(p)</span>
+<span id="cb13-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb13-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-4"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(p[<span class="dv">2</span>]<span class="sc">&lt;</span><span class="dv">30</span>){</span>
+<span id="cb13-6"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(p)</span>
+<span id="cb13-7"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb13-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-8"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(p[<span class="dv">3</span>]<span class="sc">&lt;</span><span class="dv">30</span>){</span>
+<span id="cb13-10"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(p)</span>
+<span id="cb13-11"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb13-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-12"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Así sucesivamente hasta</span></span>
+<span id="cb13-14"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(p[<span class="dv">20</span>]<span class="sc">&lt;</span><span class="dv">30</span>){</span>
+<span id="cb13-16"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb13-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(p)</span>
+<span id="cb13-17"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb13-17" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Pero esto no es para nade eficiente, y sería un demente si pierde su tiempo escribiendo esa sintaxis.</p>
 <p>Entonces, nuestra salvación es el loop <code>for</code>. A continuación se muestra la sintaxis usando al iterador como un objeto.</p>
-<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb623-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resolviendo el problema usando el loop for.</span></span>
-<span id="cb623-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb623-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> p) {</span>
-<span id="cb623-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb623-3" aria-hidden="true" tabindex="-1"></a> <span class="cf">if</span>(i<span class="sc">&lt;</span><span class="dv">30</span>){</span>
-<span id="cb623-4"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb623-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
-<span id="cb623-5"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb623-5" aria-hidden="true" tabindex="-1"></a>} </span>
-<span id="cb623-6"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb623-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resolviendo el problema usando el loop for.</span></span>
+<span id="cb14-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> p) {</span>
+<span id="cb14-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb14-3" aria-hidden="true" tabindex="-1"></a> <span class="cf">if</span>(i<span class="sc">&lt;</span><span class="dv">30</span>){</span>
+<span id="cb14-4"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
+<span id="cb14-5"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb14-5" aria-hidden="true" tabindex="-1"></a>} </span>
+<span id="cb14-6"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb14-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 26
 ## [1] 29
 ## [1] 22
@@ -446,12 +447,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [1] 21
 ## [1] 28</code></pre>
 <p>Y a continuación la solución usando al iterador como un subobjeto.</p>
-<div class="sourceCode" id="cb625"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb625-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb625-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resolviendo el problema usando el loop for.</span></span>
-<span id="cb625-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb625-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(p)) {</span>
-<span id="cb625-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb625-3" aria-hidden="true" tabindex="-1"></a> <span class="cf">if</span>(p[i]<span class="sc">&lt;</span><span class="dv">30</span>){</span>
-<span id="cb625-4"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb625-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(p[i])</span>
-<span id="cb625-5"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb625-5" aria-hidden="true" tabindex="-1"></a>} </span>
-<span id="cb625-6"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb625-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resolviendo el problema usando el loop for.</span></span>
+<span id="cb16-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(p)) {</span>
+<span id="cb16-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb16-3" aria-hidden="true" tabindex="-1"></a> <span class="cf">if</span>(p[i]<span class="sc">&lt;</span><span class="dv">30</span>){</span>
+<span id="cb16-4"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(p[i])</span>
+<span id="cb16-5"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb16-5" aria-hidden="true" tabindex="-1"></a>} </span>
+<span id="cb16-6"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb16-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 26
 ## [1] 29
 ## [1] 22
@@ -461,24 +462,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Con estas soluciones se puede observar el tiempo que nos hemos ahorrado si sabemos usar correctamente el loop <code>for</code>.</p>
 <p>Ahora veamos otro ejemplo en donde tenemos el vector sexo que tiene 30 elementos que pueden ser 0 y 1. Asimismo, nos indican que 0 indica que el sexo es femenino y que 1 indica que el sexo es masculino. Entonces, nos piden que cambiemos los 0 y 1 por los nombres femenino y masculino.</p>
 <p>Con los conocimientos que tenemos podemos aplicar el loop for de la siguiente manera.</p>
-<div class="sourceCode" id="cb627"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb627-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb627-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creando el vector sexo.</span></span>
-<span id="cb627-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb627-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2021</span>)</span>
-<span id="cb627-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb627-3" aria-hidden="true" tabindex="-1"></a>sexo<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">30</span>, T)</span>
-<span id="cb627-4"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb627-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb627-5"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb627-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Los elementos del vector sexo.</span></span>
-<span id="cb627-6"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb627-6" aria-hidden="true" tabindex="-1"></a>sexo</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creando el vector sexo.</span></span>
+<span id="cb18-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2021</span>)</span>
+<span id="cb18-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb18-3" aria-hidden="true" tabindex="-1"></a>sexo<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">30</span>, T)</span>
+<span id="cb18-4"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Los elementos del vector sexo.</span></span>
+<span id="cb18-6"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb18-6" aria-hidden="true" tabindex="-1"></a>sexo</span></code></pre></div>
 <pre><code>##  [1] 0 1 1 1 0 1 1 1 1 1 0 1 1 0 0 0 0 0 1 0 1 1 0 1 0 0 1 1 1 1</code></pre>
-<div class="sourceCode" id="cb629"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb629-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb629-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicando el loop for.</span></span>
-<span id="cb629-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb629-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(sexo)) {</span>
-<span id="cb629-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb629-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(sexo[i]<span class="sc">==</span><span class="dv">0</span>){</span>
-<span id="cb629-4"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb629-4" aria-hidden="true" tabindex="-1"></a>    sexo[i]<span class="ot">&lt;-</span><span class="st">&quot;Femenino&quot;</span></span>
-<span id="cb629-5"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb629-5" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (sexo[i]<span class="sc">==</span><span class="dv">1</span>){</span>
-<span id="cb629-6"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb629-6" aria-hidden="true" tabindex="-1"></a>    sexo[i]<span class="ot">&lt;-</span><span class="st">&quot;Masculino&quot;</span></span>
-<span id="cb629-7"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb629-7" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb629-8"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb629-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicando el loop for.</span></span>
+<span id="cb20-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(sexo)) {</span>
+<span id="cb20-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(sexo[i]<span class="sc">==</span><span class="dv">0</span>){</span>
+<span id="cb20-4"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb20-4" aria-hidden="true" tabindex="-1"></a>    sexo[i]<span class="ot">&lt;-</span><span class="st">&quot;Femenino&quot;</span></span>
+<span id="cb20-5"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb20-5" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (sexo[i]<span class="sc">==</span><span class="dv">1</span>){</span>
+<span id="cb20-6"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb20-6" aria-hidden="true" tabindex="-1"></a>    sexo[i]<span class="ot">&lt;-</span><span class="st">&quot;Masculino&quot;</span></span>
+<span id="cb20-7"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb20-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb20-8"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb20-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Estamos usando el método donde se considera al iterador como subobjeto ¿Le invitamos a realizar el mismo ejericio pero usando el iterador como objeto? ¿Con qué método le resultó más fácil?</p>
 <p>Viendo como quedó el vector <code>sexo</code> luego de aplicar el loop <code>for</code>.</p>
-<div class="sourceCode" id="cb630"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb630-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb630-1" aria-hidden="true" tabindex="-1"></a>sexo</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb21-1" aria-hidden="true" tabindex="-1"></a>sexo</span></code></pre></div>
 <pre><code>##  [1] &quot;Femenino&quot;  &quot;Masculino&quot; &quot;Masculino&quot; &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Masculino&quot;
 ##  [7] &quot;Masculino&quot; &quot;Masculino&quot; &quot;Masculino&quot; &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Masculino&quot;
 ## [13] &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Femenino&quot;  &quot;Femenino&quot;  &quot;Femenino&quot;  &quot;Femenino&quot; 
@@ -487,19 +488,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>En efecto, todos los elementos que eran 0 se han cambiado por “Femenino” y todos los que era 1 se han cambiado por “Masculino”.</p>
 <p>Estoy seguro que usted se está preguntando ¿Todo eso para cambiar los 0 por “Femenino” y los 1 por “Masculino”? En realidad sí. ¿Pero si con otros softwares se obtiene el mismo resultado muchó más fácil? En realidad sí. Pero repito, aquí estamos viendo las formas de usar el loop <code>for</code> con la condicional <code>if else</code>. Esto que parece innecesario, a la hora de aplicarlo a matrices, listas o dataframe será tan útil y verá la facilidad con lo que resuelve futuras cuestiones. Veremos estas aplicaciones más útiles cuando completemos el tema de data frame, por el momento, será suficiente con conocer como se aplica el loop con sus dos variantes. Pero sí ha quedado insatisfecho, a continuación, se muestra como resolver este tipo de cuestiones usando la función <code>ifelse()</code>.</p>
 </div>
-<div id="función-ifelse." class="section level2" number="10.3">
-<h2><span class="header-section-number">10.3</span> Función ifelse().</h2>
+<div id="función-ifelse." class="section level2 hasAnchor" number="10.3">
+<h2><span class="header-section-number">10.3</span> Función ifelse().<a href="loop-for-e-if-else-para-más-de-un-elemento..html#función-ifelse." class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Una forma de realizar el proceso anterior sin la necesidad de usar el loop <code>for</code> explícitamente y sin tanto código, es usar la función <code>ifelse()</code>, el cuál realiza el loop <code>for</code> implícitamente y resulta muchísimo más sencillo de usar. Pero como todo proceso que genere simplicidad, solo servirá para un número pequeño de aplicaciones, por lo cual, no englobará en al loop <code>for</code>.</p>
 <p>Vamos a realizar el mismo ejercicio que el anterior.</p>
-<div class="sourceCode" id="cb632"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb632-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb632-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creando el vector sexo.</span></span>
-<span id="cb632-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb632-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2021</span>)</span>
-<span id="cb632-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb632-3" aria-hidden="true" tabindex="-1"></a>sexo<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">30</span>, T)</span>
-<span id="cb632-4"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb632-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb632-5"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb632-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Los elementos del vector sexo.</span></span>
-<span id="cb632-6"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb632-6" aria-hidden="true" tabindex="-1"></a>sexo</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creando el vector sexo.</span></span>
+<span id="cb23-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2021</span>)</span>
+<span id="cb23-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb23-3" aria-hidden="true" tabindex="-1"></a>sexo<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">30</span>, T)</span>
+<span id="cb23-4"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Los elementos del vector sexo.</span></span>
+<span id="cb23-6"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb23-6" aria-hidden="true" tabindex="-1"></a>sexo</span></code></pre></div>
 <pre><code>##  [1] 0 1 1 1 0 1 1 1 1 1 0 1 1 0 0 0 0 0 1 0 1 1 0 1 0 0 1 1 1 1</code></pre>
-<div class="sourceCode" id="cb634"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb634-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb634-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resolviendo con la función ifelse.</span></span>
-<span id="cb634-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb634-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(sexo<span class="sc">==</span><span class="dv">0</span>,<span class="st">&quot;Femenino&quot;</span>,<span class="st">&quot;Masculino&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resolviendo con la función ifelse.</span></span>
+<span id="cb25-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(sexo<span class="sc">==</span><span class="dv">0</span>,<span class="st">&quot;Femenino&quot;</span>,<span class="st">&quot;Masculino&quot;</span>)</span></code></pre></div>
 <pre><code>##  [1] &quot;Femenino&quot;  &quot;Masculino&quot; &quot;Masculino&quot; &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Masculino&quot;
 ##  [7] &quot;Masculino&quot; &quot;Masculino&quot; &quot;Masculino&quot; &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Masculino&quot;
 ## [13] &quot;Masculino&quot; &quot;Femenino&quot;  &quot;Femenino&quot;  &quot;Femenino&quot;  &quot;Femenino&quot;  &quot;Femenino&quot; 
@@ -512,40 +513,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>En donde el primero argumento <code>test</code> es una prueba lógica que puede ser TRUE o FALSE; el segundo argumento <code>yes</code> es el valor que retornará la función si el <code>test</code> resulta TRUE; por último, el argumento <code>no</code> es el valor que retornará la función si el <code>test</code> resulta FALSE.</p>
 <p>En ese sentido, la prueba lógica o <code>test</code> en nuestro ejemplo fue <code>sexo==0</code>, en <code>yes</code> hemos asignado el valor de “Femenino” y en <code>no</code> el valor de “Masculino”, lo que implica que si la variable <code>sexo==0</code> es TRUE, entonces asignará “Femenino”, pero si es FALSE asignará “Masculino”.</p>
 <p>El uso de esta función es muy sencilla y puede anidarla. Para observar un pequeño ejemplo supongamos que tenemos el vector civil, el cual tiene elementos entre 0, 1 y 2. Y nos indican que 0 es soltero, 1 casado y 2 viudo.</p>
-<div class="sourceCode" id="cb636"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb636-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb636-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creando el vector civil.</span></span>
-<span id="cb636-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb636-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2021</span>)</span>
-<span id="cb636-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb636-3" aria-hidden="true" tabindex="-1"></a>civil<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">20</span>, T)</span>
-<span id="cb636-4"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb636-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb636-5"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb636-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Viendo los elementos del vector civil.</span></span>
-<span id="cb636-6"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb636-6" aria-hidden="true" tabindex="-1"></a>civil</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creando el vector civil.</span></span>
+<span id="cb27-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2021</span>)</span>
+<span id="cb27-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb27-3" aria-hidden="true" tabindex="-1"></a>civil<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">20</span>, T)</span>
+<span id="cb27-4"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Viendo los elementos del vector civil.</span></span>
+<span id="cb27-6"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb27-6" aria-hidden="true" tabindex="-1"></a>civil</span></code></pre></div>
 <pre><code>##  [1] 2 1 1 1 2 1 1 2 1 1 0 2 2 0 2 2 1 2 0 2</code></pre>
-<div class="sourceCode" id="cb638"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb638-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb638-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resolviendo el problema usando la función ifelse. </span></span>
-<span id="cb638-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb638-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(civil<span class="sc">==</span><span class="dv">0</span>, <span class="st">&quot;Soltero&quot;</span>,</span>
-<span id="cb638-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb638-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">ifelse</span>(civil<span class="sc">==</span><span class="dv">1</span>, <span class="st">&quot;Casado&quot;</span>, <span class="st">&quot;viudo&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resolviendo el problema usando la función ifelse. </span></span>
+<span id="cb29-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(civil<span class="sc">==</span><span class="dv">0</span>, <span class="st">&quot;Soltero&quot;</span>,</span>
+<span id="cb29-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb29-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">ifelse</span>(civil<span class="sc">==</span><span class="dv">1</span>, <span class="st">&quot;Casado&quot;</span>, <span class="st">&quot;viudo&quot;</span>))</span></code></pre></div>
 <pre><code>##  [1] &quot;viudo&quot;   &quot;Casado&quot;  &quot;Casado&quot;  &quot;Casado&quot;  &quot;viudo&quot;   &quot;Casado&quot;  &quot;Casado&quot; 
 ##  [8] &quot;viudo&quot;   &quot;Casado&quot;  &quot;Casado&quot;  &quot;Soltero&quot; &quot;viudo&quot;   &quot;viudo&quot;   &quot;Soltero&quot;
 ## [15] &quot;viudo&quot;   &quot;viudo&quot;   &quot;Casado&quot;  &quot;viudo&quot;   &quot;Soltero&quot; &quot;viudo&quot;</code></pre>
 <p>En efecto, hemos obtenido el resultado esperado. Cuando se vea los capítulos del paquete <code>dplyr</code> se mostrará el uso de la función <code>case_when()</code> que realiza el mismo procedimiento que la función <code>ifelse()</code>, pero con una menor sintaxis y con código más limpio y entendible.</p>
 </div>
-<div id="declaración-break-y-next." class="section level2" number="10.4">
-<h2><span class="header-section-number">10.4</span> Declaración Break y Next.</h2>
-<p>En R se tiene las declaraciones <code>break</code> y <code>next</code>. La declaración <code>break</code> nos permite detener el loop <code>for</code> o el ciclo <code>while</code><a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a>, mientras que la declaración <code>next</code> nos permite saltar una deteminada iteración en el loop <code>for</code>. Veamos a continuación la aplicación de cada uno.</p>
+<div id="declaración-break-y-next." class="section level2 hasAnchor" number="10.4">
+<h2><span class="header-section-number">10.4</span> Declaración Break y Next.<a href="loop-for-e-if-else-para-más-de-un-elemento..html#declaración-break-y-next." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En R se tiene las declaraciones <code>break</code> y <code>next</code>. La declaración <code>break</code> nos permite detener el loop <code>for</code> o el ciclo <code>while</code><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>, mientras que la declaración <code>next</code> nos permite saltar una deteminada iteración en el loop <code>for</code>. Veamos a continuación la aplicación de cada uno.</p>
 <p>Como se mencionó la declaración <code>break</code> detiene el loop <code>for</code> siempre y cuando una determinada condición lógica sea <code>TRUE</code>. Por ejemplo, vamos a imprimir las letras del abecedario hasta la letra H. Una vez que se ha impreso la letra H que se detenga el loop <code>for</code>.</p>
 <p>Para esto vamos a usar la función <code>LETTERS</code> que nos arroja las letras del abecedario en mayúscula.</p>
-<div class="sourceCode" id="cb640"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb640-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb640-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Las letras del abecedario en mayúscula.</span></span>
-<span id="cb640-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb640-2" aria-hidden="true" tabindex="-1"></a>LETTERS</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Las letras del abecedario en mayúscula.</span></span>
+<span id="cb31-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb31-2" aria-hidden="true" tabindex="-1"></a>LETTERS</span></code></pre></div>
 <pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot;
 ## [20] &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</code></pre>
-<div class="sourceCode" id="cb642"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb642-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb642-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Construyendo el loop for.</span></span>
-<span id="cb642-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb642-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb642-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb642-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> LETTERS) {</span>
-<span id="cb642-4"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb642-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(i<span class="sc">==</span><span class="st">&quot;H&quot;</span>){</span>
-<span id="cb642-5"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb642-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(i)</span>
-<span id="cb642-6"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb642-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span></span>
-<span id="cb642-7"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb642-7" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb642-8"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb642-8" aria-hidden="true" tabindex="-1"></a>   <span class="fu">print</span>(i) </span>
-<span id="cb642-9"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb642-9" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb642-10"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb642-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Construyendo el loop for.</span></span>
+<span id="cb33-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> LETTERS) {</span>
+<span id="cb33-4"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(i<span class="sc">==</span><span class="st">&quot;H&quot;</span>){</span>
+<span id="cb33-5"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb33-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(i)</span>
+<span id="cb33-6"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb33-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span></span>
+<span id="cb33-7"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb33-7" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb33-8"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb33-8" aria-hidden="true" tabindex="-1"></a>   <span class="fu">print</span>(i) </span>
+<span id="cb33-9"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb33-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb33-10"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb33-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;A&quot;
 ## [1] &quot;B&quot;
 ## [1] &quot;C&quot;
@@ -557,13 +558,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>En efecto, solo se ha impreso hasta la letra “H”. Pero ¿cómo sucedió? Primero, si nosotros no consideramos a la declaración <code>break</code> el loop <code>for</code> hubiese impreso todas las letras del abecedario. Entonces, al incluir el <code>break</code> le decimos al software que cuando el iterador sea igual a “H” entonces imprima la letra de la iteración y que detenga el loop. Ahora, si no se cumple la condión, entonces que imprima la letra de la iteración. Es así que cuando el iterador vale “H” se cumple la condición entonces imprime “H” y detiene el loop.</p>
 <p>Por otro lado, la declaración <code>next</code> nos permite saltar la iteración siempre y cuando la condición lógica sea <code>TRUE</code>. Veamos un ejemplo para ver su aplicación.</p>
 <p>Por ejemplo, vamos a ser el mismo loop que en el ejemplo anterior, pero ahora vamos a saltar la iteración, siempre y cuando la iteracción sea igual a la letra “H”. Es decir, si la iteración es igual a “H” entonces no será impreso.</p>
-<div class="sourceCode" id="cb644"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb644-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb644-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> LETTERS) {</span>
-<span id="cb644-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb644-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(i<span class="sc">==</span><span class="st">&quot;H&quot;</span>){</span>
-<span id="cb644-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb644-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">next</span></span>
-<span id="cb644-4"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb644-4" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb644-5"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb644-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">print</span>(i) </span>
-<span id="cb644-6"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb644-6" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb644-7"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb644-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> LETTERS) {</span>
+<span id="cb35-2"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(i<span class="sc">==</span><span class="st">&quot;H&quot;</span>){</span>
+<span id="cb35-3"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">next</span></span>
+<span id="cb35-4"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb35-4" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb35-5"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb35-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">print</span>(i) </span>
+<span id="cb35-6"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb35-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb35-7"><a href="loop-for-e-if-else-para-más-de-un-elemento..html#cb35-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;A&quot;
 ## [1] &quot;B&quot;
 ## [1] &quot;C&quot;
@@ -596,9 +597,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="footnotes">
 <hr />
-<ol start="16">
-<li id="fn16"><p>Podría dejar el directorio de trabajo en esa ruta, pero si quisiera importar el archivo que deseo tendría que especificar la ruta del archivo y eso me demoraría más tiempo, ya que tendría que escribir la ruta completa cada vez que deseo cargar un archivo.<a href="loop-for-e-if-else-para-más-de-un-elemento..html#fnref16" class="footnote-back">↩︎</a></p></li>
-<li id="fn17"><p>En ejemplos posteriores se mostrará como importar archivos desde otra ruta.<a href="loop-for-e-if-else-para-más-de-un-elemento..html#fnref17" class="footnote-back">↩︎</a></p></li>
+<ol start="1">
+<li id="fn1"><p>Esta sencilles sólo puede ser semejante si usted usa el software python.<a href="loop-for-e-if-else-para-más-de-un-elemento..html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>El ciclo while se desarrollará en el siguiente capítulo.<a href="loop-for-e-if-else-para-más-de-un-elemento..html#fnref2" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -661,20 +662,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

@@ -102,11 +102,15 @@ p<-sample(20:50, 20, T)
 
 # El vector p tiene los elementos.
 p
+```
 
+```{r, eval=FALSE}
 # Realizando la condicional if.
 if(p<30){
   print(p)
 }
+
+# Error in if (p < 30) { : the condition has length > 1
 ```
 
 ¿Cómo es posible que no haya impreso ningún elemento? Como se mencionó, la condicional `if` sólo evaluó el primer elemento del vector `p` y este al no ser `r p[1]` menor que 30, nos resulta que la prueba lógica `p<30` es `FALSE` por lo cual no ejecuta el proceso `print(p)`. 

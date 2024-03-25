@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 9 CONDICIONAL IF ELSE. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA</title>
   <meta name="description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 9 CONDICIONAL IF ELSE. | PROGRAMACIÓN Y MANEJO DE BASE DE DATOS EN R - CON UN ENFOQUE A LA ECONOMÍA" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Libro para el manejo de base de datos y programación en R, con un enfoque para estudiantes y egresados de economía." />
   <meta name="github-repo" content="CesarAHN/bookdown_intro" />
@@ -24,7 +23,7 @@
 <meta name="author" content="César Anderson Huamaní Ninahuanca" />
 
 
-<meta name="date" content="2022-01-07" />
+<meta name="date" content="2024-03-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="álgebra-matricial..html"/>
 <link rel="next" href="loop-for-e-if-else-para-más-de-un-elemento..html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,10 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -95,7 +92,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -108,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -122,6 +119,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -319,172 +320,171 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="condicional-if-else." class="section level1" number="9">
-<h1><span class="header-section-number">Chapter 9</span> CONDICIONAL IF ELSE.</h1>
+<div id="condicional-if-else." class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Chapter 9</span> CONDICIONAL IF ELSE.<a href="condicional-if-else..html#condicional-if-else." class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>En este capítulo se muestra la condicional <code>if</code> que ejecuta un proceso siempre y cuando la condición lógica es verdadera. Esta condicional es fundamental en cualquier lenguaje de programación. Asimismo, si se complementa con la condicional <code>else</code> o <code>else if</code> se aborda la totalidad de los casos a la hora de programar un proceso.</p>
-<div id="condicional-if." class="section level2" number="9.1">
-<h2><span class="header-section-number">9.1</span> Condicional if.</h2>
+<div id="condicional-if." class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Condicional if.<a href="condicional-if-else..html#condicional-if." class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La condicional <code>if</code> sirve para ejecutar procesos cuando se cumple una condición lógica que se le asigna. En R tiene la siguiente sintaxis.</p>
 <p><code>if("condición lógica"){"Proceso a ejecutarse"}</code></p>
 <p>Siempre y cuando la condición lógica se cumpla se ejecutará el proceso especificado.</p>
 <p>Veamos un ejemplo en donde usamos la condicional <code>if</code>. Para lo cual vamos a definir un vector.</p>
-<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="condicional-if-else..html#cb577-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definiendo el vector x.</span></span>
-<span id="cb577-2"><a href="condicional-if-else..html#cb577-2" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="dv">10</span></span>
-<span id="cb577-3"><a href="condicional-if-else..html#cb577-3" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="condicional-if-else..html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definiendo el vector x.</span></span>
+<span id="cb1-2"><a href="condicional-if-else..html#cb1-2" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="dv">10</span></span>
+<span id="cb1-3"><a href="condicional-if-else..html#cb1-3" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
 <p>Hemos creado el vector <code>x</code> que contiene al elemento 10.</p>
 <p>Vamos a consultarle al programa si el vector x es igual a 10 y si es correcto que imprima la oración “El vector x vale 10”.</p>
-<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="condicional-if-else..html#cb579-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿x es igual a 10? </span></span>
-<span id="cb579-2"><a href="condicional-if-else..html#cb579-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x<span class="sc">==</span><span class="dv">10</span>){</span>
-<span id="cb579-3"><a href="condicional-if-else..html#cb579-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;El vector x vale 10&quot;</span>)</span>
-<span id="cb579-4"><a href="condicional-if-else..html#cb579-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="condicional-if-else..html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿x es igual a 10? </span></span>
+<span id="cb3-2"><a href="condicional-if-else..html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x<span class="sc">==</span><span class="dv">10</span>){</span>
+<span id="cb3-3"><a href="condicional-if-else..html#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;El vector x vale 10&quot;</span>)</span>
+<span id="cb3-4"><a href="condicional-if-else..html#cb3-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;El vector x vale 10&quot;</code></pre>
 <p>En efecto, el software a impreso la oración “El vector x vale 10”. Pero veamos como se obtuvo este resultado. Primero, se colocó la condición lógica <code>x==10</code> y al ser <code>TRUE</code> entonces procedió a ejecutar el proceso el cual era <code>print("El vector x vale 10")</code>. La función <code>print()</code> se usa para imprimir el contenido de los objetos.</p>
 <p>Ahora veamos que sucede si la condicional no es <code>TRUE</code> sino <code>FALSE</code>. Para esto vamos a consultarle al software si x es igual a 100 y si es correcto que imprima la oración “El vector x vale 100”.</p>
-<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="condicional-if-else..html#cb581-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿x es igual a 100?</span></span>
-<span id="cb581-2"><a href="condicional-if-else..html#cb581-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x<span class="sc">==</span><span class="dv">100</span>){</span>
-<span id="cb581-3"><a href="condicional-if-else..html#cb581-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;El vector x vale 100&quot;</span>)</span>
-<span id="cb581-4"><a href="condicional-if-else..html#cb581-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="condicional-if-else..html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿x es igual a 100?</span></span>
+<span id="cb5-2"><a href="condicional-if-else..html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x<span class="sc">==</span><span class="dv">100</span>){</span>
+<span id="cb5-3"><a href="condicional-if-else..html#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;El vector x vale 100&quot;</span>)</span>
+<span id="cb5-4"><a href="condicional-if-else..html#cb5-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>No nos arroja absolutamente nada. Esto sucede porque no se cumple la condición lógica lo que implica que no se ejecutará el proceso que se encuentra entre llaves <code>print("El vector x vale 100")</code>.</p>
 <p>Ahora hagamos una aplicación a un sorteo. Vamos a escoger a un individuo de un total de 5 personas y si el individuo ganador es “Luis”, entonces le diremos al software que imprima la oración “El ganador del sorteo es Luis”.</p>
-<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="condicional-if-else..html#cb582-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creando el vector de personas que participarán en el sorteo.</span></span>
-<span id="cb582-2"><a href="condicional-if-else..html#cb582-2" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Juan&quot;</span>,<span class="st">&quot;David&quot;</span>,<span class="st">&quot;Luis&quot;</span>,<span class="st">&quot;Marcos&quot;</span>,<span class="st">&quot;Manuel&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="condicional-if-else..html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creando el vector de personas que participarán en el sorteo.</span></span>
+<span id="cb6-2"><a href="condicional-if-else..html#cb6-2" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Juan&quot;</span>,<span class="st">&quot;David&quot;</span>,<span class="st">&quot;Luis&quot;</span>,<span class="st">&quot;Marcos&quot;</span>,<span class="st">&quot;Manuel&quot;</span>)</span></code></pre></div>
 <p>El siguiente paso es escoger a un ganador, para esto se usará la función <code>sample()</code>.</p>
-<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb583-1"><a href="condicional-if-else..html#cb583-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Escogiendo al ganador.</span></span>
-<span id="cb583-2"><a href="condicional-if-else..html#cb583-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2021</span>)</span>
-<span id="cb583-3"><a href="condicional-if-else..html#cb583-3" aria-hidden="true" tabindex="-1"></a>y<span class="ot">&lt;-</span><span class="fu">sample</span>(x, <span class="dv">1</span>, F)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="condicional-if-else..html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Escogiendo al ganador.</span></span>
+<span id="cb7-2"><a href="condicional-if-else..html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2021</span>)</span>
+<span id="cb7-3"><a href="condicional-if-else..html#cb7-3" aria-hidden="true" tabindex="-1"></a>y<span class="ot">&lt;-</span><span class="fu">sample</span>(x, <span class="dv">1</span>, F)</span></code></pre></div>
 <p>Por último le consultaremos al software si “Luis” es el ganador.</p>
-<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="condicional-if-else..html#cb584-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(y<span class="sc">==</span><span class="st">&quot;Luis&quot;</span>){</span>
-<span id="cb584-2"><a href="condicional-if-else..html#cb584-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;El ganador del sorteo es Luis&quot;</span>)</span>
-<span id="cb584-3"><a href="condicional-if-else..html#cb584-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="condicional-if-else..html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(y<span class="sc">==</span><span class="st">&quot;Luis&quot;</span>){</span>
+<span id="cb8-2"><a href="condicional-if-else..html#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;El ganador del sorteo es Luis&quot;</span>)</span>
+<span id="cb8-3"><a href="condicional-if-else..html#cb8-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>No nos imprime nada, lo que implica que el ganador no era Luis. Veamos cual fue la persona que ganó el sorteo.</p>
-<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="condicional-if-else..html#cb585-1" aria-hidden="true" tabindex="-1"></a><span class="co"># La persona que ganó el sorteo. </span></span>
-<span id="cb585-2"><a href="condicional-if-else..html#cb585-2" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="condicional-if-else..html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># La persona que ganó el sorteo. </span></span>
+<span id="cb9-2"><a href="condicional-if-else..html#cb9-2" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div>
 <pre><code>## [1] &quot;David&quot;</code></pre>
 <p>El ganador fue David. Lo que generó que no imprima el nombre de Luis como ganador del sorteo.</p>
 <p>Ahora veamos otro ejemplo en donde vamos a crear una función que imprima nombres siempre y cuando la edad de la persona es menor a 30 años. Para lo cual vamos a crear una función.</p>
-<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="condicional-if-else..html#cb587-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creando la función que imprime nombres.</span></span>
-<span id="cb587-2"><a href="condicional-if-else..html#cb587-2" aria-hidden="true" tabindex="-1"></a>imp_nombre<span class="ot">&lt;-</span><span class="cf">function</span>(nombre,edad){</span>
-<span id="cb587-3"><a href="condicional-if-else..html#cb587-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(edad<span class="sc">&lt;</span><span class="dv">30</span>){</span>
-<span id="cb587-4"><a href="condicional-if-else..html#cb587-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;El nombre es: &quot;</span>,nombre))</span>
-<span id="cb587-5"><a href="condicional-if-else..html#cb587-5" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb587-6"><a href="condicional-if-else..html#cb587-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="condicional-if-else..html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creando la función que imprime nombres.</span></span>
+<span id="cb11-2"><a href="condicional-if-else..html#cb11-2" aria-hidden="true" tabindex="-1"></a>imp_nombre<span class="ot">&lt;-</span><span class="cf">function</span>(nombre,edad){</span>
+<span id="cb11-3"><a href="condicional-if-else..html#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(edad<span class="sc">&lt;</span><span class="dv">30</span>){</span>
+<span id="cb11-4"><a href="condicional-if-else..html#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;El nombre es: &quot;</span>,nombre))</span>
+<span id="cb11-5"><a href="condicional-if-else..html#cb11-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb11-6"><a href="condicional-if-else..html#cb11-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Nuestra función <code>imp_nombre</code> tiene dos argumentos: nombre y edad. Lo que hace nuestra función es que si la edad es menor que 30, entonces imprimirá <code>El nombre es ........</code>. Si no es así, entonces, no imprimirá nada porque no se cumple la condicional.</p>
 <p>Veamos un ejemplo en donde la edad es 17 y el nombre es Natalia.</p>
-<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="condicional-if-else..html#cb588-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Imprimirá el nombre de Natalia, si ella tiene 17 años?</span></span>
-<span id="cb588-2"><a href="condicional-if-else..html#cb588-2" aria-hidden="true" tabindex="-1"></a><span class="fu">imp_nombre</span>(<span class="at">nombre =</span> <span class="st">&quot;Natalia&quot;</span>, <span class="at">edad =</span> <span class="dv">17</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="condicional-if-else..html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Imprimirá el nombre de Natalia, si ella tiene 17 años?</span></span>
+<span id="cb12-2"><a href="condicional-if-else..html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">imp_nombre</span>(<span class="at">nombre =</span> <span class="st">&quot;Natalia&quot;</span>, <span class="at">edad =</span> <span class="dv">17</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;El nombre es: Natalia&quot;</code></pre>
 <p>Imprimió el nombre ya que 17 es menor que 30.</p>
 </div>
-<div id="condicional-if-else.-1" class="section level2" number="9.2">
-<h2><span class="header-section-number">9.2</span> Condicional if else.</h2>
+<div id="condicional-if-else.-1" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Condicional if else.<a href="condicional-if-else..html#condicional-if-else.-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La condicional <code>if else</code> sirve para ejecutar procesos donde haya dos escenarios. Es decir, si se cumple la condición el software tiene que ejecitar el proceso, pero si no se cumple, entonces el software tiene que ejecutar otro proceso. Para entender mejor, veamos primero como es la sintaxis de esta condicional.</p>
 <p><code>if("Condición lógica"){"Se realiza el proceso si cumple la condición"} else {"Se realiza el proceso si no se cumple la condición" }</code></p>
 <p>Retomemos el ejemplo del sorteo. En el cual creamos un vector de nombres y se realizó el sorteo, en donde si el ganador era Luis, entonces, imprimiría la oración <code>El ganador del sorteo es Luis</code>. Ahora lo que haremos es agregar la condicional <code>else</code> y que imprima el nombre del ganador si el ganador no es Luis.</p>
 <p>Primero volveremos a correr el código del sorteo.</p>
-<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="condicional-if-else..html#cb590-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Escogiendo al ganador.</span></span>
-<span id="cb590-2"><a href="condicional-if-else..html#cb590-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2021</span>)</span>
-<span id="cb590-3"><a href="condicional-if-else..html#cb590-3" aria-hidden="true" tabindex="-1"></a>y<span class="ot">&lt;-</span><span class="fu">sample</span>(x, <span class="dv">1</span>, F)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="condicional-if-else..html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Escogiendo al ganador.</span></span>
+<span id="cb14-2"><a href="condicional-if-else..html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2021</span>)</span>
+<span id="cb14-3"><a href="condicional-if-else..html#cb14-3" aria-hidden="true" tabindex="-1"></a>y<span class="ot">&lt;-</span><span class="fu">sample</span>(x, <span class="dv">1</span>, F)</span></code></pre></div>
 <p>El ganador se encuentra en el vector <code>y</code>.</p>
 <p>Ahora agregando la condicional <code>else</code>.</p>
-<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="condicional-if-else..html#cb591-1" aria-hidden="true" tabindex="-1"></a><span class="co"># En el ejemplo del sorteo, agregando la condicional else.</span></span>
-<span id="cb591-2"><a href="condicional-if-else..html#cb591-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(y<span class="sc">==</span><span class="st">&quot;Luis&quot;</span>){</span>
-<span id="cb591-3"><a href="condicional-if-else..html#cb591-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;El ganador del sorteo es Luis&quot;</span>)</span>
-<span id="cb591-4"><a href="condicional-if-else..html#cb591-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb591-5"><a href="condicional-if-else..html#cb591-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;El ganador del sorteo es &quot;</span>, y))</span>
-<span id="cb591-6"><a href="condicional-if-else..html#cb591-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="condicional-if-else..html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># En el ejemplo del sorteo, agregando la condicional else.</span></span>
+<span id="cb15-2"><a href="condicional-if-else..html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(y<span class="sc">==</span><span class="st">&quot;Luis&quot;</span>){</span>
+<span id="cb15-3"><a href="condicional-if-else..html#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;El ganador del sorteo es Luis&quot;</span>)</span>
+<span id="cb15-4"><a href="condicional-if-else..html#cb15-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb15-5"><a href="condicional-if-else..html#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;El ganador del sorteo es &quot;</span>, y))</span>
+<span id="cb15-6"><a href="condicional-if-else..html#cb15-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;El ganador del sorteo es David&quot;</code></pre>
 <p>Nos arroja que el ganador es David. Esto se da porque la condicional no se <code>TRUE</code>, entonces, tiene que ejecutar el proceso que se encuentra en la condicional <code>else</code>.</p>
 <p>Veamos el mismo ejemplo, pero ahora cambiemos la semilla para obtener otro resultado. Probemos con la semilla <code>1010</code>.</p>
-<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="condicional-if-else..html#cb593-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cambiando la semilla para obtener otro resultado.</span></span>
-<span id="cb593-2"><a href="condicional-if-else..html#cb593-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Escogiendo al ganador.</span></span>
-<span id="cb593-3"><a href="condicional-if-else..html#cb593-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1010</span>)</span>
-<span id="cb593-4"><a href="condicional-if-else..html#cb593-4" aria-hidden="true" tabindex="-1"></a>y<span class="ot">&lt;-</span><span class="fu">sample</span>(x, <span class="dv">1</span>, F)</span>
-<span id="cb593-5"><a href="condicional-if-else..html#cb593-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb593-6"><a href="condicional-if-else..html#cb593-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Encontrando al ganador.</span></span>
-<span id="cb593-7"><a href="condicional-if-else..html#cb593-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(y<span class="sc">==</span><span class="st">&quot;Luis&quot;</span>){</span>
-<span id="cb593-8"><a href="condicional-if-else..html#cb593-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;El ganador del sorteo es Luis&quot;</span>)</span>
-<span id="cb593-9"><a href="condicional-if-else..html#cb593-9" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb593-10"><a href="condicional-if-else..html#cb593-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;El ganador del sorteo es &quot;</span>, y))</span>
-<span id="cb593-11"><a href="condicional-if-else..html#cb593-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="condicional-if-else..html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cambiando la semilla para obtener otro resultado.</span></span>
+<span id="cb17-2"><a href="condicional-if-else..html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Escogiendo al ganador.</span></span>
+<span id="cb17-3"><a href="condicional-if-else..html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1010</span>)</span>
+<span id="cb17-4"><a href="condicional-if-else..html#cb17-4" aria-hidden="true" tabindex="-1"></a>y<span class="ot">&lt;-</span><span class="fu">sample</span>(x, <span class="dv">1</span>, F)</span>
+<span id="cb17-5"><a href="condicional-if-else..html#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="condicional-if-else..html#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Encontrando al ganador.</span></span>
+<span id="cb17-7"><a href="condicional-if-else..html#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(y<span class="sc">==</span><span class="st">&quot;Luis&quot;</span>){</span>
+<span id="cb17-8"><a href="condicional-if-else..html#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;El ganador del sorteo es Luis&quot;</span>)</span>
+<span id="cb17-9"><a href="condicional-if-else..html#cb17-9" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb17-10"><a href="condicional-if-else..html#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;El ganador del sorteo es &quot;</span>, y))</span>
+<span id="cb17-11"><a href="condicional-if-else..html#cb17-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;El ganador del sorteo es Marcos&quot;</code></pre>
 <p>Nos arroja que el ganador del sorteo es Marcos. Ya que otra vez, la condicional no es <code>TRUE</code>.</p>
 <p>Veamos un ejemplo adicional en donde agregemos la condicional <code>else</code> al ejemplo de imprimir el nombre. En este ejemplo siempre y cuando la edad era menor a 30 se imprimía el nombre. En este caso tendrá que imprimir la oración <code>La edad es mayor a 30. No se imprimirá el nombre</code>, siempre y cuando no se cumpla la condición de que la edad sea menor que 30.</p>
-<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="condicional-if-else..html#cb595-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Agregando la condicional else a la función.</span></span>
-<span id="cb595-2"><a href="condicional-if-else..html#cb595-2" aria-hidden="true" tabindex="-1"></a>imp_nombre<span class="ot">&lt;-</span><span class="cf">function</span>(nombre,edad){</span>
-<span id="cb595-3"><a href="condicional-if-else..html#cb595-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(edad<span class="sc">&lt;</span><span class="dv">30</span>){</span>
-<span id="cb595-4"><a href="condicional-if-else..html#cb595-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;El nombre es: &quot;</span>,nombre))</span>
-<span id="cb595-5"><a href="condicional-if-else..html#cb595-5" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb595-6"><a href="condicional-if-else..html#cb595-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;La edad es mayor a 30. No se imprimirá el nombre&quot;</span>)</span>
-<span id="cb595-7"><a href="condicional-if-else..html#cb595-7" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb595-8"><a href="condicional-if-else..html#cb595-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="condicional-if-else..html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Agregando la condicional else a la función.</span></span>
+<span id="cb19-2"><a href="condicional-if-else..html#cb19-2" aria-hidden="true" tabindex="-1"></a>imp_nombre<span class="ot">&lt;-</span><span class="cf">function</span>(nombre,edad){</span>
+<span id="cb19-3"><a href="condicional-if-else..html#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(edad<span class="sc">&lt;</span><span class="dv">30</span>){</span>
+<span id="cb19-4"><a href="condicional-if-else..html#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;El nombre es: &quot;</span>,nombre))</span>
+<span id="cb19-5"><a href="condicional-if-else..html#cb19-5" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb19-6"><a href="condicional-if-else..html#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;La edad es mayor a 30. No se imprimirá el nombre&quot;</span>)</span>
+<span id="cb19-7"><a href="condicional-if-else..html#cb19-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb19-8"><a href="condicional-if-else..html#cb19-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Ahora probemos con Ítalo que tiene 52 años ¿Cuál será el resultado?</p>
-<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="condicional-if-else..html#cb596-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Probemos si imprime el nombre de Ítalo que tiene 52 años.</span></span>
-<span id="cb596-2"><a href="condicional-if-else..html#cb596-2" aria-hidden="true" tabindex="-1"></a><span class="fu">imp_nombre</span>(<span class="at">nombre =</span> <span class="st">&quot;Ítalo&quot;</span>, <span class="at">edad =</span> <span class="dv">52</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="condicional-if-else..html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Probemos si imprime el nombre de Ítalo que tiene 52 años.</span></span>
+<span id="cb20-2"><a href="condicional-if-else..html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">imp_nombre</span>(<span class="at">nombre =</span> <span class="st">&quot;Ítalo&quot;</span>, <span class="at">edad =</span> <span class="dv">52</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;La edad es mayor a 30. No se imprimirá el nombre&quot;</code></pre>
 <p>Al ser la edad de Ítalo 52 no se cumple la condición porque tendrá que ejecutar el proceso que se encuntre en <code>else</code>. Por eso es que nos arroja <code>"La edad es mayor a 30. No se imprimirá el nombre"</code>.</p>
 <p>Hasta el momento hemos visto sólo como cubrir dos escenarios, el que resultaría si se cumple la condición y el que pasaría si no se cumple. Pero en la vida real, no sólo se tiene un par de escenarios sino muchos más. Para abordar estos múltiples escenarios usaremos <code>if else</code> anidados.</p>
 </div>
-<div id="condicional-if-else-anidado." class="section level2" number="9.3">
-<h2><span class="header-section-number">9.3</span> Condicional if else anidado.</h2>
+<div id="condicional-if-else-anidado." class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> Condicional if else anidado.<a href="condicional-if-else..html#condicional-if-else-anidado." class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Como se mencionó cuando se quiere cubrir más de 2 escenarios se tendrá que recurrir a <code>if else</code> anidados. La sintaxis para tres escenarios es la siguiente.</p>
 <p><code># if("Condición 1"){"Se realiza el proceso si cumple la condición 1"} else if ("Condición 2") {" Se realiza el proceso si no se cumple la condición 1 y si la condición 2"}  else {"Se realiza el proceso si no se cumple la condición 1 y la condición 2"}</code></p>
 <p>Pero esto se puede aplicar para más escenarios.</p>
 <p>Primero veamos un ejemplo. Retomemos el ejemplo de la impresión de nombres. Lo que haremos ahora es agregar una condición adicional en donde si la edad es mayor igual a 30 y menor que 60, entonces imprima sólo la inicial del nombre, pero si es mayor igual que 60 que imprime <code>La edad es mayor a 60. No se imprimirá el nombre</code>.</p>
-<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="condicional-if-else..html#cb598-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Agregado una condición lógica más al ejemplo de impresión de nombres.</span></span>
-<span id="cb598-2"><a href="condicional-if-else..html#cb598-2" aria-hidden="true" tabindex="-1"></a>imp_nombre<span class="ot">&lt;-</span><span class="cf">function</span>(nombre,edad){</span>
-<span id="cb598-3"><a href="condicional-if-else..html#cb598-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(edad<span class="sc">&lt;</span><span class="dv">30</span>){</span>
-<span id="cb598-4"><a href="condicional-if-else..html#cb598-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;El nombre es: &quot;</span>,nombre))</span>
-<span id="cb598-5"><a href="condicional-if-else..html#cb598-5" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span>(edad<span class="sc">&gt;=</span><span class="dv">30</span> <span class="sc">&amp;</span> edad<span class="sc">&lt;</span><span class="dv">60</span>) {</span>
-<span id="cb598-6"><a href="condicional-if-else..html#cb598-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;La inicial del nombre es: &quot;</span>, <span class="fu">substring</span>(nombre,<span class="dv">1</span>,<span class="dv">1</span>)))</span>
-<span id="cb598-7"><a href="condicional-if-else..html#cb598-7" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb598-8"><a href="condicional-if-else..html#cb598-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;La edad es mayor a 60. No se imprimirá el nombre&quot;</span>)</span>
-<span id="cb598-9"><a href="condicional-if-else..html#cb598-9" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb598-10"><a href="condicional-if-else..html#cb598-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<p>Para que nos arroje la inicial del nombre estamos usando la función <code>substring()</code><a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a> que nos permite extraer caracteres de un vector o elemento caracter.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="condicional-if-else..html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Agregado una condición lógica más al ejemplo de impresión de nombres.</span></span>
+<span id="cb22-2"><a href="condicional-if-else..html#cb22-2" aria-hidden="true" tabindex="-1"></a>imp_nombre<span class="ot">&lt;-</span><span class="cf">function</span>(nombre,edad){</span>
+<span id="cb22-3"><a href="condicional-if-else..html#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(edad<span class="sc">&lt;</span><span class="dv">30</span>){</span>
+<span id="cb22-4"><a href="condicional-if-else..html#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;El nombre es: &quot;</span>,nombre))</span>
+<span id="cb22-5"><a href="condicional-if-else..html#cb22-5" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span>(edad<span class="sc">&gt;=</span><span class="dv">30</span> <span class="sc">&amp;</span> edad<span class="sc">&lt;</span><span class="dv">60</span>) {</span>
+<span id="cb22-6"><a href="condicional-if-else..html#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;La inicial del nombre es: &quot;</span>, <span class="fu">substring</span>(nombre,<span class="dv">1</span>,<span class="dv">1</span>)))</span>
+<span id="cb22-7"><a href="condicional-if-else..html#cb22-7" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb22-8"><a href="condicional-if-else..html#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;La edad es mayor a 60. No se imprimirá el nombre&quot;</span>)</span>
+<span id="cb22-9"><a href="condicional-if-else..html#cb22-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb22-10"><a href="condicional-if-else..html#cb22-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Para que nos arroje la inicial del nombre estamos usando la función <code>substring()</code><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> que nos permite extraer caracteres de un vector o elemento caracter.</p>
 <p>Ahora veamos que nos arroja si Luis tiene 44 años.</p>
-<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="condicional-if-else..html#cb599-1" aria-hidden="true" tabindex="-1"></a><span class="fu">imp_nombre</span>(<span class="at">nombre =</span> <span class="st">&quot;Luis&quot;</span>, <span class="at">edad =</span> <span class="dv">44</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="condicional-if-else..html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">imp_nombre</span>(<span class="at">nombre =</span> <span class="st">&quot;Luis&quot;</span>, <span class="at">edad =</span> <span class="dv">44</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;La inicial del nombre es: L&quot;</code></pre>
 <p>Como Luis tiene 44 años no se cumple la primera condición lógica, por lo que no se imprime el proceso inherente al <code>if</code>, entonces, pasa a comprobar la segunda condición lógica la cual si es <code>TRUE</code>, por lo que imprime el proceso inherente al <code>else if</code>, el cual es <code>"La inicial del nombre es L"</code></p>
 <p>Veamos ahora que resultaría con Antonio que tiene 87 años.</p>
-<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb601-1"><a href="condicional-if-else..html#cb601-1" aria-hidden="true" tabindex="-1"></a><span class="fu">imp_nombre</span>(<span class="at">nombre =</span> <span class="st">&quot;Antonio&quot;</span>, <span class="at">edad =</span> <span class="dv">87</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="condicional-if-else..html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">imp_nombre</span>(<span class="at">nombre =</span> <span class="st">&quot;Antonio&quot;</span>, <span class="at">edad =</span> <span class="dv">87</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;La edad es mayor a 60. No se imprimirá el nombre&quot;</code></pre>
 <p>Al tener Antonio 87 años de edad no cumple ni la primera ni la segunda condición lógica por lo que se ejecutará el proceso inherente al <code>else</code> que es: <code>"La edad es mayor a 60. No se imprimirá el nombre"</code>.</p>
 <p>Por último, veamos el caso en el que se considere 4 escenarios. Lo que se hará es colocar otra condición en la cual si la edad es mayor a 100 entonces que el software imprima la oración <code>Ha vivido más de un siglo. Larga vida para usted:</code> concatenado con el nombre.</p>
-<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb603-1"><a href="condicional-if-else..html#cb603-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Agregando una nueva condición.</span></span>
-<span id="cb603-2"><a href="condicional-if-else..html#cb603-2" aria-hidden="true" tabindex="-1"></a>imp_nombre<span class="ot">&lt;-</span><span class="cf">function</span>(nombre,edad){</span>
-<span id="cb603-3"><a href="condicional-if-else..html#cb603-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(edad<span class="sc">&lt;</span><span class="dv">30</span>){</span>
-<span id="cb603-4"><a href="condicional-if-else..html#cb603-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;El nombre es: &quot;</span>,nombre))</span>
-<span id="cb603-5"><a href="condicional-if-else..html#cb603-5" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span>(edad<span class="sc">&gt;=</span><span class="dv">30</span> <span class="sc">&amp;</span> edad<span class="sc">&lt;</span><span class="dv">60</span>) {</span>
-<span id="cb603-6"><a href="condicional-if-else..html#cb603-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;La inicial del nombre es: &quot;</span>, <span class="fu">substring</span>(nombre,<span class="dv">1</span>,<span class="dv">1</span>)))</span>
-<span id="cb603-7"><a href="condicional-if-else..html#cb603-7" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span>(edad<span class="sc">&gt;=</span><span class="dv">60</span> <span class="sc">&amp;</span> edad<span class="sc">&lt;</span><span class="dv">100</span>){</span>
-<span id="cb603-8"><a href="condicional-if-else..html#cb603-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;La edad es mayor a 60 pero menor que 100. No se imprimirá el nombre&quot;</span>)</span>
-<span id="cb603-9"><a href="condicional-if-else..html#cb603-9" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb603-10"><a href="condicional-if-else..html#cb603-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;Ha vivido más de un siglo. Larga vida para: &quot;</span>, nombre))</span>
-<span id="cb603-11"><a href="condicional-if-else..html#cb603-11" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb603-12"><a href="condicional-if-else..html#cb603-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="condicional-if-else..html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Agregando una nueva condición.</span></span>
+<span id="cb27-2"><a href="condicional-if-else..html#cb27-2" aria-hidden="true" tabindex="-1"></a>imp_nombre<span class="ot">&lt;-</span><span class="cf">function</span>(nombre,edad){</span>
+<span id="cb27-3"><a href="condicional-if-else..html#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(edad<span class="sc">&lt;</span><span class="dv">30</span>){</span>
+<span id="cb27-4"><a href="condicional-if-else..html#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;El nombre es: &quot;</span>,nombre))</span>
+<span id="cb27-5"><a href="condicional-if-else..html#cb27-5" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span>(edad<span class="sc">&gt;=</span><span class="dv">30</span> <span class="sc">&amp;</span> edad<span class="sc">&lt;</span><span class="dv">60</span>) {</span>
+<span id="cb27-6"><a href="condicional-if-else..html#cb27-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;La inicial del nombre es: &quot;</span>, <span class="fu">substring</span>(nombre,<span class="dv">1</span>,<span class="dv">1</span>)))</span>
+<span id="cb27-7"><a href="condicional-if-else..html#cb27-7" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span>(edad<span class="sc">&gt;=</span><span class="dv">60</span> <span class="sc">&amp;</span> edad<span class="sc">&lt;</span><span class="dv">100</span>){</span>
+<span id="cb27-8"><a href="condicional-if-else..html#cb27-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;La edad es mayor a 60 pero menor que 100. No se imprimirá el nombre&quot;</span>)</span>
+<span id="cb27-9"><a href="condicional-if-else..html#cb27-9" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb27-10"><a href="condicional-if-else..html#cb27-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;Ha vivido más de un siglo. Larga vida para: &quot;</span>, nombre))</span>
+<span id="cb27-11"><a href="condicional-if-else..html#cb27-11" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb27-12"><a href="condicional-if-else..html#cb27-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Veamos que sucedería con Ariadna que tiene 105 años.</p>
-<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb604-1"><a href="condicional-if-else..html#cb604-1" aria-hidden="true" tabindex="-1"></a><span class="fu">imp_nombre</span>(<span class="at">nombre =</span> <span class="st">&quot;Ariadna&quot;</span>, <span class="at">edad =</span> <span class="dv">105</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="condicional-if-else..html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">imp_nombre</span>(<span class="at">nombre =</span> <span class="st">&quot;Ariadna&quot;</span>, <span class="at">edad =</span> <span class="dv">105</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Ha vivido más de un siglo. Larga vida para: Ariadna&quot;</code></pre>
 <p>Al no cumplirse ninguna de las 3 condiciones el software ejecutará el proceso inherente al <code>else</code> por lo que nos arroja: <code>"Ha vivido más de un siglo. Larga vida para: Ariadna"</code>.</p>
 <p>Si usted desea agregar más escenarios, tiene todas las herramientas para lograr el objetivo.</p>
 </div>
-<div id="unicidad-de-la-condicional-if." class="section level2" number="9.4">
-<h2><span class="header-section-number">9.4</span> Unicidad de la condicional if.</h2>
-<p>La unicidad de la condicional <code>if</code> se refiere a que sólo evalua a un elemento. Como está expresamente detallado en la documentación<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a> de esta función.</p>
+<div id="unicidad-de-la-condicional-if." class="section level2 hasAnchor" number="9.4">
+<h2><span class="header-section-number">9.4</span> Unicidad de la condicional if.<a href="condicional-if-else..html#unicidad-de-la-condicional-if." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La unicidad de la condicional <code>if</code> se refiere a que sólo evalua a un elemento. Como está expresamente detallado en la documentación<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> de esta función.</p>
 <p><code>A length-one logical vector that is not NA. Conditions of length greater than one are currently accepted with a warning, but only the first element is used. An error is signalled instead when the environment variable _R_CHECK_LENGTH_1_CONDITION_ is set to true. Other types are coerced to logical if possible, ignoring any class.</code></p>
 <p>Nos dice que si en la condicional el vector tiene una longitud mayor a 1, entonces lo evaluará pero arrojará un mensaje de advertecia en donde indica que sólo ha evaluado al primer elemento.</p>
 <p>Para ver esto realicemos un pequeño ejemplo.</p>
-<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="condicional-if-else..html#cb606-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creando el vector x.</span></span>
-<span id="cb606-2"><a href="condicional-if-else..html#cb606-2" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
-<span id="cb606-3"><a href="condicional-if-else..html#cb606-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb606-4"><a href="condicional-if-else..html#cb606-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Que imprima el vector x si es menor que 3.</span></span>
-<span id="cb606-5"><a href="condicional-if-else..html#cb606-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x<span class="sc">&lt;</span><span class="dv">3</span>){</span>
-<span id="cb606-6"><a href="condicional-if-else..html#cb606-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(x)</span>
-<span id="cb606-7"><a href="condicional-if-else..html#cb606-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<pre><code>## Warning in if (x &lt; 3) {: la condición tiene longitud &gt; 1 y sólo el primer
-## elemento será usado</code></pre>
-<pre><code>## [1] 1 2 3 4 5</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="condicional-if-else..html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creando el vector x.</span></span>
+<span id="cb30-2"><a href="condicional-if-else..html#cb30-2" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb30-3"><a href="condicional-if-else..html#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="condicional-if-else..html#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Que imprima el vector x si es menor que 3.</span></span>
+<span id="cb30-5"><a href="condicional-if-else..html#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x<span class="sc">&lt;</span><span class="dv">3</span>){</span>
+<span id="cb30-6"><a href="condicional-if-else..html#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(x)</span>
+<span id="cb30-7"><a href="condicional-if-else..html#cb30-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb30-8"><a href="condicional-if-else..html#cb30-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-9"><a href="condicional-if-else..html#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Error in if (x &lt; 3) { : the condition has length &gt; 1</span></span></code></pre></div>
 <p>Como era de esperarse nos arroja el mensaje de advertencia en donde nos dice que sólo usará el primer elemento del vector <code>x</code>.</p>
 <p>Entonces, usted puede preguntarse ¿Qué función usar cuando el vector a evaluar tiene más de un elemento?</p>
 <p>Se tiene una variedad muy amplia de opciones, que iremos viendo con el pasar de los capítulos. Pero en el capítulo siguiente veremos un par que resuelvan este pequeño inconveniente, veremos especificamente el ciclo <code>for</code> y la función <code>ifelse()</code>.</p>
@@ -493,9 +493,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="footnotes">
 <hr />
-<ol start="14">
-<li id="fn14"><p>Podría dejar el directorio de trabajo en esa ruta, pero si quisiera importar el archivo que deseo tendría que especificar la ruta del archivo y eso me demoraría más tiempo, ya que tendría que escribir la ruta completa cada vez que deseo cargar un archivo.<a href="condicional-if-else..html#fnref14" class="footnote-back">↩︎</a></p></li>
-<li id="fn15"><p>En ejemplos posteriores se mostrará como importar archivos desde otra ruta.<a href="condicional-if-else..html#fnref15" class="footnote-back">↩︎</a></p></li>
+<ol start="1">
+<li id="fn1"><p>Esta función la veremos más a detalle en el capítulo de manipulación de caracteres.<a href="condicional-if-else..html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Puede acceder a la documentación de la función con la siguiente sintaxis: <code>?control</code>.<a href="condicional-if-else..html#fnref2" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -558,20 +558,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
